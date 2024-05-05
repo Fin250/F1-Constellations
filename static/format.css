@@ -1,0 +1,91 @@
+/* Resetting default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #c5c5d3; /* Light gray */
+}
+
+/* Header styles */
+header {
+  background-color: #445566; /* Blueish gray */
+  background: linear-gradient(135deg, #526375, #2c4054); /* Gradient background */
+  border-bottom: 2px solid #2c3868; /* White border at the bottom */
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  width: 100px; /* Adjust size of your logo */
+}
+
+.login-button {
+  background-color: #fff;
+  color: #445566;
+  border: 2px solid #445566; /* Blueish gray border */
+  padding: 20px 40px; /* Doubled padding */
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #ccd1d9; /* Lighter gray */
+}
+
+/* Main content styles */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  position: relative; /* Add position relative to parent .box */
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #b9b6b6 0%, #e1dbdb 50%, #b9b6b6 100%); /* Diagonal gradient background */
+  border: 2px solid #333; /* Blueish gray border */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 40px; /* Adjust this value to accommodate the height of .box-content */
+}
+
+.box-content {
+  position: absolute; /* Position absolutely */
+  bottom: 0; /* Position at the bottom */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  padding: 10px;
+  background: linear-gradient(to top, #333, #444); /* Gradient background */
+  color: #fff;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically to the center */
+}
+
+.date {
+  margin-left: auto; /* Align the additional text to the right */
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.box-content img {
+  width: 27px; /* Adjust size of placeholder image */
+  height: 18px; /* Adjust size of placeholder image */
+  margin-right: 10px;
+}
