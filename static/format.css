@@ -50,6 +50,65 @@ header img {
   margin-right: 10px;
 }
 
+.login-home-button {
+  background-color: #c7cdff;
+  color: #445566;
+  border: 2px solid #445566;
+  padding: 20px 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-home-button:hover {
+  background-color: #ccd1d9;
+}
+
+.login-home-button img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.user img {
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+}
+
+.home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+}
+
+.home-button:hover {
+  text-decoration: underline;
+}
+
+.home-button img {
+  margin-right: 20px;
+}
+
 .container {
   max-width: 1200px;
   margin: 20px auto;
@@ -115,6 +174,10 @@ header img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
 .login-form {
   margin-bottom: 20px;
 }
@@ -141,6 +204,10 @@ header img {
 
 .login-form input[type="submit"]:hover {
   background-color: #34495e;
+}
+
+.flash-message.error {
+  color: red;
 }
 
 .track-map {

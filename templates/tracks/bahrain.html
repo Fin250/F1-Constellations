@@ -9,9 +9,16 @@
 <body>
 
 <header>
-  <img src="/static/images/headerlogo.jpg" alt="Logo">
+  <a href="/" class="home-button"><img src="/static/images/headerlogo.png" alt="Logo">Home</a>
   <h1>F1 Tracks and Stats</h1>
-  <button class="login-button">Login</button>
+  {% if g.username %}
+    <div class="user">
+      <span>{{ g.username }}</span>
+      <a href="/logout" class="logout-button"><img src="/static/images/user.png" alt="User image"></a>
+    </div>
+  {% else %}
+    <a href="/login" class="login-button"><img src="/static/images/login-button.svg" alt="Login">Login</a>
+  {% endif %}
 </header>
 
 <div class="track-map">
