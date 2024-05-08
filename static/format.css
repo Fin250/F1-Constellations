@@ -1,4 +1,3 @@
-/* Resetting default margin and padding */
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +5,13 @@
 }
 
 body {
-  background-color: #c5c5d3; /* Light gray */
+  background-color: #c5c5d3;
 }
 
-/* Header styles */
 header {
-  background-color: #445566; /* Blueish gray */
-  background: linear-gradient(135deg, #526375, #2c4054); /* Gradient background */
-  border-bottom: 2px solid #2c3868; /* White border at the bottom */
+  background-color: #445566;
+  background: linear-gradient(135deg, #526375, #2c4054);
+  border-bottom: 2px solid #2c3868;
   color: #fff;
   padding: 20px;
   margin-bottom: 40px;
@@ -23,25 +21,35 @@ header {
 }
 
 header img {
-  width: 100px; /* Adjust size of your logo */
+  width: 100px;
 }
 
 .login-button {
-  background-color: #fff;
+  background-color: #c7cdff;
   color: #445566;
-  border: 2px solid #445566; /* Blueish gray border */
-  padding: 20px 40px; /* Doubled padding */
+  border: 2px solid #445566;
+  padding: 20px 40px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  text-decoration: none;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #ccd1d9; /* Lighter gray */
+  background-color: #ccd1d9;
 }
 
-/* Main content styles */
+.login-button img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
 .container {
   max-width: 1200px;
   margin: 20px auto;
@@ -51,31 +59,39 @@ header img {
 }
 
 .box {
-  position: relative; /* Add position relative to parent .box */
+  position: relative;
   width: calc(33.33% - 20px);
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #b9b6b6 0%, #e1dbdb 50%, #b9b6b6 100%); /* Diagonal gradient background */
-  border: 2px solid #333; /* Blueish gray border */
+  background: linear-gradient(135deg, #b9b6b6 0%, #e1dbdb 50%, #b9b6b6 100%);
+  border: 2px solid #333;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding-bottom: 40px; /* Adjust this value to accommodate the height of .box-content */
+  padding-bottom: 40px;
+}
+
+.box:hover {
+  background-color: #2a2ac0;
+}
+
+.box:hover .country {
+  text-decoration: underline;
 }
 
 .box-content {
-  position: absolute; /* Position absolutely */
-  bottom: 0; /* Position at the bottom */
-  left: 0; /* Align to the left */
-  right: 0; /* Align to the right */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 10px;
-  background: linear-gradient(to top, #333, #444); /* Gradient background */
+  background: linear-gradient(to top, #333, #444);
   color: #fff;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically to the center */
+  display: flex;
+  align-items: center;
 }
 
 .date {
-  margin-left: auto; /* Align the additional text to the right */
+  margin-left: auto;
 }
 
 .box img {
@@ -85,7 +101,121 @@ header img {
 }
 
 .box-content img {
-  width: 27px; /* Adjust size of placeholder image */
-  height: 18px; /* Adjust size of placeholder image */
+  width: 27px;
+  height: 18px;
   margin-right: 10px;
 }
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  margin-bottom: 20px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-form input[type="submit"] {
+  background-color: #445566;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #34495e;
+}
+
+.track-map {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 2px solid #445566;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.track-map img {
+  width: 100%;
+  display: block;
+}
+
+.track-map-caption {
+  background-color: #445566;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.track-map-caption img {
+    width: 27px;
+    height: 18px;
+    margin-right: 10px;
+    display: block;
+}
+
+.content {
+  width: 80%;
+  border-top: 2px solid #445566;
+  padding-top: 20px;
+}
+
+.content p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar {
+  width: 25%;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateX(50%);
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.top-drivers {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.top-drivers li {
+  margin-bottom: 10px;
+}
+
