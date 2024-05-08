@@ -63,7 +63,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and password is not None and check_password_hash(user.password, password):
             session['username'] = user.username
-            return render_template('homepage.html')
+            return redirect(url_for('homepage'))
         else:
             flash('Invalid username or password', 'error')
     return render_template('login.html')
@@ -82,9 +82,9 @@ def australia():
 
 @app.route("/logout")
 def logout():
+    session['username'] = None
     session.pop("username", None)
-    return render_template("homepage.html")
-
+    return redirect(url_for('homepage'))
 
 @app.before_request
 def before_request():
