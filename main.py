@@ -68,17 +68,23 @@ def login():
             flash('Invalid username or password', 'error')
     return render_template('login.html')
 
+@app.route('/ml/<trackname>')
+def get_ml_predictions(trackname):
+    top_drivers = ['Verstappen', 'Hamilton', 'Norris', 'Perez', 'Piastri']
+
+    return jsonify(top_drivers)
+
 @app.route('/tracks/bahrain')
 def bahrain():
     return render_template("/tracks/bahrain.html")
 
 @app.route('/tracks/saudi-arabia')
 def saudi_arabia():
-    return render_template("saudi-arabia.html")
+    return render_template("/tracks/saudi-arabia.html")
 
 @app.route('/tracks/australia.html')
 def australia():
-    return render_template("australia.html")
+    return render_template("/tracks/australia.html")
 
 @app.route("/logout")
 def logout():
