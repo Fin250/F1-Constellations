@@ -254,7 +254,7 @@ header img {
 
 .sidebar {
   width: 30%;
-  font-size: 24px;
+  font-size: 10px;
   position: fixed;
   top: 25%;
   right: 0;
@@ -277,6 +277,7 @@ header img {
 .sidebar h3 {
   color: white;
   background-color: red;
+  font-size: 24px;
   margin-top: 0;
   padding: 15px;
   border-radius: 8px;
