@@ -3,28 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F1 Tracks and Stats</title>
+  <title>Track Map - F1 Tracks and Stats</title>
   <link rel="stylesheet" href="/static/format.css">
 </head>
 <body>
 
 <header>
-  <img src="/static/images/headerlogo.jpg" alt="Logo">
+  <a href="/" class="home-button"><img src="/static/images/headerlogo.png" alt="Logo">Home</a>
   <h1>F1 Tracks and Stats</h1>
-  <button class="login-button">Login</button>
+  {% if g.username %}
+    <div class="user">
+      <span>{{ g.username }}</span>
+      <a href="/logout" class="logout-button"><img src="/static/images/user.png" alt="User image"></a>
+    </div>
+  {% else %}
+    <a href="/login" class="login-button"><img src="/static/images/login-button.svg" alt="Login">Login</a>
+  {% endif %}
 </header>
 
-<div class="container">
-  <a href="/tracks/australia.html" class="box">
-    <img src="/static/images/tracks/Australia.png" alt="Australia track">
-    <div class="box-content">
-      <img src="/static/images/flags/Flag_of_Australia.png" alt="Australia Flag">
-      <span class="country">Australia</span>
-      <span class="date">24th March</span>
-    </div>
-  </a>
-  <!-- Repeat these box elements for all 24 tracks -->
+<div class="track-map">
+  <img src="/static/images/annotated-layouts/annotated-australia.avif" alt="Australia track">
+  <div class="track-map-caption">
+    <img src="/static/images/flags/Flag_of_Australia.png" alt="Australia Flag">
+    <span>Australia Track Map</span>
+  </div>
 </div>
+
+<div class="container">
+  <div class="container">
+    <div class="content">
+      <h2>About the Track</h2>
+      <p>The Albert Park Circuit is a motorsport street circuit around Albert Park Lake in the suburb of Albert Park in Melbourne. It is used annually as a circuit for the Formula One Australian Grand Prix, the supporting Supercars Championship Melbourne SuperSprint and other associated support races. The circuit has an FIA Grade 1 licence.</p>
+      <p>Although the entire track consists of normally public roads, each sector includes medium to high-speed characteristics more commonly associated with dedicated racetracks facilitated by grass and gravel run-off safety zones that are reconstructed annually. However, the circuit also has characteristics of a street circuit's enclosed nature due to concrete barriers annually built along the Lakeside Drive curve, in particular, where run-off is not available due to the proximity of the lake shore.</p>
+    </div>
+    <div class="content">
+      <h2>Track info</h2>
+      <p>Capacity	125,000</p>
+      <p>Opened	20 November 1953; 70 years ago</p>
+      <p>Length	5.278 km (3.280 miles)</p>
+      <p>Turns	14</p>
+    </div>
+    <div class="content">
+      <h2>Lap records</h2>
+      <p>Formula One	Monaco Charles Leclerc	Ferrari SF-24	1:19.813	24 March 2024</p>
+      <p>FIA F2	Denmark Frederik Vesti	Dallara F2 2018	1:30.712	2 April 2023</p>
+      <p>FIA F3	Switzerland Grégoire Saucy	Dallara F3 2019	1:34.405	2 April 2023</p>
+      <p>S5000	Australia Aaron Cameron	Ligier JS F3-S5000	1:40.3696	8 April 2022</p>
+      <p>Supercars Championship	Australia Scott Pye	Holden Commodore (ZB)	1:46.006	9 April 2022</p>
+    </div>
+    </div>
+
+  <div class="sidebar">
+    <h3>Top 5 Drivers</h3>
+    <ul class="top-drivers">
+      <!-- JavaScript will fill in this list -->
+    </ul>
+  </div>
+</div>
+
+<script src="/static/scripts/australia.js"></script>
 
 </body>
 </html>

@@ -10,6 +10,12 @@ from flask import (
     session,
     url_for,
 )
+
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
 from flask_sqlalchemy import SQLAlchemy
 from jinja2.exceptions import TemplateNotFound
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -87,13 +93,6 @@ def login():
 def get_ml_predictions(roundnum):
     round_num = int(roundnum)
     print('ML running',round_num)
-
-    import numpy as np
-    import pandas as pd
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.preprocessing import StandardScaler
-
-    np.set_printoptions(precision=4)
 
     data = pd.read_csv('f1_dataset.csv')
 
