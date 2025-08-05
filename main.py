@@ -56,7 +56,6 @@ def tracks(trackname):
 def get_ml_predictions(roundnum):
     predictions = get_predictions_for_round(roundnum)
 
-    # If predictions are missing, run training
     if predictions is None:
         print(f"No predictions found for round {roundnum}, running training...")
         train_and_predict_all()
@@ -66,7 +65,21 @@ def get_ml_predictions(roundnum):
         print(f"Still no predictions found after training for round {roundnum}")
         return Response(response='[]', status=404, mimetype='application/json')
 
-    return Response(response=json.dumps(predictions), status=200, mimetype='application/json')
+    placeholder_driver_strength = [
+        {"driver": f"Driver {i+1}", "strength": round(100 - i*2.5, 1)} for i in range(20)
+    ]
+
+    placeholder_constructor_strength = [
+        {"constructor": f"Team {i+1}", "strength": round(100 - i*5, 1)} for i in range(10)
+    ]
+
+    response_data = {
+        "gp_results": predictions,
+        "driver_strength": placeholder_driver_strength,
+        "constructor_strength": placeholder_constructor_strength
+    }
+
+    return Response(response=json.dumps(response_data), status=200, mimetype='application/json')
 
 # Manual trigger to rerun the model
 @app.route('/ml/train')
@@ -76,4 +89,4 @@ def run_ml_training():
 
 # Run Flask application
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

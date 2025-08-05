@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #c5c5d3;
+}
+
+header {
+  background-color: #445566;
+  background: linear-gradient(135deg, #526375, #2c4054);
+  border-bottom: 2px solid #2c3868;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-title img {
+  width: 60px;
+  height: auto;
+}
+
+.logo-title h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+}
+
+.home-button:hover {
+  text-decoration: underline;
+}
+
+.track-map {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 2px solid #445566;
+  background-color: #cfd8e3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.track-map img {
+  width: 100%;
+  display: block;
+}
+
+.track-map-caption {
+  background-color: #445566;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.track-map-caption img {
+  width: 27px;
+  height: 18px;
+  margin-right: 10px;
+  display: block;
+}
+
+.predictions-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.pred-box {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.pred-box h3 {
+  color: white;
+  background-color: red;
+  font-size: 20px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.strength-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.strength-list li {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.strength-list li:last-child {
+  border-bottom: none;
+}
+
+.constructor-list li {
+  padding: 20px;
+}
