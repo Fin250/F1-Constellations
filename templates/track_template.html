@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ track_display_name }} - F1 Tracks and Stats</title>
+  <link rel="stylesheet" href="/static/format.css"/>
+</head>
+
+<body data-round="{{ round_number }}">
+
+<header>
+  <a href="/" class="home-button"><img src="/static/images/headerlogo.png" alt="Logo">Home</a>
+  <h1>F1 Tracks and Stats</h1>
+</header>
+
+<div class="track-map">
+  <img src="{{ annotated_layout_path }}" alt="{{ track_display_name }} track">
+  <div class="track-map-caption">
+    <img src="{{ flag_path }}" alt="{{ track_display_name }} Flag">
+    <span>{{ track_display_name }} Track Map</span>
+  </div>
+</div>
+
+<div class="predictions-container">
+  <div class="predictions">
+    <h3>Top Drivers</h3>
+    <ul class="top-drivers">
+      <!-- JavaScript will fill in this list -->
+    </ul>
+  </div>
+</div>
+
+
+<script src="{{ script_path }}"></script>
+
+</body>
+</html>
