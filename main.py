@@ -11,17 +11,20 @@ from flask import (
     url_for,
 )
 
-import numpy as np
-import pandas as pd
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
-
 from flask_sqlalchemy import SQLAlchemy
 from jinja2.exceptions import TemplateNotFound
 
 import json
-from ml_model import train_and_predict_all, get_predictions_for_round, load_predictions
+from ml_model import (
+        get_gp_results,
+        train_and_predict_all,
+        get_driver_strengths,
+        get_constructor_strengths
+    )
+
 from track_metadata import TRACK_METADATA
+from driver_metadata import DRIVER_METADATA
+
 
 # Initialise Flask instance
 app = Flask(__name__)
@@ -54,29 +57,24 @@ def tracks(trackname):
 # ML JSON API for frontend
 @app.route('/ml/<int:roundnum>')
 def get_ml_predictions(roundnum):
-    predictions = get_predictions_for_round(roundnum)
+    gp_result = get_gp_results(roundnum)
+    driver_strengths = get_driver_strengths(roundnum)
+    constructor_strengths = get_constructor_strengths(roundnum)
 
-    if predictions is None:
+    if gp_result is None:
         print(f"No predictions found for round {roundnum}, running training...")
         train_and_predict_all()
-        predictions = get_predictions_for_round(roundnum)
+        gp_result = get_gp_results(roundnum)
 
-    if predictions is None:
+    if gp_result is None:
         print(f"Still no predictions found after training for round {roundnum}")
         return Response(response='[]', status=404, mimetype='application/json')
 
-    placeholder_driver_strength = [
-        {"driver": f"Driver {i+1}", "strength": round(100 - i*2.5, 1)} for i in range(20)
-    ]
-
-    placeholder_constructor_strength = [
-        {"constructor": f"Team {i+1}", "strength": round(100 - i*5, 1)} for i in range(10)
-    ]
-
     response_data = {
-        "gp_results": predictions,
-        "driver_strength": placeholder_driver_strength,
-        "constructor_strength": placeholder_constructor_strength
+        "gp_results": gp_result,
+        "driver_strength": driver_strengths,
+        "constructor_strength": constructor_strengths,
+        "driver_metadata": DRIVER_METADATA
     }
 
     return Response(response=json.dumps(response_data), status=200, mimetype='application/json')

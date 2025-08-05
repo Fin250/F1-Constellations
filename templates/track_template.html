@@ -10,43 +10,38 @@
 <body data-round="{{ round_number }}">
 
 <header>
-  <a href="/" class="home-button">Home</a>
   <div class="logo-title">
     <img src="/static/images/headerlogo.png" alt="Logo">
     <h1>F1 Tracks and Stats</h1>
   </div>
+  <a href="/" class="home-button">Home</a>
 </header>
 
-<div class="track-map">
-  <img src="{{ annotated_layout_path }}" alt="{{ track_display_name }} track">
-  <div class="track-map-caption">
-    <img src="{{ flag_path }}" alt="{{ track_display_name }} Flag">
-    <span>{{ track_display_name }} Track Map</span>
-  </div>
-</div>
+<main>
+  <section class="track-map">
+    <img src="{{ annotated_layout_path }}" alt="{{ track_display_name }} track">
+    <div class="track-map-caption">
+      <img src="{{ flag_path }}" alt="{{ track_display_name }} Flag">
+      <span>{{ track_display_name }} Track Map</span>
+    </div>
+  </section>
 
-<div class="predictions-grid">
-  <div class="pred-box driver-strength">
-    <h3>Driver Strength</h3>
-    <ul class="strength-list driver-list">
-      <!-- JS populates -->
-    </ul>
-  </div>
-  <div class="pred-box top-drivers">
-    <h3>Predicted GP Results</h3>
-    <ul class="strength-list gp-results">
-      <!-- JS populates -->
-    </ul>
-  </div>
-  <div class="pred-box constructor-strength">
-    <h3>Constructor Strength</h3>
-    <ul class="strength-list constructor-list">
-      <!-- JS populates -->
-    </ul>
-  </div>
-</div>
+  <section class="predictions-grid">
+    <div class="pred-box driver-strength">
+      <h3>Driver Strength</h3>
+      <ul class="strength-list driver-list"></ul>
+    </div>
+    <div class="pred-box top-drivers">
+      <h3>Predicted GP Results</h3>
+      <ul class="strength-list gp-results"></ul>
+    </div>
+    <div class="pred-box constructor-strength">
+      <h3>Constructor Strength</h3>
+      <ul class="strength-list constructor-list"></ul>
+    </div>
+  </section>
+</main>
 
 <script src="{{ script_path }}"></script>
-
 </body>
 </html>

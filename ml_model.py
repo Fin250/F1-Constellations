@@ -98,7 +98,7 @@ def load_predictions():
             return None
 
 
-def get_predictions_for_round(round_num):
+def get_gp_results(round_num):
     print(f"Fetching predictions for round {round_num}")
     all_data = load_predictions()
     if all_data is None:
@@ -112,3 +112,43 @@ def get_predictions_for_round(round_num):
 
     print(f"Predictions for round {round_num} not found.")
     return None
+
+def get_driver_strengths(round_num):
+    # Manually defined placeholder driver strengths
+    return [
+        {"driver": "max_verstappen", "strength": 98.5},
+        {"driver": "norris", "strength": 91.0},
+        {"driver": "hamilton", "strength": 89.5},
+        {"driver": "leclerc", "strength": 88.0},
+        {"driver": "russell", "strength": 86.0},
+        {"driver": "sainz", "strength": 85.0},
+        {"driver": "piastri", "strength": 83.0},
+        {"driver": "perez", "strength": 80.0},
+        {"driver": "alonso", "strength": 78.5},
+        {"driver": "albon", "strength": 75.0},
+        {"driver": "tsunoda", "strength": 72.0},
+        {"driver": "ricciardo", "strength": 70.0},
+        {"driver": "gasly", "strength": 69.5},
+        {"driver": "ocon", "strength": 68.5},
+        {"driver": "hulkenberg", "strength": 66.5},
+        {"driver": "stroll", "strength": 65.0},
+        {"driver": "zhou", "strength": 63.0},
+        {"driver": "bottas", "strength": 61.0},
+        {"driver": "kevin_magnussen", "strength": 60.0},
+        {"driver": "sargeant", "strength": 58.0}
+    ]
+
+def get_constructor_strengths(round_num):
+    # Manually defined placeholder constructor strengths
+    return [
+        {"constructor": "Red Bull Racing", "strength": 95.0},
+        {"constructor": "McLaren", "strength": 91.0},
+        {"constructor": "Mercedes", "strength": 89.0},
+        {"constructor": "Ferrari", "strength": 87.0},
+        {"constructor": "Aston Martin", "strength": 80.0},
+        {"constructor": "Alpine", "strength": 72.0},
+        {"constructor": "Williams", "strength": 68.0},
+        {"constructor": "Visa Cash App RB", "strength": 66.0},
+        {"constructor": "Haas", "strength": 63.0},
+        {"constructor": "Kick Sauber", "strength": 60.0}
+    ]
