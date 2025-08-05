@@ -49,7 +49,7 @@ DRIVER_METADATA = {
     },
     "alonso": {
         "full_name": "Fernando Alonso",
-        "image": "/static/images/drivers/alonso.webp",
+        "image": "/static/images/drivers/alonso.jpg",
         "constructor": "Aston Martin",
         "nationality": "Spain"
     },
@@ -91,7 +91,7 @@ DRIVER_METADATA = {
     },
     "ricciardo": {
         "full_name": "Daniel Ricciardo",
-        "image": "/static/images/drivers/ricciardo.webp",
+        "image": "/static/images/drivers/ricciardo.png",
         "constructor": "Visa Cash App RB",
         "nationality": "Australia"
     },
@@ -109,7 +109,7 @@ DRIVER_METADATA = {
     },
     "kevin_magnussen": {
         "full_name": "Kevin Magnussen",
-        "image": "/static/images/drivers/kevin_magnussen.webp",
+        "image": "/static/images/drivers/magnussen.webp",
         "constructor": "Haas",
         "nationality": "Denmark"
     },
