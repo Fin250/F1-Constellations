@@ -24,73 +24,6 @@ header img {
   width: 100px;
 }
 
-.login-button {
-  background-color: #c7cdff;
-  color: #445566;
-  border: 2px solid #445566;
-  padding: 20px 40px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  text-decoration: none;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-  background-color: #ccd1d9;
-}
-
-.login-button img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-
-.login-home-button {
-  background-color: #c7cdff;
-  color: #445566;
-  border: 2px solid #445566;
-  padding: 20px 40px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  text-decoration: none;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-home-button:hover {
-  background-color: #ccd1d9;
-}
-
-.login-home-button img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  text-decoration: none;
-  font-size: 30px;
-}
-
-.user img {
-  width: 60px;
-  height: 60px;
-  margin-left: 15px;
-}
-
 .home-button {
   display: flex;
   align-items: center;
@@ -163,51 +96,6 @@ header img {
   width: 27px;
   height: 18px;
   margin-right: 10px;
-}
-
-.login-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-container h2 {
-  margin-bottom: 20px;
-}
-
-.login-form {
-  margin-bottom: 20px;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.login-form input[type="submit"] {
-  background-color: #445566;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-form input[type="submit"]:hover {
-  background-color: #34495e;
-}
-
-.flash-message.error {
-  color: red;
 }
 
 .track-map {
@@ -298,4 +186,3 @@ header img {
 .top-drivers li:last-child {
   border-bottom: none;
 }
-
