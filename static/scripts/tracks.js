@@ -1,3 +1,48 @@
+const constructorNameMap = {
+    "red_bull": "Red Bull Racing",
+    "mercedes": "Mercedes",
+    "ferrari": "Ferrari",
+    "mclaren": "McLaren",
+    "aston_martin": "Aston Martin",
+    "alpine": "Alpine",
+    "sauber": "Kick Sauber",
+    "williams": "Williams",
+    "rb": "Visa Cash App RB",
+    "haas": "Haas"
+};
+
+function normalizeConstructorName(rawName) {
+    if (!rawName) return 'Unknown';
+    const key = rawName.toLowerCase().trim();
+    return constructorNameMap[key] || rawName;
+}
+
+const constructorColors = {
+    "Red Bull Racing": "#3671C6",
+    "McLaren": "#FF8000",
+    "Mercedes": "#00D2BE",
+    "Ferrari": "#DC0000",
+    "Aston Martin": "#006F62",
+    "Alpine": "#2293D1",
+    "Williams": "#005AFF",
+    "Visa Cash App RB": "#2B4562",
+    "Haas": "#B6BABD",
+    "Kick Sauber": "#52E252"
+};
+
+const constructorLogos = {
+    "Red Bull Racing": "/static/images/constructors/redbull.avif",
+    "McLaren": "/static/images/constructors/mclaren.avif",
+    "Mercedes": "/static/images/constructors/mercedes.avif",
+    "Ferrari": "/static/images/constructors/ferrari.avif",
+    "Aston Martin": "/static/images/constructors/astonmartin.avif",
+    "Alpine": "/static/images/constructors/alpine.avif",
+    "Williams": "/static/images/constructors/williams.avif",
+    "Visa Cash App RB": "/static/images/constructors/visacashapprb.avif",
+    "Haas": "/static/images/constructors/haas.avif",
+    "Kick Sauber": "/static/images/constructors/kicksauber.avif"
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     const roundAttr = document.body.getAttribute('data-round');
     if (!roundAttr) {
@@ -62,7 +107,7 @@ function safeMetric(value, decimals = 2) {
 }
 
 /* Creates the list item used by all lists */
-function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false) {
+function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null) {
     const li = document.createElement('li');
 
     // position
@@ -76,7 +121,12 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
 
     // image wrapper
     const imgWrapper = document.createElement('div');
-    imgWrapper.className = 'image-zoom-wrapper';
+    imgWrapper.className = 'image-wrapper';
+
+    // Apply constructor background color
+    if (constructorName && constructorColors[constructorName]) {
+        imgWrapper.style.backgroundColor = constructorColors[constructorName];
+    }
 
     const img = document.createElement('img');
     img.src = imageUrl;
@@ -85,7 +135,7 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     const isPlaceholder = (imageUrl || '').includes('driver-placeholder') || (imageUrl || '').includes('constructor-placeholder');
 
     if (!isConstructor && !isPlaceholder) {
-        img.className = 'zoomed-driver-img';
+        img.className = 'driver-img';
     } else {
         img.className = 'static-img';
     }
@@ -131,11 +181,12 @@ function populateGPResults(predictions, metadata) {
         const meta = metadata[key] || {};
         const name = meta.full_name || capitalize(driver.driver) || 'Unknown';
         const imageUrl = meta.image || `/static/images/drivers/driver-placeholder.png`;
+        const constructorName = normalizeConstructorName(meta.constructor) || null;
 
         const probabilityValue = (typeof driver.probability === 'number') ? driver.probability.toFixed(1) : String(driver.probability);
         const probability = `${probabilityValue}%`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, probability);
+        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName);
         list.appendChild(li);
     });
 }
@@ -153,10 +204,11 @@ function populateDriverStrength(drivers, metadata) {
         const meta = metadata[key] || {};
         const name = meta.full_name || capitalize(driver.driver) || 'Unknown';
         const imageUrl = meta.image || `/static/images/drivers/driver-placeholder.png`;
+        const constructorName = meta.constructor || null;
 
         const strength = safeMetric(driver.strength, 1);
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength);
+        const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName);
         list.appendChild(li);
     });
 }
@@ -183,15 +235,16 @@ function populateConstructorStrength(constructors) {
     });
 
     constructors.forEach((constructor, index) => {
-        const name = constructor.TEAM || constructor.constructor || constructor.team || 'Unknown';
-        const imageUrl = `/static/images/constructors/constructor-placeholder.jpg`;
+        const rawName = constructor.TEAM || constructor.constructor || constructor.team || 'Unknown';
+        const name = normalizeConstructorName(rawName);
+        const imageUrl = constructorLogos[name] || `/static/images/constructors/constructor-placeholder.jpg`;
 
         let strength = 'N/A';
         if (typeof constructor.predicted_strength === 'number') {
             strength = (constructor.predicted_strength * 100).toFixed(1);
         }
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength, true);
+        const li = createPredictionItem(index + 1, imageUrl, name, strength, true, name);
         list.appendChild(li);
     });
 }
