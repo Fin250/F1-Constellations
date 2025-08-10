@@ -1,0 +1,2038 @@
+[
+  {
+    "round": 1,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 18.5
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 17.16
+      },
+      {
+        "driver": "Russell",
+        "probability": 15.24
+      },
+      {
+        "driver": "Sainz",
+        "probability": 13.27
+      },
+      {
+        "driver": "Perez",
+        "probability": 11.39
+      },
+      {
+        "driver": "Alonso",
+        "probability": 9.75
+      },
+      {
+        "driver": "Norris",
+        "probability": 6.61
+      },
+      {
+        "driver": "Piastri",
+        "probability": 4.97
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 4.48
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 3.31
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 2.1
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.58
+      },
+      {
+        "driver": "Albon",
+        "probability": 1.18
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.94
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.66
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.5
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.31
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.22
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.17
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.12
+      }
+    ]
+  },
+  {
+    "round": 2,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 19.64
+      },
+      {
+        "driver": "Perez",
+        "probability": 16.13
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 14.79
+      },
+      {
+        "driver": "Alonso",
+        "probability": 7.89
+      },
+      {
+        "driver": "Piastri",
+        "probability": 5.88
+      },
+      {
+        "driver": "Norris",
+        "probability": 5.19
+      },
+      {
+        "driver": "Russell",
+        "probability": 4.59
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 3.5
+      },
+      {
+        "driver": "Bearman",
+        "probability": 1.76
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.15
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.97
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.36
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.34
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.24
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.16
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.1
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.05
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.04
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 3,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 20.87
+      },
+      {
+        "driver": "Sainz",
+        "probability": 14.08
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 11.38
+      },
+      {
+        "driver": "Perez",
+        "probability": 10.83
+      },
+      {
+        "driver": "Norris",
+        "probability": 10.09
+      },
+      {
+        "driver": "Piastri",
+        "probability": 7.44
+      },
+      {
+        "driver": "Russell",
+        "probability": 4.62
+      },
+      {
+        "driver": "Alonso",
+        "probability": 1.75
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.39
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 1.19
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.95
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.44
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.22
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.21
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.16
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.1
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.05
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.03
+      }
+    ]
+  },
+  {
+    "round": 4,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 21.15
+      },
+      {
+        "driver": "Perez",
+        "probability": 18.77
+      },
+      {
+        "driver": "Sainz",
+        "probability": 13.39
+      },
+      {
+        "driver": "Norris",
+        "probability": 11.34
+      },
+      {
+        "driver": "Alonso",
+        "probability": 6.62
+      },
+      {
+        "driver": "Piastri",
+        "probability": 6.12
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 5.62
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 3.56
+      },
+      {
+        "driver": "Russell",
+        "probability": 2.15
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.95
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.54
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.48
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.18
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.18
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.18
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.09
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.06
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.04
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 5,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 21.95
+      },
+      {
+        "driver": "Perez",
+        "probability": 20.55
+      },
+      {
+        "driver": "Alonso",
+        "probability": 10.33
+      },
+      {
+        "driver": "Norris",
+        "probability": 9.83
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 8.79
+      },
+      {
+        "driver": "Sainz",
+        "probability": 7.44
+      },
+      {
+        "driver": "Piastri",
+        "probability": 7.43
+      },
+      {
+        "driver": "Russell",
+        "probability": 2.9
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 1.2
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.84
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.48
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.38
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.17
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.17
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 0.12
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.08
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.08
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.07
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.05
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 6,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 22.22
+      },
+      {
+        "driver": "Perez",
+        "probability": 17.86
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 16.96
+      },
+      {
+        "driver": "Sainz",
+        "probability": 15.92
+      },
+      {
+        "driver": "Norris",
+        "probability": 8.2
+      },
+      {
+        "driver": "Piastri",
+        "probability": 5.94
+      },
+      {
+        "driver": "Russell",
+        "probability": 3.96
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 2.9
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 1.17
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.89
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.82
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.36
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.23
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.2
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.16
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.06
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.05
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.02
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 7,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 22.39
+      },
+      {
+        "driver": "Norris",
+        "probability": 16.72
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 14.88
+      },
+      {
+        "driver": "Sainz",
+        "probability": 13.4
+      },
+      {
+        "driver": "Piastri",
+        "probability": 8.34
+      },
+      {
+        "driver": "Russell",
+        "probability": 5.14
+      },
+      {
+        "driver": "Perez",
+        "probability": 4.66
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 2.94
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 2.48
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 1.16
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.84
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.39
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.31
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.13
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.09
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.07
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.06
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.04
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.04
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 8,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 20.8
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 18.53
+      },
+      {
+        "driver": "Sainz",
+        "probability": 15.38
+      },
+      {
+        "driver": "Piastri",
+        "probability": 14.74
+      },
+      {
+        "driver": "Norris",
+        "probability": 12.75
+      },
+      {
+        "driver": "Russell",
+        "probability": 6.63
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 4.12
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 1.78
+      },
+      {
+        "driver": "Perez",
+        "probability": 1.28
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.65
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.45
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.44
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.43
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.41
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.39
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.06
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.04
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.03
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 9,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.47
+      },
+      {
+        "driver": "Norris",
+        "probability": 15.28
+      },
+      {
+        "driver": "Russell",
+        "probability": 14.28
+      },
+      {
+        "driver": "Piastri",
+        "probability": 10.59
+      },
+      {
+        "driver": "Alonso",
+        "probability": 4.56
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 4.15
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 3.85
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 3.57
+      },
+      {
+        "driver": "Sainz",
+        "probability": 2.63
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 1.77
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.33
+      },
+      {
+        "driver": "Perez",
+        "probability": 1.12
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.56
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.15
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.13
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.08
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.08
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.03
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.02
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 10,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.3
+      },
+      {
+        "driver": "Norris",
+        "probability": 18.44
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 13.19
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 10.58
+      },
+      {
+        "driver": "Sainz",
+        "probability": 10.52
+      },
+      {
+        "driver": "Russell",
+        "probability": 8.54
+      },
+      {
+        "driver": "Perez",
+        "probability": 4.72
+      },
+      {
+        "driver": "Piastri",
+        "probability": 3.39
+      },
+      {
+        "driver": "Alonso",
+        "probability": 1.5
+      },
+      {
+        "driver": "Gasly",
+        "probability": 1.42
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.91
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.28
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.27
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.19
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.09
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.07
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.06
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.06
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 11,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 20.92
+      },
+      {
+        "driver": "Norris",
+        "probability": 17.12
+      },
+      {
+        "driver": "Sainz",
+        "probability": 14.61
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 10.56
+      },
+      {
+        "driver": "Russell",
+        "probability": 10.44
+      },
+      {
+        "driver": "Perez",
+        "probability": 9.98
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 7.08
+      },
+      {
+        "driver": "Piastri",
+        "probability": 5.59
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.88
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.62
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.53
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.31
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.24
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.24
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.22
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.1
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.06
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.02
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.01
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 12,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 25.1
+      },
+      {
+        "driver": "Russell",
+        "probability": 16.39
+      },
+      {
+        "driver": "Norris",
+        "probability": 15.15
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 13.66
+      },
+      {
+        "driver": "Piastri",
+        "probability": 8.6
+      },
+      {
+        "driver": "Sainz",
+        "probability": 8.45
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 3.55
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 2.69
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.73
+      },
+      {
+        "driver": "Alonso",
+        "probability": 1.41
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.54
+      },
+      {
+        "driver": "Perez",
+        "probability": 0.48
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.33
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.16
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.15
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.08
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.06
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.05
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.03
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.03
+      }
+    ]
+  },
+  {
+    "round": 13,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 24.21
+      },
+      {
+        "driver": "Norris",
+        "probability": 18.17
+      },
+      {
+        "driver": "Piastri",
+        "probability": 14.47
+      },
+      {
+        "driver": "Sainz",
+        "probability": 13.97
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 10.31
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 9.8
+      },
+      {
+        "driver": "Alonso",
+        "probability": 3.33
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.86
+      },
+      {
+        "driver": "Perez",
+        "probability": 1.33
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 1.06
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.75
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.63
+      },
+      {
+        "driver": "Russell",
+        "probability": 0.38
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.16
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.15
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.11
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.08
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.02
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.02
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 14,
+    "predictions": [
+      {
+        "driver": "Perez",
+        "probability": 21.24
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 19.17
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 14.64
+      },
+      {
+        "driver": "Norris",
+        "probability": 13.82
+      },
+      {
+        "driver": "Verstappen",
+        "probability": 12.33
+      },
+      {
+        "driver": "Piastri",
+        "probability": 11.09
+      },
+      {
+        "driver": "Sainz",
+        "probability": 7.85
+      },
+      {
+        "driver": "Russell",
+        "probability": 7.37
+      },
+      {
+        "driver": "Alonso",
+        "probability": 2.45
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.54
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.39
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.28
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.25
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.2
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.12
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.08
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.05
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.03
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 15,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.38
+      },
+      {
+        "driver": "Norris",
+        "probability": 18.57
+      },
+      {
+        "driver": "Piastri",
+        "probability": 15.11
+      },
+      {
+        "driver": "Perez",
+        "probability": 14.7
+      },
+      {
+        "driver": "Russell",
+        "probability": 11.93
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 9.53
+      },
+      {
+        "driver": "Sainz",
+        "probability": 3.82
+      },
+      {
+        "driver": "Alonso",
+        "probability": 3.22
+      },
+      {
+        "driver": "Stroll",
+        "probability": 1.76
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 1.51
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.65
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.52
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.43
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.28
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.08
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.03
+      },
+      {
+        "driver": "Sargeant",
+        "probability": 0.02
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.02
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 16,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 21.36
+      },
+      {
+        "driver": "Norris",
+        "probability": 20.16
+      },
+      {
+        "driver": "Piastri",
+        "probability": 17.7
+      },
+      {
+        "driver": "Russell",
+        "probability": 13.85
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 12.83
+      },
+      {
+        "driver": "Sainz",
+        "probability": 10.53
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 10.36
+      },
+      {
+        "driver": "Perez",
+        "probability": 8.58
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.98
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.78
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.47
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.37
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.18
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.13
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.1
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.09
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.07
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.06
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.01
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 17,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 22.81
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 20.02
+      },
+      {
+        "driver": "Piastri",
+        "probability": 17.11
+      },
+      {
+        "driver": "Perez",
+        "probability": 16.34
+      },
+      {
+        "driver": "Sainz",
+        "probability": 15.13
+      },
+      {
+        "driver": "Russell",
+        "probability": 9.65
+      },
+      {
+        "driver": "Alonso",
+        "probability": 3.05
+      },
+      {
+        "driver": "Norris",
+        "probability": 1.73
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.5
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.48
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.47
+      },
+      {
+        "driver": "Bearman",
+        "probability": 0.43
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.4
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 0.35
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.34
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.19
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.03
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.03
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.03
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 18,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.93
+      },
+      {
+        "driver": "Norris",
+        "probability": 20.2
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 16.33
+      },
+      {
+        "driver": "Piastri",
+        "probability": 13.73
+      },
+      {
+        "driver": "Russell",
+        "probability": 11.86
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 6.1
+      },
+      {
+        "driver": "Sainz",
+        "probability": 4.09
+      },
+      {
+        "driver": "Alonso",
+        "probability": 3.05
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 2.49
+      },
+      {
+        "driver": "Perez",
+        "probability": 2.43
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 1.2
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.36
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.15
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.12
+      },
+      {
+        "driver": "Ricciardo",
+        "probability": 0.09
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.09
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.06
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.03
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.01
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 19,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.64
+      },
+      {
+        "driver": "Norris",
+        "probability": 21.56
+      },
+      {
+        "driver": "Sainz",
+        "probability": 14.71
+      },
+      {
+        "driver": "Piastri",
+        "probability": 14.25
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 13.99
+      },
+      {
+        "driver": "Perez",
+        "probability": 6.17
+      },
+      {
+        "driver": "Alonso",
+        "probability": 3.02
+      },
+      {
+        "driver": "Gasly",
+        "probability": 1.38
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.82
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 0.64
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.62
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.55
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.3
+      },
+      {
+        "driver": "Russell",
+        "probability": 0.18
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.16
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.13
+      },
+      {
+        "driver": "Lawson",
+        "probability": 0.05
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.05
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.03
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "round": 20,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 22.91
+      },
+      {
+        "driver": "Sainz",
+        "probability": 18.49
+      },
+      {
+        "driver": "Norris",
+        "probability": 18.41
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 15.72
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 9.69
+      },
+      {
+        "driver": "Russell",
+        "probability": 9.4
+      },
+      {
+        "driver": "Ocon",
+        "probability": 5.92
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 1.29
+      },
+      {
+        "driver": "Piastri",
+        "probability": 1.17
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.81
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.65
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.63
+      },
+      {
+        "driver": "Perez",
+        "probability": 0.61
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.49
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.39
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.21
+      },
+      {
+        "driver": "Lawson",
+        "probability": 0.15
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.04
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 21,
+    "predictions": [
+      {
+        "driver": "Norris",
+        "probability": 20.21
+      },
+      {
+        "driver": "Russell",
+        "probability": 15.01
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 12.85
+      },
+      {
+        "driver": "Piastri",
+        "probability": 8.47
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 4.47
+      },
+      {
+        "driver": "Perez",
+        "probability": 2.95
+      },
+      {
+        "driver": "Verstappen",
+        "probability": 2.74
+      },
+      {
+        "driver": "Ocon",
+        "probability": 1.88
+      },
+      {
+        "driver": "Alonso",
+        "probability": 1.7
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 1.58
+      },
+      {
+        "driver": "Lawson",
+        "probability": 1.42
+      },
+      {
+        "driver": "Albon",
+        "probability": 1.11
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.8
+      },
+      {
+        "driver": "Sainz",
+        "probability": 0.5
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.15
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.13
+      },
+      {
+        "driver": "Bearman",
+        "probability": 0.08
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.07
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.04
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 22,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.28
+      },
+      {
+        "driver": "Sainz",
+        "probability": 18.86
+      },
+      {
+        "driver": "Russell",
+        "probability": 16.95
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 15.82
+      },
+      {
+        "driver": "Norris",
+        "probability": 12.16
+      },
+      {
+        "driver": "Piastri",
+        "probability": 8.14
+      },
+      {
+        "driver": "Gasly",
+        "probability": 4.92
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 4.24
+      },
+      {
+        "driver": "Perez",
+        "probability": 1.45
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 1.38
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.99
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.39
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.24
+      },
+      {
+        "driver": "Alonso",
+        "probability": 0.18
+      },
+      {
+        "driver": "Lawson",
+        "probability": 0.07
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.07
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.05
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.03
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.01
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 23,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 23.42
+      },
+      {
+        "driver": "Russell",
+        "probability": 19.02
+      },
+      {
+        "driver": "Norris",
+        "probability": 16.68
+      },
+      {
+        "driver": "Piastri",
+        "probability": 14.6
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 13.51
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 9.67
+      },
+      {
+        "driver": "Sainz",
+        "probability": 9.19
+      },
+      {
+        "driver": "Perez",
+        "probability": 6.08
+      },
+      {
+        "driver": "Alonso",
+        "probability": 2.01
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.49
+      },
+      {
+        "driver": "Gasly",
+        "probability": 0.4
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.14
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.12
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.09
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.07
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 0.06
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.04
+      },
+      {
+        "driver": "Lawson",
+        "probability": 0.02
+      },
+      {
+        "driver": "Ocon",
+        "probability": 0.02
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "round": 24,
+    "predictions": [
+      {
+        "driver": "Verstappen",
+        "probability": 24.47
+      },
+      {
+        "driver": "Norris",
+        "probability": 18.98
+      },
+      {
+        "driver": "Piastri",
+        "probability": 17.18
+      },
+      {
+        "driver": "Sainz",
+        "probability": 15.78
+      },
+      {
+        "driver": "Russell",
+        "probability": 9.14
+      },
+      {
+        "driver": "Perez",
+        "probability": 5.27
+      },
+      {
+        "driver": "Gasly",
+        "probability": 2.96
+      },
+      {
+        "driver": "Alonso",
+        "probability": 2.0
+      },
+      {
+        "driver": "Hulkenberg",
+        "probability": 1.77
+      },
+      {
+        "driver": "Hamilton",
+        "probability": 0.92
+      },
+      {
+        "driver": "Leclerc",
+        "probability": 0.78
+      },
+      {
+        "driver": "Tsunoda",
+        "probability": 0.34
+      },
+      {
+        "driver": "Bottas",
+        "probability": 0.27
+      },
+      {
+        "driver": "Stroll",
+        "probability": 0.23
+      },
+      {
+        "driver": "Lawson",
+        "probability": 0.12
+      },
+      {
+        "driver": "Magnussen",
+        "probability": 0.12
+      },
+      {
+        "driver": "Doohan",
+        "probability": 0.09
+      },
+      {
+        "driver": "Zhou",
+        "probability": 0.04
+      },
+      {
+        "driver": "Albon",
+        "probability": 0.02
+      },
+      {
+        "driver": "Colapinto",
+        "probability": 0.01
+      }
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 DRIVER_METADATA = {
-    "max_verstappen": {
+    "verstappen": {
         "full_name": "Max Verstappen",
         "image": "/static/images/drivers/verstappen.webp",
         "constructor": "Red Bull Racing",
@@ -107,7 +107,7 @@ DRIVER_METADATA = {
         "constructor": "Haas",
         "nationality": "Germany"
     },
-    "kevin_magnussen": {
+    "magnussen": {
         "full_name": "Kevin Magnussen",
         "image": "/static/images/drivers/magnussen.webp",
         "constructor": "Haas",
