@@ -67,7 +67,20 @@ def get_ml_predictions(roundnum):
         with open(RESULTS_PATH_CONSTRUCTORS, 'r') as f:
             constructor_strengths = json.load(f)
     except FileNotFoundError as e:
-        return Response(response='[]', status=404, mimetype='application/json')
+        driver_strengths_new = predict_driver_strengths()
+        constructor_strengths_new = predict_constructor_strengths()
+        gp_results_new = predict_gp_results()
+
+        with open(RESULTS_PATH_GP, 'w') as f:
+            json.dump(gp_results_new, f)
+        with open(RESULTS_PATH_DRIVERS, 'w') as f:
+            json.dump(driver_strengths_new, f)
+        with open(RESULTS_PATH_CONSTRUCTORS, 'w') as f:
+            json.dump(constructor_strengths_new, f)
+
+        gp_results, driver_strengths, constructor_strengths = (
+            gp_results_new, driver_strengths_new, constructor_strengths_new
+        )
     except json.JSONDecodeError as e:
         return Response(response='[]', status=500, mimetype='application/json')
 
