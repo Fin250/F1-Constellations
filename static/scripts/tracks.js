@@ -26,21 +26,21 @@ const constructorColors = {
     "Alpine": "#2293D1",
     "Williams": "#005AFF",
     "Visa Cash App RB": "#2B4562",
-    "Haas": "#B6BABD",
+    "Haas": "#f0e9e9ff",
     "Kick Sauber": "#52E252"
 };
 
 const constructorLogos = {
-    "Red Bull Racing": "/static/images/constructors/redbull.avif",
-    "McLaren": "/static/images/constructors/mclaren.avif",
-    "Mercedes": "/static/images/constructors/mercedes.avif",
-    "Ferrari": "/static/images/constructors/ferrari.avif",
-    "Aston Martin": "/static/images/constructors/astonmartin.avif",
-    "Alpine": "/static/images/constructors/alpine.avif",
-    "Williams": "/static/images/constructors/williams.avif",
-    "Visa Cash App RB": "/static/images/constructors/visacashapprb.avif",
-    "Haas": "/static/images/constructors/haas.avif",
-    "Kick Sauber": "/static/images/constructors/kicksauber.avif"
+    "Red Bull Racing": "/static/images/constructors/redbull.png",
+    "McLaren": "/static/images/constructors/mclaren.png",
+    "Mercedes": "/static/images/constructors/mercedes.png",
+    "Ferrari": "/static/images/constructors/ferrari.png",
+    "Aston Martin": "/static/images/constructors/astonmartin.png",
+    "Alpine": "/static/images/constructors/alpine.png",
+    "Williams": "/static/images/constructors/williams.png",
+    "Visa Cash App RB": "/static/images/constructors/visacashapprb.png",
+    "Haas": "/static/images/constructors/haas.png",
+    "Kick Sauber": "/static/images/constructors/kicksauber.png"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
