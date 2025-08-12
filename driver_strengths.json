@@ -1,98 +1,4313 @@
 [
   {
-    "driver":"Verstappen",
-    "strength":21.1995833333
+    "season": 2024,
+    "round": 1,
+    "driver": "Albon",
+    "rating": 60.0,
+    "race_count": 5,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.2009274760006786
   },
   {
-    "driver":"Norris",
-    "strength":14.47375
+    "season": 2024,
+    "round": 1,
+    "driver": "Alonso",
+    "rating": 70.6,
+    "race_count": 16,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.41128782200902964
   },
   {
-    "driver":"Leclerc",
-    "strength":12.07875
+    "season": 2024,
+    "round": 1,
+    "driver": "Bottas",
+    "rating": 68.3,
+    "race_count": 12,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.3654311981370278
   },
   {
-    "driver":"Sainz",
-    "strength":11.3917391304
+    "season": 2024,
+    "round": 1,
+    "driver": "Gasly",
+    "rating": 59.7,
+    "race_count": 7,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.1941024474120816
   },
   {
-    "driver":"Piastri",
-    "strength":10.0854166667
+    "season": 2024,
+    "round": 1,
+    "driver": "Hamilton",
+    "rating": 81.5,
+    "race_count": 16,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6306560981151108
   },
   {
-    "driver":"Russell",
-    "strength":9.1508333333
+    "season": 2024,
+    "round": 1,
+    "driver": "Hulkenberg",
+    "rating": 55.9,
+    "race_count": 11,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.1182325417296593
   },
   {
-    "driver":"Perez",
-    "strength":8.5383333333
+    "season": 2024,
+    "round": 1,
+    "driver": "Leclerc",
+    "rating": 70.7,
+    "race_count": 7,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4140316718012183
   },
   {
-    "driver":"Hamilton",
-    "strength":5.7504166667
+    "season": 2024,
+    "round": 1,
+    "driver": "Magnussen",
+    "rating": 57.2,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.14413529155143073
   },
   {
-    "driver":"Alonso",
-    "strength":2.93625
+    "season": 2024,
+    "round": 1,
+    "driver": "Norris",
+    "rating": 63.8,
+    "race_count": 6,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.2766504179424396
   },
   {
-    "driver":"Tsunoda",
-    "strength":0.9591666667
+    "season": 2024,
+    "round": 1,
+    "driver": "Ocon",
+    "rating": 61.0,
+    "race_count": 7,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.2199858436038982
   },
   {
-    "driver":"Hulkenberg",
-    "strength":0.8491666667
+    "season": 2024,
+    "round": 1,
+    "driver": "Perez",
+    "rating": 73.5,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4701080300245298
   },
   {
-    "driver":"Bearman",
-    "strength":0.7566666667
+    "season": 2024,
+    "round": 1,
+    "driver": "Piastri",
+    "rating": 60.2,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.2038547396131241
   },
   {
-    "driver":"Stroll",
-    "strength":0.67625
+    "season": 2024,
+    "round": 1,
+    "driver": "Ricciardo",
+    "rating": 61.4,
+    "race_count": 12,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.2272253693517501
   },
   {
-    "driver":"Gasly",
-    "strength":0.5995833333
+    "season": 2024,
+    "round": 1,
+    "driver": "Russell",
+    "rating": 65.2,
+    "race_count": 6,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.30343671574137976
   },
   {
-    "driver":"Ricciardo",
-    "strength":0.58
+    "season": 2024,
+    "round": 1,
+    "driver": "Sainz",
+    "rating": 70.4,
+    "race_count": 10,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.40819427714144785
   },
   {
-    "driver":"Ocon",
-    "strength":0.5282608696
+    "season": 2024,
+    "round": 1,
+    "driver": "Sargeant",
+    "rating": 51.4,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.028010879444033226
   },
   {
-    "driver":"Albon",
-    "strength":0.345
+    "season": 2024,
+    "round": 1,
+    "driver": "Stroll",
+    "rating": 61.1,
+    "race_count": 8,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.22198582352874216
   },
   {
-    "driver":"Lawson",
-    "strength":0.305
+    "season": 2024,
+    "round": 1,
+    "driver": "Tsunoda",
+    "rating": 57.0,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1409638539033175
   },
   {
-    "driver":"Magnussen",
-    "strength":0.2477272727
+    "season": 2024,
+    "round": 1,
+    "driver": "Verstappen",
+    "rating": 84.9,
+    "race_count": 10,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.697981322422798
   },
   {
-    "driver":"Bottas",
-    "strength":0.1170833333
+    "season": 2024,
+    "round": 1,
+    "driver": "Zhou",
+    "rating": 54.4,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.08765001693765316
   },
   {
-    "driver":"Colapinto",
-    "strength":0.0933333333
+    "season": 2024,
+    "round": 2,
+    "driver": "Albon",
+    "rating": 56.1,
+    "race_count": 2,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.12207104663027184
   },
   {
-    "driver":"Doohan",
-    "strength":0.09
+    "season": 2024,
+    "round": 2,
+    "driver": "Alonso",
+    "rating": 69.5,
+    "race_count": 3,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.38978927535785235
   },
   {
-    "driver":"Sargeant",
-    "strength":0.0585714286
+    "season": 2024,
+    "round": 2,
+    "driver": "Bearman",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
   },
   {
-    "driver":"Zhou",
-    "strength":0.0445833333
+    "season": 2024,
+    "round": 2,
+    "driver": "Bottas",
+    "rating": 63.4,
+    "race_count": 3,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.26805158940393486
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Gasly",
+    "rating": 62.0,
+    "race_count": 3,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.23926361420437742
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Hamilton",
+    "rating": 78.8,
+    "race_count": 3,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.575127706319805
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Hulkenberg",
+    "rating": 56.1,
+    "race_count": 2,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.12171419218709256
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Leclerc",
+    "rating": 73.3,
+    "race_count": 3,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4652732654071178
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Magnussen",
+    "rating": 55.3,
+    "race_count": 2,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.10686686620569473
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Norris",
+    "rating": 65.2,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3033441364620524
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Ocon",
+    "rating": 62.8,
+    "race_count": 3,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.25531117278753185
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Perez",
+    "rating": 78.0,
+    "race_count": 3,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.5609290270878227
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Piastri",
+    "rating": 61.4,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.22746636101323492
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Ricciardo",
+    "rating": 60.7,
+    "race_count": 2,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.2139844395752772
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Russell",
+    "rating": 66.5,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.33081511687953385
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Sargeant",
+    "rating": 50.6,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.012425880006795918
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Stroll",
+    "rating": 57.5,
+    "race_count": 3,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.14922007051374842
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Tsunoda",
+    "rating": 55.5,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.10967599476314524
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Verstappen",
+    "rating": 95.1,
+    "race_count": 3,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9022065852420493
+  },
+  {
+    "season": 2024,
+    "round": 2,
+    "driver": "Zhou",
+    "rating": 54.9,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09887875256705711
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Albon",
+    "rating": 56.7,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.13450407132517417
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Alonso",
+    "rating": 71.6,
+    "race_count": 18,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.43235240143202275
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Bottas",
+    "rating": 63.9,
+    "race_count": 9,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2788023114085247
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Gasly",
+    "rating": 60.4,
+    "race_count": 4,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.20790098267766935
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Hamilton",
+    "rating": 81.3,
+    "race_count": 15,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6263881526790079
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Hulkenberg",
+    "rating": 61.1,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.22209759030723936
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Leclerc",
+    "rating": 71.7,
+    "race_count": 4,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.434376207523161
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Magnussen",
+    "rating": 55.1,
+    "race_count": 10,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.10205159165331798
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Norris",
+    "rating": 67.8,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.35537026508359393
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Ocon",
+    "rating": 60.7,
+    "race_count": 4,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.21459651640090954
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Perez",
+    "rating": 72.3,
+    "race_count": 11,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.44624320813521895
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Piastri",
+    "rating": 62.1,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.24234899371770766
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Ricciardo",
+    "rating": 62.9,
+    "race_count": 9,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.25765305307637654
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Russell",
+    "rating": 66.7,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.33479108833539817
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Sainz",
+    "rating": 63.4,
+    "race_count": 7,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.26860303027273585
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Stroll",
+    "rating": 60.9,
+    "race_count": 5,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.21717755183812154
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Tsunoda",
+    "rating": 56.1,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1214439975599261
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Verstappen",
+    "rating": 85.5,
+    "race_count": 12,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.7103213511258741
+  },
+  {
+    "season": 2024,
+    "round": 3,
+    "driver": "Zhou",
+    "rating": 55.3,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.10562497708169603
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Albon",
+    "rating": 56.4,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.12718972006352702
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Alonso",
+    "rating": 65.4,
+    "race_count": 17,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.30781415906155163
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Bottas",
+    "rating": 60.9,
+    "race_count": 9,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2171307437910779
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Gasly",
+    "rating": 59.9,
+    "race_count": 5,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.19725129160155297
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Hamilton",
+    "rating": 75.9,
+    "race_count": 13,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5170728297458519
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Hulkenberg",
+    "rating": 55.5,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.11047575282987966
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Leclerc",
+    "rating": 74.6,
+    "race_count": 4,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4925946984008445
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Magnussen",
+    "rating": 54.8,
+    "race_count": 8,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.09604584509489156
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Norris",
+    "rating": 71.9,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.4376388363773592
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Ocon",
+    "rating": 62.7,
+    "race_count": 5,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.25310570220102974
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Perez",
+    "rating": 70.5,
+    "race_count": 11,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4094961972683857
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Piastri",
+    "rating": 66.0,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.32060079066326524
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Ricciardo",
+    "rating": 61.6,
+    "race_count": 10,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.23276285158091028
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Russell",
+    "rating": 66.4,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3279115109921481
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Sainz",
+    "rating": 66.5,
+    "race_count": 7,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.33048249233505556
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Sargeant",
+    "rating": 50.5,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.009355704568199431
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Stroll",
+    "rating": 56.8,
+    "race_count": 5,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.13616154074991332
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Tsunoda",
+    "rating": 56.1,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.12175627130064418
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Verstappen",
+    "rating": 95.7,
+    "race_count": 13,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9135080584466801
+  },
+  {
+    "season": 2024,
+    "round": 4,
+    "driver": "Zhou",
+    "rating": 54.1,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.08106101385040844
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Albon",
+    "rating": 58.3,
+    "race_count": 1,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.16620659053427725
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Alonso",
+    "rating": 64.3,
+    "race_count": 15,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.28561221844113593
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Bottas",
+    "rating": 73.2,
+    "race_count": 7,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.4634754181910426
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Gasly",
+    "rating": 60.9,
+    "race_count": 2,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.21776811803205579
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Hamilton",
+    "rating": 85.0,
+    "race_count": 13,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6990218264057684
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Hulkenberg",
+    "rating": 57.0,
+    "race_count": 9,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.14016692407122577
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Leclerc",
+    "rating": 70.7,
+    "race_count": 2,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.414356610382769
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Magnussen",
+    "rating": 56.4,
+    "race_count": 5,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.12720385755276925
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Norris",
+    "rating": 66.5,
+    "race_count": 1,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3299249255517384
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Ocon",
+    "rating": 60.7,
+    "race_count": 2,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.2139853848530552
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Perez",
+    "rating": 67.2,
+    "race_count": 9,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.3441738332560886
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Piastri",
+    "rating": 62.1,
+    "race_count": 22,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.24246889502314617
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Ricciardo",
+    "rating": 68.4,
+    "race_count": 8,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.36896791735176004
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Russell",
+    "rating": 65.1,
+    "race_count": 1,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3010656888425051
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Sainz",
+    "rating": 65.6,
+    "race_count": 5,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.31232326372002966
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Sargeant",
+    "rating": 50.0,
+    "race_count": 22,
+    "career_score": 0.0,
+    "combined_score": 0.0
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Stroll",
+    "rating": 57.6,
+    "race_count": 3,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.1523933871829245
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Tsunoda",
+    "rating": 54.7,
+    "race_count": 66,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.0946709468958237
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Verstappen",
+    "rating": 84.6,
+    "race_count": 5,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.6923906969232252
+  },
+  {
+    "season": 2024,
+    "round": 5,
+    "driver": "Zhou",
+    "rating": 53.2,
+    "race_count": 44,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.06381559786375762
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Albon",
+    "rating": 57.6,
+    "race_count": 2,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15262702119153135
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Alonso",
+    "rating": 70.5,
+    "race_count": 2,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.4094802015183236
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Bottas",
+    "rating": 63.9,
+    "race_count": 2,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.27849318023703423
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Gasly",
+    "rating": 60.9,
+    "race_count": 2,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.21732034005123305
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Hamilton",
+    "rating": 78.7,
+    "race_count": 2,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5730368556694853
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Hulkenberg",
+    "rating": 55.1,
+    "race_count": 1,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.10272700310389393
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Leclerc",
+    "rating": 74.1,
+    "race_count": 2,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4827624134629504
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Magnussen",
+    "rating": 54.9,
+    "race_count": 2,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.09781980324825275
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Norris",
+    "rating": 64.8,
+    "race_count": 2,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.2967125875151204
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Ocon",
+    "rating": 61.3,
+    "race_count": 2,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.22692663783306447
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Perez",
+    "rating": 77.8,
+    "race_count": 2,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.5551359852698122
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Piastri",
+    "rating": 60.3,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.2062260670941121
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Ricciardo",
+    "rating": 60.8,
+    "race_count": 1,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.21575514890727887
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Russell",
+    "rating": 67.3,
+    "race_count": 2,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3463306338432591
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Sainz",
+    "rating": 72.0,
+    "race_count": 2,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4402518305405548
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Sargeant",
+    "rating": 50.0,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.00014517825240995542
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Stroll",
+    "rating": 58.9,
+    "race_count": 2,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.17732278097525753
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Tsunoda",
+    "rating": 56.1,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.12205163197788983
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Verstappen",
+    "rating": 98.3,
+    "race_count": 2,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9662622692388444
+  },
+  {
+    "season": 2024,
+    "round": 6,
+    "driver": "Zhou",
+    "rating": 53.3,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.06591714770294538
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Albon",
+    "rating": 57.6,
+    "race_count": 2,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15214302562262208
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Alonso",
+    "rating": 61.2,
+    "race_count": 7,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.22470271272774944
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Bottas",
+    "rating": 65.8,
+    "race_count": 3,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.3155375231843601
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Gasly",
+    "rating": 60.4,
+    "race_count": 3,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.20807387675456618
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Hamilton",
+    "rating": 80.2,
+    "race_count": 3,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6040176787089507
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Hulkenberg",
+    "rating": 54.8,
+    "race_count": 206,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.09651781511777083
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Leclerc",
+    "rating": 72.0,
+    "race_count": 3,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4409264167295271
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Magnussen",
+    "rating": 56.2,
+    "race_count": 4,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.12382377964340069
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Norris",
+    "rating": 73.5,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.46936813227333607
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Ocon",
+    "rating": 59.8,
+    "race_count": 3,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.19623579812614428
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Perez",
+    "rating": 76.1,
+    "race_count": 3,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.5228208176009828
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Piastri",
+    "rating": 62.1,
+    "race_count": 22,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.24246889502314617
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Ricciardo",
+    "rating": 62.5,
+    "race_count": 3,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.24934094226522474
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Russell",
+    "rating": 64.8,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.2950032615645527
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Sainz",
+    "rating": 66.8,
+    "race_count": 3,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.33552875681617633
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Sargeant",
+    "rating": 50.0,
+    "race_count": 22,
+    "career_score": 0.0,
+    "combined_score": 0.0
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Stroll",
+    "rating": 59.3,
+    "race_count": 3,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.18562016018444477
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Tsunoda",
+    "rating": 56.7,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1335855396308333
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Verstappen",
+    "rating": 92.3,
+    "race_count": 9,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.846084233339613
+  },
+  {
+    "season": 2024,
+    "round": 7,
+    "driver": "Zhou",
+    "rating": 54.3,
+    "race_count": 1,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.08522901536188988
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Albon",
+    "rating": 56.8,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.13608851464666427
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Alonso",
+    "rating": 72.4,
+    "race_count": 19,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.4483752876337033
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Bottas",
+    "rating": 62.8,
+    "race_count": 10,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.25602353460298144
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Gasly",
+    "rating": 62.3,
+    "race_count": 5,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.24615220224928486
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Hamilton",
+    "rating": 73.3,
+    "race_count": 16,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.4660849781582152
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Hulkenberg",
+    "rating": 55.0,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.09985558185484994
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Leclerc",
+    "rating": 69.4,
+    "race_count": 5,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.38727645753804996
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Magnussen",
+    "rating": 52.9,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.05711784806658852
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Norris",
+    "rating": 68.5,
+    "race_count": 4,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.36996574718033604
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Ocon",
+    "rating": 66.7,
+    "race_count": 5,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.3346287849456888
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Perez",
+    "rating": 70.8,
+    "race_count": 12,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.41643621691806776
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Piastri",
+    "rating": 62.0,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.2404662414071832
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Ricciardo",
+    "rating": 62.7,
+    "race_count": 10,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.2545356926319261
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Russell",
+    "rating": 66.1,
+    "race_count": 4,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3227385821264524
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Sainz",
+    "rating": 73.0,
+    "race_count": 8,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4592914555493035
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Sargeant",
+    "rating": 50.5,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.00958982681245428
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Stroll",
+    "rating": 56.5,
+    "race_count": 6,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.13026674613696745
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Tsunoda",
+    "rating": 55.3,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.10572439298258483
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Verstappen",
+    "rating": 91.8,
+    "race_count": 14,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.835385530519754
+  },
+  {
+    "season": 2024,
+    "round": 8,
+    "driver": "Zhou",
+    "rating": 53.9,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.07768233115297953
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Albon",
+    "rating": 58.8,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.17641822458812814
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Alonso",
+    "rating": 74.5,
+    "race_count": 18,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.4891169597054429
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Bottas",
+    "rating": 64.9,
+    "race_count": 9,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.29841885521290884
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Gasly",
+    "rating": 59.8,
+    "race_count": 4,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.1964800929745954
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Hamilton",
+    "rating": 85.4,
+    "race_count": 14,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.7071630137259488
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Hulkenberg",
+    "rating": 58.3,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.165379490054946
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Leclerc",
+    "rating": 71.5,
+    "race_count": 4,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4290946460557743
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Magnussen",
+    "rating": 54.7,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.09423522561667164
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Norris",
+    "rating": 65.0,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3008486627281301
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Ocon",
+    "rating": 62.9,
+    "race_count": 4,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.25739891889456673
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Perez",
+    "rating": 66.3,
+    "race_count": 10,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.32507477455656464
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Piastri",
+    "rating": 62.0,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.23990609584650127
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Ricciardo",
+    "rating": 63.3,
+    "race_count": 9,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.26630759827376377
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Russell",
+    "rating": 64.5,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.2898122661057227
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Sainz",
+    "rating": 71.5,
+    "race_count": 7,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.42916362078595655
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Sargeant",
+    "rating": 50.1,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.001797327093835627
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Stroll",
+    "rating": 59.4,
+    "race_count": 5,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.1872983029590718
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Tsunoda",
+    "rating": 54.6,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.09267750854658882
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Verstappen",
+    "rating": 94.3,
+    "race_count": 12,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.8859457698857518
+  },
+  {
+    "season": 2024,
+    "round": 9,
+    "driver": "Zhou",
+    "rating": 54.4,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.08828333081178548
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Albon",
+    "rating": 56.3,
+    "race_count": 4,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.1264766320781922
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Alonso",
+    "rating": 63.4,
+    "race_count": 20,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.267986334295803
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Bottas",
+    "rating": 66.2,
+    "race_count": 11,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.3232597726036484
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Gasly",
+    "rating": 60.8,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.21610036371881802
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Hamilton",
+    "rating": 84.3,
+    "race_count": 17,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6865367708969099
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Hulkenberg",
+    "rating": 56.9,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.13888507831378902
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Leclerc",
+    "rating": 66.4,
+    "race_count": 6,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.32727272118349954
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Magnussen",
+    "rating": 54.5,
+    "race_count": 10,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.09097308243982981
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Norris",
+    "rating": 64.7,
+    "race_count": 5,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.2935755351313223
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Ocon",
+    "rating": 62.3,
+    "race_count": 6,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.24686878565243955
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Perez",
+    "rating": 72.7,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.45358511142432345
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Piastri",
+    "rating": 61.6,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.23293967054859546
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Ricciardo",
+    "rating": 62.6,
+    "race_count": 11,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.25230075109667105
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Russell",
+    "rating": 71.1,
+    "race_count": 5,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.4211061992323491
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Sainz",
+    "rating": 68.8,
+    "race_count": 9,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.37636215723633876
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Sargeant",
+    "rating": 50.0,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.00014517825240995542
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Stroll",
+    "rating": 60.4,
+    "race_count": 7,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.20820837744886952
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Tsunoda",
+    "rating": 56.0,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.11911444577789634
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Verstappen",
+    "rating": 93.7,
+    "race_count": 15,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.8746086716743889
+  },
+  {
+    "season": 2024,
+    "round": 10,
+    "driver": "Zhou",
+    "rating": 54.6,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09278768938809237
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Albon",
+    "rating": 58.9,
+    "race_count": 5,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.17753371123704728
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Alonso",
+    "rating": 65.1,
+    "race_count": 11,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.30120916780154305
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Bottas",
+    "rating": 69.7,
+    "race_count": 12,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.39318207711317665
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Gasly",
+    "rating": 60.3,
+    "race_count": 8,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.20679588083508343
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Hamilton",
+    "rating": 77.8,
+    "race_count": 12,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5561706283710658
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Hulkenberg",
+    "rating": 54.4,
+    "race_count": 7,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.08805684747160296
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Leclerc",
+    "rating": 77.7,
+    "race_count": 8,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.5534122399464292
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Magnussen",
+    "rating": 55.5,
+    "race_count": 10,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.10982869817543943
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Norris",
+    "rating": 70.3,
+    "race_count": 7,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.4067662306362247
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Ocon",
+    "rating": 59.9,
+    "race_count": 8,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.19881810032293235
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Perez",
+    "rating": 71.6,
+    "race_count": 12,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.43161286422874046
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Piastri",
+    "rating": 61.0,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.22042484654995464
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Ricciardo",
+    "rating": 61.4,
+    "race_count": 11,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.22881789821484572
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Russell",
+    "rating": 64.3,
+    "race_count": 7,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.2857866465723577
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Sainz",
+    "rating": 66.3,
+    "race_count": 11,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.32635381598851376
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Sargeant",
+    "rating": 51.2,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.023288555164011068
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Stroll",
+    "rating": 60.1,
+    "race_count": 9,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.20146017597785018
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Tsunoda",
+    "rating": 55.1,
+    "race_count": 4,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.10229896343611007
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Verstappen",
+    "rating": 92.3,
+    "race_count": 16,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.8459398705997059
+  },
+  {
+    "season": 2024,
+    "round": 11,
+    "driver": "Zhou",
+    "rating": 54.5,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09058825165870374
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Albon",
+    "rating": 58.8,
+    "race_count": 5,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.17584786081124354
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Alonso",
+    "rating": 66.3,
+    "race_count": 20,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.3255062921070945
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Bottas",
+    "rating": 65.7,
+    "race_count": 12,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.31475470074298867
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Gasly",
+    "rating": 59.2,
+    "race_count": 7,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.18351717351228478
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Hamilton",
+    "rating": 87.4,
+    "race_count": 18,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.7488092407201917
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Hulkenberg",
+    "rating": 58.4,
+    "race_count": 12,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.1673557951614054
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Leclerc",
+    "rating": 72.8,
+    "race_count": 7,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4563759949021316
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Magnussen",
+    "rating": 53.8,
+    "race_count": 10,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.07590378579490535
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Norris",
+    "rating": 72.0,
+    "race_count": 6,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.43939163626871375
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Ocon",
+    "rating": 58.9,
+    "race_count": 7,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.17733988599202885
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Perez",
+    "rating": 71.4,
+    "race_count": 12,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4289242840598676
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Piastri",
+    "rating": 63.3,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.2655276960202409
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Ricciardo",
+    "rating": 62.6,
+    "race_count": 13,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.25255119541231075
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Russell",
+    "rating": 63.8,
+    "race_count": 6,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.27644728423908504
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Sainz",
+    "rating": 70.3,
+    "race_count": 10,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4051666207321733
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Sargeant",
+    "rating": 51.6,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.03273320372405539
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Stroll",
+    "rating": 59.2,
+    "race_count": 8,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.18397793483219035
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Tsunoda",
+    "rating": 55.4,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1086762776434303
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Verstappen",
+    "rating": 85.0,
+    "race_count": 17,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.7006711114142683
+  },
+  {
+    "season": 2024,
+    "round": 12,
+    "driver": "Zhou",
+    "rating": 53.6,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.0729632486835123
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Albon",
+    "rating": 57.7,
+    "race_count": 4,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15447900950538884
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Alonso",
+    "rating": 65.9,
+    "race_count": 20,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.31813320873657785
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Bottas",
+    "rating": 63.0,
+    "race_count": 11,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.25920923083040537
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Gasly",
+    "rating": 59.4,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.18730460113811817
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Hamilton",
+    "rating": 82.1,
+    "race_count": 17,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6427865662666113
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Hulkenberg",
+    "rating": 57.1,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.14263492925116256
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Leclerc",
+    "rating": 69.0,
+    "race_count": 6,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.38001805864470595
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Magnussen",
+    "rating": 54.8,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.09621522148529492
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Norris",
+    "rating": 71.1,
+    "race_count": 5,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.42185702036822176
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Ocon",
+    "rating": 62.1,
+    "race_count": 6,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.24276716635088505
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Perez",
+    "rating": 73.1,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.46172562507038706
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Piastri",
+    "rating": 63.1,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.26201312555024453
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Ricciardo",
+    "rating": 60.2,
+    "race_count": 13,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.2031749167243995
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Russell",
+    "rating": 67.7,
+    "race_count": 5,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3534990381111681
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Sainz",
+    "rating": 69.3,
+    "race_count": 9,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.385968769444513
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Sargeant",
+    "rating": 50.3,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.0062855291296029375
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Stroll",
+    "rating": 59.0,
+    "race_count": 7,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.18062456954484926
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Tsunoda",
+    "rating": 55.2,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.10407205597170086
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Verstappen",
+    "rating": 90.8,
+    "race_count": 16,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.8150838730989104
+  },
+  {
+    "season": 2024,
+    "round": 13,
+    "driver": "Zhou",
+    "rating": 54.5,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09058332849454757
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Albon",
+    "rating": 58.6,
+    "race_count": 4,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.17167755131857831
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Alonso",
+    "rating": 66.3,
+    "race_count": 18,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.32625127333873005
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Bottas",
+    "rating": 63.2,
+    "race_count": 11,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.26373457678152534
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Gasly",
+    "rating": 62.0,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.2405625716052221
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Hamilton",
+    "rating": 76.0,
+    "race_count": 17,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5202245779964955
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Hulkenberg",
+    "rating": 54.3,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.08674824820982462
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Leclerc",
+    "rating": 74.5,
+    "race_count": 6,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4896575931298759
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Magnussen",
+    "rating": 54.9,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.0986281034386937
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Norris",
+    "rating": 65.8,
+    "race_count": 5,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3153372190966916
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Ocon",
+    "rating": 62.7,
+    "race_count": 7,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.2534089623436768
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Perez",
+    "rating": 77.6,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.5527340494900486
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Piastri",
+    "rating": 60.8,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.21545248570834516
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Ricciardo",
+    "rating": 60.4,
+    "race_count": 13,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.20806429770901136
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Russell",
+    "rating": 67.9,
+    "race_count": 5,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3582274737389145
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Sainz",
+    "rating": 66.5,
+    "race_count": 9,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.3299467609644257
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Sargeant",
+    "rating": 50.6,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.011007853409625103
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Stroll",
+    "rating": 59.5,
+    "race_count": 7,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.18901727188112147
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Tsunoda",
+    "rating": 56.9,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.13760468661853958
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Verstappen",
+    "rating": 93.1,
+    "race_count": 15,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.8617464885293661
+  },
+  {
+    "season": 2024,
+    "round": 14,
+    "driver": "Zhou",
+    "rating": 54.2,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.08463892115033923
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Albon",
+    "rating": 58.7,
+    "race_count": 2,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.17449793001076572
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Alonso",
+    "rating": 71.2,
+    "race_count": 3,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.4240679538107547
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Bottas",
+    "rating": 63.2,
+    "race_count": 3,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.26448340916401186
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Gasly",
+    "rating": 65.5,
+    "race_count": 3,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.31078340136896676
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Hamilton",
+    "rating": 79.0,
+    "race_count": 3,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5807617180071428
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Hulkenberg",
+    "rating": 55.5,
+    "race_count": 1,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.11038080042558597
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Leclerc",
+    "rating": 71.6,
+    "race_count": 3,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.4323911497090521
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Magnussen",
+    "rating": 54.1,
+    "race_count": 2,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.08278492421329056
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Norris",
+    "rating": 67.9,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3581791585869102
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Ocon",
+    "rating": 61.2,
+    "race_count": 3,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.22475139378155307
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Perez",
+    "rating": 73.9,
+    "race_count": 3,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4774759696650473
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Piastri",
+    "rating": 62.3,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.24696883858120064
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Ricciardo",
+    "rating": 60.0,
+    "race_count": 2,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.1995884662210998
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Russell",
+    "rating": 66.8,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3366751996381878
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Sainz",
+    "rating": 69.5,
+    "race_count": 3,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.3907367305220574
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Sargeant",
+    "rating": 50.4,
+    "race_count": 1,
+    "career_score": 0.0,
+    "combined_score": 0.008405922459538312
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Stroll",
+    "rating": 59.3,
+    "race_count": 3,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.1852183439573566
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Tsunoda",
+    "rating": 54.5,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.09004999118222212
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Verstappen",
+    "rating": 98.9,
+    "race_count": 3,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9782662233693928
+  },
+  {
+    "season": 2024,
+    "round": 15,
+    "driver": "Zhou",
+    "rating": 53.4,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.06818584679417104
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Albon",
+    "rating": 59.9,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.19709627000755925
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Alonso",
+    "rating": 62.4,
+    "race_count": 20,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.247533671758327
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Bottas",
+    "rating": 66.3,
+    "race_count": 11,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.32596887949739833
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Gasly",
+    "rating": 61.4,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.22762132381991648
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Hamilton",
+    "rating": 72.2,
+    "race_count": 17,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.44316212323743026
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Hulkenberg",
+    "rating": 56.0,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.12061646321572136
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Leclerc",
+    "rating": 74.2,
+    "race_count": 6,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.48412480778697675
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Magnussen",
+    "rating": 53.3,
+    "race_count": 9,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.06539670417051703
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Norris",
+    "rating": 69.0,
+    "race_count": 5,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3802698716331088
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Ocon",
+    "rating": 58.9,
+    "race_count": 7,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.17810979080254277
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Perez",
+    "rating": 74.9,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.49870201971974093
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Piastri",
+    "rating": 61.9,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.23864799991767616
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Ricciardo",
+    "rating": 66.8,
+    "race_count": 12,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.3358014067675863
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Russell",
+    "rating": 68.8,
+    "race_count": 5,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3764793966883784
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Sainz",
+    "rating": 73.6,
+    "race_count": 9,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4722405881786595
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Stroll",
+    "rating": 58.9,
+    "race_count": 7,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.17703878497239414
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Tsunoda",
+    "rating": 54.4,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.0882177219475493
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Verstappen",
+    "rating": 87.5,
+    "race_count": 16,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.7498602460599768
+  },
+  {
+    "season": 2024,
+    "round": 16,
+    "driver": "Zhou",
+    "rating": 54.8,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09500433761612813
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Albon",
+    "rating": 57.9,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15711770408003706
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Alonso",
+    "rating": 67.2,
+    "race_count": 6,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.3447588926026276
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Bearman",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Bottas",
+    "rating": 62.0,
+    "race_count": 7,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2407836871949899
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Gasly",
+    "rating": 62.5,
+    "race_count": 5,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.25084426894348405
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Hamilton",
+    "rating": 74.9,
+    "race_count": 7,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.4981002570225588
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Hulkenberg",
+    "rating": 54.2,
+    "race_count": 5,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.08444077724602707
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Leclerc",
+    "rating": 73.7,
+    "race_count": 5,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.47325114232109244
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Norris",
+    "rating": 66.9,
+    "race_count": 4,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3372172251214646
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Ocon",
+    "rating": 58.7,
+    "race_count": 5,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.17412123667406304
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Perez",
+    "rating": 84.2,
+    "race_count": 7,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.6843489080613024
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Piastri",
+    "rating": 61.9,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.23822214038929954
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Ricciardo",
+    "rating": 62.0,
+    "race_count": 6,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.24077083856716744
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Russell",
+    "rating": 67.4,
+    "race_count": 4,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3471375238974717
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Sainz",
+    "rating": 66.5,
+    "race_count": 7,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.3305079660284377
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Stroll",
+    "rating": 59.2,
+    "race_count": 6,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.1830750821780704
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Tsunoda",
+    "rating": 57.5,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.14902509042430612
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Verstappen",
+    "rating": 89.0,
+    "race_count": 7,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.7805858815415935
+  },
+  {
+    "season": 2024,
+    "round": 17,
+    "driver": "Zhou",
+    "rating": 53.0,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.06078541021037339
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Albon",
+    "rating": 57.5,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15069989908716416
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Alonso",
+    "rating": 61.4,
+    "race_count": 13,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.2287809503985389
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Bottas",
+    "rating": 60.8,
+    "race_count": 9,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.21643820332479444
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Gasly",
+    "rating": 62.2,
+    "race_count": 4,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.24360543033430934
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Hamilton",
+    "rating": 80.4,
+    "race_count": 14,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.60789747926811
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Hulkenberg",
+    "rating": 58.1,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.1613706615108419
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Leclerc",
+    "rating": 75.6,
+    "race_count": 4,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.5114587863043677
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Magnussen",
+    "rating": 57.5,
+    "race_count": 7,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.149996684391217
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Norris",
+    "rating": 72.7,
+    "race_count": 3,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.4545011418757745
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Ocon",
+    "rating": 58.0,
+    "race_count": 5,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.16081780437035972
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Perez",
+    "rating": 74.5,
+    "race_count": 11,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.49058249257455805
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Piastri",
+    "rating": 62.3,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.24573813290353028
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Ricciardo",
+    "rating": 64.7,
+    "race_count": 10,
+    "career_score": 0.22657490794425547,
+    "combined_score": 0.29346339514757724
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Russell",
+    "rating": 64.4,
+    "race_count": 3,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.2872201103862916
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Sainz",
+    "rating": 80.5,
+    "race_count": 7,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.610708482221606
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Stroll",
+    "rating": 58.6,
+    "race_count": 5,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.17179610715361732
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Tsunoda",
+    "rating": 54.6,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.09116449310249737
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Verstappen",
+    "rating": 82.9,
+    "race_count": 7,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.6576084105571899
+  },
+  {
+    "season": 2024,
+    "round": 18,
+    "driver": "Zhou",
+    "rating": 53.8,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.07638889098729937
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Albon",
+    "rating": 58.7,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.1744992802922402
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Alonso",
+    "rating": 61.3,
+    "race_count": 10,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.2256661931644559
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Bottas",
+    "rating": 63.1,
+    "race_count": 10,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2613216893450011
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Gasly",
+    "rating": 60.9,
+    "race_count": 5,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.21877373918352055
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Hamilton",
+    "rating": 77.5,
+    "race_count": 11,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.550484431361808
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Hulkenberg",
+    "rating": 57.7,
+    "race_count": 9,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.15485790546252542
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Lawson",
+    "rating": 56.2,
+    "race_count": 5,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.12417632672940246
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Leclerc",
+    "rating": 70.9,
+    "race_count": 5,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.41743547505893286
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Magnussen",
+    "rating": 55.8,
+    "race_count": 7,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.11539398438600669
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Norris",
+    "rating": 72.4,
+    "race_count": 4,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.44779956355123435
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Ocon",
+    "rating": 59.1,
+    "race_count": 6,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.18290660753193783
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Perez",
+    "rating": 73.2,
+    "race_count": 11,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4634319506384499
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Piastri",
+    "rating": 61.1,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.222313810404031
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Russell",
+    "rating": 66.6,
+    "race_count": 4,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3314863463633684
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Sainz",
+    "rating": 71.6,
+    "race_count": 8,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4329232635136337
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Stroll",
+    "rating": 59.0,
+    "race_count": 6,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.17975041915901774
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Tsunoda",
+    "rating": 57.5,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1499565759891755
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Verstappen",
+    "rating": 96.7,
+    "race_count": 8,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9346052140544487
+  },
+  {
+    "season": 2024,
+    "round": 19,
+    "driver": "Zhou",
+    "rating": 54.7,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.0931089081924934
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Albon",
+    "rating": 58.6,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.1723178775073974
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Alonso",
+    "rating": 61.3,
+    "race_count": 7,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.22545718045325613
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Bottas",
+    "rating": 63.5,
+    "race_count": 8,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.27064852424156494
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Gasly",
+    "rating": 61.5,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.22979286142921992
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Hamilton",
+    "rating": 85.7,
+    "race_count": 8,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.714074682038797
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Hulkenberg",
+    "rating": 57.4,
+    "race_count": 6,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.14739484861592295
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Lawson",
+    "rating": 56.2,
+    "race_count": 5,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.12417632672940246
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Leclerc",
+    "rating": 75.6,
+    "race_count": 5,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.5123647971984869
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Magnussen",
+    "rating": 53.0,
+    "race_count": 6,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.060017413756553346
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Norris",
+    "rating": 66.8,
+    "race_count": 4,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.33624006564219105
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Ocon",
+    "rating": 61.1,
+    "race_count": 6,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.22168473934451624
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Perez",
+    "rating": 72.5,
+    "race_count": 8,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4504967612435085
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Piastri",
+    "rating": 62.6,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.25242361261353796
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Russell",
+    "rating": 66.4,
+    "race_count": 4,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3278692242328345
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Sainz",
+    "rating": 69.1,
+    "race_count": 8,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.38213860808014705
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Stroll",
+    "rating": 57.6,
+    "race_count": 6,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.15227989889715143
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Tsunoda",
+    "rating": 54.8,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.09522469006251404
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Verstappen",
+    "rating": 97.1,
+    "race_count": 8,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.942991411705063
+  },
+  {
+    "season": 2024,
+    "round": 20,
+    "driver": "Zhou",
+    "rating": 54.6,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.09281658846664374
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Albon",
+    "rating": 56.0,
+    "race_count": 3,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.12057933247601765
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Alonso",
+    "rating": 72.9,
+    "race_count": 20,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.4583613675790843
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Bearman",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Bottas",
+    "rating": 63.8,
+    "race_count": 10,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.276472735952165
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Gasly",
+    "rating": 62.4,
+    "race_count": 6,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.24710225712780404
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Hamilton",
+    "rating": 79.8,
+    "race_count": 16,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5952582107992834
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Hulkenberg",
+    "rating": 57.9,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.15840384720676867
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Lawson",
+    "rating": 56.2,
+    "race_count": 5,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.12417632672940246
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Leclerc",
+    "rating": 68.5,
+    "race_count": 5,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.3700951618562251
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Norris",
+    "rating": 70.7,
+    "race_count": 4,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.41416073540580123
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Ocon",
+    "rating": 61.4,
+    "race_count": 6,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.22794217554988816
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Perez",
+    "rating": 70.9,
+    "race_count": 12,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.41808952800640903
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Piastri",
+    "rating": 61.6,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.23165156318292482
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Russell",
+    "rating": 68.2,
+    "race_count": 4,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.36491539852727506
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Sainz",
+    "rating": 72.0,
+    "race_count": 8,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4406379152111531
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Stroll",
+    "rating": 60.2,
+    "race_count": 6,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.20314132459932938
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Tsunoda",
+    "rating": 56.4,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.12852064341796127
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Verstappen",
+    "rating": 91.1,
+    "race_count": 15,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.821472076037461
+  },
+  {
+    "season": 2024,
+    "round": 21,
+    "driver": "Zhou",
+    "rating": 53.8,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.07562587538241565
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Albon",
+    "rating": 57.8,
+    "race_count": 1,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.15673103294792212
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Alonso",
+    "rating": 67.6,
+    "race_count": 1,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.3521034104004431
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Bottas",
+    "rating": 63.4,
+    "race_count": 1,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2677642028927247
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Gasly",
+    "rating": 61.1,
+    "race_count": 1,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.22187689761843976
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Hamilton",
+    "rating": 81.0,
+    "race_count": 1,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.6192898088076187
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Hulkenberg",
+    "rating": 54.5,
+    "race_count": 1,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.08971564677612338
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Lawson",
+    "rating": 56.2,
+    "race_count": 5,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.12417632672940246
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Leclerc",
+    "rating": 76.6,
+    "race_count": 1,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.5318789574087257
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Magnussen",
+    "rating": 53.9,
+    "race_count": 1,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.07863416449273408
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Norris",
+    "rating": 66.5,
+    "race_count": 1,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.3297324118246726
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Ocon",
+    "rating": 61.8,
+    "race_count": 1,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.2356512192937873
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Perez",
+    "rating": 78.1,
+    "race_count": 1,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.5629500739948291
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Piastri",
+    "rating": 61.9,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.2373236695716081
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Russell",
+    "rating": 67.1,
+    "race_count": 1,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3421539663023254
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Sainz",
+    "rating": 70.2,
+    "race_count": 1,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.4037148848384334
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Stroll",
+    "rating": 59.3,
+    "race_count": 1,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.1862296663574187
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Tsunoda",
+    "rating": 54.3,
+    "race_count": 1,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.08559147088121173
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Verstappen",
+    "rating": 99.9,
+    "race_count": 1,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9983478511585742
+  },
+  {
+    "season": 2024,
+    "round": 22,
+    "driver": "Zhou",
+    "rating": 53.6,
+    "race_count": 1,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.07134478328865208
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Albon",
+    "rating": 57.3,
+    "race_count": 1,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.14686142244896647
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Alonso",
+    "rating": 69.6,
+    "race_count": 2,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.3916599957401778
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Bottas",
+    "rating": 63.9,
+    "race_count": 2,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.27837250947335956
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Gasly",
+    "rating": 61.0,
+    "race_count": 2,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.2206185225571117
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Hamilton",
+    "rating": 79.1,
+    "race_count": 2,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5812212669403347
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Hulkenberg",
+    "rating": 54.9,
+    "race_count": 1,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.09810009867120002
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Lawson",
+    "rating": 55.8,
+    "race_count": 1,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.11537781333639215
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Leclerc",
+    "rating": 72.4,
+    "race_count": 2,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.44815482344391644
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Magnussen",
+    "rating": 53.4,
+    "race_count": 1,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.06730324484700922
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Norris",
+    "rating": 72.0,
+    "race_count": 2,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.4407833798491424
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Ocon",
+    "rating": 62.3,
+    "race_count": 2,
+    "career_score": 0.21793899841833886,
+    "combined_score": 0.24603222492184967
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Perez",
+    "rating": 72.9,
+    "race_count": 2,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4577041984600991
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Piastri",
+    "rating": 66.0,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.32084376765565165
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Russell",
+    "rating": 66.8,
+    "race_count": 2,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.33669737526414456
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Sainz",
+    "rating": 66.8,
+    "race_count": 2,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.33680017002125673
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Stroll",
+    "rating": 59.1,
+    "race_count": 2,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.18173907648218446
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Tsunoda",
+    "rating": 55.6,
+    "race_count": 2,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.11131831630518677
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Verstappen",
+    "rating": 98.5,
+    "race_count": 2,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9707303405491307
+  },
+  {
+    "season": 2024,
+    "round": 23,
+    "driver": "Zhou",
+    "rating": 54.4,
+    "race_count": 1,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.0880500738472532
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Albon",
+    "rating": 58.1,
+    "race_count": 4,
+    "career_score": 0.1425294675001122,
+    "combined_score": 0.16111848392453507
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Alonso",
+    "rating": 63.9,
+    "race_count": 13,
+    "career_score": 0.3633621285263597,
+    "combined_score": 0.2782005822513272
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Bottas",
+    "rating": 62.1,
+    "race_count": 11,
+    "career_score": 0.2968217576369971,
+    "combined_score": 0.2417164078222213
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Colapinto",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Doohan",
+    "rating": 55.0,
+    "race_count": 0,
+    "career_score": 0.31973454909825144,
+    "combined_score": 0.31973454909825144
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Gasly",
+    "rating": 60.2,
+    "race_count": 7,
+    "career_score": 0.21469312741096674,
+    "combined_score": 0.20414337966945484
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Hamilton",
+    "rating": 75.2,
+    "race_count": 15,
+    "career_score": 0.6765399725771181,
+    "combined_score": 0.5038985881832991
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Hulkenberg",
+    "rating": 57.2,
+    "race_count": 10,
+    "career_score": 0.09651781511777083,
+    "combined_score": 0.14388810707422103
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Lawson",
+    "rating": 56.2,
+    "race_count": 5,
+    "career_score": 0.12417632672940246,
+    "combined_score": 0.12417632672940246
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Leclerc",
+    "rating": 78.0,
+    "race_count": 6,
+    "career_score": 0.4864416991033214,
+    "combined_score": 0.5591731590867867
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Magnussen",
+    "rating": 52.8,
+    "race_count": 8,
+    "career_score": 0.0563873343291197,
+    "combined_score": 0.05685964989850719
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Norris",
+    "rating": 68.7,
+    "race_count": 5,
+    "career_score": 0.38310548567083513,
+    "combined_score": 0.374142878477295
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Perez",
+    "rating": 72.3,
+    "race_count": 13,
+    "career_score": 0.533965363955561,
+    "combined_score": 0.4458677765006826
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Piastri",
+    "rating": 63.1,
+    "race_count": 1,
+    "career_score": 0.24246889502314617,
+    "combined_score": 0.26205910086823875
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Russell",
+    "rating": 69.5,
+    "race_count": 5,
+    "career_score": 0.3433939026882848,
+    "combined_score": 0.3901940370275912
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Sainz",
+    "rating": 67.1,
+    "race_count": 9,
+    "career_score": 0.4174461418211547,
+    "combined_score": 0.3410968952319205
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Stroll",
+    "rating": 59.7,
+    "race_count": 7,
+    "career_score": 0.16464235837374652,
+    "combined_score": 0.19376787201823312
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Tsunoda",
+    "rating": 58.2,
+    "race_count": 3,
+    "career_score": 0.0946709468958237,
+    "combined_score": 0.1646484581981826
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Verstappen",
+    "rating": 97.6,
+    "race_count": 9,
+    "career_score": 0.9999999999999999,
+    "combined_score": 0.9522943721513177
+  },
+  {
+    "season": 2024,
+    "round": 24,
+    "driver": "Zhou",
+    "rating": 53.8,
+    "race_count": 2,
+    "career_score": 0.06381559786375762,
+    "combined_score": 0.07543806570166242
   }
 ]

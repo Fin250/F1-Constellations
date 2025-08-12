@@ -15,38 +15,244 @@ RESULTS_PATH_GP = 'gp_predictions.json'
 # DRIVER STRENGTH PREDICTION
 # =========================
 def predict_driver_strengths():
-    print("Training and predicting driver strengths...")
+    print("Calculating driver strengths for 2024 (per-round, drivers present in each round)...")
     df = pd.read_csv("final_df.csv")
-    train = df[df.season < 2024]
-    test = df[df.season == 2024]
-
-    if train.empty or test.empty:
-        print("Insufficient data for driver strength training.")
+    if df.empty:
+        print("final_df.csv empty — aborting.")
         return []
 
-    X_train = train.drop(['driver', 'podium'], axis=1).select_dtypes(include=[np.number])
-    y_train = train.podium
+    # --- Ensure circuit_id exists (build from boolean one-hot if necessary) ---
+    if 'circuit_id' not in df.columns:
+        circuit_onehots = [c for c in df.columns if c.startswith('circuit_id_')]
+        if circuit_onehots:
+            valid = []
+            for c in circuit_onehots:
+                vals = df[c].dropna().unique()
+                try:
+                    is_bin = all(v in (0, 1, 0.0, 1.0, True, False) for v in vals)
+                except Exception:
+                    is_bin = False
+                if is_bin:
+                    valid.append(c)
+            if not valid:
+                raise RuntimeError("Found circuit_id_* columns but none look binary. Aborting.")
+            mask = (df[valid] == 1)
+            idx = mask.idxmax(axis=1)
+            no_true = mask.sum(axis=1) == 0
+            idx[no_true] = np.nan
+            df['circuit_id'] = idx.str.replace('circuit_id_', '', regex=False)
+        elif 'circuit' in df.columns:
+            df['circuit_id'] = df['circuit'].astype(str)
+        else:
+            raise RuntimeError("No circuit identifier found in final_df (need 'circuit_id' or circuit_id_*).")
 
-    X_test = test[X_train.columns]
+    df['circuit_id'] = df['circuit_id'].astype(object)
 
-    scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    df_2024 = df[df['season'] == 2024].copy()
+    drivers_2024 = sorted(df_2024['driver'].dropna().unique())
+    rounds_2024 = sorted(df_2024['round'].dropna().unique())
 
-    model = LogisticRegression(max_iter=500)
-    model.fit(X_train_scaled, y_train)
+    if len(drivers_2024) == 0 or len(rounds_2024) == 0:
+        print("No drivers or rounds for 2024 found in final_df.csv; aborting.")
+        return []
 
-    probabilities = model.predict_proba(X_test_scaled)[:, 1]
-    driver_strengths = pd.DataFrame({
-        "driver": test['driver'].values,
-        "strength": (probabilities * 100).round(2)
-    }).groupby('driver')['strength'].mean().reset_index()
+    hist = df[(df['season'] < 2024) & (df['driver'].isin(drivers_2024))].copy()
 
-    driver_strengths = driver_strengths.sort_values("strength", ascending=False).reset_index(drop=True)
-    driver_strengths.to_json(RESULTS_PATH_DRIVERS, orient="records", indent=2)
-    print(f"Driver strengths saved to {RESULTS_PATH_DRIVERS}")
-    return driver_strengths.to_dict(orient="records")
+    for col in ['podium', 'grid', 'driver_points']:
+        if col not in hist.columns:
+            hist[col] = np.nan
+    hist['podium'] = pd.to_numeric(hist['podium'], errors='coerce')
+    hist['grid'] = pd.to_numeric(hist['grid'], errors='coerce')
+    hist['driver_points'] = pd.to_numeric(hist.get('driver_points', 0)).fillna(0.0)
 
+    hist['podium_top3'] = (hist['podium'] <= 3).astype(float)
+    hist['win_flag'] = (hist['podium'] == 1).astype(float)
+    SEASON_DECAY = 0.5
+    if not hist.empty:
+        ref_season = int(hist['season'].max())
+        hist['season_weight'] = np.exp(-SEASON_DECAY * (ref_season - hist['season']))
+    else:
+        hist['season_weight'] = pd.Series(dtype=float)
+
+    def wavg(vals, weights):
+        vals = np.array(vals, dtype=float)
+        weights = np.array(weights, dtype=float)
+        mask = ~np.isnan(vals)
+        if mask.sum() == 0 or weights[mask].sum() == 0:
+            return np.nan
+        return (vals[mask] * weights[mask]).sum() / weights[mask].sum()
+
+    track_records = []
+    if not hist.empty:
+        for (driver, circuit), sub in hist.groupby(['driver', 'circuit_id'], dropna=False):
+            if pd.isna(driver) or pd.isna(circuit):
+                continue
+            w = sub['season_weight'].fillna(1.0)
+            track_records.append({
+                'driver': driver,
+                'circuit_id': str(circuit),
+                'race_count': int(len(sub)),
+                'avg_finish': wavg(sub['podium'], w),
+                'avg_grid': wavg(sub['grid'], w),
+                'podium_rate': wavg(sub['podium_top3'], w),
+                'win_rate': wavg(sub['win_flag'], w),
+                'pts_per_race': wavg(sub['driver_points'], w)
+            })
+    perf = pd.DataFrame(track_records)
+
+    career_records = []
+    if not hist.empty:
+        for driver, sub in hist.groupby('driver'):
+            w = sub['season_weight'].fillna(1.0)
+            career_records.append({
+                'driver': driver,
+                'career_race_count': int(len(sub)),
+                'career_avg_finish': wavg(sub['podium'], w),
+                'career_avg_grid': wavg(sub['grid'], w),
+                'career_podium_rate': wavg(sub['podium_top3'], w),
+                'career_win_rate': wavg(sub['win_flag'], w),
+                'career_pts_per_race': wavg(sub['driver_points'], w)
+            })
+    career = pd.DataFrame(career_records)
+
+    if career.empty:
+        career = pd.DataFrame([{
+            'driver': d,
+            'career_race_count': 0,
+            'career_avg_finish': np.nan,
+            'career_avg_grid': np.nan,
+            'career_podium_rate': np.nan,
+            'career_win_rate': np.nan,
+            'career_pts_per_race': np.nan
+        } for d in drivers_2024])
+
+    if perf.empty:
+        perf = pd.DataFrame([{'driver': d, 'circuit_id': None, 'race_count': 0,
+                              'avg_finish': np.nan, 'avg_grid': np.nan,
+                              'podium_rate': np.nan, 'win_rate': np.nan, 'pts_per_race': np.nan}
+                             for d in drivers_2024])
+    perf = perf.merge(career, on='driver', how='left')
+
+    def minmax(series, fillna_val=0.5):
+        s = pd.Series(series).astype(float)
+        if s.isnull().all():
+            return pd.Series(fillna_val, index=s.index)
+        s = s.fillna(s.median())
+        mn, mx = s.min(), s.max()
+        if np.isclose(mx, mn):
+            return pd.Series(0.5, index=s.index)
+        return (s - mn) / (mx - mn)
+
+    finish_score = 1.0 - minmax(perf.get('avg_finish', pd.Series(dtype=float)))
+    grid_score = 1.0 - minmax(perf.get('avg_grid', pd.Series(dtype=float)))
+    podium_score = minmax(perf.get('podium_rate', pd.Series(dtype=float)))
+    win_score = minmax(perf.get('win_rate', pd.Series(dtype=float)))
+    pts_score = minmax(perf.get('pts_per_race', pd.Series(dtype=float)))
+
+    perf['track_raw_score'] = (
+        0.35 * finish_score +
+        0.30 * podium_score +
+        0.15 * win_score +
+        0.10 * pts_score +
+        0.10 * grid_score
+    )
+
+    career_tmp = career.copy()
+    c_finish = 1.0 - minmax(career_tmp.get('career_avg_finish', pd.Series(dtype=float)))
+    c_grid = 1.0 - minmax(career_tmp.get('career_avg_grid', pd.Series(dtype=float)))
+    c_podium = minmax(career_tmp.get('career_podium_rate', pd.Series(dtype=float)))
+    c_win = minmax(career_tmp.get('career_win_rate', pd.Series(dtype=float)))
+    c_pts = minmax(career_tmp.get('career_pts_per_race', pd.Series(dtype=float)))
+    career_tmp['career_score'] = (
+        0.35 * c_finish + 0.30 * c_podium + 0.15 * c_win + 0.10 * c_pts + 0.10 * c_grid
+    )
+    perf = perf.merge(career_tmp[['driver', 'career_score', 'career_race_count']], on='driver', how='left')
+
+    PRIOR_COUNT = 5.0
+    perf['n'] = perf['race_count'].fillna(0).astype(float)
+    perf['k'] = float(PRIOR_COUNT)
+    tr_mean = perf['track_raw_score'].mean() if 'track_raw_score' in perf else 0.5
+    cs_mean = perf['career_score'].mean() if 'career_score' in perf else 0.5
+    perf['combined_score'] = (
+        perf['n'] * perf['track_raw_score'].fillna(tr_mean) +
+        perf['k'] * perf['career_score'].fillna(cs_mean)
+    ) / (perf['n'] + perf['k'])
+    perf['combined_score'] = perf['combined_score'].fillna(perf['combined_score'].mean())
+
+    perf['combined_score_clipped'] = perf['combined_score'].clip(0.0, 1.0)
+    perf['rating'] = (50.0 + 50.0 * perf['combined_score_clipped']).round(1)
+
+    circuit_round_map = {}
+    for rnd in rounds_2024:
+        circuits = df_2024.loc[df_2024['round'] == rnd, 'circuit_id'].dropna().unique()
+        circuit_round_map[int(rnd)] = str(circuits[0]) if len(circuits) > 0 else None
+
+    out_records = []
+    if not perf.empty:
+        perf_lookup = perf.set_index(['driver', 'circuit_id'])
+    else:
+        perf_lookup = None
+    career_lookup = career_tmp.set_index('driver') if not career_tmp.empty else pd.DataFrame()
+
+    UNKNOWN_DRIVER_START_RATING = 55.0
+
+    for rnd in rounds_2024:
+        circuit_id = circuit_round_map.get(int(rnd))
+        drivers_this_round = sorted(df_2024.loc[df_2024['round'] == rnd, 'driver'].dropna().unique())
+        if len(drivers_this_round) == 0:
+            continue
+        for driver in drivers_this_round:
+            rating = None
+            race_count = 0
+            career_score = None
+            combined_score = None
+
+            found_track_row = None
+            if perf_lookup is not None and circuit_id is not None:
+                try:
+                    row = perf_lookup.loc[(driver, str(circuit_id))]
+                    if isinstance(row, pd.DataFrame):
+                        row = row.iloc[0]
+                    found_track_row = row
+                except KeyError:
+                    found_track_row = None
+                except Exception:
+                    found_track_row = None
+
+            if found_track_row is not None:
+                r = found_track_row
+                rating = float(r.get('rating', (50.0 + 50.0 * cs_mean)))
+                race_count = int(r.get('race_count', 0) if not pd.isna(r.get('race_count', 0)) else 0)
+                career_score = float(r.get('career_score', cs_mean))
+                combined_score = float(r.get('combined_score', career_score if career_score is not None else cs_mean))
+            else:
+                if driver in career_lookup.index:
+                    crow = career_lookup.loc[driver]
+                    career_score = float(crow.get('career_score', cs_mean) if not pd.isna(crow.get('career_score', np.nan)) else cs_mean)
+                    combined_score = career_score
+                    rating = float(round(50.0 + 50.0 * min(max(career_score, 0.0), 1.0), 1))
+                    race_count = int(crow.get('career_race_count', 0) if not pd.isna(crow.get('career_race_count', 0)) else 0)
+                else:
+                    career_score = float(cs_mean)
+                    combined_score = career_score
+                    rating = float(UNKNOWN_DRIVER_START_RATING)
+                    race_count = 0
+
+            out_records.append({
+                "season": 2024,
+                "round": int(rnd),
+                "driver": driver,
+                "rating": float(round(float(rating), 1)),
+                "race_count": int(race_count),
+                "career_score": float(career_score),
+                "combined_score": float(combined_score)
+            })
+
+    with open(RESULTS_PATH_DRIVERS, 'w') as f:
+        json.dump(out_records, f, indent=2)
+
+    print(f"Driver strengths saved to {RESULTS_PATH_DRIVERS} (rows: {len(out_records)})")
+    return out_records
 
 # =============================
 # CONSTRUCTOR STRENGTH PREDICTION
@@ -56,7 +262,6 @@ def predict_constructor_strengths():
 
     df = pd.read_csv("final_df.csv")
 
-    # Identify valid one-hot constructor columns
     constructor_cols = [c for c in df.columns if c.startswith("constructor_")]
     onehot_cols = []
     for col in constructor_cols:
@@ -71,7 +276,6 @@ def predict_constructor_strengths():
     if not onehot_cols:
         raise RuntimeError("No one-hot constructor columns detected. Aborting — check column names.")
 
-    # Build TEAM column
     mask = (df[onehot_cols] == 1)
     idx = mask.idxmax(axis=1)
     no_team_rows = mask.sum(axis=1) == 0
@@ -79,7 +283,6 @@ def predict_constructor_strengths():
     df['TEAM'] = idx.str.replace("constructor_", "", regex=False)
     df = df[df['TEAM'].notna()].copy()
 
-    # Build circuit column
     circuit_cols = [c for c in df.columns if c.startswith("circuit_id_")]
     if not circuit_cols:
         raise RuntimeError("No circuit_id_* columns found.")
@@ -95,7 +298,6 @@ def predict_constructor_strengths():
 
     df['circuit'] = df.apply(get_circuit_name, axis=1)
 
-    # Compute constructor strength per (season, round, TEAM)
     def compute_constructor_strength(group):
         avg_pos = group["podium"].mean()
         best_pos = group["podium"].min()
@@ -120,7 +322,6 @@ def predict_constructor_strengths():
           .reset_index()
     )
 
-    # Merge circuit info per (season, round, TEAM)
     season_round_team_circuit = (
         df[['season', 'round', 'TEAM', 'circuit']]
         .drop_duplicates()
@@ -135,7 +336,6 @@ def predict_constructor_strengths():
         how='left'
     )
 
-    # Build feature_df with weather and other extra cols if present
     extra_cols = ['weather_warm','weather_cold','weather_dry','weather_wet','weather_cloudy']
     extra_cols = [c for c in extra_cols if c in df.columns]
     cols_to_keep = ['season', 'round', 'TEAM', 'circuit'] + extra_cols
@@ -147,7 +347,6 @@ def predict_constructor_strengths():
         how='left'
     )
 
-    # Clean columns
     drop_cols = [
         'driver','podium','driver_points','driver_wins','driver_standings_pos',
         'constructor_points','constructor_wins','constructor_standings_pos',
@@ -156,11 +355,9 @@ def predict_constructor_strengths():
     drop_cols = [c for c in drop_cols if c in feature_df.columns]
     feature_df = feature_df.drop(columns=drop_cols)
 
-    # Ensure categorical columns are strings and fill NAs
     feature_df['circuit'] = feature_df['circuit'].fillna('unknown').astype(str)
     feature_df['TEAM'] = feature_df['TEAM'].fillna('unknown').astype(str)
 
-    # Prepare training data for seasons before 2024
     train_df = feature_df[feature_df['season'] < 2024].copy()
     if train_df.empty:
         raise RuntimeError("No training data before 2024 found.")
@@ -168,16 +365,13 @@ def predict_constructor_strengths():
     X_train = pd.get_dummies(train_df.drop(columns=['strength']), columns=['TEAM', 'circuit'], dtype=float)
     y_train = train_df['strength'].astype(float)
 
-    # Drop any non-numeric columns remaining
     non_numeric = X_train.select_dtypes(exclude=[np.number]).columns.tolist()
     if non_numeric:
         X_train = X_train.drop(columns=non_numeric)
 
-    # Train LightGBM model
     model = LGBMRegressor(n_estimators=500, learning_rate=0.05, max_depth=6, random_state=42)
     model.fit(X_train, y_train)
 
-    # Prepare historical data for rolling and track features
     hist = constructor_round_strength.copy()
     hist['circuit'] = hist['circuit'].fillna('unknown').astype(str)
 
@@ -217,7 +411,6 @@ def predict_constructor_strengths():
             return np.nan
         return past_track['strength'].mean()
 
-    # Predict round-by-round for 2024
     teams_2024 = df.loc[df['season'] == 2024, 'TEAM'].dropna().unique()
     rounds_2024 = sorted(df.loc[df['season'] == 2024, 'round'].unique())
 
@@ -225,7 +418,6 @@ def predict_constructor_strengths():
 
     for rnd in rounds_2024:
         rows = []
-        # Defensive circuit extraction for the round
         round_circuits = season_round_team_circuit[
             (season_round_team_circuit['season'] == 2024) & (season_round_team_circuit['round'] == rnd)
         ]['circuit'].dropna().unique()
@@ -248,20 +440,17 @@ def predict_constructor_strengths():
 
         rnd_df = pd.DataFrame(rows)
 
-        # Fill missing numeric values with historical medians
         for col in ['avg_pos', 'best_pos', 'points_score', 'both_scored_flag', 'track_strength']:
             if col in rnd_df.columns and rnd_df[col].isna().any():
                 median_val = feature_df[col].median() if col in feature_df.columns else 0.0
                 rnd_df[col].fillna(median_val, inplace=True)
 
-        # One-hot encode TEAM and circuit; align columns with training data
         X_round = pd.get_dummies(rnd_df.drop(columns=['season', 'round']), columns=['TEAM', 'circuit'], dtype=float)
         X_round = X_round.reindex(columns=X_train.columns, fill_value=0)
 
         preds = model.predict(X_round)
         rnd_df['predicted_strength'] = preds
 
-        # Attach actual strength if available
         actuals = constructor_round_strength[
             (constructor_round_strength['season'] == 2024) &
             (constructor_round_strength['round'] == rnd)
@@ -293,7 +482,6 @@ def predict_gp_results():
 
     X_train = train.drop(['driver', 'podium'], axis=1).select_dtypes(include=[np.number])
     y_train = train.podium
-    X_test = test[X_train.columns]
 
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)

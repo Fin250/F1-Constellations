@@ -59,6 +59,10 @@ def tracks(trackname):
 # Get predictions for a given round
 @app.route('/ml/<int:roundnum>')
 def get_ml_predictions(roundnum):
+    """
+    Return GP predictions, driver strengths (only for drivers in that round),
+    constructor strengths for the given round, and driver metadata.
+    """
     try:
         with open(RESULTS_PATH_GP, 'r') as f:
             gp_results = json.load(f)
@@ -66,22 +70,80 @@ def get_ml_predictions(roundnum):
             driver_strengths = json.load(f)
         with open(RESULTS_PATH_CONSTRUCTORS, 'r') as f:
             constructor_strengths = json.load(f)
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         return Response(response='[]', status=404, mimetype='application/json')
+    except json.JSONDecodeError as e:
+        return Response(response='[]', status=500, mimetype='application/json')
 
-    # Filter gp_results and constructor_strengths by roundnum
-    gp_result_for_round = next((r for r in gp_results if r["round"] == roundnum), None)
+    # Find GP predictions object for requested round
+    gp_result_for_round = next((r for r in gp_results if int(r.get("round", -1)) == int(roundnum)), None)
     if not gp_result_for_round:
         return Response(response='[]', status=404, mimetype='application/json')
 
-    # Filter constructor_strengths to only include entries for the given round
+    # Build set of drivers participating in this round (source: gp predictions)
+    try:
+        predictions = gp_result_for_round.get("predictions", [])
+        drivers_in_round = {p.get("driver") for p in predictions if p.get("driver")}
+        # normalise driver names for case-insensitive matching
+        drivers_in_round_lower = {d.lower() for d in drivers_in_round}
+    except Exception:
+        drivers_in_round = set()
+        drivers_in_round_lower = set()
+
+    # Prefer driver_strength entries that include season & round fields (per-round output).
+    # If those exist, filter them directly by round. Otherwise fall back to driver-name matching.
+    driver_strengths_for_round = []
+    # try the strict per-season/round match first
+    for ds in driver_strengths:
+        try:
+            if int(ds.get("round", -1)) == int(roundnum) and int(ds.get("season", -1)) == 2024:
+                # include only drivers participating this round if possible
+                driver_name = ds.get("driver")
+                if not drivers_in_round:
+                    driver_strengths_for_round.append(ds)
+                else:
+                    if driver_name and driver_name.lower() in drivers_in_round_lower:
+                        driver_strengths_for_round.append(ds)
+        except Exception:
+            # defensive: skip malformed entries
+            continue
+
+    # Fallback: if strict per-round list empty, match by driver names (case-insensitive)
+    if not driver_strengths_for_round:
+        for ds in driver_strengths:
+            driver_name = ds.get("driver")
+            if driver_name and driver_name.lower() in drivers_in_round_lower:
+                driver_strengths_for_round.append(ds)
+
+    # As a final fallback: if still empty, return neutral per-driver entries using GP predictions
+    if not driver_strengths_for_round:
+        for d in sorted(drivers_in_round):
+            driver_strengths_for_round.append({
+                "season": 2024,
+                "round": roundnum,
+                "driver": d,
+                "rating": 75.0,
+                "race_count": 0,
+                "career_score": 0.5,
+                "combined_score": 0.5
+            })
+
+    # Filter constructor strengths to just this round (and prefer season 2024)
     constructor_strengths_for_round = [
-        cs for cs in constructor_strengths if cs.get("round") == roundnum
+        cs for cs in constructor_strengths
+        if int(cs.get("round", -1)) == int(roundnum) and int(cs.get("season", 2024)) == 2024
     ]
+
+    # If none found, also try to return any constructor entries for that round regardless of season key
+    if not constructor_strengths_for_round:
+        constructor_strengths_for_round = [
+            cs for cs in constructor_strengths
+            if int(cs.get("round", -1)) == int(roundnum)
+        ]
 
     response_data = {
         "gp_results": gp_result_for_round,
-        "driver_strength": driver_strengths,
+        "driver_strength": driver_strengths_for_round,
         "constructor_strength": constructor_strengths_for_round,
         "driver_metadata": DRIVER_METADATA
     }

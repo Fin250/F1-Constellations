@@ -78,7 +78,7 @@ DRIVER_METADATA = {
         "nationality": "France"
     },
     "doohan": {
-        "full_name": "jack Doohan",
+        "full_name": "Jack Doohan",
         "image": "/static/images/drivers/doohan.png",
         "constructor": "Alpine",
         "nationality": "Australia"

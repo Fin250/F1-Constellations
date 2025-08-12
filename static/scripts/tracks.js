@@ -198,15 +198,34 @@ function populateDriverStrength(drivers, metadata) {
         return;
     }
 
+    // drivers: array of objects that may have {driver, rating, season, round, ...}
+    // or older {driver, strength,...}
     list.innerHTML = '';
-    drivers.forEach((driver, index) => {
-        const key = (driver.driver || '').toLowerCase();
-        const meta = metadata[key] || {};
-        const name = meta.full_name || capitalize(driver.driver) || 'Unknown';
-        const imageUrl = meta.image || `/static/images/drivers/driver-placeholder.png`;
-        const constructorName = meta.constructor || null;
 
-        const strength = safeMetric(driver.strength, 1);
+    // sort by rating (desc) if available
+    drivers.sort((a, b) => {
+        const va = (a && (typeof a.rating === 'number' ? a.rating : Number(a.rating || a.strength || -Infinity)));
+        const vb = (b && (typeof b.rating === 'number' ? b.rating : Number(b.rating || b.strength || -Infinity)));
+        return vb - va;
+    });
+
+    drivers.forEach((d, index) => {
+        const driverNameRaw = d.driver || d.Driver || '';
+        const key = (driverNameRaw || '').toLowerCase();
+        const meta = metadata[key] || {};
+        const name = meta.full_name || capitalize(driverNameRaw) || 'Unknown';
+        const imageUrl = meta.image || `/static/images/drivers/driver-placeholder.png`;
+        const constructorName = normalizeConstructorName(meta.constructor) || null;
+
+        // Prefer 'rating' (50-100), fall back to 'strength' if present
+        let ratingVal = null;
+        if (d.rating !== undefined && d.rating !== null) {
+            ratingVal = Number(d.rating);
+        } else if (d.strength !== undefined && d.strength !== null) {
+            ratingVal = Number(d.strength);
+        }
+
+        const strength = (ratingVal !== null && !Number.isNaN(ratingVal)) ? safeMetric(ratingVal, 1) : 'N/A';
 
         const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName);
         list.appendChild(li);
