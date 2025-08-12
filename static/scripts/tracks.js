@@ -198,11 +198,8 @@ function populateDriverStrength(drivers, metadata) {
         return;
     }
 
-    // drivers: array of objects that may have {driver, rating, season, round, ...}
-    // or older {driver, strength,...}
     list.innerHTML = '';
 
-    // sort by rating (desc) if available
     drivers.sort((a, b) => {
         const va = (a && (typeof a.rating === 'number' ? a.rating : Number(a.rating || a.strength || -Infinity)));
         const vb = (b && (typeof b.rating === 'number' ? b.rating : Number(b.rating || b.strength || -Infinity)));
@@ -217,7 +214,6 @@ function populateDriverStrength(drivers, metadata) {
         const imageUrl = meta.image || `/static/images/drivers/driver-placeholder.png`;
         const constructorName = normalizeConstructorName(meta.constructor) || null;
 
-        // Prefer 'rating' (50-100), fall back to 'strength' if present
         let ratingVal = null;
         if (d.rating !== undefined && d.rating !== null) {
             ratingVal = Number(d.rating);
@@ -225,7 +221,7 @@ function populateDriverStrength(drivers, metadata) {
             ratingVal = Number(d.strength);
         }
 
-        const strength = (ratingVal !== null && !Number.isNaN(ratingVal)) ? safeMetric(ratingVal, 1) : 'N/A';
+        const strength = (ratingVal !== null && !Number.isNaN(ratingVal)) ? safeMetric(ratingVal, 0) : 'N/A';
 
         const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName);
         list.appendChild(li);
@@ -260,7 +256,7 @@ function populateConstructorStrength(constructors) {
 
         let strength = 'N/A';
         if (typeof constructor.predicted_strength === 'number') {
-            strength = (constructor.predicted_strength * 100).toFixed(1);
+            strength = (constructor.predicted_strength * 100).toFixed(0);
         }
 
         const li = createPredictionItem(index + 1, imageUrl, name, strength, true, name);
