@@ -53,7 +53,9 @@ def tracks(trackname):
         annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['layout']}",
         flag_path=f"/static/images/flags/{track['flag']}",
         script_path="/static/scripts/tracks.js",
-        round_number=track["round"]
+        round_number=track["round"],
+        wiki=track["wiki"],
+        f1_website=track["f1_website"]
     )
 
 # Get predictions for a given round

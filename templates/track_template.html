@@ -33,14 +33,14 @@
     </div>
 
     <aside class="track-map-links" aria-label="External track links">
-      <a class="track-link-card" href="https://en.wikipedia.org/wiki/{{ track_display_name | urlencode }}" target="_blank" rel="noopener noreferrer">
+      <a class="track-link-card wiki" href="https://en.wikipedia.org/wiki/{{ wiki | urlencode }}" target="_blank" rel="noopener noreferrer">
         <div class="link-logo">
           <img src="/static/images/wikipedia.png" alt="Wikipedia">
         </div>
         <div class="link-label">Wikipedia</div>
       </a>
 
-      <a class="track-link-card f1" href="https://www.formula1.com/en/racing/{{ track_display_name | urlencode }}.html" target="_blank" rel="noopener noreferrer">
+      <a class="track-link-card f1" href="https://www.formula1.com/en/racing/{{ f1_website | urlencode }}.html" target="_blank" rel="noopener noreferrer">
         <div class="link-logo">
           <img src="/static/images/formula-1.png" alt="Formula 1">
         </div>
