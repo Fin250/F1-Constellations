@@ -43,6 +43,18 @@ const constructorLogos = {
     "Kick Sauber": "/static/images/constructors/kicksauber.png"
 };
 
+function getStrengthColor(strength) {
+    if (strength === 'N/A') return '#888';
+    const val = Number(strength);
+    if (Number.isNaN(val)) return '#888';
+    if (val >= 90) return '#00FF00';
+    if (val <= 30) return '#FF1E1E';
+    const green = Math.round(((val - 30) / 60) * 255);
+    const red = 255 - green;
+    return `rgb(${red},${green},0)`;
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const roundAttr = document.body.getAttribute('data-round');
     if (!roundAttr) {
@@ -107,19 +119,16 @@ function safeMetric(value, decimals = 2) {
 }
 
 /* Creates the list item used by all lists */
-function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null, metricClass = 'metric') {
+function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null, metricClass = 'metric', showMetric = true, isProbability = false) {
     const li = document.createElement('li');
 
-    // position
     const posSpan = document.createElement('span');
     posSpan.className = 'position';
     posSpan.textContent = ordinal(position);
 
-    // info container
     const infoDiv = document.createElement('div');
     infoDiv.className = isConstructor ? 'constructor-info' : 'driver-info';
 
-    // image wrapper
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'image-wrapper';
 
@@ -132,7 +141,6 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     img.alt = name;
 
     const isPlaceholder = (imageUrl || '').includes('driver-placeholder') || (imageUrl || '').includes('constructor-placeholder');
-
     img.className = (!isConstructor && !isPlaceholder) ? 'driver-img' : 'static-img';
 
     img.onerror = function () {
@@ -150,14 +158,70 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     nameSpan.textContent = name;
     infoDiv.appendChild(nameSpan);
 
-    // metric span with type-specific class
-    const metricSpan = document.createElement('span');
-    metricSpan.className = metricClass;
-    metricSpan.textContent = metricValue;
+    const metricWrapper = document.createElement('div');
+    metricWrapper.style.position = 'relative';
+    metricWrapper.style.width = '40px';
+    metricWrapper.style.height = '40px';
+    metricWrapper.style.flexShrink = '0';
+    metricWrapper.style.display = 'flex';
+    metricWrapper.style.alignItems = 'center';
+    metricWrapper.style.justifyContent = 'center';
+
+    if (showMetric && metricValue !== 'N/A') {
+        const metricSpan = document.createElement('span');
+        metricSpan.className = metricClass;
+        metricSpan.textContent = metricValue;
+
+        metricWrapper.appendChild(metricSpan);
+
+        if (!isProbability) {
+            metricSpan.style.position = 'absolute';
+            metricSpan.style.top = '50%';
+            metricSpan.style.left = '50%';
+            metricSpan.style.transform = 'translate(-50%, -50%)';
+            metricSpan.style.fontWeight = 'bold';
+            metricSpan.style.fontSize = '12px';
+            metricSpan.style.color = getStrengthColor(metricValue);
+
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("width", "40");
+            svg.setAttribute("height", "40");
+
+            const radius = 17.6;
+            const circleBg = document.createElementNS(svgNS, "circle");
+            circleBg.setAttribute("cx", "20");
+            circleBg.setAttribute("cy", "20");
+            circleBg.setAttribute("r", radius);
+            circleBg.setAttribute("stroke", "#333");
+            circleBg.setAttribute("stroke-width", "3.2");
+            circleBg.setAttribute("fill", "none");
+
+            const circleFg = document.createElementNS(svgNS, "circle");
+            circleFg.setAttribute("cx", "20");
+            circleFg.setAttribute("cy", "20");
+            circleFg.setAttribute("r", radius);
+            circleFg.setAttribute("stroke", getStrengthColor(metricValue));
+            circleFg.setAttribute("stroke-width", "3.2");
+            circleFg.setAttribute("fill", "none");
+            circleFg.setAttribute("stroke-linecap", "round");
+            circleFg.setAttribute("transform", "rotate(-90 20 20)");
+
+            const percent = parseFloat(String(metricValue).replace('%', ''));
+            const circumference = 2 * Math.PI * radius;
+            const safePercent = (Number.isFinite(percent) ? percent : 0);
+            circleFg.setAttribute("stroke-dasharray", circumference);
+            circleFg.setAttribute("stroke-dashoffset", circumference * (1 - Math.min(Math.max(safePercent, 0), 100) / 100));
+
+            svg.appendChild(circleBg);
+            svg.appendChild(circleFg);
+            metricWrapper.appendChild(svg);
+        }
+    }
 
     li.appendChild(posSpan);
     li.appendChild(infoDiv);
-    li.appendChild(metricSpan);
+    if (showMetric) li.appendChild(metricWrapper);
 
     return li;
 }
@@ -182,7 +246,7 @@ function populateGPResults(predictions, metadata) {
         const probabilityValue = (typeof driver.probability === 'number') ? driver.probability.toFixed(1) : String(driver.probability);
         const probability = `${probabilityValue}%`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName, 'gp-metric');
+        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName, 'gp-metric', true, true);
         list.appendChild(li);
     });
 }

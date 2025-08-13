@@ -128,7 +128,7 @@ main {
   border-bottom: 1px solid #444;
   font-size: 16px;
   position: relative;
-  gap: 15px;
+  gap: 12px;
   transition: background-color 0.3s;
   border-left: 5px solid transparent;
 }
@@ -199,10 +199,10 @@ main {
 }
 
 .driver-metric, .constructor-metric {
-  font-weight: bold;
-  color: #ff1e1e;
-  min-width: 60px;
-  text-align: right;
+    font-weight: bold;
+    color: #fff; /* actual color is set inline */
+    text-align: center;
+    font-size: 14px;
 }
 
 .gp-metric {
