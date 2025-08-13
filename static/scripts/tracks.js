@@ -11,12 +11,6 @@ const constructorNameMap = {
     "haas": "Haas"
 };
 
-function normalizeConstructorName(rawName) {
-    if (!rawName) return 'Unknown';
-    const key = rawName.toLowerCase().trim();
-    return constructorNameMap[key] || rawName;
-}
-
 const constructorColors = {
     "Red Bull Racing": "#3671C6",
     "McLaren": "#FF8000",
@@ -43,6 +37,12 @@ const constructorLogos = {
     "Kick Sauber": "/static/images/constructors/kicksauber.png"
 };
 
+function normalizeConstructorName(rawName) {
+    if (!rawName) return 'Unknown';
+    const key = rawName.toLowerCase().trim();
+    return constructorNameMap[key] || rawName;
+}
+
 function getStrengthColor(strength) {
     if (strength === 'N/A') return '#888';
     const val = Number(strength);
@@ -54,6 +54,12 @@ function getStrengthColor(strength) {
     return `rgb(${red},${green},0)`;
 }
 
+function hideSpinnerForList(listSelector) {
+    const list = document.querySelector(listSelector);
+    if (!list) return;
+    const spinner = list.parentElement.querySelector('.spinner');
+    if (spinner) spinner.style.display = 'none';
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const roundAttr = document.body.getAttribute('data-round');
@@ -159,13 +165,19 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     infoDiv.appendChild(nameSpan);
 
     const metricWrapper = document.createElement('div');
-    metricWrapper.style.position = 'relative';
-    metricWrapper.style.width = '40px';
+
     metricWrapper.style.height = '40px';
-    metricWrapper.style.flexShrink = '0';
     metricWrapper.style.display = 'flex';
     metricWrapper.style.alignItems = 'center';
     metricWrapper.style.justifyContent = 'center';
+
+    if (!isProbability) {
+        metricWrapper.style.position = 'relative';
+        metricWrapper.style.flexShrink = '0';
+        metricWrapper.style.display = 'flex';
+        metricWrapper.style.alignItems = 'center';
+        metricWrapper.style.justifyContent = 'center';
+    }
 
     if (showMetric && metricValue !== 'N/A') {
         const metricSpan = document.createElement('span');
@@ -236,6 +248,8 @@ function populateGPResults(predictions, metadata) {
     }
 
     list.innerHTML = '';
+    hideSpinnerForList('.gp-results');
+
     predictions.forEach((driver, index) => {
         const key = (driver.driver || '').toLowerCase();
         const meta = metadata[key] || {};
@@ -259,6 +273,7 @@ function populateDriverStrength(drivers, metadata) {
     }
 
     list.innerHTML = '';
+    hideSpinnerForList('.driver-list');
 
     drivers.sort((a, b) => {
         const va = (a && (typeof a.rating === 'number' ? a.rating : Number(a.rating || a.strength || -Infinity)));
@@ -302,6 +317,7 @@ function populateConstructorStrength(constructors) {
     }
 
     list.innerHTML = '';
+    hideSpinnerForList('.constructor-list');
 
     constructors.sort((a, b) => {
         const va = (a && typeof a.predicted_strength === 'number') ? a.predicted_strength : -Infinity;
