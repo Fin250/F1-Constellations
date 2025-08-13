@@ -107,7 +107,7 @@ function safeMetric(value, decimals = 2) {
 }
 
 /* Creates the list item used by all lists */
-function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null) {
+function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null, metricClass = 'metric') {
     const li = document.createElement('li');
 
     // position
@@ -123,7 +123,6 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'image-wrapper';
 
-    // Apply constructor background color
     if (constructorName && constructorColors[constructorName]) {
         imgWrapper.style.backgroundColor = constructorColors[constructorName];
     }
@@ -134,11 +133,7 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
 
     const isPlaceholder = (imageUrl || '').includes('driver-placeholder') || (imageUrl || '').includes('constructor-placeholder');
 
-    if (!isConstructor && !isPlaceholder) {
-        img.className = 'driver-img';
-    } else {
-        img.className = 'static-img';
-    }
+    img.className = (!isConstructor && !isPlaceholder) ? 'driver-img' : 'static-img';
 
     img.onerror = function () {
         this.onerror = null;
@@ -155,8 +150,9 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     nameSpan.textContent = name;
     infoDiv.appendChild(nameSpan);
 
+    // metric span with type-specific class
     const metricSpan = document.createElement('span');
-    metricSpan.className = 'metric';
+    metricSpan.className = metricClass;
     metricSpan.textContent = metricValue;
 
     li.appendChild(posSpan);
@@ -186,7 +182,7 @@ function populateGPResults(predictions, metadata) {
         const probabilityValue = (typeof driver.probability === 'number') ? driver.probability.toFixed(1) : String(driver.probability);
         const probability = `${probabilityValue}%`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName);
+        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName, 'gp-metric');
         list.appendChild(li);
     });
 }
@@ -223,7 +219,7 @@ function populateDriverStrength(drivers, metadata) {
 
         const strength = (ratingVal !== null && !Number.isNaN(ratingVal)) ? safeMetric(ratingVal, 0) : 'N/A';
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName);
+        const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName,'driver-metric');
         list.appendChild(li);
     });
 }
@@ -259,7 +255,7 @@ function populateConstructorStrength(constructors) {
             strength = (constructor.predicted_strength * 100).toFixed(0);
         }
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength, true, name);
+        const li = createPredictionItem(index + 1, imageUrl, name, strength, true, name, 'constructor-metric');
         list.appendChild(li);
     });
 }
