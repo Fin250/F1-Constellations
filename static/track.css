@@ -65,8 +65,51 @@ main {
   box-shadow: 0 0 25px rgba(36, 86, 87, 0.2);
 }
 
-.track-map img {
+/* inner: left image | right cards */
+.track-map-inner {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;      /* important: lets cards stretch to same height as left */
+  padding: 18px;
+  min-height: 320px;         /* baseline height — tweak as desired */
+}
+
+/* left column is flexible but slightly smaller to make room for wider cards */
+.track-map-left {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0; /* allow shrinking */
+}
+
+.track-map-left img {
   width: 100%;
+  height: auto;
+  display: block;
+}
+
+.track-map-image-wrap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* scale the map down a bit and keep it centered/contained */
+.track-map-image-wrap img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.track-map img {
+  width: 70%;
   height: auto;
   display: block;
 }
@@ -74,16 +117,80 @@ main {
 .track-map-caption {
   background-color: #1f1f1f;
   color: #fff;
-  padding: 15px 20px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  gap: 12px;
+  font-size: 16px;
+  border-radius: 8px;
 }
 
 .track-map-caption img {
   width: 30px;
   height: 20px;
   margin-right: 15px;
+}
+
+.track-map-links {
+  width: 320px;               /* increased width for larger logos */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.track-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 18px;
+  border-radius: 12px;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.55);
+  gap: 12px;
+  flex: 1 1 0;               /* important: makes cards stretch to full inner height */
+  min-height: 0;
+}
+
+.link-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  flex: 1 1 auto;            /* let logo area grow */
+  max-height: 70%;           /* avoid overflow — logo area takes most of the card */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* make logos much bigger, but contained */
+.link-logo img {
+  width: auto;
+  height: 84%;
+  max-width: 90%;
+  object-fit: contain;
+  display: block;
+}
+
+.link-label {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  margin-top: 6px;
+  text-align: center;
+}
+
+.track-link-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
 }
 
 .predictions-grid {
