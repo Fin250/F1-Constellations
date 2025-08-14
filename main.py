@@ -58,6 +58,11 @@ def tracks(trackname):
         f1_website=track["f1_website"]
     )
 
+# About page
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
 # Get predictions for a given round
 @app.route('/ml/<int:roundnum>')
 def get_ml_predictions(roundnum):
