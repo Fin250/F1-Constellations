@@ -1,3 +1,5 @@
+/* Generic */
+
 :root{
   --accent: #245657;
   --accent-strong: #2ea09a;
@@ -19,6 +21,12 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
+
+main {
+  padding: 40px 60px;
+}
+
+/* Header */
 
 header {
   display: flex;
@@ -157,7 +165,6 @@ header {
   transform: translateY(-50%) rotate(90deg);
 }
 
-
 .track-select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -192,9 +199,65 @@ header {
   outline-offset: 2px;
 }
 
-main {
-  padding: 40px 60px;
+/* Home page layout */
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
+.box {
+  position: relative;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #181818 0%, #1e1b1b 50%, #130e0e 100%);
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 40px;
+}
+
+.box:hover {
+  background-color: #2a2ac0;
+}
+
+.box:hover .country {
+  text-decoration: underline;
+}
+
+.box-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(to top, #333, #444);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  margin-left: auto;
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.box-content img {
+  width: 27px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+/* Individual track layout */
 
 .track-map {
   background-color: #3b3b3b;
