@@ -11,12 +11,38 @@
 
 <body data-round="{{ round_number }}">
 
-<header>
+<header class="site-header">
   <div class="logo-title">
-    <img src="/static/images/headerlogo.png" alt="Logo">
-    <h1>F1 Tracks and Stats</h1>
+    <img src="/static/images/headerlogo.png" alt="F1 Tracks and Stats logo" class="site-logo" />
+    <div class="site-title-group">
+      <h1>F1 Tracks &amp; Stats</h1>
+    </div>
   </div>
-  <a href="/" class="home-button">Home</a>
+
+  <nav class="header-nav" aria-label="Primary navigation">
+    <a class="nav-button nav-home" href="/" title="Home">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12 3l9 8h-3v8h-5v-5H11v5H6v-8H3z"></path>
+      </svg>
+      <span class="nav-text">Home</span>
+    </a>
+
+    <div class="select-wrap" role="navigation" aria-label="Select track">
+      <select class="track-select" onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Track</option>
+        <option value="/tracks/bahrain">Bahrain</option>
+        <option value="/tracks/saudi-arabia">Saudi Arabia</option>
+        <option value="/tracks/australia">Australia</option>
+      </select>
+    </div>
+
+    <a class="nav-button nav-about" href="/about" title="About">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M11 9h2V7h-2v2zm0 8h2v-6h-2v6zM12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2z"></path>
+      </svg>
+      <span class="nav-text">About</span>
+    </a>
+  </nav>
 </header>
 
 <main>
