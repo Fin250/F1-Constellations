@@ -123,20 +123,19 @@ header {
 .select-wrap::before {
   content: "";
   position: absolute;
-  left: 54px;
+  left: 52px;
   top: 50%;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 12px solid var(--accent-strong);
-  transform: translateY(-50%) rotate(90deg);
+  width: 10px;
+  height: 10px;
+  border-left: 5px solid var(--accent-strong);
+  border-bottom: 5px solid var(--accent-strong);
+  transform: translateY(-80%) rotate(315deg);
   pointer-events: none;
   transition: transform 0.2s ease;
 }
 
 .select-wrap:focus-within::before {
-  transform: translateY(-50%) rotate(270deg);
+  transform: translateY(-30%) rotate(135deg);
 }
 
 .track-select {
@@ -481,7 +480,7 @@ header {
 
 .gp-metric {
   font-weight: bold;
-  color: #ff1e1e;
+  color: #b7b2b2;;
   min-width: 60px;
   text-align: right;
 }
