@@ -417,12 +417,8 @@ header {
   background-color: #333;
 }
 
-.position {
-  font-weight: bold;
-  width: 40px;
-  margin-right: 40px;
-  font-size: 22px;
-  text-align: center;
+.strength-list li:last-child {
+  border-bottom: none;
 }
 
 .gp-results li:nth-child(1) { border-left-color: #ffd700; }
@@ -431,6 +427,67 @@ header {
 
 .gp-results li:nth-child(n+4):nth-child(-n+10) {
   border-left-color: #3d3d3d;
+}
+
+.position {
+  font-weight: bold;
+  width: 40px;
+  margin-right: 40px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.position-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 64px;
+  min-width: 64px;
+  margin-right: 24px;
+  box-sizing: border-box;
+}
+
+.position-wrapper .change-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+}
+
+.position-wrapper .change-icon svg,
+.position-wrapper .change-icon svg * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+  stroke: none;
+}
+
+.position-wrapper .position {
+  font-size: 22px;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+}
+
+.position-wrapper.change-up .change-icon { color: #00C853; }
+.position-wrapper.change-down .change-icon { color: #FF3B30; }
+.position-wrapper.change-neutral .change-icon { color: #B0B0B0; }
+.position-wrapper.change-new .change-icon { color: #ffe17d; }
+
+.position-wrapper .position,
+.position-wrapper .change-icon {
+  line-height: 1;
+}
+
+.position-wrapper .change-icon:focus,
+.position-wrapper .change-icon svg:focus {
+  outline: 2px solid rgba(36,86,87,0.14);
+  outline-offset: 2px;
 }
 
 .driver-info,
@@ -485,8 +542,51 @@ header {
   text-align: right;
 }
 
-.strength-list li:last-child {
-  border-bottom: none;
+.metric-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.metric-wrapper.metric-probability {
+  width: auto;
+  min-width: 60px;
+  justify-content: flex-end;
+}
+
+.metric-with-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.metric-wrapper svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.metric-prob {
+  position: static;
+  z-index: 2;
+}
+
+.metric-wrapper .circle-bg { stroke: #333; }
+.metric-wrapper .circle-fg { stroke-linecap: round; }
+
+.metric-wrapper .circle-bg,
+.metric-wrapper .circle-fg {
+  vector-effect: non-scaling-stroke;
 }
 
 .spinner {

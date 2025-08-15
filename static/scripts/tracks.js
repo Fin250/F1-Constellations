@@ -61,7 +61,44 @@ function hideSpinnerForList(listSelector) {
     if (spinner) spinner.style.display = 'none';
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function createBookmarkSVG() {
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", "18");
+    svg.setAttribute("height", "18");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.classList.add('change-icon', 'change-new');
+
+    const path = document.createElementNS(svgNS, "path");
+    path.setAttribute("fill", "currentColor");
+    path.setAttribute("d", "M6 2h12v18l-6-4-6 4V2z");
+
+    svg.appendChild(path);
+    return svg;
+}
+
+function createSparkleSVG() {
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", "18");
+    svg.setAttribute("height", "18");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.classList.add('change-icon', 'change-new');
+
+    const p1 = document.createElementNS(svgNS, "path");
+    p1.setAttribute("fill", "currentColor");
+    p1.setAttribute("d", "M12 2l1.8 4.2L18 8l-4.2 1.8L12 14l-1.8-4.2L6 8l4.2-1.8L12 2z");
+
+    const p2 = document.createElementNS(svgNS, "path");
+    p2.setAttribute("fill", "currentColor");
+    p2.setAttribute("d", "M19.5 14.5l.8 1.8 1.8.8-1.8.8-.8 1.8-.8-1.8-1.8-.8 1.8-.8.8-1.8z");
+
+    svg.appendChild(p1);
+    svg.appendChild(p2);
+    return svg;
+}
+
+document.addEventListener("DOMContentLoaded", async function () {
     const roundAttr = document.body.getAttribute('data-round');
     if (!roundAttr) {
         console.error("Missing 'data-round' on body.");
@@ -74,35 +111,56 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    fetch(`/ml/${round}`)
-        .then(response => {
-            if (!response.ok) throw new Error(`Failed to fetch predictions: ${response.status}`);
-            return response.json();
-        })
-        .then(data => {
-            console.log("Data received from backend:", data);
+    // fetch current round data
+    let currentData;
+    try {
+        const resp = await fetch(`/ml/${round}`);
+        if (!resp.ok) throw new Error(`Failed to fetch predictions: ${resp.status}`);
+        currentData = await resp.json();
+    } catch (err) {
+        console.error('Error fetching current round predictions:', err);
+        return;
+    }
 
-            const metadata = data.driver_metadata || {};
-
-            if (!data.gp_results || !Array.isArray(data.gp_results.predictions)) {
-                console.error("Invalid or missing gp_results.predictions");
+    // fetch previous round data
+    let prevData = null;
+    if (round > 1) {
+        try {
+            const respPrev = await fetch(`/ml/${round - 1}`);
+            if (respPrev.ok) {
+                prevData = await respPrev.json();
             } else {
-                populateGPResults(data.gp_results.predictions, metadata);
+                prevData = null;
             }
+        } catch (err) {
+            prevData = null;
+        }
+    }
 
-            if (!Array.isArray(data.driver_strength)) {
-                console.error("Invalid or missing driver_strength array");
-            } else {
-                populateDriverStrength(data.driver_strength, metadata);
-            }
+    const metadata = currentData.driver_metadata || {};
 
-            if (!Array.isArray(data.constructor_strength)) {
-                console.error("Invalid or missing constructor_strength array");
-            } else {
-                populateConstructorStrength(data.constructor_strength);
-            }
-        })
-        .catch(error => console.error('Error fetching predictions:', error));
+    if (!currentData.gp_results || !Array.isArray(currentData.gp_results.predictions)) {
+        console.error("Invalid or missing gp_results.predictions");
+    } else {
+        const prevGpPreds = prevData && prevData.gp_results && Array.isArray(prevData.gp_results.predictions)
+            ? prevData.gp_results.predictions
+            : null;
+        populateGPResults(currentData.gp_results.predictions, metadata, prevGpPreds, round);
+    }
+
+    if (!Array.isArray(currentData.driver_strength)) {
+        console.error("Invalid or missing driver_strength array");
+    } else {
+        const prevDrivers = prevData && Array.isArray(prevData.driver_strength) ? prevData.driver_strength : null;
+        populateDriverStrength(currentData.driver_strength, metadata, prevDrivers, round);
+    }
+
+    if (!Array.isArray(currentData.constructor_strength)) {
+        console.error("Invalid or missing constructor_strength array");
+    } else {
+        const prevConstructors = prevData && Array.isArray(prevData.constructor_strength) ? prevData.constructor_strength : null;
+        populateConstructorStrength(currentData.constructor_strength, prevConstructors, round);
+    }
 });
 
 /* ---------- Helpers ---------- */
@@ -124,20 +182,74 @@ function safeMetric(value, decimals = 2) {
     return String(value);
 }
 
-/* Creates the list item used by all lists */
-function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null, metricClass = 'metric', showMetric = true, isProbability = false) {
+function computeChangeType(currentPos, prevPos, prevExists, roundNum) {
+    if (!prevExists) {
+        return (roundNum === 1) ? 'neutral' : (prevPos === undefined || prevPos === null ? 'new' : 'neutral');
+    }
+    if (prevPos === undefined || prevPos === null) return 'new';
+    if (currentPos < prevPos) return 'up';
+    if (currentPos > prevPos) return 'down';
+    return 'neutral';
+}
+
+function createChangeIconSVG(type) {
+    const svgNS = "http://www.w3.org/2000/svg";
+
+    if (type === 'up' || type === 'down' || type === 'neutral') {
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "18");
+        svg.setAttribute("height", "18");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.classList.add('change-icon', `change-${type}`);
+
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("fill", "currentColor");
+
+        switch (type) {
+            case 'up':
+                path.setAttribute("d", "M12 5l7 12H5z");
+                break;
+            case 'down':
+                path.setAttribute("d", "M12 19l-7-12h14z");
+                break;
+            case 'neutral':
+            default:
+                path.setAttribute("d", "M6 11h12v2H6z");
+                break;
+        }
+
+        svg.appendChild(path);
+        return svg;
+    }
+
+    return createBookmarkSVG();
+}
+
+/* Creates the list item */
+function createPredictionItem(position, imageUrl, name, metricValue, isConstructor = false, constructorName = null, metricClass = 'metric', showMetric = true, isProbability = false, changeType = 'neutral') {
     const li = document.createElement('li');
 
-    const posSpan = document.createElement('span');
-    posSpan.className = 'position';
-    posSpan.textContent = ordinal(position);
+    // position wrapper (icon + ordinal)
+    const posWrapper = document.createElement('div');
+    posWrapper.className = `position-wrapper change-${changeType}`;
 
+    // change icon
+    const iconSvg = createChangeIconSVG(changeType);
+    posWrapper.appendChild(iconSvg);
+
+    // ordinal span
+    const ordSpan = document.createElement('span');
+    ordSpan.className = 'position';
+    ordSpan.textContent = ordinal(position);
+    posWrapper.appendChild(ordSpan);
+
+    // info container
     const infoDiv = document.createElement('div');
     infoDiv.className = isConstructor ? 'constructor-info' : 'driver-info';
 
+    // image wrapper
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'image-wrapper';
-
     if (constructorName && constructorColors[constructorName]) {
         imgWrapper.style.backgroundColor = constructorColors[constructorName];
     }
@@ -145,10 +257,8 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     const img = document.createElement('img');
     img.src = imageUrl;
     img.alt = name;
-
     const isPlaceholder = (imageUrl || '').includes('driver-placeholder') || (imageUrl || '').includes('constructor-placeholder');
     img.className = (!isConstructor && !isPlaceholder) ? 'driver-img' : 'static-img';
-
     img.onerror = function () {
         this.onerror = null;
         this.src = isConstructor
@@ -164,37 +274,18 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
     nameSpan.textContent = name;
     infoDiv.appendChild(nameSpan);
 
+    // metric
     const metricWrapper = document.createElement('div');
-
-    metricWrapper.style.height = '40px';
-    metricWrapper.style.display = 'flex';
-    metricWrapper.style.alignItems = 'center';
-    metricWrapper.style.justifyContent = 'center';
-
-    if (!isProbability) {
-        metricWrapper.style.position = 'relative';
-        metricWrapper.style.flexShrink = '0';
-        metricWrapper.style.display = 'flex';
-        metricWrapper.style.alignItems = 'center';
-        metricWrapper.style.justifyContent = 'center';
-    }
+    metricWrapper.className = 'metric-wrapper';
+    if (isProbability) metricWrapper.classList.add('metric-probability');
 
     if (showMetric && metricValue !== 'N/A') {
         const metricSpan = document.createElement('span');
         metricSpan.className = metricClass;
         metricSpan.textContent = metricValue;
-
         metricWrapper.appendChild(metricSpan);
 
         if (!isProbability) {
-            metricSpan.style.position = 'absolute';
-            metricSpan.style.top = '50%';
-            metricSpan.style.left = '50%';
-            metricSpan.style.transform = 'translate(-50%, -50%)';
-            metricSpan.style.fontWeight = 'bold';
-            metricSpan.style.fontSize = '12px';
-            metricSpan.style.color = getStrengthColor(metricValue);
-
             const svgNS = "http://www.w3.org/2000/svg";
             const svg = document.createElementNS(svgNS, "svg");
             svg.setAttribute("width", "40");
@@ -208,6 +299,7 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
             circleBg.setAttribute("stroke", "#333");
             circleBg.setAttribute("stroke-width", "3.2");
             circleBg.setAttribute("fill", "none");
+            circleBg.setAttribute("class", "circle-bg");
 
             const circleFg = document.createElementNS(svgNS, "circle");
             circleFg.setAttribute("cx", "20");
@@ -218,6 +310,7 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
             circleFg.setAttribute("fill", "none");
             circleFg.setAttribute("stroke-linecap", "round");
             circleFg.setAttribute("transform", "rotate(-90 20 20)");
+            circleFg.setAttribute("class", "circle-fg");
 
             const percent = parseFloat(String(metricValue).replace('%', ''));
             const circumference = 2 * Math.PI * radius;
@@ -228,27 +321,40 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
             svg.appendChild(circleBg);
             svg.appendChild(circleFg);
             metricWrapper.appendChild(svg);
+
+            metricSpan.style.color = getStrengthColor(metricValue);
+            metricSpan.classList.add('metric-with-circle');
+        } else {
+            metricSpan.classList.add('metric-prob');
+            metricSpan.style.color = '#cac2c2ff';
         }
     }
 
-    li.appendChild(posSpan);
+    li.appendChild(posWrapper);
     li.appendChild(infoDiv);
     if (showMetric) li.appendChild(metricWrapper);
 
     return li;
 }
 
-/* ---------- Population functions ---------- */
+/* ---------- Population functions with change detection ---------- */
 
-function populateGPResults(predictions, metadata) {
+function populateGPResults(predictions, metadata, prevPredictions, roundNum) {
     const list = document.querySelector('.gp-results');
-    if (!list) {
-        console.warn("No .gp-results element found in DOM.");
-        return;
-    }
+    if (!list) return;
 
     list.innerHTML = '';
     hideSpinnerForList('.gp-results');
+
+    const prevExists = Array.isArray(prevPredictions);
+
+    const prevMap = {};
+    if (prevExists) {
+        prevPredictions.forEach((p, idx) => {
+            const key = (p.driver || '').toLowerCase();
+            if (key) prevMap[key] = idx + 1;
+        });
+    }
 
     predictions.forEach((driver, index) => {
         const key = (driver.driver || '').toLowerCase();
@@ -260,28 +366,43 @@ function populateGPResults(predictions, metadata) {
         const probabilityValue = (typeof driver.probability === 'number') ? driver.probability.toFixed(1) : String(driver.probability);
         const probability = `${probabilityValue}%`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, probability, false, constructorName, 'gp-metric', true, true);
+        const currentPos = index + 1;
+        const prevPos = prevMap[key] !== undefined ? prevMap[key] : null;
+        const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
+
+        const li = createPredictionItem(currentPos, imageUrl, name, probability, false, constructorName, 'gp-metric', true, true, changeType);
         list.appendChild(li);
     });
 }
 
-function populateDriverStrength(drivers, metadata) {
+function populateDriverStrength(drivers, metadata, prevDrivers, roundNum) {
     const list = document.querySelector('.driver-list');
-    if (!list) {
-        console.warn("No .driver-list element found in DOM.");
-        return;
-    }
+    if (!list) return;
 
     list.innerHTML = '';
     hideSpinnerForList('.driver-list');
 
-    drivers.sort((a, b) => {
+    const sorted = drivers.slice().sort((a, b) => {
         const va = (a && (typeof a.rating === 'number' ? a.rating : Number(a.rating || a.strength || -Infinity)));
         const vb = (b && (typeof b.rating === 'number' ? b.rating : Number(b.rating || b.strength || -Infinity)));
         return vb - va;
     });
 
-    drivers.forEach((d, index) => {
+    const prevExists = Array.isArray(prevDrivers);
+    const prevMap = {};
+    if (prevExists) {
+        const prevSorted = prevDrivers.slice().sort((a, b) => {
+            const va = (a && (typeof a.rating === 'number' ? a.rating : Number(a.rating || a.strength || -Infinity)));
+            const vb = (b && (typeof b.rating === 'number' ? b.rating : Number(b.rating || b.strength || -Infinity)));
+            return vb - va;
+        });
+        prevSorted.forEach((d, idx) => {
+            const k = (d.driver || '').toLowerCase();
+            if (k) prevMap[k] = idx + 1;
+        });
+    }
+
+    sorted.forEach((d, index) => {
         const driverNameRaw = d.driver || d.Driver || '';
         const key = (driverNameRaw || '').toLowerCase();
         const meta = metadata[key] || {};
@@ -298,17 +419,18 @@ function populateDriverStrength(drivers, metadata) {
 
         const strength = (ratingVal !== null && !Number.isNaN(ratingVal)) ? safeMetric(ratingVal, 0) : 'N/A';
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength, false, constructorName,'driver-metric');
+        const currentPos = index + 1;
+        const prevPos = prevMap[key] !== undefined ? prevMap[key] : null;
+        const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
+
+        const li = createPredictionItem(currentPos, imageUrl, name, strength, false, constructorName, 'driver-metric', true, false, changeType);
         list.appendChild(li);
     });
 }
 
-function populateConstructorStrength(constructors) {
+function populateConstructorStrength(constructors, prevConstructors, roundNum) {
     const list = document.querySelector('.constructor-list');
-    if (!list) {
-        console.warn("No .constructor-list element found in DOM.");
-        return;
-    }
+    if (!list) return;
 
     if (!Array.isArray(constructors)) {
         console.error("populateConstructorStrength expects an array.");
@@ -319,13 +441,28 @@ function populateConstructorStrength(constructors) {
     list.innerHTML = '';
     hideSpinnerForList('.constructor-list');
 
-    constructors.sort((a, b) => {
+    const sorted = constructors.slice().sort((a, b) => {
         const va = (a && typeof a.predicted_strength === 'number') ? a.predicted_strength : -Infinity;
         const vb = (b && typeof b.predicted_strength === 'number') ? b.predicted_strength : -Infinity;
         return vb - va;
     });
 
-    constructors.forEach((constructor, index) => {
+    const prevExists = Array.isArray(prevConstructors);
+    const prevMap = {};
+    if (prevExists) {
+        const prevSorted = prevConstructors.slice().sort((a, b) => {
+            const va = (a && typeof a.predicted_strength === 'number') ? a.predicted_strength : -Infinity;
+            const vb = (b && typeof b.predicted_strength === 'number') ? b.predicted_strength : -Infinity;
+            return vb - va;
+        });
+        prevSorted.forEach((c, idx) => {
+            const raw = c.TEAM || c.constructor || c.team || '';
+            const n = normalizeConstructorName(raw);
+            prevMap[n.toLowerCase()] = idx + 1;
+        });
+    }
+
+    sorted.forEach((constructor, index) => {
         const rawName = constructor.TEAM || constructor.constructor || constructor.team || 'Unknown';
         const name = normalizeConstructorName(rawName);
         const imageUrl = constructorLogos[name] || `/static/images/constructors/constructor-placeholder.jpg`;
@@ -335,7 +472,11 @@ function populateConstructorStrength(constructors) {
             strength = (constructor.predicted_strength * 100).toFixed(0);
         }
 
-        const li = createPredictionItem(index + 1, imageUrl, name, strength, true, name, 'constructor-metric');
+        const currentPos = index + 1;
+        const prevPos = prevMap[name.toLowerCase()] !== undefined ? prevMap[name.toLowerCase()] : null;
+        const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
+
+        const li = createPredictionItem(currentPos, imageUrl, name, strength, true, name, 'constructor-metric', true, false, changeType);
         list.appendChild(li);
     });
 }
