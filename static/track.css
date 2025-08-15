@@ -101,14 +101,6 @@ header {
   outline-offset: 2px;
 }
 
-.nav-button {
-  gap: 10px;
-  padding: 8px 14px;
-  color: rgba(255,255,255,0.95);
-  border-radius: 2px;
-  transition: color .16s ease, transform .12s ease;
-}
-
 .nav-icon {
   font-size: 20px;
   color: var(--accent-strong);
@@ -261,12 +253,6 @@ header {
   min-width: 0;
 }
 
-.track-map-left img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .track-map-image-wrap {
   flex: 1 1 auto;
   display: flex;
@@ -323,7 +309,6 @@ header {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.04);
   padding: 18px;
   border-radius: 12px;
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
@@ -354,15 +339,6 @@ header {
   display: block;
 }
 
-.link-label {
-  font-weight: 700;
-  font-size: 24px;
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
-  margin-top: 6px;
-  text-align: center;
-}
-
 .track-link-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.6);
@@ -383,6 +359,8 @@ header {
   font-size: 24px;
   letter-spacing: 1px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  margin-top: 6px;
+  text-align: center;
 }
 
 .predictions-grid {
@@ -484,11 +462,8 @@ header {
 }
 
 .driver-img {
-  width: 100%;
-  height: auto;
   transform: scale(1.3);
   transform-origin: center 10%;
-  border-radius: 50%;
 }
 
 .driver-info span,
