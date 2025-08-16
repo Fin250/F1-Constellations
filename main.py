@@ -15,17 +15,22 @@ from flask_sqlalchemy import SQLAlchemy
 from jinja2.exceptions import TemplateNotFound
 
 import json
-from ml_model import (
+
+from ml.driver_strength_predictor import (
     predict_driver_strengths,
-    predict_constructor_strengths,
-    predict_gp_results,
     RESULTS_PATH_DRIVERS,
-    RESULTS_PATH_CONSTRUCTORS,
+)
+from ml.gp_predictor import (
+    predict_gp_results,
     RESULTS_PATH_GP
 )
+from ml.constructor_strength_predictor import (
+    predict_constructor_strengths,
+    RESULTS_PATH_CONSTRUCTORS,
+)
 
-from track_metadata import TRACK_METADATA
-from driver_metadata import DRIVER_METADATA
+from metadata.track_metadata import TRACK_METADATA
+from metadata.driver_metadata import DRIVER_METADATA
 
 
 # Initialise Flask instance
