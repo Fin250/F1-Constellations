@@ -64,7 +64,51 @@
   </nav>
 </header>
 
-About page incoming
+<div class="about-tldr">
+</div>
+
+<div class="about data">
+  <h1>Data Gathering</h1>
+  <p>The data was initially sourced from Ergast F1 API for circuit, calendar and race result information. This was further complimented by both driver and constructor standing data from the same source.</p>
+
+  <p>Weather data was scraped from the wikipedia page for each grand prix by searching for weather segments in the page, this weather information was then standardised to provide best formatting for the modelling later.</p>
+    
+  <p>Formula1.com was used to pull data on qualifying results as Ergast F1 did not provide the information desired.</p>
+
+  <p>All this data was then subsequently merged together into a single dataframe so that it can be processed by a machine learning model.</p>
+</div>
+
+<div class="about algorithm">
+<h1>ML algorithm</h1>
+  <p>The dataset was split into training and testing sets, with the data up to the 2024 season used to train the data set and the testing carried out on the 2024 season to evaluate the model.</p>
+
+  <p>Multiple models were trialled to assess their accuracy in predicting race winners but logistic regression was selected to perform the machine learning due to its speed in generating results.</p>
+
+  <p>Feature scaling was performed to equalise the effect each feature contributes to the prediction, and then model training was performed using the training set.</p>
+
+  <p>The model is designed to predict the final position of every driver, for each race in the season. The prediction is subsequently altered, because the model can predict multiple drivers in the same position, to predict every race position (1st to 20th) with each driver having a unique position and the finishing grid filled entirely. The prediction is further processed by including the driver's race win probability.</p>
+
+  <p>The top 5 predicted finishers are picked out, as the web application only requires those, and their winning probability is also included in the top 5 dataframe. This dataframe contains the round number, and the names and win likelihood of the top 5 predictions.</p>
+</div>
+
+<div class="about backend">
+<h1>Backend</h1>
+  <p>Through the use of JavaScript, a fetch request is sent to the server for the top 5 driver predictions when an individual track page is loaded.</p>
+
+  <p>Once the response is received from the server, it is converted into the json format and the JS dynamically updates the HTML unordered list element to fill the webpage with the predictions gathered from the machine learning.</p>
+
+  <p>Python was chosen to be used for back-end development due to its versatility and vast community of libraries and frameworks. The readability of python is one of the best in the programming language world, which is suitable for the project's future code maintainability. This language will be best for developing the back-end web application since it can be used to produce multiprotocol applications with readable code and syntax. Flask (cite), which is a Python web framework that facilitates back-end development, will be used to develop the web application because it allows for rapid development of a back-end with plenty of scalability to build complex applications. Furthermore, Flask provides powerful debugging tools which can be utilised to identify and fix issues within the application during development.</p>
+
+  <p>Python will also be used for the development of the machine learning model for this project due to the libraries and frameworks that have been created to create shortcuts for machine learning therefore reducing the time needed for development of the project and mitigating time issue risks. Python is the most used language in machine learning (DataScientest, 2024) because of libraries that provide pre-existing machine learning models and processes to clean and manipulate data features.</p>
+</div>
+
+<div class="about frontend">
+<h1>Frontend</h1>
+  <p>This front-end of the web application is most suitable to be developed using a combination of HTML, CSS and JavaScript (JS) in order to maximise compatibility and accessibility for users.</p>
+  <p>HTML is the most popular markup language used in designing web applications for structuring the content of webpages. CSS enables enhancements of the styling, visuals and layout of the HTML formatting, enabling better usability of the application.</p>
+  <p>CSS will also be used to alter the web application for varying screen sizes and devices to provide a good user experience. JavaScript is a scripting language that enables dynamically updating content, this will be used to dynamically load the integrated machine learning data.</p>
+</div>
+
 
 </body>
 </html>
