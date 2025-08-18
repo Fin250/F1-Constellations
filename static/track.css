@@ -258,13 +258,23 @@ header {
   overflow: hidden;
   position: relative;
   min-height: 220px;
+  background-clip: padding-box; /* avoids bleeding edges */
+}
+
+@supports (backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px)) {
+  .track-map-left::before {
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(2px) saturate(.55);
+    -webkit-backdrop-filter: blur(2px) saturate(.55);
+  }
 }
 
 .track-map-left::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(24,24,24,0.8), rgba(12,12,12,0.8));
   z-index: 1;
   pointer-events: none;
 }
@@ -282,7 +292,15 @@ header {
   min-height: 0;
   border-radius: 8px;
   overflow: hidden;
+  padding: 12px;
+  margin: 12px;
+}
+
+.track-map-image-wrap.no-panel {
   background: transparent;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 }
 
 .track-map-image-wrap img {
@@ -290,6 +308,16 @@ header {
   max-height: 100%;
   object-fit: contain;
   display: block;
+  transform: translateZ(0);
+  filter:
+    drop-shadow(0 18px 30px rgba(0,0,0,0.6))
+    saturate(1.05) contrast(1.06);
+}
+
+.track-map-image-wrap img.enhanced-lines {
+  filter:
+    drop-shadow(0 18px 30px rgba(0,0,0,0.6))
+    saturate(1.2) contrast(1.12);
 }
 
 .track-map img {
@@ -307,6 +335,7 @@ header {
   gap: 12px;
   font-size: 16px;
   border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.55);
 }
 
 .track-map-caption img {
@@ -361,7 +390,7 @@ header {
 }
 
 .track-link-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.6);
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
 }

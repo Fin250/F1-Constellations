@@ -63,7 +63,7 @@
 </header>
 
 <main>
-  <section class="track-map">
+  <section class="track-map" id="track-map">
   <div class="track-map-inner">
     <div class="track-map-left"
      style="--track-bg: url('{{ url_for('static', filename='images/track-photos/' ~ track_image) | e }}')">
@@ -116,7 +116,7 @@
 
   <section class="image-attributions">
     <div class="track-image-attribution">
-      <p>{{ track_attribution }}</p>
+      <p><a href="#track-map">Track background image</a> provided by: {{ track_attribution }}</p>
     </div>
   </section>
 </main>
