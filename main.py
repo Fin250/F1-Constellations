@@ -43,7 +43,11 @@ app.secret_key = '7EDYZ8pak3Px'
 # Homepage route
 @app.route('/')
 def homepage():
-    return render_template("/homepage.html")
+    tracklist = []
+    for key, track in TRACK_METADATA.items():
+        tracklist.append({"id": key, **track})
+
+    return render_template("/homepage.html", tracks = tracklist)
 
 # Render individual track pages if they exist
 @app.route('/tracks/<trackname>')
@@ -55,7 +59,7 @@ def tracks(trackname):
     return render_template(
         "track_template.html",
         track_display_name=track["display_name"],
-        annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['layout']}",
+        annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['annotated_layout']}",
         flag_path=f"/static/images/flags/{track['flag']}",
         script_path="/static/scripts/tracks.js",
         round_number=track["round"],
