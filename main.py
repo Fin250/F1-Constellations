@@ -59,12 +59,13 @@ def tracks(trackname):
     return render_template(
         "track_template.html",
         track_display_name=track["display_name"],
-        annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['annotated_layout']}",
+        f1_website=track["f1_website"],
         flag_path=f"/static/images/flags/{track['flag']}",
-        script_path="/static/scripts/tracks.js",
+        annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['annotated_layout']}",
         round_number=track["round"],
+        track_image=track["detailed_track_image"],
+        track_attribution=track["detailed_track_attribution"],
         wiki=track["wiki"],
-        f1_website=track["f1_website"]
     )
 
 # About page

@@ -250,6 +250,28 @@ header {
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+  background-image: var(--track-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+}
+
+.track-map-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.track-map-left > * {
+  position: relative;
+  z-index: 2;
 }
 
 .track-map-image-wrap {
@@ -260,11 +282,11 @@ header {
   min-height: 0;
   border-radius: 8px;
   overflow: hidden;
+  background: transparent;
 }
 
 .track-map-image-wrap img {
   width: 100%;
-  height: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
@@ -602,4 +624,9 @@ header {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.track-image-attribution {
+  margin-top: 50px;
+  text-align: center;
 }

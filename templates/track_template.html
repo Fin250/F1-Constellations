@@ -65,15 +65,18 @@
 <main>
   <section class="track-map">
   <div class="track-map-inner">
-    <div class="track-map-left">
-      <div class="track-map-image-wrap">
-        <img src="{{ annotated_layout_path }}" alt="{{ track_display_name }} track">
-      </div>
-      <div class="track-map-caption">
-        <img src="{{ flag_path }}" alt="{{ track_display_name }} Flag">
-        <span>{{ track_display_name }} Track Map</span>
-      </div>
-    </div>
+    <div class="track-map-left"
+     style="--track-bg: url('{{ url_for('static', filename='images/track-photos/' ~ track_image) | e }}')">
+
+  <div class="track-map-image-wrap">
+    <img src="{{ annotated_layout_path }}" alt="{{ track_display_name }} track">
+  </div>
+
+  <div class="track-map-caption">
+    <img src="{{ flag_path }}" alt="{{ track_display_name }} Flag">
+    <span>{{ track_display_name }} Track Map</span>
+  </div>
+</div>
 
     <aside class="track-map-links" aria-label="External track links">
       <a class="track-link-card wiki" href="https://en.wikipedia.org/wiki/{{ wiki | urlencode }}" target="_blank" rel="noopener noreferrer">
@@ -110,8 +113,14 @@
       <ul class="strength-list constructor-list"></ul>
     </div>
   </section>
+
+  <section class="image-attributions">
+    <div class="track-image-attribution">
+      <p>{{ track_attribution }}</p>
+    </div>
+  </section>
 </main>
 
-<script src="{{ script_path }}"></script>
+<script src="/static/scripts/tracks.js"></script>
 </body>
 </html>
