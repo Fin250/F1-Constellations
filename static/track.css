@@ -258,7 +258,7 @@ header {
   overflow: hidden;
   position: relative;
   min-height: 220px;
-  background-clip: padding-box; /* avoids bleeding edges */
+  background-clip: padding-box;
 }
 
 @supports (backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px)) {
@@ -658,4 +658,9 @@ header {
 .track-image-attribution {
   margin-top: 50px;
   text-align: center;
+  color:#3f4240;
+}
+
+.track-image-attribution a {
+  color:#245858;
 }

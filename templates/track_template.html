@@ -114,11 +114,13 @@
     </div>
   </section>
 
+  {% if track_attribution != "" %}
   <section class="image-attributions">
     <div class="track-image-attribution">
       <p><a href="#track-map">Track background image</a> provided by: {{ track_attribution }}</p>
     </div>
   </section>
+  {% endif %}
 </main>
 
 <script src="/static/scripts/tracks.js"></script>
