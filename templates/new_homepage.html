@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Constellations - Home</title>
+  <link rel="stylesheet" href="/static/new_home.css"/>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="/static/images/logo.png" alt="Website logo" class="site-logo" />
+    <img src="/static/images/constellations.png" alt="Website name" class="site-name" />
+  </div>
+
+  <nav class="header-nav" aria-label="Primary navigation">
+    <div class="select-wrap" role="navigation" aria-label="Select track">
+      <select class="track-select" onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Track</option>
+        <option value="/tracks/bahrain">Bahrain</option>
+        <option value="/tracks/saudi-arabia">Saudi Arabia</option>
+        <option value="/tracks/australia">Australia</option>
+        <option value="/tracks/japan">Japan</option>
+        <option value="/tracks/china">China</option>
+        <option value="/tracks/miami">Miami</option>
+        <option value="/tracks/imola">Imola</option>
+        <option value="/tracks/monaco">Monaco</option>
+        <option value="/tracks/canada">Canada</option>
+        <option value="/tracks/spain">Spain</option>
+        <option value="/tracks/austria">Austria</option>
+        <option value="/tracks/uk">United Kingdom</option>
+        <option value="/tracks/hungary">Hungary</option>
+        <option value="/tracks/belgium">Belgium</option>
+        <option value="/tracks/netherlands">Netherlands</option>
+        <option value="/tracks/italy">Italy</option>
+        <option value="/tracks/azerbaijan">Azerbaijan</option>
+        <option value="/tracks/singapore">Singapore</option>
+        <option value="/tracks/usa">United States</option>
+        <option value="/tracks/mexico">Mexico</option>
+        <option value="/tracks/brazil">Brazil</option>
+        <option value="/tracks/las-vegas">Las Vegas</option>
+        <option value="/tracks/qatar">Qatar</option>
+        <option value="/tracks/uae">Abu Dhabi</option>
+      </select>
+    </div>
+
+    <a class="nav-button nav-about" href="/about" title="About">
+      <i class="material-icons nav-icon">help</i>
+      <span class="nav-text">About</span>
+    </a>
+  </nav>
+</header>
+
+<div class="carousel-wrap">
+  <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+
+  <div class="carousel" id="trackCarousel" role="list">
+    {% for track in tracks %}
+    <a href="/tracks/{{ track.id }}" class="box" data-index="{{ loop.index0 }}" role="listitem">
+      <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
+      <div class="box-content">
+        <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
+        <span class="country">{{ track.display_name }}</span>
+        <span class="date">{{ track.date }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <button class="carousel-btn next" aria-label="Next track">›</button>
+</div>
+
+<div class="quickpick-bar">
+  <div class="quickpick-flags">
+    {% for track in tracks %}
+    <div class="quickpick-item">
+      <span class="quickpick-round">Round {{ track.round }}</span>
+      <a href="/tracks/{{ track.id }}" class="quickpick-flag" title="{{ track.display_name }}">
+        <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.getElementById('trackCarousel');
+  if (!carousel) return;
+
+  const items = Array.from(carousel.querySelectorAll('.box'));
+  if (items.length === 0) return;
+
+  // compute center scroll position to fully center the element
+  function centerItem(el, behaviour = 'smooth') {
+    const left = el.offsetLeft - (carousel.clientWidth - el.clientWidth) / 2;
+    carousel.scrollTo({ left, behavior: behaviour });
+  }
+
+  // mark nearest-to-center as active
+  function setActiveNearest() {
+    const center = carousel.scrollLeft + carousel.clientWidth / 2;
+    let nearest = null;
+    let minDist = Infinity;
+
+    items.forEach(item => {
+      const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+      const dist = Math.abs(center - itemCenter);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = item;
+      }
+    });
+
+    items.forEach(i => i.classList.toggle('active', i === nearest));
+  }
+
+  // debounce helper for scroll
+  let scrollTimer = null;
+  carousel.addEventListener('scroll', function () {
+    // immediate update for snappy UI
+    setActiveNearest();
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => setActiveNearest(), 100);
+  });
+
+  window.addEventListener('resize', () => setActiveNearest());
+
+  // arrow controls
+  const btnPrev = document.querySelector('.carousel-btn.prev');
+  const btnNext = document.querySelector('.carousel-btn.next');
+
+  function indexOfActive() {
+    return items.findIndex(i => i.classList.contains('active'));
+  }
+
+  if (btnPrev) btnPrev.addEventListener('click', function () {
+    let idx = indexOfActive();
+    if (idx <= 0) idx = 0;
+    else idx = idx - 1;
+    centerItem(items[idx]);
+  });
+
+  if (btnNext) btnNext.addEventListener('click', function () {
+    let idx = indexOfActive();
+    if (idx === -1) idx = 0;
+    if (idx >= items.length - 1) idx = items.length - 1;
+    else idx = idx + 1;
+    centerItem(items[idx]);
+  });
+
+  // keyboard navigation
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') btnPrev && btnPrev.click();
+    if (e.key === 'ArrowRight') btnNext && btnNext.click();
+  });
+
+  // Clicking an item should still navigate; if you want clicking to just center, handle here.
+  // Optional: items.forEach(it => it.addEventListener('click', e => { e.preventDefault(); centerItem(it); }));
+
+  // start centered on 14th (index 13), but clamp to available number
+  const preferIndex = 13;
+  const startIndex = Math.min(preferIndex, items.length - 1);
+  // small timeout to let layout settle (images loaded)
+  setTimeout(() => {
+    if (items[startIndex]) {
+      centerItem(items[startIndex], 'auto'); // no animation on initial load
+      // after small delay mark active
+      setTimeout(setActiveNearest, 80);
+    } else {
+      setActiveNearest();
+    }
+  }, 60);
+});
+</script>
