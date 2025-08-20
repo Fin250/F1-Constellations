@@ -240,7 +240,7 @@ header {
 
 .carousel-wrap {
   max-width: 1200px;
-  margin: 50px auto 30px auto;
+  margin: 40px auto;
   position: relative;
   padding: 10px 0;
 }
@@ -284,15 +284,22 @@ header {
 .carousel::-webkit-scrollbar { height: 8px; display: none; }
 .carousel { -ms-overflow-style: none; scrollbar-width: none; }
 
-@media (max-width: 800px) {
-  .box { flex: 0 0 85%; }
-  .carousel { padding: 0 8%; }
-  .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
-}
-
 .quickpick-bar {
+  position: relative;
   margin: 30px auto 0;
   justify-content: center;
+}
+
+#quickpick-arrow {
+  position: absolute;
+  top: -20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #888;
+  transition: left 0.25s ease;
+  pointer-events: none;
 }
 
 .quickpick-flags {
@@ -321,7 +328,7 @@ header {
   text-align: center;
 }
 
-.quickpick-flag img {
+.quickpick-item img {
   width: 36px;
   height: 24px;
   object-fit: fill;
@@ -330,7 +337,7 @@ header {
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-.quickpick-flag img:hover {
+.quickpick-item:hover img {
   transform: scale(1.1);
   box-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
@@ -340,4 +347,10 @@ header {
     width: 28px;
     height: 19px;
   }
+}
+
+@media (max-width: 800px) {
+  .box { flex: 0 0 85%; }
+  .carousel { padding: 0 8%; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
 }

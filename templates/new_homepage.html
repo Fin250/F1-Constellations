@@ -77,108 +77,17 @@
 </div>
 
 <div class="quickpick-bar">
+  <div id="quickpick-arrow"></div>
   <div class="quickpick-flags">
     {% for track in tracks %}
-    <div class="quickpick-item">
+    <a href="/tracks/{{ track.id }}" class="quickpick-item" title="{{ track.display_name }}">
       <span class="quickpick-round">Round {{ track.round }}</span>
-      <a href="/tracks/{{ track.id }}" class="quickpick-flag" title="{{ track.display_name }}">
-        <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
-      </a>
-    </div>
+      <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
+    </a>
     {% endfor %}
   </div>
 </div>
 
+<script src="/static/scripts/new_home.js"></script>
 </body>
 </html>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const carousel = document.getElementById('trackCarousel');
-  if (!carousel) return;
-
-  const items = Array.from(carousel.querySelectorAll('.box'));
-  if (items.length === 0) return;
-
-  // compute center scroll position to fully center the element
-  function centerItem(el, behaviour = 'smooth') {
-    const left = el.offsetLeft - (carousel.clientWidth - el.clientWidth) / 2;
-    carousel.scrollTo({ left, behavior: behaviour });
-  }
-
-  // mark nearest-to-center as active
-  function setActiveNearest() {
-    const center = carousel.scrollLeft + carousel.clientWidth / 2;
-    let nearest = null;
-    let minDist = Infinity;
-
-    items.forEach(item => {
-      const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-      const dist = Math.abs(center - itemCenter);
-      if (dist < minDist) {
-        minDist = dist;
-        nearest = item;
-      }
-    });
-
-    items.forEach(i => i.classList.toggle('active', i === nearest));
-  }
-
-  // debounce helper for scroll
-  let scrollTimer = null;
-  carousel.addEventListener('scroll', function () {
-    // immediate update for snappy UI
-    setActiveNearest();
-    if (scrollTimer) clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => setActiveNearest(), 100);
-  });
-
-  window.addEventListener('resize', () => setActiveNearest());
-
-  // arrow controls
-  const btnPrev = document.querySelector('.carousel-btn.prev');
-  const btnNext = document.querySelector('.carousel-btn.next');
-
-  function indexOfActive() {
-    return items.findIndex(i => i.classList.contains('active'));
-  }
-
-  if (btnPrev) btnPrev.addEventListener('click', function () {
-    let idx = indexOfActive();
-    if (idx <= 0) idx = 0;
-    else idx = idx - 1;
-    centerItem(items[idx]);
-  });
-
-  if (btnNext) btnNext.addEventListener('click', function () {
-    let idx = indexOfActive();
-    if (idx === -1) idx = 0;
-    if (idx >= items.length - 1) idx = items.length - 1;
-    else idx = idx + 1;
-    centerItem(items[idx]);
-  });
-
-  // keyboard navigation
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') btnPrev && btnPrev.click();
-    if (e.key === 'ArrowRight') btnNext && btnNext.click();
-  });
-
-  // Clicking an item should still navigate; if you want clicking to just center, handle here.
-  // Optional: items.forEach(it => it.addEventListener('click', e => { e.preventDefault(); centerItem(it); }));
-
-  // start centered on 14th (index 13), but clamp to available number
-  const preferIndex = 13;
-  const startIndex = Math.min(preferIndex, items.length - 1);
-  // small timeout to let layout settle (images loaded)
-  setTimeout(() => {
-    if (items[startIndex]) {
-      centerItem(items[startIndex], 'auto'); // no animation on initial load
-      // after small delay mark active
-      setTimeout(setActiveNearest, 80);
-    } else {
-      setActiveNearest();
-    }
-  }, 60);
-});
-</script>
