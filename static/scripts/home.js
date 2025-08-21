@@ -14,6 +14,41 @@ document.addEventListener('DOMContentLoaded', function () {
     carousel.scrollTo({ left, behavior: behaviour });
   }
 
+  function applyDetailedBackgroundsFromServerData() {
+    const serverEl = document.getElementById('server-data');
+    if (!serverEl) return;
+    let server;
+    try {
+      server = JSON.parse(serverEl.textContent || '{}');
+    } catch (err) {
+      return;
+    }
+    const tracks = server.tracks || [];
+    const carousel = document.getElementById('trackCarousel');
+    if (!carousel) return;
+    const boxes = Array.from(carousel.querySelectorAll('.box'));
+
+    boxes.forEach(box => {
+      const attr = box.getAttribute('data-detailed-flag') || '';
+      const idx = parseInt(box.getAttribute('data-index'), 10);
+      const fallbackTrack = (typeof idx === 'number' && tracks[idx]) ? tracks[idx] : null;
+      const filename = attr || (fallbackTrack && fallbackTrack.detailed_flag) || '';
+
+      if (filename) {
+        const url = '/static/images/textured-flags/' + encodeURIComponent(filename);
+        const gradient = 'linear-gradient(135deg, rgba(24,24,24,0.72) 0%, rgba(30,27,27,0.48) 50%, rgba(19,14,14,0.58) 100%)';
+        box.style.backgroundImage = `${gradient}, url("${url}")`;
+        box.classList.add('has-detailed-bg');
+      } else {
+        box.style.backgroundImage = '';
+        box.classList.remove('has-detailed-bg');
+      }
+    });
+  }
+
+  // apply backgrounds immediately on load
+  applyDetailedBackgroundsFromServerData();
+
   function setActiveNearest() {
     const center = carousel.scrollLeft + carousel.clientWidth / 2;
     let nearest = null;
@@ -88,10 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'ArrowRight') btnNext && btnNext.click();
   });
 
-  // Use next_round instead of hardcode
   const preferRound = window.NEXT_ROUND || 1;
-  const startIndex = items.findIndex(i => parseInt(i.querySelector('.country')?.textContent.replace(/\D/g,'')) === preferRound);
-  const targetIndex = startIndex !== -1 ? startIndex : Math.min(preferRound - 1, items.length - 1);
+  const startIndex = items.findIndex(i => parseInt(i.getAttribute('data-round'), 10) === preferRound);
+  const targetIndex = startIndex !== -1 ? startIndex : Math.min(Math.max(preferRound - 1, 0), items.length - 1);
 
   setTimeout(() => {
     if (items[targetIndex]) {

@@ -66,6 +66,7 @@
        class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
        data-index="{{ loop.index0 }}"
        data-round="{{ track.round }}"
+       data-detailed-flag="{{ track.detailed_flag | default('') }}"
        role="listitem">
       <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
       <div class="box-content">
