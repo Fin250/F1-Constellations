@@ -54,16 +54,16 @@ def homepage():
 
     return render_template("/homepage.html", tracks = tracklist, next_round=next_round)
 
-# Homepage route
-@app.route('/n')
-def new_homepage():
+# Old homepage route
+@app.route('/old')
+def old_homepage():
     tracklist = []
     for key, track in TRACK_METADATA.items():
         tracklist.append({"id": key, **track})
 
     next_round = get_next_track()
 
-    return render_template("/new_homepage.html", tracks = tracklist, next_round=next_round)
+    return render_template("/old_homepage.html", tracks = tracklist, next_round=next_round)
 
 # Render individual track pages if they exist
 @app.route('/tracks/<trackname>')

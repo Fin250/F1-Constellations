@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Constellations - Home</title>
-  <link rel="stylesheet" href="/static/new_home.css"/>
+  <link rel="stylesheet" href="/static/old_home.css"/>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -57,46 +57,20 @@
   </nav>
 </header>
 
-<div class="carousel-wrap">
-  <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+<div class="container">
 
-  <div class="carousel" id="trackCarousel" role="list">
-    {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}"
-       class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
-       data-index="{{ loop.index0 }}"
-       data-round="{{ track.round }}"
-       role="listitem">
-      <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
-      <div class="box-content">
-        <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
-        <span class="country">{{ track.display_name }}</span>
-        <span class="date">{{ track.date }}</span>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-
-  <button class="carousel-btn next" aria-label="Next track">›</button>
-</div>
-
-<div class="quickpick-bar">
-  <div id="quickpick-arrow"></div>
-  <div class="quickpick-flags">
-    {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}" 
-       class="quickpick-item {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}" 
-       title="{{ track.display_name }}">
-      <span class="quickpick-round">Round {{ track.round }}</span>
+  {% for track in tracks %}
+  <a href="/tracks/{{ track.id }}" class="box">
+    <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
+    <div class="box-content">
       <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
-    </a>
-    {% endfor %}
-  </div>
+      <span class="country">{{ track.display_name }}</span>
+      <span class="date">{{ track.date }}</span>
+    </div>
+  </a>
+  {% endfor %}
+
 </div>
 
-<script id="server-data" type="application/json">
-  {{ {"next_round": next_round} | tojson }}
-</script>
-<script src="/static/scripts/new_home.js"></script>
 </body>
 </html>
