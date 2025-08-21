@@ -40,6 +40,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 app.secret_key = '7EDYZ8pak3Px'
 
+def get_next_track():
+    return 8  # hardcoded next round
+
 # Homepage route
 @app.route('/')
 def homepage():
@@ -47,7 +50,9 @@ def homepage():
     for key, track in TRACK_METADATA.items():
         tracklist.append({"id": key, **track})
 
-    return render_template("/homepage.html", tracks = tracklist)
+    next_round = get_next_track()
+
+    return render_template("/homepage.html", tracks = tracklist, next_round=next_round)
 
 # Homepage route
 @app.route('/n')
@@ -56,7 +61,9 @@ def new_homepage():
     for key, track in TRACK_METADATA.items():
         tracklist.append({"id": key, **track})
 
-    return render_template("/new_homepage.html", tracks = tracklist)
+    next_round = get_next_track()
+
+    return render_template("/new_homepage.html", tracks = tracklist, next_round=next_round)
 
 # Render individual track pages if they exist
 @app.route('/tracks/<trackname>')

@@ -62,7 +62,11 @@
 
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}" class="box" data-index="{{ loop.index0 }}" role="listitem">
+    <a href="/tracks/{{ track.id }}"
+       class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
+       data-index="{{ loop.index0 }}"
+       data-round="{{ track.round }}"
+       role="listitem">
       <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
       <div class="box-content">
         <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
@@ -80,7 +84,9 @@
   <div id="quickpick-arrow"></div>
   <div class="quickpick-flags">
     {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}" class="quickpick-item" title="{{ track.display_name }}">
+    <a href="/tracks/{{ track.id }}" 
+       class="quickpick-item {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}" 
+       title="{{ track.display_name }}">
       <span class="quickpick-round">Round {{ track.round }}</span>
       <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
     </a>
@@ -88,6 +94,9 @@
   </div>
 </div>
 
+<script id="server-data" type="application/json">
+  {{ {"next_round": next_round} | tojson }}
+</script>
 <script src="/static/scripts/new_home.js"></script>
 </body>
 </html>

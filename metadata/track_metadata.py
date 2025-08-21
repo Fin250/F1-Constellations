@@ -241,7 +241,7 @@ TRACK_METADATA = {
         "annotated_layout": "united-states.avif",
         "layout": "united_states.png",
         "detailed_track_image": "Detailed_United_States.jpg",
-        "detailed_track_attribution": "United Autosports, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
+        "detailed_track_attribution": "Zach Catanzareti Photo, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 19,
         "wiki": "2024_United_States_Grand_Prix",
         "date": "20th October",

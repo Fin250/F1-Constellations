@@ -306,7 +306,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   padding: 12px 30px;
   background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
   border-top-left-radius: 12px;
@@ -340,6 +340,28 @@ header {
 .quickpick-item:hover img {
   transform: scale(1.1);
   box-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+/* quickpick styling */
+.quickpick-item.upcoming {
+  border: 2px solid orange;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.quickpick-item.completed {
+  border: 2px solid green;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+/* carousel cards styling */
+.box.upcoming {
+  border: 2px solid orange !important;
+}
+
+.box.completed {
+  border: 2px solid green !important;
 }
 
 @media (max-width: 600px) {

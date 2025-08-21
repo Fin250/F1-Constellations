@@ -1,3 +1,7 @@
+const serverDataEl = document.getElementById('server-data');
+const serverData = serverDataEl ? JSON.parse(serverDataEl.textContent) : {};
+window.NEXT_ROUND = serverData.next_round;
+
 document.addEventListener('DOMContentLoaded', function () {
   const carousel = document.getElementById('trackCarousel');
   if (!carousel) return;
@@ -44,14 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
       quickpickArrow.style.left = `${center - 8}px`;
     }
 
-    const originalSetActive = setActiveNearest;
-    setActiveNearest = function() {
-      originalSetActive();
-      updateArrow();
-    };
-
+    updateArrow();
     window.addEventListener('resize', updateArrow);
-
   }
 
   let scrollTimer = null;
@@ -90,12 +88,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'ArrowRight') btnNext && btnNext.click();
   });
 
-  // temporary start hardcode
-  const preferIndex = 13;
-  const startIndex = Math.min(preferIndex, items.length - 1);
+  // Use next_round instead of hardcode
+  const preferRound = window.NEXT_ROUND || 1;
+  const startIndex = items.findIndex(i => parseInt(i.querySelector('.country')?.textContent.replace(/\D/g,'')) === preferRound);
+  const targetIndex = startIndex !== -1 ? startIndex : Math.min(preferRound - 1, items.length - 1);
+
   setTimeout(() => {
-    if (items[startIndex]) {
-      centerItem(items[startIndex], 'auto');
+    if (items[targetIndex]) {
+      centerItem(items[targetIndex], 'auto');
       setTimeout(setActiveNearest, 80);
     } else {
       setActiveNearest();
