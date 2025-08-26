@@ -41,7 +41,7 @@ db = SQLAlchemy(app)
 app.secret_key = '7EDYZ8pak3Px'
 
 def get_next_track():
-    return 8  # hardcoded next round
+    return 16  # hardcoded next round
 
 # Homepage route
 @app.route('/')

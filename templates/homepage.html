@@ -58,7 +58,9 @@
 </header>
 
 <div class="carousel-wrap">
-  <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+  <div class="carousel-btn-wrap prev">
+    <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+  </div>
 
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
@@ -78,7 +80,10 @@
     {% endfor %}
   </div>
 
-  <button class="carousel-btn next" aria-label="Next track">›</button>
+  <div class="carousel-btn-wrap next">
+    <button class="carousel-btn next" aria-label="Next track">›</button>
+  </div>
+
 </div>
 
 <div class="quickpick-bar">

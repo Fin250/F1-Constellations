@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const items = Array.from(carousel.querySelectorAll('.box'));
   if (items.length === 0) return;
 
+  const wrapPrev = document.querySelector('.carousel-btn-wrap.prev');
+  const wrapNext = document.querySelector('.carousel-btn-wrap.next');
+
   const btnPrev = document.querySelector('.carousel-btn.prev');
   const btnNext = document.querySelector('.carousel-btn.next');
 
@@ -150,26 +153,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateArrowsVisibility() {
-    if (!btnPrev || !btnNext) return;
+    if (!wrapPrev || !wrapNext) return;
 
     const scLeft = Math.max(0, carousel.scrollLeft);
     const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
     const epsilon = 6;
 
     if (scLeft <= epsilon) {
-      btnPrev.classList.add('hidden');
-      btnPrev.setAttribute('aria-hidden', 'true');
+      wrapPrev.classList.add('hidden');
+      wrapPrev.setAttribute('aria-hidden', 'true');
     } else {
-      btnPrev.classList.remove('hidden');
-      btnPrev.removeAttribute('aria-hidden');
+      wrapPrev.classList.remove('hidden');
+      wrapPrev.removeAttribute('aria-hidden');
     }
 
     if (scLeft >= (maxScroll - epsilon)) {
-      btnNext.classList.add('hidden');
-      btnNext.setAttribute('aria-hidden', 'true');
+      wrapNext.classList.add('hidden');
+      wrapNext.setAttribute('aria-hidden', 'true');
     } else {
-      btnNext.classList.remove('hidden');
-      btnNext.removeAttribute('aria-hidden');
+      wrapNext.classList.remove('hidden');
+      wrapNext.removeAttribute('aria-hidden');
     }
   }
 
@@ -194,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (btnPrev) btnPrev.addEventListener('click', function () {
-    if (btnPrev.classList.contains('hidden')) return;
+    if (wrapPrev && wrapPrev.classList.contains('hidden')) return;
     let idx = indexOfActive();
     if (idx <= 0) idx = 0;
     else idx = idx - 1;
@@ -202,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   if (btnNext) btnNext.addEventListener('click', function () {
-    if (btnNext.classList.contains('hidden')) return;
+    if (wrapNext && wrapNext.classList.contains('hidden')) return;
     let idx = indexOfActive();
     if (idx === -1) idx = 0;
     if (idx >= items.length - 1) idx = items.length - 1;
