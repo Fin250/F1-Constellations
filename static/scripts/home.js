@@ -1,7 +1,3 @@
-const serverDataEl = document.getElementById('server-data');
-const serverData = serverDataEl ? JSON.parse(serverDataEl.textContent) : {};
-window.NEXT_ROUND = serverData.next_round;
-
 document.addEventListener('DOMContentLoaded', function () {
   const carousel = document.getElementById('trackCarousel');
   if (!carousel) return;
@@ -9,12 +5,81 @@ document.addEventListener('DOMContentLoaded', function () {
   const items = Array.from(carousel.querySelectorAll('.box'));
   if (items.length === 0) return;
 
+  const btnPrev = document.querySelector('.carousel-btn.prev');
+  const btnNext = document.querySelector('.carousel-btn.next');
+
   function centerItem(el, behaviour = 'smooth') {
     const left = el.offsetLeft - (carousel.clientWidth - el.clientWidth) / 2;
     carousel.scrollTo({ left, behavior: behaviour });
   }
 
-  function applyDetailedBackgroundsFromServerData() {
+  /* Insert start/finish markers into the carousel */
+  function insertImgLineMarkers(carousel) {
+    if (!carousel) return;
+
+    if (carousel.querySelector('.line-marker.start') || carousel.querySelector('.line-marker.finish')) return;
+
+    function makeMarker(name, src, alt) {
+      const wrapper = document.createElement('div');
+      wrapper.className = `line-marker ${name}`;
+      wrapper.setAttribute('aria-hidden', 'true');
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      img.loading = 'lazy';
+
+      img.style.visibility = 'hidden';
+      img.style.display = 'block';
+
+      wrapper.appendChild(img);
+      return wrapper;
+    }
+
+    const startMarker = makeMarker('start', '/static/images/line-start.jpg', 'Start line');
+    const finishMarker = makeMarker('finish', '/static/images/line-finish.jpg', 'Finish line');
+
+    const firstChild = carousel.firstElementChild;
+    if (firstChild) carousel.insertBefore(startMarker, firstChild);
+    carousel.appendChild(finishMarker);
+
+    function updateMarkerHeights() {
+      const h = Math.max(0, carousel.clientHeight);
+      if (h <= 0) return;
+      const imgs = carousel.querySelectorAll('.line-marker img');
+      imgs.forEach(img => {
+        img.style.height = `${h}px`;
+        img.style.width = 'auto';
+        img.style.visibility = 'visible';
+      });
+    }
+
+    const imgs = carousel.querySelectorAll('.line-marker img');
+    imgs.forEach(img => {
+      if (img.complete) {
+        updateMarkerHeights();
+      } else {
+        img.addEventListener('load', updateMarkerHeights, { once: true });
+      }
+    });
+
+    let ro;
+    if (window.ResizeObserver) {
+      ro = new ResizeObserver(() => {
+        updateMarkerHeights();
+      });
+      ro.observe(carousel);
+    }
+
+    window.addEventListener('resize', () => {
+      clearTimeout(window.__lineMarkerResizeTimer);
+      window.__lineMarkerResizeTimer = setTimeout(updateMarkerHeights, 80);
+    });
+  }
+
+  insertImgLineMarkers(carousel);
+
+  function applyFlagBackgrounds() {
     const serverEl = document.getElementById('server-data');
     if (!serverEl) return;
     let server;
@@ -24,8 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     const tracks = server.tracks || [];
-    const carousel = document.getElementById('trackCarousel');
-    if (!carousel) return;
     const boxes = Array.from(carousel.querySelectorAll('.box'));
 
     boxes.forEach(box => {
@@ -40,21 +103,20 @@ document.addEventListener('DOMContentLoaded', function () {
         box.style.backgroundImage = `${gradient}, url("${url}")`;
         box.classList.add('has-detailed-bg');
       } else {
-        box.style.backgroundImage = '';
         box.classList.remove('has-detailed-bg');
       }
     });
   }
 
-  // apply backgrounds immediately on load
-  applyDetailedBackgroundsFromServerData();
+  applyFlagBackgrounds();
 
   function setActiveNearest() {
     const center = carousel.scrollLeft + carousel.clientWidth / 2;
     let nearest = null;
     let minDist = Infinity;
 
-    items.forEach(item => {
+    const currentItems = Array.from(carousel.querySelectorAll('.box'));
+    currentItems.forEach(item => {
       const itemCenter = item.offsetLeft + item.offsetWidth / 2;
       const dist = Math.abs(center - itemCenter);
       if (dist < minDist) {
@@ -63,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    items.forEach(i => i.classList.toggle('active', i === nearest));
+    currentItems.forEach(i => i.classList.toggle('active', i === nearest));
 
     const quickpickArrow = document.getElementById('quickpick-arrow');
     const quickpickItems = Array.from(document.querySelectorAll('.quickpick-item'));
@@ -72,67 +134,104 @@ document.addEventListener('DOMContentLoaded', function () {
       const active = carousel.querySelector('.box.active');
       if (!active) return;
 
-      const idx = items.indexOf(active);
+      const idx = currentItems.indexOf(active);
       if (idx === -1 || !quickpickItems[idx]) return;
 
       const target = quickpickItems[idx];
       const rect = target.getBoundingClientRect();
       const barRect = document.querySelector('.quickpick-bar').getBoundingClientRect();
 
-      const center = rect.left + rect.width / 2 - barRect.left;
-      quickpickArrow.style.left = `${center - 8}px`;
+      const centerPos = rect.left + rect.width / 2 - barRect.left;
+      quickpickArrow.style.left = `${centerPos - 8}px`;
     }
 
     updateArrow();
     window.addEventListener('resize', updateArrow);
   }
 
+  function updateArrowsVisibility() {
+    if (!btnPrev || !btnNext) return;
+
+    const scLeft = Math.max(0, carousel.scrollLeft);
+    const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+    const epsilon = 6;
+
+    if (scLeft <= epsilon) {
+      btnPrev.classList.add('hidden');
+      btnPrev.setAttribute('aria-hidden', 'true');
+    } else {
+      btnPrev.classList.remove('hidden');
+      btnPrev.removeAttribute('aria-hidden');
+    }
+
+    if (scLeft >= (maxScroll - epsilon)) {
+      btnNext.classList.add('hidden');
+      btnNext.setAttribute('aria-hidden', 'true');
+    } else {
+      btnNext.classList.remove('hidden');
+      btnNext.removeAttribute('aria-hidden');
+    }
+  }
+
   let scrollTimer = null;
   carousel.addEventListener('scroll', function () {
     setActiveNearest();
+    updateArrowsVisibility();
     if (scrollTimer) clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => setActiveNearest(), 100);
+    scrollTimer = setTimeout(() => {
+      setActiveNearest();
+      updateArrowsVisibility();
+    }, 110);
   });
 
-  window.addEventListener('resize', () => setActiveNearest());
-
-  const btnPrev = document.querySelector('.carousel-btn.prev');
-  const btnNext = document.querySelector('.carousel-btn.next');
+  window.addEventListener('resize', () => {
+    setActiveNearest();
+    updateArrowsVisibility();
+  });
 
   function indexOfActive() {
     return items.findIndex(i => i.classList.contains('active'));
   }
 
   if (btnPrev) btnPrev.addEventListener('click', function () {
+    if (btnPrev.classList.contains('hidden')) return;
     let idx = indexOfActive();
     if (idx <= 0) idx = 0;
     else idx = idx - 1;
-    centerItem(items[idx]);
+    if (items[idx]) centerItem(items[idx]);
   });
 
   if (btnNext) btnNext.addEventListener('click', function () {
+    if (btnNext.classList.contains('hidden')) return;
     let idx = indexOfActive();
     if (idx === -1) idx = 0;
     if (idx >= items.length - 1) idx = items.length - 1;
     else idx = idx + 1;
-    centerItem(items[idx]);
+    if (items[idx]) centerItem(items[idx]);
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') btnPrev && btnPrev.click();
-    if (e.key === 'ArrowRight') btnNext && btnNext.click();
+    if (e.key === 'ArrowLeft') btnPrev && !btnPrev.classList.contains('hidden') && btnPrev.click();
+    if (e.key === 'ArrowRight') btnNext && !btnNext.classList.contains('hidden') && btnNext.click();
   });
 
-  const preferRound = window.NEXT_ROUND || 1;
+  /* initial carousel position logic */
+  const serverDataEl = document.getElementById('server-data');
+  const serverData = serverDataEl ? JSON.parse(serverDataEl.textContent) : {};
+  const preferRound = window.NEXT_ROUND || serverData.next_round || 1;
   const startIndex = items.findIndex(i => parseInt(i.getAttribute('data-round'), 10) === preferRound);
   const targetIndex = startIndex !== -1 ? startIndex : Math.min(Math.max(preferRound - 1, 0), items.length - 1);
 
   setTimeout(() => {
     if (items[targetIndex]) {
       centerItem(items[targetIndex], 'auto');
-      setTimeout(setActiveNearest, 80);
+      setTimeout(() => {
+        setActiveNearest();
+        updateArrowsVisibility();
+      }, 80);
     } else {
       setActiveNearest();
+      updateArrowsVisibility();
     }
   }, 60);
 });
