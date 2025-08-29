@@ -220,7 +220,7 @@ def predict_constructor_strengths():
 
     results_2024_df = pd.concat(results_2024, ignore_index=True)
 
-    results_2024_df.to_json("constructor_strengths.json", orient="records", indent=2)
+    results_2024_df.to_json(RESULTS_PATH_CONSTRUCTORS, orient="records", indent=2)
     print("Constructor strengths per round saved.")
 
     return results_2024_df.to_dict(orient="records")

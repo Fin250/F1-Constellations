@@ -283,17 +283,17 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 56px;
-  height: 224px;
+  width: 60px;
+  height: 320px;
   z-index: 10;
 }
 
 .carousel-btn {
   position: relative;
-  width: 56px;
-  height: 224px;
+  width: 60px;
+  height: 320px;
   border-radius: 1rem;
-  background: linear-gradient(90deg, #3a3a3a, #2a2a2a);
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
   border: none;
   color: #fff;
   font-size: 26px;
@@ -401,8 +401,7 @@ header {
   gap: 10px;
   padding: 12px 30px;
   background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
 
