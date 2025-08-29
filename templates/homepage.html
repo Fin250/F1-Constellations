@@ -57,6 +57,7 @@
   </nav>
 </header>
 
+<main>
 <div class="carousel-wrap">
   <div class="carousel-btn-wrap prev">
     <button class="carousel-btn prev" aria-label="Previous track">‹</button>
@@ -99,6 +100,20 @@
     {% endfor %}
   </div>
 </div>
+
+<section class="championship-grid">
+    <div class="pred-box driver-championship">
+      <h3>Driver Championship</h3>
+      <div class="spinner"></div>
+      <ul class="championship-list driver-standings"></ul>
+    </div>
+    <div class="pred-box constructor-championship">
+      <h3>Constructor Championship</h3>
+      <div class="spinner"></div>
+      <ul class="championship-list constructor-standings"></ul>
+    </div>
+  </section>
+</main>
 
 <script id="server-data" type="application/json">
   {{ {"next_round": next_round} | tojson }}

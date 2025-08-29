@@ -240,7 +240,7 @@ header {
 
 .carousel-wrap {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 0 auto;
   position: relative;
   padding: 10px 0;
   z-index: 1;
@@ -293,8 +293,8 @@ header {
   width: 56px;
   height: 224px;
   border-radius: 1rem;
-  background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
-  border: 4px solid var(--accent-dark);
+  background: linear-gradient(90deg, #3a3a3a, #2a2a2a);
+  border: none;
   color: #fff;
   font-size: 26px;
   display: flex;
@@ -317,7 +317,7 @@ header {
     rgba(36,86,87,1) 17.8%,
     rgba(10,124,113,1) 100.2%
   );
-  filter: blur(10px);
+  filter: blur(15px);
   z-index: 0;
 }
 
@@ -378,7 +378,7 @@ header {
 
 .quickpick-bar {
   position: relative;
-  margin: 30px auto 0;
+  margin: 30px auto;
   justify-content: center;
 }
 
@@ -654,7 +654,7 @@ header {
   text-align: center;
 }
 
-.predictions-grid {
+.predictions-grid, .championship-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 30px;
@@ -685,13 +685,15 @@ header {
   letter-spacing: 0.05em;
 }
 
-.strength-list {
+.strength-list,
+.championship-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.strength-list li {
+.strength-list li,
+.championship-list li {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -705,11 +707,13 @@ header {
   border-left: 5px solid transparent;
 }
 
-.strength-list li:hover {
+.strength-list li:hover, 
+.championship-list li:hover {
   background-color: #333;
 }
 
-.strength-list li:last-child {
+.strength-list li:last-child, 
+.championship-list li:last-child {
   border-bottom: none;
 }
 
@@ -844,7 +848,8 @@ header {
   gap: 6px;
 }
 
-.metric-wrapper.metric-probability {
+.metric-wrapper.metric-probability,
+.metric-wrapper.metric-points {
   width: auto;
   min-width: 60px;
   justify-content: flex-end;
@@ -868,7 +873,8 @@ header {
   display: block;
 }
 
-.metric-prob {
+.metric-prob,
+.metric-points {
   position: static;
   z-index: 2;
 }

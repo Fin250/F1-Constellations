@@ -238,3 +238,201 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }, 60);
 });
+
+const constructorNameMap = {
+    "red_bull": "Red Bull Racing",
+    "mercedes": "Mercedes",
+    "ferrari": "Ferrari",
+    "mclaren": "McLaren",
+    "aston_martin": "Aston Martin",
+    "alpine": "Alpine",
+    "sauber": "Kick Sauber",
+    "williams": "Williams",
+    "rb": "Visa Cash App RB",
+    "haas": "Haas"
+};
+
+const constructorColors = {
+    "Red Bull Racing": "#3671C6",
+    "McLaren": "#FF8000",
+    "Mercedes": "#00D2BE",
+    "Ferrari": "#DC0000",
+    "Aston Martin": "#006F62",
+    "Alpine": "#2293D1",
+    "Williams": "#005AFF",
+    "Visa Cash App RB": "#2B4562",
+    "Haas": "#f0e9e9ff",
+    "Kick Sauber": "#52E252"
+};
+
+const constructorLogos = {
+    "Red Bull Racing": "/static/images/constructors/redbull.png",
+    "McLaren": "/static/images/constructors/mclaren.png",
+    "Mercedes": "/static/images/constructors/mercedes.png",
+    "Ferrari": "/static/images/constructors/ferrari.png",
+    "Aston Martin": "/static/images/constructors/astonmartin.png",
+    "Alpine": "/static/images/constructors/alpine.png",
+    "Williams": "/static/images/constructors/williams.png",
+    "Visa Cash App RB": "/static/images/constructors/visacashapprb.png",
+    "Haas": "/static/images/constructors/haas.png",
+    "Kick Sauber": "/static/images/constructors/kicksauber.png"
+};
+
+/* ---------- Helpers ---------- */
+
+function normalizeConstructorName(rawName) {
+    if (!rawName) return 'Unknown';
+    const key = rawName.toLowerCase().trim();
+    return constructorNameMap[key] || rawName;
+}
+
+function hideSpinnerForList(listSelector) {
+    const list = document.querySelector(listSelector);
+    if (!list) return;
+    const spinner = list.parentElement.querySelector('.spinner');
+    if (spinner) spinner.style.display = 'none';
+}
+
+function capitalize(str) {
+    if (!str && str !== 0) return '';
+    str = String(str);
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function ordinal(n) {
+    const s = ["th", "st", "nd", "rd"], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+function safeMetric(value, decimals = 2) {
+    if (value === null || value === undefined || Number.isNaN(Number(value))) return 'N/A';
+    if (typeof value === 'number') return value.toFixed(decimals);
+    return String(value);
+}
+
+async function loadStandings() {
+    let standings;
+    try {
+        const resp = await fetch(`/ml/standings`);
+        if (!resp.ok) throw new Error(`Failed to fetch standings: ${resp.status}`);
+        standings = await resp.json();
+    } catch (err) {
+        console.error('Error fetching standings:', err);
+        return;
+    }
+
+    if (Array.isArray(standings.constructor_standings)) {
+        populateConstructorStandings(standings.constructor_standings);
+    }
+
+    if (Array.isArray(standings.driver_standings)) {
+        populateDriverStandings(standings.driver_standings);
+    }
+}
+
+function createPredictionItem(
+    position,
+    imageUrl,
+    name,
+    metricValue,
+    isConstructor,
+    constructorName,
+    metricClass,
+    showMetric,
+    isProbability,
+    changeType
+) {
+    const li = document.createElement("li");
+
+    // Position
+    const posSpan = document.createElement("span");
+    posSpan.classList.add("position");
+    posSpan.textContent = ordinal(position);
+    li.appendChild(posSpan);
+
+    // Driver/Constructor Info
+    const driverInfo = document.createElement("div");
+    driverInfo.classList.add("driver-info");
+
+    const imageWrapper = document.createElement("div");
+    imageWrapper.classList.add("image-wrapper");
+
+    // Team colour
+    if (constructorName && constructorColors[normalizeConstructorName(constructorName)]) {
+        imageWrapper.style.backgroundColor = constructorColors[normalizeConstructorName(constructorName)];
+    } else {
+        imageWrapper.style.backgroundColor = "#ccc";
+    }
+
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = name;
+    img.classList.add(isConstructor ? "constructor-img" : "driver-img");
+
+    imageWrapper.appendChild(img);
+    driverInfo.appendChild(imageWrapper);
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = name;
+    driverInfo.appendChild(nameSpan);
+
+    li.appendChild(driverInfo);
+
+    if (showMetric) {
+        const metricWrapper = document.createElement("div");
+        metricWrapper.classList.add("metric-wrapper", `metric-${metricClass}`);
+
+        const metricSpan = document.createElement("span");
+        metricSpan.classList.add("gp-metric", `metric-${metricClass}`);
+
+        if (isProbability) {
+            metricSpan.textContent = `${safeMetric(metricValue)}%`;
+        } else {
+            metricSpan.textContent = `${safeMetric(metricValue, 0)} pts`;
+        }
+
+        metricSpan.style.color = "rgb(202, 194, 194)";
+
+        metricWrapper.appendChild(metricSpan);
+        li.appendChild(metricWrapper);
+    }
+
+    return li;
+}
+
+function populateConstructorStandings(constructors) {
+    const list = document.querySelector('.constructor-standings');
+    if (!list) return;
+
+    list.innerHTML = '';
+    hideSpinnerForList('.constructor-standings');
+
+    constructors.forEach((team, index) => {
+        const name = team.constructor || 'Unknown';
+        const points = team.points ?? 0;
+        const imageUrl = constructorLogos[name] || `/static/images/constructors/constructor-placeholder.jpg`;
+
+        const li = createPredictionItem(index + 1, imageUrl, name, points, true, name, 'points', true, false, 'neutral');
+        list.appendChild(li);
+    });
+}
+
+function populateDriverStandings(drivers) {
+    const list = document.querySelector('.driver-standings');
+    if (!list) return;
+
+    list.innerHTML = '';
+    hideSpinnerForList('.driver-standings');
+
+    drivers.forEach((drv, index) => {
+        const name = drv.driver || 'Unknown';
+        const constructorName = drv.constructor || null;
+        const points = drv.points ?? 0;
+        const imageUrl = drv.image || `/static/images/drivers/driver-placeholder.png`;
+
+        const li = createPredictionItem(index + 1, imageUrl, name, points, false, constructorName, 'points', true, false, 'neutral');
+        list.appendChild(li);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadStandings);
