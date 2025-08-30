@@ -110,36 +110,15 @@ header {
   display: inline-block;
 }
 
-.select-wrap {
+.track-select { 
   position: relative;
   display: inline-flex;
   align-items: center;
   height: 44px;
   min-width: 220px;
-  background: transparent;
-  border: none;
-  padding-left: 8px;
 }
 
-.select-wrap::before {
-  content: "";
-  position: absolute;
-  left: 52px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border-left: 5px solid var(--accent-strong);
-  border-bottom: 5px solid var(--accent-strong);
-  transform: translateY(-80%) rotate(315deg);
-  pointer-events: none;
-  transition: transform 0.2s ease;
-}
-
-.select-wrap:focus-within::before {
-  transform: translateY(-30%) rotate(135deg);
-}
-
-.track-select {
+.track-select-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -155,18 +134,80 @@ header {
   width: 100%;
   height: 44px;
   line-height: 1.1;
+  position: relative;
 }
 
-.track-select option {
-  background-color: #121212;
-  color: #fff;
-  line-height: 1.4;
+.track-select-button::after {
+  content: "";
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-left: 5px solid var(--accent-strong);
+  border-bottom: 5px solid var(--accent-strong);
+  transform: translateY(-80%) rotate(315deg);
+  pointer-events: none;
+  transition: transform 0.2s ease;
 }
 
-.track-select:focus,
-.track-select:hover {
+.track-select-button[aria-expanded="true"]::after {
+  transform: translateY(-30%) rotate(135deg);
+}
+
+.track-select-button:hover,
+.track-select-button:focus {
   color: var(--accent-weak);
   outline: none;
+}
+
+.track-select-dropdown {
+  position: fixed;
+  z-index: 9999;
+  min-width: 240px;
+  max-height: 60vh;
+  overflow: auto;
+  margin: 0; 
+  padding: 8px;
+  list-style: none;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(20,20,20,.96), rgba(14,14,14,.96));
+  box-shadow: 0 12px 40px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.track-select-item {
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+  padding: 10px 12px; 
+  border-radius: 10px; 
+  cursor: pointer;
+}
+
+.track-select-item img {
+  width: 22px; 
+  height: 15px; 
+  object-fit: cover; 
+  border-radius: 2px; 
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.track-select-name { 
+  margin-left: auto; 
+  text-align: right; 
+  color: #fff; 
+  letter-spacing: .2px; }
+
+.track-select-item:hover, .track-select-item:focus {
+  outline: none; 
+  background: rgba(255,255,255,0.06);
+}
+
+.track-select-button:focus-visible { 
+  outline: 2px solid var(--accent-strong); 
+  outline-offset: 2px;
 }
 
 /* Home page layout */

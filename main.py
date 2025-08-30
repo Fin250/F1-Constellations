@@ -65,12 +65,17 @@ def old_homepage():
 # Render individual track pages if they exist
 @app.route('/tracks/<trackname>')
 def tracks(trackname):
+    tracklist = []
+    for key, track in TRACK_METADATA.items():
+        tracklist.append({"id": key, **track})
+
     track = TRACK_METADATA.get(trackname)
     if not track:
         return render_template("homepage.html")
 
     return render_template(
         "track_template.html",
+        tracks = tracklist,
         track_display_name=track["display_name"],
         f1_website=track["f1_website"],
         flag_path=f"/static/images/flags/{track['flag']}",
