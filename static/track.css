@@ -407,16 +407,6 @@ header {
   border-radius: 4px;
 }
 
-@media (max-width: 600px) {
-  .carousel-btn { width: 48px; height: 48px; font-size: 22px; }
-  .carousel-btn.prev { transform: translate(-120%, -50%); }
-  .carousel-btn.next { transform: translate(120%, -50%); }
-}
-
-@media (max-width: 420px) {
-  .carousel-btn { display: none; }
-}
-
 .quickpick-bar {
   position: relative;
   margin: 30px auto;
@@ -440,7 +430,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 12px 30px;
+  padding: 12px;
   background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.35);
@@ -520,19 +510,6 @@ header {
   background: #777;
   color: #fff;
   border-color: #888;
-}
-
-@media (max-width: 600px) {
-  .quickpick-flag img {
-    width: 28px;
-    height: 19px;
-  }
-}
-
-@media (max-width: 800px) {
-  .box { flex: 0 0 85%; }
-  .carousel { padding: 0 8%; }
-  .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
 }
 
 /* Individual track layout */
@@ -947,6 +924,11 @@ header {
   z-index: 2;
 }
 
+.metric-circle {
+  width: 40px;
+  height: 40px;
+}
+
 .metric-wrapper .circle-bg { stroke: #333; }
 .metric-wrapper .circle-fg { stroke-linecap: round; }
 
@@ -980,7 +962,7 @@ header {
   color:#245858;
 }
 
-/* About page */
+/* About page layout */
 
 .about-grid {
 display: grid;
@@ -1024,3 +1006,360 @@ grid-row-gap: 50px;
 i {
   font-size: 64px;
 }
+
+/* Media queries */
+
+/* Generic */
+
+@media (max-width: 1024px) {
+  main {
+    padding: 32px 40px;
+  }
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 24px 30px;
+  }
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 16px 20px;
+  }
+  body {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 360px) {
+  main {
+    padding: 12px 14px;
+  }
+  body {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+
+/* Header */
+
+@media (max-width: 1439px) {
+  .logo-title {
+    flex: 0 0 35%;
+    gap: 30px;
+  }
+  .site-logo { width: 70px; }
+  .site-name { width: 260px; }
+  .header-nav { gap: 60px; }
+  .track-select { min-width: 180px; }
+  .nav-button { font-size: 18px; padding: 6px 12px; }
+}
+
+@media (max-width: 1023px) {
+  header {
+    height: 80px;
+  }
+  .logo-title {
+    flex: 0 0 auto;
+    gap: 20px;
+    padding: 0 12px;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  }
+  .site-logo { width: 60px; }
+  .site-name { width: 200px; }
+  .header-nav {
+    gap: 36px;
+    padding: 0 20px;
+  }
+  .track-select { min-width: 160px; }
+  .track-select-button { font-size: 18px; }
+  .nav-button { font-size: 16px; }
+  .nav-icon { font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  header {
+    flex: 0 0 20%;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 10px 0;
+  }
+  .logo-title {
+    gap: 12px;
+    padding: 0;
+  }
+  .site-logo { width: 50px; }
+  .site-name { width: 160px; }
+  .header-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 10px;
+  }
+  .track-select { min-width: 140px; }
+  .track-select-button { font-size: 16px; }
+  .nav-button {
+    font-size: 15px;
+    padding: 4px 8px;
+  }
+  .nav-text { display: none; }
+}
+
+@media (max-width: 479px) {
+  .site-logo { width: 40px; }
+  .site-name { width: 120px; }
+  .header-nav {
+    gap: 12px;
+    padding: 8px;
+  }
+  .track-select { min-width: 120px; }
+  .track-select-button { font-size: 14px; }
+  .nav-button { font-size: 14px; gap: 6px; }
+}
+
+/* Home page layout */
+
+@media (max-width: 600px) {
+  .carousel-btn { width: 48px; height: 48px; font-size: 22px; }
+  .carousel-btn.prev { transform: translate(-120%, -50%); }
+  .carousel-btn.next { transform: translate(120%, -50%); }
+}
+
+@media (max-width: 420px) {
+  .carousel-btn { display: none; }
+}
+
+@media (max-width: 600px) {
+  .quickpick-flag img {
+    width: 28px;
+    height: 19px;
+  }
+}
+
+@media (max-width: 800px) {
+  .box { flex: 0 0 85%; }
+  .carousel { padding: 0 8%; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
+}
+
+/* Individual track layout */
+
+@media (max-width: 1500px) {
+  .predictions-grid, .championship-grid {
+    gap: 30px;
+  }
+
+  .pred-box h3 {
+    font-size: 22px;
+  }
+
+  .strength-list li,
+  .championship-list li {
+    font-size: 14px;
+  }
+
+  .position-wrapper {
+    width: 48px;
+    min-width: 48px;
+    margin-right: 12px;
+    gap: 4px;
+  }
+
+  .position-wrapper .position {
+    font-size: 18px;
+  }
+
+  .position {
+    margin-right: 0px;
+  }
+
+  .driver-info img,
+  .constructor-info img,
+  .image-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .metric-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .metric-with-circle {
+    font-size: 11px;
+  }
+
+  .driver-info, .constructor-info {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .predictions-grid, .championship-grid {
+    gap: 24px;
+  }
+
+  .pred-box h3 {
+    font-size: 22px;
+  }
+
+  .strength-list li,
+  .championship-list li {
+    font-size: 14px;
+  }
+
+  .position-wrapper {
+    margin-right: 6px;
+  }
+
+  .position-wrapper .position {
+    font-size: 18px;
+  }
+
+  .driver-info img,
+  .constructor-info img,
+  .image-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .metric-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .metric-with-circle {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pred-box h3 {
+    font-size: 20px;
+  }
+
+  .strength-list li,
+  .championship-list li {
+    font-size: 13px;
+  }
+
+  .position-wrapper .position {
+    font-size: 16px;
+  }
+
+  .driver-info img,
+  .constructor-info img,
+  .image-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+
+  .driver-info span,
+  .constructor-info span {
+    font-size: 13px;
+  }
+
+  .metric-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+
+  .metric-with-circle {
+    font-size: 11px;
+  }
+
+  .driver-metric, 
+  .constructor-metric,
+  .gp-metric {
+    font-size: 12px;
+    min-width: 50px;
+  }
+
+  .metric-circle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .predictions-grid, .championship-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .pred-box {
+    padding: 16px;
+  }
+
+  .pred-box h3 {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 14px;
+  }
+
+  .strength-list li,
+  .championship-list li {
+    padding: 10px 12px;
+    font-size: 12px;
+    gap: 16px;
+  }
+
+  .position-wrapper .position {
+    font-size: 14px;
+    min-width: 20px;
+  }
+
+  .position-wrapper .change-icon {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
+  }
+
+  .driver-info img,
+  .constructor-info img,
+  .image-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .driver-info span,
+  .constructor-info span {
+    font-size: 12px;
+  }
+
+  .metric-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .metric-with-circle {
+    font-size: 10px;
+  }
+
+  .driver-metric, 
+  .constructor-metric,
+  .gp-metric {
+    font-size: 11px;
+    min-width: 40px;
+  }
+
+  .metric-circle {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* About page layout */

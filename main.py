@@ -89,7 +89,11 @@ def tracks(trackname):
 # About page
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    tracklist = []
+    for key, track in TRACK_METADATA.items():
+        tracklist.append({"id": key, **track})
+
+    return render_template("about.html", tracks = tracklist)
 
 # Get predictions for a given round
 @app.route('/ml/<int:roundnum>')

@@ -26,41 +26,26 @@
       <span class="nav-text">Home</span>
     </a>
 
-    <div class="select-wrap" role="navigation" aria-label="Select track">
-      <select class="track-select" onchange="if(this.value) window.location.href=this.value;">
-        <option value="">Track</option>
-        <option value="/tracks/bahrain">Bahrain</option>
-        <option value="/tracks/saudi-arabia">Saudi Arabia</option>
-        <option value="/tracks/australia">Australia</option>
-        <option value="/tracks/japan">Japan</option>
-        <option value="/tracks/china">China</option>
-        <option value="/tracks/miami">Miami</option>
-        <option value="/tracks/imola">Imola</option>
-        <option value="/tracks/monaco">Monaco</option>
-        <option value="/tracks/canada">Canada</option>
-        <option value="/tracks/spain">Spain</option>
-        <option value="/tracks/austria">Austria</option>
-        <option value="/tracks/uk">United Kingdom</option>
-        <option value="/tracks/hungary">Hungary</option>
-        <option value="/tracks/belgium">Belgium</option>
-        <option value="/tracks/netherlands">Netherlands</option>
-        <option value="/tracks/italy">Italy</option>
-        <option value="/tracks/azerbaijan">Azerbaijan</option>
-        <option value="/tracks/singapore">Singapore</option>
-        <option value="/tracks/usa">United States</option>
-        <option value="/tracks/mexico">Mexico</option>
-        <option value="/tracks/brazil">Brazil</option>
-        <option value="/tracks/las-vegas">Las Vegas</option>
-        <option value="/tracks/qatar">Qatar</option>
-        <option value="/tracks/uae">Abu Dhabi</option>
-      </select>
-    </div>
+    <div class="track-select" data-dropdown>
+    <button id="trackTrigger" class="track-select-button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="track-select-label">Track</span>
+    </button>
+  </div>
 
     <a class="nav-button nav-about" href="/about" title="About">
       <i class="material-icons nav-icon">help</i>
       <span class="nav-text">About</span>
     </a>
   </nav>
+
+  <ul id="trackDropdown" class="track-select-dropdown" role="listbox" hidden>
+  {% for track in tracks %}
+  <li role="option" tabindex="0" data-href="/tracks/{{ track.id }}" class="track-select-item">
+    <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} flag">
+    <span class="track-select-name">{{ track.display_name }}</span>
+  </li>
+  {% endfor %}
+</ul>
 </header>
 
 <main>
@@ -132,5 +117,6 @@
 </div>
 </main>
 
+<script src="/static/scripts/tracks.js"></script>
 </body>
 </html>

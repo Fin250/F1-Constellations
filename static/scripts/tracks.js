@@ -300,8 +300,8 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
         if (!isProbability) {
             const svgNS = "http://www.w3.org/2000/svg";
             const svg = document.createElementNS(svgNS, "svg");
-            svg.setAttribute("width", "40");
-            svg.setAttribute("height", "40");
+            svg.setAttribute("viewBox", "0 0 40 40");
+            svg.classList.add("metric-circle");
 
             const radius = 17.6;
             const circleBg = document.createElementNS(svgNS, "circle");
