@@ -125,28 +125,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const serverEl = document.getElementById('server-data');
     if (!serverEl) return;
     let server;
-    try {
-      server = JSON.parse(serverEl.textContent || '{}');
-    } catch (err) {
-      return;
-    }
+    try { server = JSON.parse(serverEl.textContent || '{}'); }
+    catch { return; }
+
     const tracks = server.tracks || [];
-    const boxes = Array.from(carousel.querySelectorAll('.box'));
+    const boxes = Array.from(document.querySelectorAll('.box'));
 
     boxes.forEach(box => {
-      const attr = box.getAttribute('data-detailed-flag') || '';
-      const idx = parseInt(box.getAttribute('data-index'), 10);
-      const fallbackTrack = (typeof idx === 'number' && tracks[idx]) ? tracks[idx] : null;
-      const filename = attr || (fallbackTrack && fallbackTrack.detailed_flag) || '';
+        const attr = box.getAttribute('data-detailed-flag') || '';
+        const idx = parseInt(box.getAttribute('data-index'), 10);
+        const fallbackTrack = (typeof idx === 'number' && tracks[idx]) ? tracks[idx] : null;
+        const filename = attr || (fallbackTrack && fallbackTrack.detailed_flag) || '';
 
-      if (filename) {
-        const url = '/static/images/textured-flags/' + encodeURIComponent(filename);
-        const gradient = 'linear-gradient(135deg, rgba(24,24,24,0.72) 0%, rgba(30,27,27,0.48) 50%, rgba(19,14,14,0.58) 100%)';
-        box.style.backgroundImage = `${gradient}, url("${url}")`;
-        box.classList.add('has-detailed-bg');
-      } else {
-        box.classList.remove('has-detailed-bg');
-      }
+        const bgDiv = box.querySelector('.box-bg');
+        if (filename && bgDiv) {
+            const url = '/static/images/textured-flags/' + encodeURIComponent(filename);
+            bgDiv.style.backgroundImage = `url("${url}")`;
+            box.classList.add('has-detailed-bg');
+        } else if (bgDiv) {
+            bgDiv.style.backgroundImage = '';
+            box.classList.remove('has-detailed-bg');
+        }
     });
   }
 

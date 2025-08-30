@@ -50,12 +50,13 @@
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
     <a href="/tracks/{{ track.id }}"
-       class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
-       data-index="{{ loop.index0 }}"
-       data-round="{{ track.round }}"
-       data-detailed-flag="{{ track.detailed_flag | default('') }}"
-       role="listitem">
-      <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track">
+      class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
+      data-index="{{ loop.index0 }}"
+      data-round="{{ track.round }}"
+      data-detailed-flag="{{ track.detailed_flag | default('') }}"
+      role="listitem">
+      <div class="box-bg"></div>
+      <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track" class="track-layout">
       <div class="box-content">
         <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
         <span class="country">{{ track.display_name }}</span>
