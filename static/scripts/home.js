@@ -1,3 +1,42 @@
+const constructorNameMap = {
+    "red_bull": "Red Bull Racing",
+    "mercedes": "Mercedes",
+    "ferrari": "Ferrari",
+    "mclaren": "McLaren",
+    "aston_martin": "Aston Martin",
+    "alpine": "Alpine",
+    "sauber": "Kick Sauber",
+    "williams": "Williams",
+    "rb": "Visa Cash App RB",
+    "haas": "Haas"
+};
+
+const constructorColors = {
+    "Red Bull Racing": "#3671C6",
+    "McLaren": "#FF8000",
+    "Mercedes": "#00D2BE",
+    "Ferrari": "#DC0000",
+    "Aston Martin": "#006F62",
+    "Alpine": "#2293D1",
+    "Williams": "#005AFF",
+    "Visa Cash App RB": "#2B4562",
+    "Haas": "#f0e9e9ff",
+    "Kick Sauber": "#52E252"
+};
+
+const constructorLogos = {
+    "Red Bull Racing": "/static/images/constructors/redbull.png",
+    "McLaren": "/static/images/constructors/mclaren.png",
+    "Mercedes": "/static/images/constructors/mercedes.png",
+    "Ferrari": "/static/images/constructors/ferrari.png",
+    "Aston Martin": "/static/images/constructors/astonmartin.png",
+    "Alpine": "/static/images/constructors/alpine.png",
+    "Williams": "/static/images/constructors/williams.png",
+    "Visa Cash App RB": "/static/images/constructors/visacashapprb.png",
+    "Haas": "/static/images/constructors/haas.png",
+    "Kick Sauber": "/static/images/constructors/kicksauber.png"
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   const carousel = document.getElementById('trackCarousel');
   if (!carousel) return;
@@ -239,45 +278,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 60);
 });
 
-const constructorNameMap = {
-    "red_bull": "Red Bull Racing",
-    "mercedes": "Mercedes",
-    "ferrari": "Ferrari",
-    "mclaren": "McLaren",
-    "aston_martin": "Aston Martin",
-    "alpine": "Alpine",
-    "sauber": "Kick Sauber",
-    "williams": "Williams",
-    "rb": "Visa Cash App RB",
-    "haas": "Haas"
-};
-
-const constructorColors = {
-    "Red Bull Racing": "#3671C6",
-    "McLaren": "#FF8000",
-    "Mercedes": "#00D2BE",
-    "Ferrari": "#DC0000",
-    "Aston Martin": "#006F62",
-    "Alpine": "#2293D1",
-    "Williams": "#005AFF",
-    "Visa Cash App RB": "#2B4562",
-    "Haas": "#f0e9e9ff",
-    "Kick Sauber": "#52E252"
-};
-
-const constructorLogos = {
-    "Red Bull Racing": "/static/images/constructors/redbull.png",
-    "McLaren": "/static/images/constructors/mclaren.png",
-    "Mercedes": "/static/images/constructors/mercedes.png",
-    "Ferrari": "/static/images/constructors/ferrari.png",
-    "Aston Martin": "/static/images/constructors/astonmartin.png",
-    "Alpine": "/static/images/constructors/alpine.png",
-    "Williams": "/static/images/constructors/williams.png",
-    "Visa Cash App RB": "/static/images/constructors/visacashapprb.png",
-    "Haas": "/static/images/constructors/haas.png",
-    "Kick Sauber": "/static/images/constructors/kicksauber.png"
-};
-
 /* ---------- Helpers ---------- */
 
 function normalizeConstructorName(rawName) {
@@ -435,4 +435,26 @@ function populateDriverStandings(drivers) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", loadStandings);
+document.addEventListener("DOMContentLoaded", () => {
+  loadStandings();
+
+  const toggleButtons = document.querySelectorAll(".toggle-btn");
+  const driverPanel = document.querySelector(".driver-championship");
+  const constructorPanel = document.querySelector(".constructor-championship");
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      toggleButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const target = btn.getAttribute("data-target");
+      if (target === "drivers") {
+        driverPanel.style.display = "block";
+        constructorPanel.style.display = "none";
+      } else {
+        driverPanel.style.display = "none";
+        constructorPanel.style.display = "block";
+      }
+    });
+  });
+});

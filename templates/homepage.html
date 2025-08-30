@@ -102,17 +102,25 @@
 </div>
 
 <section class="championship-grid">
-    <div class="pred-box driver-championship">
-      <h3>Driver Championship</h3>
-      <div class="spinner"></div>
-      <ul class="championship-list driver-standings"></ul>
+  <div class="pred-box championship-toggle-box">
+    <h3>Predicted Championship</h3>
+    <div class="championship-toggle">
+      <button class="toggle-btn active" data-target="drivers">Drivers</button>
+      <button class="toggle-btn" data-target="constructors">Constructors</button>
     </div>
-    <div class="pred-box constructor-championship">
-      <h3>Constructor Championship</h3>
-      <div class="spinner"></div>
-      <ul class="championship-list constructor-standings"></ul>
+
+    <div class="championship-standings">
+      <div class="standings-panel driver-championship">
+        <div class="spinner"></div>
+        <ul class="championship-list driver-standings"></ul>
+      </div>
+      <div class="standings-panel constructor-championship" style="display:none;">
+        <div class="spinner"></div>
+        <ul class="championship-list constructor-standings"></ul>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <script id="server-data" type="application/json">
