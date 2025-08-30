@@ -391,7 +391,7 @@ function createPredictionItem(
             metricSpan.textContent = `${safeMetric(metricValue, 0)} pts`;
         }
 
-        metricSpan.style.color = "rgb(202, 194, 194)";
+        metricSpan.style.color = "rgba(220, 220, 220, 1)";
 
         metricWrapper.appendChild(metricSpan);
         li.appendChild(metricWrapper);

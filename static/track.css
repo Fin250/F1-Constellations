@@ -785,11 +785,11 @@ header {
   border-bottom: none;
 }
 
-.gp-results li:nth-child(1) { border-left-color: #ffd700; }
-.gp-results li:nth-child(2) { border-left-color: #c0c0c0; }
-.gp-results li:nth-child(3) { border-left-color: #cd7f32; }
+.gp-results li:nth-child(1), .championship-list li:nth-child(1) { border-left-color: #ffd700; }
+.gp-results li:nth-child(2), .championship-list li:nth-child(2)  { border-left-color: #c0c0c0; }
+.gp-results li:nth-child(3), .championship-list li:nth-child(3)  { border-left-color: #cd7f32; }
 
-.gp-results li:nth-child(n+4):nth-child(-n+10) {
+.gp-results li:nth-child(n+4):nth-child(-n+10), .championship-list li:nth-child(n+4):nth-child(-n+10) {
   border-left-color: #3d3d3d;
 }
 

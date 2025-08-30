@@ -54,6 +54,18 @@ function getStrengthColor(strength) {
     return `rgb(${red},${green},0)`;
 }
 
+function getProbabilityColor(probStr) {
+    if (probStr === 'N/A') return '#888';
+    const val = parseFloat(String(probStr).replace('%', ''));
+    if (Number.isNaN(val)) return '#888';
+    if (val >= 25) return 'rgb(0,255,0)';
+    if (val <= 0) return 'rgb(255,0,0)';
+    const ratio = val / 25;
+    const green = Math.round(ratio * 255);
+    const red = 255 - green;
+    return `rgb(${red},${green},0)`;
+}
+
 function hideSpinnerForList(listSelector) {
     const list = document.querySelector(listSelector);
     if (!list) return;
@@ -326,7 +338,7 @@ function createPredictionItem(position, imageUrl, name, metricValue, isConstruct
             metricSpan.classList.add('metric-with-circle');
         } else {
             metricSpan.classList.add('metric-prob');
-            metricSpan.style.color = '#cac2c2ff';
+            metricSpan.style.color = getProbabilityColor(metricValue);
         }
     }
 
