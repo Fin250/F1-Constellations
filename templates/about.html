@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/static/track.css"/>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
 </head>
@@ -62,11 +63,19 @@
   </nav>
 </header>
 
+<main>
+
 <div class="about-tldr">
 </div>
 
+<div class="about-grid">
 <div class="about data">
   <h1>Data Gathering</h1>
+  <div class="icon-container">
+    <img src="/static/images/api.svg" />
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" />
+  </div>
   <p>The data was initially sourced from Ergast F1 API for circuit, calendar and race result information. This was further complimented by both driver and constructor standing data from the same source.</p>
 
   <p>Weather data was scraped from the wikipedia page for each grand prix by searching for weather segments in the page, this weather information was then standardised to provide best formatting for the modelling later.</p>
@@ -78,6 +87,11 @@
 
 <div class="about algorithm">
 <h1>ML algorithm</h1>
+<div class="icon-container">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg" />
+</div>
   <p>The dataset was split into training and testing sets, with the data up to the 2024 season used to train the data set and the testing carried out on the 2024 season to evaluate the model.</p>
 
   <p>Multiple models were trialled to assess their accuracy in predicting race winners but logistic regression was selected to perform the machine learning due to its speed in generating results.</p>
@@ -91,6 +105,10 @@
 
 <div class="about backend">
 <h1>Backend</h1>
+<div class="icon-container">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" />
+  <i class="devicon-flask-original-wordmark"></i>
+</div>
   <p>Through the use of JavaScript, a fetch request is sent to the server for the top 5 driver predictions when an individual track page is loaded.</p>
 
   <p>Once the response is received from the server, it is converted into the json format and the JS dynamically updates the HTML unordered list element to fill the webpage with the predictions gathered from the machine learning.</p>
@@ -102,11 +120,17 @@
 
 <div class="about frontend">
 <h1>Frontend</h1>
+<div class="icon-container">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+</div>
   <p>This front-end of the web application is most suitable to be developed using a combination of HTML, CSS and JavaScript (JS) in order to maximise compatibility and accessibility for users.</p>
   <p>HTML is the most popular markup language used in designing web applications for structuring the content of webpages. CSS enables enhancements of the styling, visuals and layout of the HTML formatting, enabling better usability of the application.</p>
   <p>CSS will also be used to alter the web application for varying screen sizes and devices to provide a good user experience. JavaScript is a scripting language that enables dynamically updating content, this will be used to dynamically load the integrated machine learning data.</p>
 </div>
-
+</div>
+</main>
 
 </body>
 </html>

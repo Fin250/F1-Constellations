@@ -11,7 +11,6 @@ from flask import (
     url_for,
 )
 
-from flask_sqlalchemy import SQLAlchemy
 from jinja2.exceptions import TemplateNotFound
 
 import json
@@ -36,8 +35,6 @@ from metadata.driver_metadata import DRIVER_METADATA
 # Initialise Flask instance
 app = Flask(__name__)
 app.config['TIMEOUT'] = 600
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-db = SQLAlchemy(app)
 app.secret_key = '7EDYZ8pak3Px'
 
 def get_next_track():
