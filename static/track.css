@@ -437,10 +437,31 @@ header {
 }
 
 .quickpick-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  padding-bottom: 20px;
+}
+
+.quickpick-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: transparent;
+  border-radius: 0 0 2px 2px;
+}
+
+.quickpick-item.upcoming::after {
+  background: orange;
+}
+
+.quickpick-item.completed::after {
+  background: green;
 }
 
 .quickpick-round {
@@ -462,18 +483,6 @@ header {
 .quickpick-item:hover img {
   transform: scale(1.1);
   box-shadow: 0 0 8px rgba(255,255,255,0.4);
-}
-
-.quickpick-item.upcoming {
-  border: 2px solid orange;
-  border-radius: 6px;
-  padding: 2px;
-}
-
-.quickpick-item.completed {
-  border: 2px solid green;
-  border-radius: 6px;
-  padding: 2px;
 }
 
 .box.upcoming {
