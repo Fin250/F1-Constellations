@@ -275,6 +275,28 @@ document.addEventListener('DOMContentLoaded', function () {
       updateArrowsVisibility();
     }
   }, 60);
+
+  loadStandings();
+
+  const toggleButtons = document.querySelectorAll(".toggle-btn");
+  const driverPanel = document.querySelector(".driver-championship");
+  const constructorPanel = document.querySelector(".constructor-championship");
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      toggleButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const target = btn.getAttribute("data-target");
+      if (target === "drivers") {
+        driverPanel.style.display = "block";
+        constructorPanel.style.display = "none";
+      } else {
+        driverPanel.style.display = "none";
+        constructorPanel.style.display = "block";
+      }
+    });
+  });
 });
 
 /* ---------- Helpers ---------- */
@@ -433,30 +455,6 @@ function populateDriverStandings(drivers) {
         list.appendChild(li);
     });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadStandings();
-
-  const toggleButtons = document.querySelectorAll(".toggle-btn");
-  const driverPanel = document.querySelector(".driver-championship");
-  const constructorPanel = document.querySelector(".constructor-championship");
-
-  toggleButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      toggleButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const target = btn.getAttribute("data-target");
-      if (target === "drivers") {
-        driverPanel.style.display = "block";
-        constructorPanel.style.display = "none";
-      } else {
-        driverPanel.style.display = "none";
-        constructorPanel.style.display = "block";
-      }
-    });
-  });
-});
 
 (function(){
   const trigger = document.getElementById('trackTrigger');

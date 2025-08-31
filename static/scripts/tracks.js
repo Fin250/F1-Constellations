@@ -37,6 +37,73 @@ const constructorLogos = {
     "Kick Sauber": "/static/images/constructors/kicksauber.png"
 };
 
+document.addEventListener("DOMContentLoaded", async function () {
+    const roundAttr = document.body.getAttribute('data-round');
+    if (!roundAttr) {
+        console.error("Missing 'data-round' on body.");
+        return;
+    }
+
+    const round = parseInt(roundAttr, 10);
+    if (isNaN(round)) {
+        console.error("Invalid round number in 'data-round'.");
+        return;
+    }
+
+    // fetch current round data
+    let currentData;
+    try {
+        const resp = await fetch(`/ml/${round}`);
+        if (!resp.ok) throw new Error(`Failed to fetch predictions: ${resp.status}`);
+        currentData = await resp.json();
+    } catch (err) {
+        console.error('Error fetching current round predictions:', err);
+        return;
+    }
+
+    // fetch previous round data
+    let prevData = null;
+    if (round > 1) {
+        try {
+            const respPrev = await fetch(`/ml/${round - 1}`);
+            if (respPrev.ok) {
+                prevData = await respPrev.json();
+            } else {
+                prevData = null;
+            }
+        } catch (err) {
+            prevData = null;
+        }
+    }
+
+    const metadata = currentData.driver_metadata || {};
+
+    if (!currentData.gp_results || !Array.isArray(currentData.gp_results.predictions)) {
+        console.error("Invalid or missing gp_results.predictions");
+    } else {
+        const prevGpPreds = prevData && prevData.gp_results && Array.isArray(prevData.gp_results.predictions)
+            ? prevData.gp_results.predictions
+            : null;
+        populateGPResults(currentData.gp_results.predictions, metadata, prevGpPreds, round);
+    }
+
+    if (!Array.isArray(currentData.driver_strength)) {
+        console.error("Invalid or missing driver_strength array");
+    } else {
+        const prevDrivers = prevData && Array.isArray(prevData.driver_strength) ? prevData.driver_strength : null;
+        populateDriverStrength(currentData.driver_strength, metadata, prevDrivers, round);
+    }
+
+    if (!Array.isArray(currentData.constructor_strength)) {
+        console.error("Invalid or missing constructor_strength array");
+    } else {
+        const prevConstructors = prevData && Array.isArray(prevData.constructor_strength) ? prevData.constructor_strength : null;
+        populateConstructorStrength(currentData.constructor_strength, prevConstructors, round);
+    }
+});
+
+/* ---------- Helpers ---------- */
+
 function normalizeConstructorName(rawName) {
     if (!rawName) return 'Unknown';
     const key = rawName.toLowerCase().trim();
@@ -109,73 +176,6 @@ function createSparkleSVG() {
     svg.appendChild(p2);
     return svg;
 }
-
-document.addEventListener("DOMContentLoaded", async function () {
-    const roundAttr = document.body.getAttribute('data-round');
-    if (!roundAttr) {
-        console.error("Missing 'data-round' on body.");
-        return;
-    }
-
-    const round = parseInt(roundAttr, 10);
-    if (isNaN(round)) {
-        console.error("Invalid round number in 'data-round'.");
-        return;
-    }
-
-    // fetch current round data
-    let currentData;
-    try {
-        const resp = await fetch(`/ml/${round}`);
-        if (!resp.ok) throw new Error(`Failed to fetch predictions: ${resp.status}`);
-        currentData = await resp.json();
-    } catch (err) {
-        console.error('Error fetching current round predictions:', err);
-        return;
-    }
-
-    // fetch previous round data
-    let prevData = null;
-    if (round > 1) {
-        try {
-            const respPrev = await fetch(`/ml/${round - 1}`);
-            if (respPrev.ok) {
-                prevData = await respPrev.json();
-            } else {
-                prevData = null;
-            }
-        } catch (err) {
-            prevData = null;
-        }
-    }
-
-    const metadata = currentData.driver_metadata || {};
-
-    if (!currentData.gp_results || !Array.isArray(currentData.gp_results.predictions)) {
-        console.error("Invalid or missing gp_results.predictions");
-    } else {
-        const prevGpPreds = prevData && prevData.gp_results && Array.isArray(prevData.gp_results.predictions)
-            ? prevData.gp_results.predictions
-            : null;
-        populateGPResults(currentData.gp_results.predictions, metadata, prevGpPreds, round);
-    }
-
-    if (!Array.isArray(currentData.driver_strength)) {
-        console.error("Invalid or missing driver_strength array");
-    } else {
-        const prevDrivers = prevData && Array.isArray(prevData.driver_strength) ? prevData.driver_strength : null;
-        populateDriverStrength(currentData.driver_strength, metadata, prevDrivers, round);
-    }
-
-    if (!Array.isArray(currentData.constructor_strength)) {
-        console.error("Invalid or missing constructor_strength array");
-    } else {
-        const prevConstructors = prevData && Array.isArray(prevData.constructor_strength) ? prevData.constructor_strength : null;
-        populateConstructorStrength(currentData.constructor_strength, prevConstructors, round);
-    }
-});
-
-/* ---------- Helpers ---------- */
 
 function capitalize(str) {
     if (!str && str !== 0) return '';
