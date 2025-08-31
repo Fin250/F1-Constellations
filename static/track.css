@@ -643,7 +643,6 @@ header {
   min-height: 0;
   border-radius: 8px;
   overflow: hidden;
-  padding: 12px;
   margin: 12px;
 }
 
@@ -1196,162 +1195,275 @@ i {
 
 /* Home page layout */
 
-@media (max-width: 600px) {
-  .carousel-btn { width: 48px; height: 48px; font-size: 22px; }
-  .carousel-btn.prev { transform: translate(-120%, -50%); }
-  .carousel-btn.next { transform: translate(120%, -50%); }
-}
-
-@media (max-width: 420px) {
-  .carousel-btn { display: none; }
-}
-
-@media (max-width: 600px) {
-  .quickpick-flag img {
-    width: 28px;
-    height: 19px;
+@media (max-width: 768px) {
+  .box { 
+    flex: 0 0 85%; 
+  }
+  .carousel { 
+    padding: 0 8%; 
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .quickpick-flags {
+    gap: 8px;
+    padding: 10px 16px;
+  }
+  .quickpick-item img {
+    width: 32px;
+    height: 21px;
+  }
+  .quickpick-round {
+    font-size: 8px;
   }
 }
 
-@media (max-width: 800px) {
-  .box { flex: 0 0 85%; }
-  .carousel { padding: 0 8%; }
-  .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
+@media (max-width: 600px) {
+  .carousel-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+  .carousel-btn.prev {
+    transform: translate(-120%, -50%);
+  }
+  .carousel-btn.next {
+    transform: translate(120%, -50%);
+  }
+  .quickpick-flags {
+    gap: 6px;
+    padding: 8px 12px;
+  }
+  .quickpick-item img {
+    width: 28px;
+    height: 19px;
+  }
+  .quickpick-round {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quickpick-flags {
+    gap: 5px;
+    padding: 6px 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .quickpick-item {
+    flex: unset;
+    max-width: 80px;
+  }
+  .quickpick-item img {
+    width: 24px;
+    height: 16px;
+  }
+  .quickpick-round {
+    font-size: 7px;
+  }
+  #quickpick-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .carousel-btn {
+    display: none; 
+  }
 }
 
 /* Individual track layout */
 
 @media (max-width: 1500px) {
+  .track-map-links {
+    width: 260px;
+    gap: 16px;
+  }
+  .track-link-card .link-label {
+    font-size: 20px;
+  }
+  .link-logo img {
+    height: 70%;
+  }
   .predictions-grid, .championship-grid {
     gap: 30px;
   }
-
   .pred-box h3 {
     font-size: 22px;
   }
-
   .strength-list li,
   .championship-list li {
     font-size: 14px;
   }
-
   .position-wrapper {
     width: 48px;
     min-width: 48px;
     margin-right: 12px;
     gap: 4px;
   }
-
   .position-wrapper .position {
     font-size: 18px;
   }
-
   .position {
     margin-right: 0px;
   }
-
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
     width: 34px;
     height: 34px;
   }
-
   .metric-wrapper {
     width: 34px;
     height: 34px;
   }
-
   .metric-with-circle {
     font-size: 11px;
   }
-
   .driver-info, .constructor-info {
     font-size: 12px;
   }
 }
 
+@media (max-width: 1024px) {
+  .track-map-links {
+    width: 220px;
+    gap: 14px;
+  }
+  .track-link-card {
+    padding: 14px;
+  }
+  .track-link-card .link-label {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 768px) {
+  .track-map-links {
+    width: 180px;
+    gap: 12px;
+  }
+  .track-link-card {
+    padding: 12px;
+  }
+  .track-link-card .link-label {
+    font-size: 16px;
+  }
+  .link-logo img {
+    height: 60%;
+  }
   .predictions-grid, .championship-grid {
     gap: 24px;
   }
-
   .pred-box h3 {
     font-size: 22px;
   }
-
   .strength-list li,
   .championship-list li {
     font-size: 14px;
   }
-
   .position-wrapper {
     margin-right: 6px;
   }
-
   .position-wrapper .position {
     font-size: 18px;
   }
-
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
     width: 34px;
     height: 34px;
   }
-
   .metric-wrapper {
     width: 34px;
     height: 34px;
   }
-
   .metric-with-circle {
     font-size: 11px;
   }
 }
 
 @media (max-width: 600px) {
+  .track-map-inner {
+    flex-direction: column;
+  }
+  .track-map-left {
+    min-height: 200px;
+  }
+  .track-map-links {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .track-link-card {
+    flex: 1 1 50%;
+    min-width: 0;
+    height: 64px;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .link-logo {
+    flex: 0 0 auto;
+    max-height: 100%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .link-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .track-link-card .link-label {
+    flex: 1;
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+  }
   .pred-box h3 {
     font-size: 20px;
   }
-
   .strength-list li,
   .championship-list li {
     font-size: 13px;
   }
-
   .position-wrapper .position {
     font-size: 16px;
   }
-
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
     width: 32px;
     height: 32px;
   }
-
   .driver-info span,
   .constructor-info span {
     font-size: 13px;
   }
-
   .metric-wrapper {
     width: 32px;
     height: 32px;
   }
-
   .metric-with-circle {
     font-size: 11px;
   }
-
   .driver-metric, 
   .constructor-metric,
   .gp-metric {
     font-size: 12px;
     min-width: 50px;
   }
-
   .metric-circle {
     width: 40px;
     height: 40px;
@@ -1359,68 +1471,90 @@ i {
 }
 
 @media (max-width: 480px) {
+  .track-map-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+  .track-map-left {
+    min-height: 180px;
+  }
+  .track-map-links {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .track-link-card {
+    flex: 1 1 50%;
+    height: 54px;
+    padding: 0 8px;
+    gap: 8px;
+  }
+  .link-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .link-logo img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .track-link-card .link-label {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
   .predictions-grid, .championship-grid {
     grid-template-columns: 1fr;
     gap: 20px;
     width: 100%;
   }
-
   .pred-box {
     padding: 16px;
   }
-
   .pred-box h3 {
     font-size: 18px;
     padding: 10px;
     margin-bottom: 14px;
   }
-
   .strength-list li,
   .championship-list li {
     padding: 10px 12px;
     font-size: 12px;
     gap: 16px;
   }
-
   .position-wrapper .position {
     font-size: 14px;
     min-width: 20px;
   }
-
   .position-wrapper .change-icon {
     width: 12px;
     height: 12px;
     flex: 0 0 12px;
   }
-
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
     width: 28px;
     height: 28px;
   }
-
   .driver-info span,
   .constructor-info span {
     font-size: 12px;
   }
-
   .metric-wrapper {
     width: 28px;
     height: 28px;
   }
-
   .metric-with-circle {
     font-size: 10px;
   }
-
   .driver-metric, 
   .constructor-metric,
   .gp-metric {
     font-size: 11px;
     min-width: 40px;
   }
-
   .metric-circle {
     width: 32px;
     height: 32px;
