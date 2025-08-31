@@ -42,11 +42,11 @@
 </header>
 
 <main>
+  <div class="carousel-outer">
+    <div class="carousel-btn-wrap prev">
+      <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+    </div>
 <div class="carousel-wrap">
-  <div class="carousel-btn-wrap prev">
-    <button class="carousel-btn prev" aria-label="Previous track">‹</button>
-  </div>
-
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
     <a href="/tracks/{{ track.id }}"
@@ -65,12 +65,11 @@
     </a>
     {% endfor %}
   </div>
-
-  <div class="carousel-btn-wrap next">
-    <button class="carousel-btn next" aria-label="Next track">›</button>
-  </div>
-
 </div>
+<div class="carousel-btn-wrap next">
+      <button class="carousel-btn next" aria-label="Next track">›</button>
+    </div>
+  </div>
 
 <div class="quickpick-bar">
   <div id="quickpick-arrow"></div>
