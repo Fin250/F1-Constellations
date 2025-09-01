@@ -941,6 +941,39 @@ header {
   color: #fff;
 }
 
+.podium-wrapper {
+  height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-left: 20px;
+}
+
+.firsts-wrapper,
+.seconds-wrapper,
+.thirds-wrapper {
+  height: 38px;
+  font-size: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.trophy-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.trophy-icon.first { fill: #ffd700; }
+
+.trophy-icon.second { fill: #c0c0c0; }
+
+.trophy-icon.third { fill: #cd7f32; }
+
 .driver-metric, .constructor-metric {
     font-weight: bold;
     color: #fff;

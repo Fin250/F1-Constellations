@@ -199,8 +199,14 @@ def get_ml_standings():
     f1_points = [26, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
     driver_points = {}
+    driver_firsts = {}
+    driver_seconds = {}
+    driver_thirds = {}
     driver_finishes = {}
     constructor_points = {}
+    constructor_firsts = {}
+    constructor_seconds = {}
+    constructor_thirds = {}
     constructor_finishes = {}
 
     for race in gp_results:
@@ -213,6 +219,24 @@ def get_ml_standings():
                 continue
             driver_key = driver.lower()
             constructor = DRIVER_METADATA.get(driver_key, {}).get("constructor")
+
+            # Winner
+            if i == 0:
+                driver_firsts[driver] = driver_firsts.get(driver, 0) + 1
+                if constructor:
+                    constructor_firsts[constructor] = constructor_firsts.get(constructor, 0) + 1
+
+            # Second
+            if i == 1:
+                driver_seconds[driver] = driver_seconds.get(driver, 0) + 1
+                if constructor:
+                    constructor_seconds[constructor] = constructor_seconds.get(constructor, 0) + 1
+            
+            # Third
+            if i == 2:
+                driver_thirds[driver] = driver_thirds.get(driver, 0) + 1
+                if constructor:
+                    constructor_thirds[constructor] = constructor_thirds.get(constructor, 0) + 1
 
             pts = f1_points[i] if i < len(f1_points) else 0
             driver_points[driver] = driver_points.get(driver, 0) + pts
@@ -250,25 +274,45 @@ def get_ml_standings():
 
     constructor_standings = sorted(constructor_points.items(), key=constructor_sort_key)
 
+    driver_standings_with_podiums = []
+    for driver, points in driver_standings:
+        firsts = driver_firsts[driver] if driver in driver_firsts else 0
+        seconds = driver_seconds[driver] if driver in driver_seconds else 0
+        thirds = driver_thirds[driver] if driver in driver_thirds else 0
+        driver_standings_with_podiums.append((driver, points, firsts, seconds, thirds))
+
+    constructor_standings_with_podiums = []
+    for constructor, points in constructor_standings:
+        firsts = constructor_firsts[constructor] if constructor in constructor_firsts else 0
+        seconds = constructor_seconds[constructor] if constructor in constructor_seconds else 0
+        thirds = constructor_thirds[constructor] if constructor in constructor_thirds else 0
+        constructor_standings_with_podiums.append((constructor, points, firsts, seconds, thirds))
+            
     response_data = {
         "driver_standings": [
             {
                 "position": i + 1,
                 "driver": DRIVER_METADATA.get(d.lower(), {}).get("full_name", d),
+                "firsts": firsts,
+                "seconds": seconds,
+                "thirds": thirds,
                 "points": pts,
                 "constructor": DRIVER_METADATA.get(d.lower(), {}).get("constructor", None),
                 "nationality": DRIVER_METADATA.get(d.lower(), {}).get("nationality", None),
                 "image": DRIVER_METADATA.get(d.lower(), {}).get("image", None),
             }
-            for i, (d, pts) in enumerate(driver_standings)
+            for i, (d, pts, firsts, seconds, thirds) in enumerate(driver_standings_with_podiums)
         ],
         "constructor_standings": [
             {
                 "position": i + 1,
                 "constructor": c,
+                "firsts": firsts,
+                "seconds": seconds,
+                "thirds": thirds,
                 "points": pts
             }
-            for i, (c, pts) in enumerate(constructor_standings)
+            for i, (c, pts, firsts, seconds, thirds) in enumerate(constructor_standings_with_podiums)
         ]
     }
 
