@@ -115,7 +115,6 @@ header {
   display: inline-flex;
   align-items: center;
   height: 44px;
-  min-width: 220px;
 }
 
 .track-select-button {
@@ -131,16 +130,15 @@ header {
   letter-spacing: 0.3px;
   text-align: center;
   cursor: pointer;
-  width: 100%;
   height: 44px;
   line-height: 1.1;
   position: relative;
 }
 
-.track-select-button::after {
+.track-select-button::before {
   content: "";
   position: absolute;
-  left: 48px;
+  left: 0;
   top: 50%;
   width: 10px;
   height: 10px;
@@ -151,7 +149,7 @@ header {
   transition: transform 0.2s ease;
 }
 
-.track-select-button[aria-expanded="true"]::after {
+.track-select-button[aria-expanded="true"]::before {
   transform: translateY(-30%) rotate(135deg);
 }
 
@@ -208,6 +206,12 @@ header {
 .track-select-button:focus-visible { 
   outline: 2px solid var(--accent-strong); 
   outline-offset: 2px;
+}
+
+.track-select-label {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
 }
 
 /* Home page layout */
@@ -515,6 +519,8 @@ header {
   align-items: center;
   gap: 6px;
   padding-bottom: 20px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .quickpick-item::after {
@@ -1214,79 +1220,115 @@ i {
 
 /* Header */
 
-@media (max-width: 1439px) {
+@media (max-width: 1500px) {
   .logo-title {
-    flex: 0 0 35%;
     gap: 30px;
   }
   .site-logo { width: 70px; }
   .site-name { width: 260px; }
   .header-nav { gap: 60px; }
-  .track-select { min-width: 180px; }
   .nav-button { font-size: 18px; padding: 6px 12px; }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   header {
     height: 80px;
   }
   .logo-title {
-    flex: 0 0 auto;
     gap: 20px;
     padding: 0 12px;
-    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
   }
-  .site-logo { width: 60px; }
-  .site-name { width: 200px; }
+  .site-logo { width: 64px; }
+  .site-name { width: 160px; }
   .header-nav {
     gap: 36px;
     padding: 0 20px;
   }
-  .track-select { min-width: 160px; }
-  .track-select-button { font-size: 18px; }
-  .nav-button { font-size: 16px; }
+  .nav-button,
+  .track-select-button {
+    font-size: 14px;
+  }
+  .track-select-label {
+    padding-left: 24px;
+  }
   .nav-icon { font-size: 18px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   header {
     flex: 0 0 20%;
-    flex-direction: column;
-    align-items: stretch;
     height: auto;
-    padding: 10px 0;
   }
   .logo-title {
     gap: 12px;
     padding: 0;
   }
-  .site-logo { width: 50px; }
-  .site-name { width: 160px; }
+  .site-logo { width: 48px; }
+  .site-name { width: 100px; }
   .header-nav {
     flex-direction: row;
     justify-content: space-around;
     gap: 20px;
     padding: 10px;
   }
-  .track-select { min-width: 140px; }
-  .track-select-button { font-size: 16px; }
-  .nav-button {
-    font-size: 15px;
+  .track-select-label {
+    padding-left: 16px;
+  }
+  .nav-button,
+  .track-select-button { 
+    font-size: 10px;
     padding: 4px 8px;
   }
-  .nav-text { display: none; }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 600px) {
+  .material-icons {
+    font-size: 20px !important;
+  }
+  .track-select-button::before {
+    width: 8px;
+    height: 8px;
+    border-left: 4px solid var(--accent-strong);
+    border-bottom: 4px solid var(--accent-strong);
+  }
+  .logo-title {
+    gap: 10px;
+  }
   .site-logo { width: 40px; }
-  .site-name { width: 120px; }
+  .site-name { width: 90px; }
   .header-nav {
-    gap: 12px;
+    gap: 16px;
     padding: 8px;
   }
-  .track-select { min-width: 120px; }
-  .track-select-button { font-size: 14px; }
-  .nav-button { font-size: 14px; gap: 6px; }
+  .track-select-label {
+    padding-left: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .material-icons {
+    font-size: 16px !important;
+  }
+  .track-select-button::before {
+    width: 6px;
+    height: 6px;
+    border-left: 3px solid var(--accent-strong);
+    border-bottom: 3px solid var(--accent-strong);
+  }
+  .site-logo { width: 32px; }
+  .site-name { width: 80px; }
+  .header-nav {
+    gap: 10px;
+    padding: 8px;
+  }
+  .track-select-label {
+    padding-left: 10px;
+  }
+  .nav-button,
+  .track-select-button { 
+    font-size: 8px; 
+    gap: 6px; 
+  }
 }
 
 /* Home page layout */
@@ -1399,12 +1441,15 @@ i {
   }
   .box-content {
     padding: 8px;
-    font-size: 14px;
+    font-size: 10px;
   }
   .box-content img {
-    width: 22px !important;
-    height: 14px !important;
-    margin-right: 6px !important;
+    width: 16px !important;
+    height: 12px !important;
+    margin-right: 4px !important;
+  }
+  .date {
+    font-size: 8px;
   }
   .carousel-btn-wrap {
     width: 30px;
@@ -1476,6 +1521,7 @@ i {
     font-size: 18px;
   }
   .position {
+    font-size: 18px;
     margin-right: 0px;
   }
   .driver-info img,
@@ -1507,6 +1553,16 @@ i {
   .track-link-card .link-label {
     font-size: 18px;
   }
+  .metric-wrapper.metric-probability, .metric-wrapper.metric-points {
+    min-width: 0px;
+  }
+  .gp-metric {
+    min-width: 0px;
+    font-size: 12px;
+  }
+  .strength-list li, .championship-list li {
+    padding: 7px 9px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1532,6 +1588,7 @@ i {
   .strength-list li,
   .championship-list li {
     font-size: 14px;
+    gap: 12px;
   }
   .position-wrapper {
     margin-right: 6px;
@@ -1539,11 +1596,22 @@ i {
   .position-wrapper .position {
     font-size: 18px;
   }
+  .position {
+    font-size: 18px;
+  }
+  .driver-info, .constructor-info {
+    font-size: 10px;
+    gap: 12px;
+  }
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
     width: 34px;
     height: 34px;
+  }
+  .driver-info span,
+  .constructor-info span {
+    font-size: 14px;
   }
   .metric-wrapper {
     width: 34px;
@@ -1606,9 +1674,17 @@ i {
   .strength-list li,
   .championship-list li {
     font-size: 13px;
+    gap: 10px;
   }
   .position-wrapper .position {
     font-size: 16px;
+  }
+  .position {
+    font-size: 16px;
+  }
+  .driver-info, .constructor-info {
+    font-size: 8px;
+    gap: 8px;
   }
   .driver-info img,
   .constructor-info img,
@@ -1618,7 +1694,18 @@ i {
   }
   .driver-info span,
   .constructor-info span {
-    font-size: 13px;
+    font-size: 12px;
+  }
+  .podium-wrapper {
+    margin-left: 4px;
+    gap: 8px;
+  }
+  .trophy-icon {
+    height: 12px;
+    width: 12px;
+  }
+  .count-span {
+    font-size: 8px !important;
   }
   .metric-wrapper {
     width: 32px;
@@ -1690,9 +1777,13 @@ i {
   .championship-list li {
     padding: 10px 12px;
     font-size: 12px;
-    gap: 16px;
+    gap: 8px;
   }
   .position-wrapper .position {
+    font-size: 14px;
+    min-width: 20px;
+  }
+  .position {
     font-size: 14px;
     min-width: 20px;
   }
@@ -1700,6 +1791,10 @@ i {
     width: 12px;
     height: 12px;
     flex: 0 0 12px;
+  }
+  .driver-info, .constructor-info {
+    font-size: 8px;
+    gap: 6px;
   }
   .driver-info img,
   .constructor-info img,
@@ -1709,7 +1804,18 @@ i {
   }
   .driver-info span,
   .constructor-info span {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  .podium-wrapper {
+    margin-left: 2px;
+    gap: 6px;
+  }
+  .trophy-icon {
+    height: 10px;
+    width: 10px;
+  }
+  .count-span {
+    font-size: 6px;
   }
   .metric-wrapper {
     width: 28px;
@@ -1731,3 +1837,54 @@ i {
 }
 
 /* About page layout */
+
+@media (max-width: 1500px) {
+}
+
+@media (max-width: 1024px) {
+  .icon-container {
+    gap: 20px;
+  }
+  .icon-container img {
+    height: 48px;
+    width: 48px;
+  }
+  i {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .icon-container {
+    gap: 30px;
+  }
+  .icon-container img {
+    height: 64px;
+    width: 64px;
+  }
+  i {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-container {
+    gap: 10px;
+  }
+  .icon-container img {
+    height: 48px;
+    width: 48px;
+  }
+  i {
+    font-size: 48px;
+  }
+}

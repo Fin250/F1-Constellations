@@ -433,6 +433,7 @@ function createPredictionItem(
       firstsWrapper.appendChild(trophy);
 
       const firstspan = document.createElement("span");
+      firstspan.classList.add("count-span");
       firstspan.textContent = "x" + firsts;
       firstsWrapper.appendChild(firstspan);
 
@@ -448,6 +449,7 @@ function createPredictionItem(
       secondsWrapper.appendChild(trophy);
 
       const secondspan = document.createElement("span");
+      secondspan.classList.add("count-span");
       secondspan.textContent = "x" + seconds;
       secondsWrapper.appendChild(secondspan);
 
@@ -463,6 +465,7 @@ function createPredictionItem(
       thirdsWrapper.appendChild(trophy);
 
       const thirdspan = document.createElement("span");
+      thirdspan.classList.add("count-span");
       thirdspan.textContent = "x" + thirds;
       thirdsWrapper.appendChild(thirdspan);
 
