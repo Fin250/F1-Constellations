@@ -779,7 +779,7 @@ header {
 
 .predictions-grid, .championship-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 30px;
 }
 
@@ -1518,7 +1518,7 @@ i {
     gap: 4px;
   }
   .position-wrapper .position {
-    font-size: 18px;
+    font-size: 16px;
   }
   .position {
     font-size: 18px;
@@ -1530,15 +1530,31 @@ i {
     width: 34px;
     height: 34px;
   }
+  .metric-wrapper.metric-probability, .metric-wrapper.metric-points {
+    min-width: 0px;
+  }
   .metric-wrapper {
+    min-width: 0px;
     width: 34px;
     height: 34px;
+  }
+  .gp-metric {
+    min-width: 0px;
   }
   .metric-with-circle {
     font-size: 11px;
   }
   .driver-info, .constructor-info {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .driver-info img,
+  .constructor-info img,
+  .image-wrapper {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -1553,11 +1569,10 @@ i {
   .track-link-card .link-label {
     font-size: 18px;
   }
-  .metric-wrapper.metric-probability, .metric-wrapper.metric-points {
-    min-width: 0px;
+  .predictions-grid, .championship-grid {
+    gap: 15px;
   }
   .gp-metric {
-    min-width: 0px;
     font-size: 12px;
   }
   .strength-list li, .championship-list li {
@@ -1594,10 +1609,10 @@ i {
     margin-right: 6px;
   }
   .position-wrapper .position {
-    font-size: 18px;
+    font-size: 16px;
   }
   .position {
-    font-size: 18px;
+    font-size: 16px;
   }
   .driver-info, .constructor-info {
     font-size: 10px;
@@ -1606,12 +1621,12 @@ i {
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
   }
   .driver-info span,
   .constructor-info span {
-    font-size: 14px;
+    font-size: 12px;
   }
   .metric-wrapper {
     width: 34px;
@@ -1677,10 +1692,10 @@ i {
     gap: 10px;
   }
   .position-wrapper .position {
-    font-size: 16px;
+    font-size: 14px;
   }
   .position {
-    font-size: 16px;
+    font-size: 14px;
   }
   .driver-info, .constructor-info {
     font-size: 8px;
@@ -1694,7 +1709,7 @@ i {
   }
   .driver-info span,
   .constructor-info span {
-    font-size: 12px;
+    font-size: 10px;
   }
   .podium-wrapper {
     margin-left: 4px;
@@ -1780,11 +1795,11 @@ i {
     gap: 8px;
   }
   .position-wrapper .position {
-    font-size: 14px;
+    font-size: 12px;
     min-width: 20px;
   }
   .position {
-    font-size: 14px;
+    font-size: 12px;
     min-width: 20px;
   }
   .position-wrapper .change-icon {
