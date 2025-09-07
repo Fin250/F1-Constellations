@@ -532,6 +532,7 @@ header {
   width: 100%;
   background: transparent;
   border-radius: 2px;
+  border: 1px solid #3e3e3e;
 }
 
 .quickpick-item.upcoming::after {
@@ -954,7 +955,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-left: 20px;
+  margin-right: 40px;
 }
 
 .firsts-wrapper,
@@ -1712,7 +1713,7 @@ i {
     font-size: 10px;
   }
   .podium-wrapper {
-    margin-left: 4px;
+    margin-right: 4px;
     gap: 8px;
   }
   .trophy-icon {
@@ -1801,6 +1802,8 @@ i {
   .position {
     font-size: 12px;
     min-width: 20px;
+    width: auto;
+    padding: 6px;
   }
   .position-wrapper .change-icon {
     width: 12px;
@@ -1814,15 +1817,15 @@ i {
   .driver-info img,
   .constructor-info img,
   .image-wrapper {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
   .driver-info span,
   .constructor-info span {
     font-size: 10px;
   }
   .podium-wrapper {
-    margin-left: 2px;
+    margin-right: 2px;
     gap: 6px;
   }
   .trophy-icon {

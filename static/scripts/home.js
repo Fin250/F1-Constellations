@@ -421,6 +421,8 @@ function createPredictionItem(
     nameSpan.textContent = name;
     driverInfo.appendChild(nameSpan);
 
+    li.appendChild(driverInfo);
+
     const podiumWrapper = document.createElement("div");
     podiumWrapper.classList.add("podium-wrapper");
 
@@ -472,9 +474,7 @@ function createPredictionItem(
       podiumWrapper.appendChild(thirdsWrapper);
     }
 
-    driverInfo.appendChild(podiumWrapper);
-
-    li.appendChild(driverInfo);
+    li.appendChild(podiumWrapper);
 
     if (showMetric) {
         const metricWrapper = document.createElement("div");
