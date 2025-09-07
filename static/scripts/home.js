@@ -86,12 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
     carousel.appendChild(finishMarker);
 
     function updateMarkerHeights() {
-      const h = Math.max(0, carousel.clientHeight);
-      if (h <= 0) return;
       const imgs = carousel.querySelectorAll('.line-marker img');
       imgs.forEach(img => {
-        img.style.height = `${h}px`;
-        img.style.width = 'auto';
         img.style.visibility = 'visible';
       });
     }
@@ -589,6 +585,39 @@ function populateDriverStandings(drivers) {
   });
   window.addEventListener('resize', () => { if (!menu.hidden) openMenu(); });
   window.addEventListener('scroll', () => { if (!menu.hidden) openMenu(); }, true);
+
+  const carousel = document.querySelector('.carousel');
+  if (!carousel) return;
+
+  function sizeLineMarkers() {
+    const kids = Array.from(carousel.children).filter(el => !el.classList.contains('line-marker'));
+    const h = Math.max(0, ...kids.map(el => el.offsetHeight));
+    if (!h) return;
+    carousel.querySelectorAll('.line-marker img').forEach(img => {
+      img.style.height = h + 'px';
+      img.style.width = 'auto';
+      img.style.maxHeight = 'none';
+      img.style.visibility = 'visible';
+    });
+  }
+
+  sizeLineMarkers();
+
+  const debounce = (fn, d=60) => { let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), d); }; };
+  const rerun = debounce(sizeLineMarkers, 80);
+
+  window.addEventListener('load', rerun);
+  window.addEventListener('resize', rerun);
+  window.addEventListener('orientationchange', rerun);
+
+  carousel.querySelectorAll('img').forEach(img => {
+    if (!img.complete) img.addEventListener('load', rerun, { once: true });
+  });
+
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(rerun);
+    ro.observe(carousel);
+  }
 })();
 
 function rebalanceQuickpick() {
