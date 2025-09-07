@@ -485,6 +485,7 @@ header {
   position: relative;
   margin: 30px auto;
   justify-content: center;
+  width: 100%;
 }
 
 #quickpick-arrow {
@@ -500,9 +501,9 @@ header {
 }
 
 .quickpick-flags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  justify-content: center;
   gap: 10px;
   padding: 12px 24px;
   background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
@@ -511,7 +512,6 @@ header {
 }
 
 .quickpick-item {
-  flex: 1;
   max-width: 100px; 
   position: relative;
   display: flex;
@@ -544,10 +544,13 @@ header {
 }
 
 .quickpick-round {
-  font-size: 10px;
+  font-size: clamp(8px, 1.8vw, 10px);
   font-weight: 600;
   color: #fff;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .quickpick-item img {

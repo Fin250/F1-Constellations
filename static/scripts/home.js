@@ -590,3 +590,20 @@ function populateDriverStandings(drivers) {
   window.addEventListener('resize', () => { if (!menu.hidden) openMenu(); });
   window.addEventListener('scroll', () => { if (!menu.hidden) openMenu(); }, true);
 })();
+
+function rebalanceQuickpick() {
+  const quickpick = document.querySelector(".quickpick-flags");
+  const arrow = document.getElementById("quickpick-arrow");
+
+  if (!quickpick || !arrow) return;
+
+  const items = [...quickpick.querySelectorAll(".quickpick-item")];
+  const tops = new Set(items.map(it => it.offsetTop));
+  const rows = tops.size;
+
+  arrow.style.display = rows > 1 ? "none" : "";
+}
+
+window.addEventListener("load", rebalanceQuickpick);
+window.addEventListener("resize", rebalanceQuickpick);
+window.addEventListener("orientationchange", rebalanceQuickpick);
