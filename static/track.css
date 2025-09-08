@@ -590,7 +590,7 @@ header {
 }
 
 .toggle-btn.active {
-  background: #777;
+  background: #757575;
   color: #fff;
   border-color: #888;
 }

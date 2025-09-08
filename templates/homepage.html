@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Constellations - Home</title>
+  <meta name="description" content="F1 Constellations provides predictions, standings, and detailed information on Formula 1 tracks, drivers, and constructors. Explore upcoming races, past results, and championship insights in an interactive format." />
   <link rel="stylesheet" href="/static/track.css"/>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,8 +54,7 @@
       class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
       data-index="{{ loop.index0 }}"
       data-round="{{ track.round }}"
-      data-detailed-flag="{{ track.detailed_flag | default('') }}"
-      role="listitem">
+      data-detailed-flag="{{ track.detailed_flag | default('') }}">
       <div class="box-bg"></div>
       <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track" class="track-layout">
       <div class="box-content">
