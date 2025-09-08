@@ -1183,6 +1183,12 @@ i {
   line-height: 1;
 }
 
+.lighthouse-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Media queries */
 
 /* Generic */
