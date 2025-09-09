@@ -535,6 +535,53 @@ function populateDriverStandings(drivers) {
     });
 }
 
+(function () {
+  const carousel = document.querySelector('.carousel');
+  const btns = Array.from(document.querySelectorAll('.carousel-btn'));
+  if (!carousel || btns.length === 0) return;
+
+  const MIN_H = 40;
+  const MAX_H = 500;
+  const RATIO = 0.7;
+
+  function updateButtonHeights() {
+    const h = carousel.clientHeight || Math.round(carousel.getBoundingClientRect().height);
+    if (!h || h <= 0) return;
+
+    const targetH = Math.max(MIN_H, Math.min(MAX_H, Math.round(h * RATIO)));
+
+    btns.forEach(b => {
+      b.style.height = `${targetH}px`;
+
+      const w = b.offsetWidth;
+      const radius = Math.round(w * 0.25);
+      b.style.borderRadius = `${radius}px`;
+    });
+  }
+
+  let timer = null;
+  function schedule(delay = 80) {
+    clearTimeout(timer);
+    timer = setTimeout(updateButtonHeights, delay);
+  }
+
+  window.addEventListener('load', () => {
+    schedule(50);
+    carousel.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', () => schedule(50), { once: true });
+    });
+  });
+
+  window.addEventListener('resize', () => schedule(120));
+  window.addEventListener('orientationchange', () => schedule(120));
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => schedule(40)).observe(carousel);
+  }
+
+  schedule(20);
+})();
+
 (function(){
   const trigger = document.getElementById('trackTrigger');
   const menu = document.getElementById('trackDropdown');
