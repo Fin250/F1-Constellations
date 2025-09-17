@@ -51,7 +51,7 @@
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
     <a href="/tracks/{{ track.id }}"
-      class="box {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}"
+      class="box {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
       data-index="{{ loop.index0 }}"
       data-round="{{ track.round }}"
       data-detailed-flag="{{ track.detailed_flag | default('') }}">
@@ -76,7 +76,7 @@
   <div class="quickpick-flags">
     {% for track in tracks %}
     <a href="/tracks/{{ track.id }}" 
-       class="quickpick-item {% if track.round < next_round %}completed{% elif track.round == next_round %}upcoming{% endif %}" 
+       class="quickpick-item {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
        title="{{ track.display_name }}">
       <span class="quickpick-round">Round {{ track.round }}</span>
       <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">

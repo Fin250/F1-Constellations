@@ -1,5 +1,6 @@
 TRACK_METADATA = {
     "bahrain": {
+        "circuit_id": "circuit_id_bahrain",
         "display_name": "Bahrain",
         "f1_website": "2024/bahrain",
         "flag": "Flag_of_Bahrain.png",
@@ -13,6 +14,7 @@ TRACK_METADATA = {
         "date": "2nd March",
     },
     "saudi-arabia": {
+        "circuit_id": "circuit_id_jeddah",
         "display_name": "Saudi Arabia",
         "f1_website": "2024/saudi-arabia",
         "flag": "Flag_of_Saudi_Arabia.png",
@@ -26,6 +28,7 @@ TRACK_METADATA = {
         "date": "9th March",
     },
     "australia": {
+        "circuit_id": "circuit_id_albert_park",
         "display_name": "Australia",
         "f1_website": "2024/australia",
         "flag": "Flag_of_Australia.png",
@@ -39,6 +42,7 @@ TRACK_METADATA = {
         "date": "24th March",
     },
     "japan": {
+        "circuit_id": "circuit_id_suzuka",
         "display_name": "Japan",
         "f1_website": "2024/japan",
         "flag": "Flag_of_Japan.png",
@@ -52,6 +56,7 @@ TRACK_METADATA = {
         "date": "7th April",
     },
     "china": {
+        "circuit_id": "circuit_id_shanghai",
         "display_name": "China",
         "f1_website": "2024/china",
         "flag": "Flag_of_China.png",
@@ -65,6 +70,7 @@ TRACK_METADATA = {
         "date": "21st April",
     },
     "miami": {
+        "circuit_id": "circuit_id_miami",
         "display_name": "Miami",
         "f1_website": "2024/miami",
         "flag": "Flag_of_USA.png",
@@ -78,6 +84,7 @@ TRACK_METADATA = {
         "date": "5th May",
     },
     "imola": {
+        "circuit_id": "circuit_id_imola",
         "display_name": "Imola",
         "f1_website": "2024/emiliaromagna",
         "flag": "Flag_of_Italy.png",
@@ -91,6 +98,7 @@ TRACK_METADATA = {
         "date": "19th May",
     },
     "monaco": {
+        "circuit_id": "circuit_id_monaco",
         "display_name": "Monaco",
         "f1_website": "2024/monaco",
         "flag": "Flag_of_Monaco.png",
@@ -104,6 +112,7 @@ TRACK_METADATA = {
         "date": "26th May",
     },
     "canada": {
+        "circuit_id": "circuit_id_villeneuve",
         "display_name": "Canada",
         "f1_website": "2024/canada",
         "flag": "Flag_of_Canada.png",
@@ -117,6 +126,7 @@ TRACK_METADATA = {
         "date": "9th June",
     },
     "spain": {
+        "circuit_id": "circuit_id_catalunya",
         "display_name": "Spain",
         "f1_website": "2024/spain",
         "flag": "Flag_of_Spain.png",
@@ -130,6 +140,7 @@ TRACK_METADATA = {
         "date": "23rd June",
     },
     "austria": {
+        "circuit_id": "circuit_id_red_bull_ring",
         "display_name": "Austria",
         "f1_website": "2024/austria",
         "flag": "Flag_of_Austria.png",
@@ -143,6 +154,7 @@ TRACK_METADATA = {
         "date": "30th June",
     },
     "uk": {
+        "circuit_id": "circuit_id_silverstone",
         "display_name": "United Kingdom",
         "f1_website": "2024/great-britain",
         "flag": "Flag_of_UK.png",
@@ -156,6 +168,7 @@ TRACK_METADATA = {
         "date": "7th July",
     },
     "hungary": {
+        "circuit_id": "circuit_id_hungaroring",
         "display_name": "Hungary",
         "f1_website": "2024/hungary",
         "flag": "Flag_of_Hungary.png",
@@ -169,6 +182,7 @@ TRACK_METADATA = {
         "date": "21st July",
     },
     "belgium": {
+        "circuit_id": "circuit_id_spa",
         "display_name": "Belgium",
         "f1_website": "2024/belgium",
         "flag": "Flag_of_Belgium.png",
@@ -182,6 +196,7 @@ TRACK_METADATA = {
         "date": "28th July",
     },
     "netherlands": {
+        "circuit_id": "circuit_id_zandvoort",
         "display_name": "Netherlands",
         "f1_website": "2024/netherlands",
         "flag": "Flag_of_Netherlands.png",
@@ -195,6 +210,7 @@ TRACK_METADATA = {
         "date": "25th August",
     },
     "italy": {
+        "circuit_id": "circuit_id_monza",
         "display_name": "Italy",
         "f1_website": "2024/italy",
         "flag": "Flag_of_Italy.png",
@@ -208,6 +224,7 @@ TRACK_METADATA = {
         "date": "1st September",
     },
     "azerbaijan": {
+        "circuit_id": "circuit_id_baku",
         "display_name": "Azerbaijan",
         "f1_website": "2024/azerbaijan",
         "flag": "Flag_of_Azerbaijan.png",
@@ -221,6 +238,7 @@ TRACK_METADATA = {
         "date": "15th September",
     },
     "singapore": {
+        "circuit_id": "circuit_id_marina_bay",
         "display_name": "Singapore",
         "f1_website": "2024/singapore",
         "flag": "Flag_of_Singapore.png",
@@ -234,6 +252,7 @@ TRACK_METADATA = {
         "date": "22nd September",
     },
     "usa": {
+        "circuit_id": "circuit_id_americas",
         "display_name": "United States",
         "f1_website": "2024/united-states",
         "flag": "Flag_of_USA.png",
@@ -247,6 +266,7 @@ TRACK_METADATA = {
         "date": "20th October",
     },
     "mexico": {
+        "circuit_id": "circuit_id_rodriguez",
         "display_name": "Mexico",
         "f1_website": "2024/mexico",
         "flag": "Flag_of_Mexico.png",
@@ -260,6 +280,7 @@ TRACK_METADATA = {
         "date": "27th October",
     },
     "brazil": {
+        "circuit_id": "circuit_id_interlagos",
         "display_name": "Brazil",
         "f1_website": "2024/brazil",
         "flag": "Flag_of_Brazil.png",
@@ -273,6 +294,7 @@ TRACK_METADATA = {
         "date": "3rd November",
     },
     "las-vegas": {
+        "circuit_id": "circuit_id_vegas",
         "display_name": "Las Vegas",
         "f1_website": "2024/las-vegas",
         "flag": "Flag_of_USA.png",
@@ -286,6 +308,7 @@ TRACK_METADATA = {
         "date": "23rd November",
     },
     "qatar": {
+        "circuit_id": "circuit_id_losail",
         "display_name": "Qatar",
         "f1_website": "2024/qatar",
         "flag": "Flag_of_Qatar.png",
@@ -299,6 +322,7 @@ TRACK_METADATA = {
         "date": "1st December",
     },
     "uae": {
+        "circuit_id": "circuit_id_yas_marina",
         "display_name": "Abu Dhabi",
         "f1_website": "2024/united-arab-emirates",
         "flag": "Flag_of_UAE.png",
