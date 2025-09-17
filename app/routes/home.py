@@ -2,17 +2,18 @@ import os
 import json
 import pandas as pd
 from flask import Blueprint, redirect, render_template, url_for
+from typing import Any
 
 from metadata.track_metadata import TRACK_METADATA
 
 CURRENT_SEASON = 2024
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FINAL_DF_PATH = os.path.join(BASE_DIR, "..", "ml", "final_df.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+FINAL_DF_PATH = os.path.join(BASE_DIR, "ml", "final_df.csv")
 SEASON_COMPLETE = -1
 
 try:
     _FINAL_DF = pd.read_csv(FINAL_DF_PATH)
-except Exception:
+except Exception as e:
     _FINAL_DF = pd.DataFrame()
 
 home_bp = Blueprint("home", __name__)
@@ -81,29 +82,41 @@ def get_tracks_from_df_for_season(year: int):
             t = build_track_from_key(key, round_num)
             tracks.append(t)
         else:
-            found = None
-            for k, v in TRACK_METADATA.items():
-                if v.get('round') == round_num:
-                    found = build_track_from_key(k, round_num)
-                    break
-            if found:
-                tracks.append(found)
-            else:
-                tracks.append({
-                    "id": f"round-{round_num}",
-                    "display_name": f"Round {round_num}",
-                    "layout": "",
-                    "flag": "",
-                    "detailed_flag": "",
-                    "round": round_num,
-                    "wiki": "",
-                    "date": ""
-                })
-    for t in tracks:
-        if t["round"] is None:
-            print("Track with None round:", t)
+            circuit_col_name = None
+            for col in row.index:
+                if not col.startswith("circuit_id_"):
+                    continue
 
-    print(tracks)
+                value: Any = row.get(col)
+                if pd.isna(value):
+                    continue
+
+                try:
+                    if int(value) == 1:
+                        circuit_col_name = col[len("circuit_id_"):]
+                        break
+                except (TypeError, ValueError):
+                    continue
+
+            placeholder_id = circuit_col_name.replace('_', '-') if circuit_col_name else f"round-{round_num}"
+            placeholder_display_name = circuit_col_name.replace('_', ' ').title() if circuit_col_name else f"Round {round_num}"
+
+            placeholder = {
+                "id": placeholder_id,
+                "display_name": placeholder_display_name,
+                "f1_website": "2024/united-arab-emirates",
+                "flag": "Flag_of_Placeholder.png",
+                "detailed_flag": "Placeholder.png",
+                "annotated_layout": "placeholder.avif",
+                "layout": "placeholder.png",
+                "detailed_track_image": "placeholder_detailed_track.jpg",
+                "detailed_track_attribution": "",
+                "round": round_num,
+                "wiki": "",
+                "date": "1st January",
+            }
+            tracks.append(placeholder)
+
     return tracks
 
 def get_placeholder_current_season_tracks():
