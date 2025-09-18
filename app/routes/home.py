@@ -133,7 +133,23 @@ def get_next_track():
 # Homepage route
 @home_bp.route("/")
 def homepage_root():
-    return redirect(url_for('home.homepage_year', year=CURRENT_SEASON))
+    year = CURRENT_SEASON
+    seasons = available_seasons()
+
+    if year in seasons and year < CURRENT_SEASON:
+        tracks = get_tracks_from_df_for_season(year)
+        next_round = SEASON_COMPLETE
+    else:
+        tracks = get_placeholder_current_season_tracks()
+        next_round = get_next_track() if year == CURRENT_SEASON else None
+
+    return render_template(
+        "homepage.html",
+        tracks=tracks,
+        next_round=next_round,
+        year=year,
+        seasons=seasons
+    )
 
 @home_bp.route("/<int:year>")
 def homepage_year(year):
