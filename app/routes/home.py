@@ -6,7 +6,7 @@ from typing import Any
 
 from metadata.track_metadata import TRACK_METADATA
 
-CURRENT_SEASON = 2024
+CURRENT_SEASON = 2025
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FINAL_DF_PATH = os.path.join(BASE_DIR, "ml", "final_df.csv")
 SEASON_COMPLETE = -1
