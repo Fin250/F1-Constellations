@@ -349,10 +349,13 @@ function safeMetric(value, decimals = 2) {
 }
 
 async function loadStandings() {
+    const seasonAttr = document.body.getAttribute('data-season');
+    const season = seasonAttr ? parseInt(seasonAttr, 10) : new Date().getFullYear();
+
     let standings;
     try {
-        const resp = await fetch(`/ml/standings`);
-        if (!resp.ok) throw new Error(`Failed to fetch standings: ${resp.status}`);
+        const resp = await fetch(`/ml/standings/${season}`);
+        if (!resp.ok) throw new Error(`Failed to fetch standings for season ${season}: ${resp.status}`);
         standings = await resp.json();
     } catch (err) {
         console.error('Error fetching standings:', err);

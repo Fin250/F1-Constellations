@@ -7,13 +7,29 @@ from metadata.driver_metadata import DRIVER_METADATA
 standings_bp = Blueprint("standings", __name__, url_prefix="/ml")
 
 # Get season standings
-@standings_bp.route("/standings")
-def get_ml_standings():
+@standings_bp.route("/standings/<int:season>")
+def get_ml_standings(season):
+    print(f"Fetching standings for season: {season}")
+
+    # Load GP results
     try:
         with open(RESULTS_PATH_GP, 'r') as f:
-            gp_results = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
+            gp_data = json.load(f)
+        print(f"Loaded {len(gp_data)} season entries from {RESULTS_PATH_GP}")
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading GP results: {e}")
         return Response(response='[]', status=500, mimetype='application/json')
+
+    # Find the requested season
+    season_data = next((s for s in gp_data if int(s.get("season", -1)) == season), None)
+    if not season_data:
+        print(f"No data for requested season {season}")
+        return Response(response='[]', status=404, mimetype='application/json')
+
+    season_results = season_data.get("rounds", [])
+    print(f"Found {len(season_results)} rounds for season {season}")
+    if not season_results:
+        return Response(response='[]', status=404, mimetype='application/json')
 
     # P1 gets 26 points because of fastest lap
     f1_points = [26, 18, 15, 12, 10, 8, 6, 4, 2, 1]
@@ -29,8 +45,9 @@ def get_ml_standings():
     constructor_thirds = {}
     constructor_finishes = {}
 
-    for race in gp_results:
+    for race_idx, race in enumerate(season_results):
         predictions = race.get("predictions", [])
+        print(f"Race {race_idx + 1}: {len(predictions)} predictions")
         sorted_preds = sorted(predictions, key=lambda x: float(x.get("probability", 0)), reverse=True)
 
         for i, pred in enumerate(sorted_preds):
@@ -40,20 +57,16 @@ def get_ml_standings():
             driver_key = driver.lower()
             constructor = DRIVER_METADATA.get(driver_key, {}).get("constructor")
 
-            # Winner
+            # Podiums
             if i == 0:
                 driver_firsts[driver] = driver_firsts.get(driver, 0) + 1
                 if constructor:
                     constructor_firsts[constructor] = constructor_firsts.get(constructor, 0) + 1
-
-            # Second
-            if i == 1:
+            elif i == 1:
                 driver_seconds[driver] = driver_seconds.get(driver, 0) + 1
                 if constructor:
                     constructor_seconds[constructor] = constructor_seconds.get(constructor, 0) + 1
-            
-            # Third
-            if i == 2:
+            elif i == 2:
                 driver_thirds[driver] = driver_thirds.get(driver, 0) + 1
                 if constructor:
                     constructor_thirds[constructor] = constructor_thirds.get(constructor, 0) + 1
@@ -68,46 +81,45 @@ def get_ml_standings():
             if constructor:
                 constructor_finishes.setdefault(constructor, []).append(finish_pos)
 
-    # sort drivers with tiebreaks
+    print(f"Drivers counted: {len(driver_points)}")
+    print(f"Constructors counted: {len(constructor_points)}")
+
+    # Sort drivers with tiebreaks
     def driver_sort_key(item):
         driver, points = item
         finishes = sorted(driver_finishes.get(driver, []))
         key = [-points]
-        if finishes:
-            for pos in sorted(set(finishes)):
-                key.append(pos)
-                key.append(-finishes.count(pos))
+        for pos in sorted(set(finishes)):
+            key.append(pos)
+            key.append(-finishes.count(pos))
         return tuple(key + [driver.lower()])
 
     driver_standings = sorted(driver_points.items(), key=driver_sort_key)
 
-    # sort constructors with tiebreaks
+    # Sort constructors with tiebreaks
     def constructor_sort_key(item):
         constructor, points = item
         finishes = sorted(constructor_finishes.get(constructor, []))
         key = [-points]
-        if finishes:
-            for pos in sorted(set(finishes)):
-                key.append(pos)
-                key.append(-finishes.count(pos))
+        for pos in sorted(set(finishes)):
+            key.append(pos)
+            key.append(-finishes.count(pos))
         return tuple(key + [constructor.lower()])
 
     constructor_standings = sorted(constructor_points.items(), key=constructor_sort_key)
 
-    driver_standings_with_podiums = []
-    for driver, points in driver_standings:
-        firsts = driver_firsts[driver] if driver in driver_firsts else 0
-        seconds = driver_seconds[driver] if driver in driver_seconds else 0
-        thirds = driver_thirds[driver] if driver in driver_thirds else 0
-        driver_standings_with_podiums.append((driver, points, firsts, seconds, thirds))
+    # Prepare podium data
+    driver_standings_with_podiums = [
+        (driver, points, driver_firsts.get(driver, 0), driver_seconds.get(driver, 0), driver_thirds.get(driver, 0))
+        for driver, points in driver_standings
+    ]
 
-    constructor_standings_with_podiums = []
-    for constructor, points in constructor_standings:
-        firsts = constructor_firsts[constructor] if constructor in constructor_firsts else 0
-        seconds = constructor_seconds[constructor] if constructor in constructor_seconds else 0
-        thirds = constructor_thirds[constructor] if constructor in constructor_thirds else 0
-        constructor_standings_with_podiums.append((constructor, points, firsts, seconds, thirds))
-            
+    constructor_standings_with_podiums = [
+        (constructor, points, constructor_firsts.get(constructor, 0), constructor_seconds.get(constructor, 0), constructor_thirds.get(constructor, 0))
+        for constructor, points in constructor_standings
+    ]
+
+    # Build response
     response_data = {
         "driver_standings": [
             {

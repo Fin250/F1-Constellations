@@ -151,7 +151,7 @@ def homepage_root():
         "homepage.html",
         tracks=tracks,
         next_round=next_round,
-        year=year,
+        season_year=year,
         seasons=seasons
     )
 
@@ -174,6 +174,6 @@ def homepage_year(year):
         "homepage.html",
         tracks=tracks,
         next_round=next_round,
-        year=year,
+        season_year=year,
         seasons=seasons
     )
