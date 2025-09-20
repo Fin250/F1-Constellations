@@ -13,33 +13,51 @@ FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 # =======================
 # GP RESULTS PREDICTION
 # =======================
-def predict_gp_results():
+def predict_gp_results(start_year: int = 2010, end_year: int = 2024):
     print("Training and predicting GP results...")
     df = pd.read_csv(FINAL_DF_PATH)
-    train = df[df.season < 2024]
-    test = df[df.season == 2024]
 
-    X_train = train.drop(['driver', 'podium'], axis=1).select_dtypes(include=[np.number])
-    y_train = train.podium
+    seasons = sorted([s for s in df['season'].unique() if start_year <= s <= end_year])
+    all_results = []
 
-    scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
+    for season in seasons:
+        train = df[df.season < season]
+        test = df[df.season == season]
 
-    model = LogisticRegression(max_iter=500)
-    model.fit(X_train_scaled, y_train)
+        if train.empty or test.empty:
+            continue
 
-    results = []
-    for rnd in sorted(test['round'].unique()):
-        test_rnd = test[test['round'] == rnd]
-        X_test_rnd = scaler.transform(test_rnd[X_train.columns])
-        probabilities = model.predict_proba(X_test_rnd)[:, 1]
-        prediction_df = pd.DataFrame({'driver': test_rnd['driver'], 'probability': probabilities})
-        prediction_df['probability'] = (prediction_df['probability'] * 100).round(2)
-        prediction_df.sort_values('probability', ascending=False, inplace=True)
-        results.append({"round": int(rnd), "predictions": prediction_df.to_dict(orient="records")})
+        X_train = train.drop(['driver', 'podium'], axis=1).select_dtypes(include=[np.number])
+        y_train = train.podium
+
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+
+        model = LogisticRegression(max_iter=500)
+        model.fit(X_train_scaled, y_train)
+
+        season_results = {"season": int(season), "rounds": []}
+
+        for rnd in sorted(test['round'].unique()):
+            test_rnd = test[test['round'] == rnd]
+            X_test_rnd = scaler.transform(test_rnd[X_train.columns])
+            probabilities = model.predict_proba(X_test_rnd)[:, 1]
+            prediction_df = pd.DataFrame({
+                'driver': test_rnd['driver'],
+                'probability': probabilities
+            })
+            prediction_df['probability'] = (prediction_df['probability'] * 100).round(2)
+            prediction_df.sort_values('probability', ascending=False, inplace=True)
+
+            season_results["rounds"].append({
+                "round": int(rnd),
+                "predictions": prediction_df.to_dict(orient="records")
+            })
+
+        all_results.append(season_results)
 
     with open(RESULTS_PATH_GP, 'w') as f:
-        json.dump(results, f, indent=2)
+        json.dump(all_results, f, indent=2)
 
     print(f"GP results saved to {RESULTS_PATH_GP}")
-    return results
+    return all_results

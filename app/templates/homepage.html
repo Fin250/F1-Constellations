@@ -34,7 +34,7 @@
   </nav>
 <ul id="trackDropdown" class="track-select-dropdown" role="listbox" hidden>
   {% for track in tracks %}
-  <li role="option" tabindex="0" data-href="/tracks/{{ track.id }}" class="track-select-item">
+  <li role="option" tabindex="0" data-href="/tracks/{{ year }}/{{ track.round }}/{{ track.id }}" class="track-select-item">
     <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} flag">
     <span class="track-select-name">{{ track.display_name }}</span>
   </li>
@@ -50,7 +50,7 @@
 <div class="carousel-wrap">
   <div class="carousel" id="trackCarousel" role="list">
     {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}"
+    <a href="/tracks/{{ year }}/{{ track.round }}/{{ track.id }}"
       class="box {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
       data-index="{{ loop.index0 }}"
       data-round="{{ track.round }}"
@@ -75,7 +75,7 @@
   <div id="quickpick-arrow"></div>
   <div class="quickpick-flags">
     {% for track in tracks %}
-    <a href="/tracks/{{ track.id }}" 
+    <a href="/tracks/{{ year }}/{{ track.round }}/{{ track.id }}" 
        class="quickpick-item {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
        title="{{ track.display_name }}">
       <span class="quickpick-round">Round {{ track.round }}</span>

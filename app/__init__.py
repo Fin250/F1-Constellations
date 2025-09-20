@@ -22,7 +22,7 @@ def create_app():
     app.register_blueprint(tracks_bp, url_prefix="/tracks")
     app.register_blueprint(standings_bp)
     app.register_blueprint(ml_bp, url_prefix="/ml")
-    app.register_blueprint(train_bp, url_prefix="/train")
+    app.register_blueprint(train_bp)
     app.register_blueprint(about_bp, url_prefix="/about")
 
     return app

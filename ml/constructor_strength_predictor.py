@@ -12,8 +12,8 @@ FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 # =============================
 # CONSTRUCTOR STRENGTH PREDICTION
 # =============================
-def predict_constructor_strengths():
-    print("Training and predicting constructor strengths...")
+def predict_constructor_strengths(start_year: int = 2010, end_year: int = 2024):
+    print(f"Training and predicting constructor strengths from {start_year} to {end_year}...")
 
     df = pd.read_csv(FINAL_DF_PATH)
 
@@ -113,9 +113,9 @@ def predict_constructor_strengths():
     feature_df['circuit'] = feature_df['circuit'].fillna('unknown').astype(str)
     feature_df['TEAM'] = feature_df['TEAM'].fillna('unknown').astype(str)
 
-    train_df = feature_df[feature_df['season'] < 2024].copy()
+    train_df = feature_df[feature_df['season'] < end_year].copy()
     if train_df.empty:
-        raise RuntimeError("No training data before 2024 found.")
+        raise RuntimeError(f"No training data before {end_year} found.")
 
     X_train = pd.get_dummies(train_df.drop(columns=['strength']), columns=['TEAM', 'circuit'], dtype=float)
     y_train = train_df['strength'].astype(float)
@@ -166,61 +166,60 @@ def predict_constructor_strengths():
             return np.nan
         return past_track['strength'].mean()
 
-    teams_2024 = df.loc[df['season'] == 2024, 'TEAM'].dropna().unique()
-    rounds_2024 = sorted(df.loc[df['season'] == 2024, 'round'].unique())
+    # === Loop across seasons ===
+    results = []
+    for season in range(start_year, end_year + 1):
+        teams = df.loc[df['season'] == season, 'TEAM'].dropna().unique()
+        rounds = sorted(df.loc[df['season'] == season, 'round'].unique())
 
-    results_2024 = []
+        season_results = []
+        for rnd in rounds:
+            rows = []
+            round_circuits = season_round_team_circuit[
+                (season_round_team_circuit['season'] == season) & (season_round_team_circuit['round'] == rnd)
+            ]['circuit'].dropna().unique()
+            round_circuit = round_circuits[0] if len(round_circuits) > 0 else 'unknown'
 
-    for rnd in rounds_2024:
-        rows = []
-        round_circuits = season_round_team_circuit[
-            (season_round_team_circuit['season'] == 2024) & (season_round_team_circuit['round'] == rnd)
-        ]['circuit'].dropna().unique()
-        round_circuit = round_circuits[0] if len(round_circuits) > 0 else 'unknown'
+            for team in teams:
+                rf = rolling_form(team, season, rnd)
+                ts = track_strength(team, round_circuit, season, rnd)
+                rows.append({
+                    'season': season,
+                    'round': rnd,
+                    'TEAM': team,
+                    'avg_pos': rf['avg_pos'],
+                    'best_pos': rf['best_pos'],
+                    'points_score': rf['points_score'],
+                    'both_scored_flag': rf['both_scored_flag'],
+                    'track_strength': ts,
+                    'circuit': round_circuit
+                })
 
-        for team in teams_2024:
-            rf = rolling_form(team, 2024, rnd)
-            ts = track_strength(team, round_circuit, 2024, rnd)
-            rows.append({
-                'season': 2024,
-                'round': rnd,
-                'TEAM': team,
-                'avg_pos': rf['avg_pos'],
-                'best_pos': rf['best_pos'],
-                'points_score': rf['points_score'],
-                'both_scored_flag': rf['both_scored_flag'],
-                'track_strength': ts,
-                'circuit': round_circuit
+            rnd_df = pd.DataFrame(rows)
+
+            for col in ['avg_pos', 'best_pos', 'points_score', 'both_scored_flag', 'track_strength']:
+                if col in rnd_df.columns and rnd_df[col].isna().any():
+                    median_val = feature_df[col].median() if col in feature_df.columns else 0.0
+                    rnd_df[col].fillna(median_val, inplace=True)
+
+            X_round = pd.get_dummies(rnd_df.drop(columns=['season', 'round']), columns=['TEAM', 'circuit'], dtype=float)
+            X_round = X_round.reindex(columns=X_train.columns, fill_value=0)
+
+            preds = model.predict(X_round)
+            rnd_df['predicted_strength'] = preds
+
+            season_results.append({
+                "round": int(rnd),
+                "predictions": rnd_df[['TEAM','predicted_strength']].to_dict(orient="records")
             })
 
-        rnd_df = pd.DataFrame(rows)
+        results.append({
+            "season": season,
+            "rounds": season_results
+        })
 
-        for col in ['avg_pos', 'best_pos', 'points_score', 'both_scored_flag', 'track_strength']:
-            if col in rnd_df.columns and rnd_df[col].isna().any():
-                median_val = feature_df[col].median() if col in feature_df.columns else 0.0
-                rnd_df[col].fillna(median_val, inplace=True)
+    with open(RESULTS_PATH_CONSTRUCTORS, 'w') as f:
+        json.dump(results, f, indent=2)
 
-        X_round = pd.get_dummies(rnd_df.drop(columns=['season', 'round']), columns=['TEAM', 'circuit'], dtype=float)
-        X_round = X_round.reindex(columns=X_train.columns, fill_value=0)
-
-        preds = model.predict(X_round)
-        rnd_df['predicted_strength'] = preds
-
-        actuals = constructor_round_strength[
-            (constructor_round_strength['season'] == 2024) &
-            (constructor_round_strength['round'] == rnd)
-        ][['TEAM','strength']].set_index('TEAM')['strength'].to_dict()
-
-        rnd_df['actual_strength'] = rnd_df['TEAM'].map(actuals).astype(float)
-
-        print(f"Predictions for round {rnd} (2024):")
-        print(rnd_df[['TEAM','predicted_strength','actual_strength']].sort_values('predicted_strength', ascending=False).head(15).to_string(index=False))
-
-        results_2024.append(rnd_df[['season', 'round', 'TEAM', 'predicted_strength', 'actual_strength']])
-
-    results_2024_df = pd.concat(results_2024, ignore_index=True)
-
-    results_2024_df.to_json(RESULTS_PATH_CONSTRUCTORS, orient="records", indent=2)
-    print("Constructor strengths per round saved.")
-
-    return results_2024_df.to_dict(orient="records")
+    print(f"Constructor strengths saved to {RESULTS_PATH_CONSTRUCTORS}")
+    return results

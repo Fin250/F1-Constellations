@@ -38,22 +38,27 @@ const constructorLogos = {
 };
 
 document.addEventListener("DOMContentLoaded", async function () {
-    const roundAttr = document.body.getAttribute('data-round');
-    if (!roundAttr) {
-        console.error("Missing 'data-round' on body.");
+    const body = document.body;
+    const seasonAttr = body.getAttribute('data-season');
+    const roundAttr = body.getAttribute('data-round');
+
+    if (!seasonAttr || !roundAttr) {
+        console.error("Missing 'data-season' or 'data-round' on body.");
         return;
     }
 
+    const season = parseInt(seasonAttr, 10);
     const round = parseInt(roundAttr, 10);
-    if (isNaN(round)) {
-        console.error("Invalid round number in 'data-round'.");
+
+    if (isNaN(season) || isNaN(round)) {
+        console.error("Invalid season or round number in body attributes.");
         return;
     }
 
     // fetch current round data
     let currentData;
     try {
-        const resp = await fetch(`/ml/${round}`);
+        const resp = await fetch(`/ml/${season}/${round}`);
         if (!resp.ok) throw new Error(`Failed to fetch predictions: ${resp.status}`);
         currentData = await resp.json();
     } catch (err) {
@@ -65,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let prevData = null;
     if (round > 1) {
         try {
-            const respPrev = await fetch(`/ml/${round - 1}`);
+            const respPrev = await fetch(`/ml/${season}/${round - 1}`);
             if (respPrev.ok) {
                 prevData = await respPrev.json();
             } else {
@@ -106,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 function normalizeConstructorName(rawName) {
     if (!rawName) return 'Unknown';
+    if (typeof rawName !== 'string') rawName = String(rawName);
     const key = rawName.toLowerCase().trim();
     return constructorNameMap[key] || rawName;
 }

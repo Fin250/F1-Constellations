@@ -4,11 +4,9 @@ from metadata.track_metadata import TRACK_METADATA
 tracks_bp = Blueprint("tracks", __name__, url_prefix="/tracks")
 
 # Render individual track pages if they exist
-@tracks_bp.route("/<trackname>")
-def tracks(trackname):
-    tracklist = []
-    for key, track in TRACK_METADATA.items():
-        tracklist.append({"id": key, **track})
+@tracks_bp.route("/<int:season>/<int:roundnum>/<trackname>")
+def tracks(season, roundnum, trackname):
+    tracklist = [{"id": key, **track} for key, track in TRACK_METADATA.items()]
 
     track = TRACK_METADATA.get(trackname)
     if not track:
@@ -21,7 +19,8 @@ def tracks(trackname):
         f1_website=track["f1_website"],
         flag_path=f"/static/images/flags/{track['flag']}",
         annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['annotated_layout']}",
-        round_number=track["round"],
+        round_number=roundnum,
+        season_year=season,
         track_image=track["detailed_track_image"],
         track_attribution=track["detailed_track_attribution"],
         wiki=track["wiki"],
