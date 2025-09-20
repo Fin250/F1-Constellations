@@ -7,6 +7,7 @@ from typing import Any
 from metadata.track_metadata import TRACK_METADATA
 
 CURRENT_SEASON = 2025
+MIN_SEASON = 2010
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FINAL_DF_PATH = os.path.join(BASE_DIR, "ml", "final_df.csv")
 SEASON_COMPLETE = -1
@@ -21,7 +22,8 @@ home_bp = Blueprint("home", __name__)
 def available_seasons():
     if _FINAL_DF.empty:
         return []
-    return sorted(_FINAL_DF['season'].dropna().astype(int).unique().tolist())
+    seasons = sorted(_FINAL_DF['season'].dropna().astype(int).unique().tolist())
+    return [s for s in seasons if s >= MIN_SEASON]
 
 def circuit_key_from_row(row):
     if row is None or row.empty:
@@ -135,6 +137,8 @@ def get_next_track():
 def homepage_root():
     year = CURRENT_SEASON
     seasons = available_seasons()
+    if year < MIN_SEASON:
+        year = MIN_SEASON
 
     if year in seasons and year < CURRENT_SEASON:
         tracks = get_tracks_from_df_for_season(year)
@@ -154,6 +158,9 @@ def homepage_root():
 @home_bp.route("/<int:year>")
 def homepage_year(year):
     year = int(year)
+    if year < MIN_SEASON:
+        return redirect(url_for("home.homepage_root"))
+
     seasons = available_seasons()
 
     if year in seasons and year < CURRENT_SEASON:
