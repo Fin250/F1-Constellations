@@ -40,7 +40,7 @@
 
   <ul id="trackDropdown" class="track-select-dropdown" role="listbox" hidden>
   {% for track in tracks %}
-  <li role="option" tabindex="0" data-href="/tracks/{{ track.id }}" class="track-select-item">
+  <li role="option" tabindex="0" data-href="/tracks/{{ season_year }}/{{ track.round }}/{{ track.id }}" class="track-select-item">
     <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} flag">
     <span class="track-select-name">{{ track.display_name }}</span>
   </li>
