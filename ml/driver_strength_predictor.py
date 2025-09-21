@@ -27,8 +27,13 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2024):
             df['circuit_id'] = df['circuit'].astype(str)
         else:
             raise RuntimeError("No circuit identifier found in final_df (need 'circuit_id' or circuit_id_*).")
-
     df['circuit_id'] = df['circuit_id'].astype(object)
+
+    # --- Identify valid constructor columns ---
+    constructor_cols = [
+        c for c in df.columns
+        if c.startswith("constructor_") and c not in ["constructor_wins", "constructor_points", "constructor_standings_pos"]
+    ]
 
     # --- Focus dataset on target range ---
     df_target = df[(df['season'] >= start_year) & (df['season'] <= end_year)].copy()
@@ -45,9 +50,9 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2024):
     hist['podium'] = pd.to_numeric(hist['podium'], errors='coerce')
     hist['grid'] = pd.to_numeric(hist['grid'], errors='coerce')
     hist['driver_points'] = pd.to_numeric(hist.get('driver_points', 0)).fillna(0.0)
-
     hist['podium_top3'] = (hist['podium'] <= 3).astype(float)
     hist['win_flag'] = (hist['podium'] == 1).astype(float)
+
     SEASON_DECAY = 0.5
     if not hist.empty:
         ref_season = int(hist['season'].max())
@@ -211,10 +216,22 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2024):
                         race_count = 0
                         track_raw_score = None
 
+                constructor = None
+                driver_row = df_round[df_round['driver'] == driver]
+                if not driver_row.empty:
+                    row = driver_row.iloc[0]
+                    for col in constructor_cols:
+                        if int(row[col]) == 1:
+                            constructor = col.replace("constructor_", "").replace("_f1", "").replace("_racing", "").capitalize()
+                            break
+                if constructor is None:
+                    constructor = "Unknown"
+
                 out_records.append({
                     "season": int(season),
                     "round": int(rnd),
                     "driver": str(driver),
+                    "constructor": constructor,
                     "rating": float(round(float(rating), 1)),
                     "race_count": int(race_count),
                     "career_score": float(career_score),
@@ -237,6 +254,7 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2024):
                 if r['round'] == rnd:
                     predictions.append({
                         "driver": r['driver'],
+                        "constructor": r['constructor'],
                         "rating": r['rating'],
                         "race_count": r['race_count'],
                         "career_score": r['career_score'],

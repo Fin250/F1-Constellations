@@ -1,40 +1,74 @@
-const constructorNameMap = {
-    "red_bull": "Red Bull Racing",
-    "mercedes": "Mercedes",
-    "ferrari": "Ferrari",
-    "mclaren": "McLaren",
-    "aston_martin": "Aston Martin",
-    "alpine": "Alpine",
-    "sauber": "Kick Sauber",
-    "williams": "Williams",
-    "rb": "Visa Cash App RB",
-    "haas": "Haas"
-};
-
-const constructorColors = {
-    "Red Bull Racing": "#3671C6",
-    "McLaren": "#FF8000",
-    "Mercedes": "#00D2BE",
-    "Ferrari": "#DC0000",
-    "Aston Martin": "#006F62",
-    "Alpine": "#2293D1",
-    "Williams": "#005AFF",
-    "Visa Cash App RB": "#2B4562",
-    "Haas": "#f0e9e9ff",
-    "Kick Sauber": "#52E252"
-};
-
-const constructorLogos = {
-    "Red Bull Racing": "/static/images/constructors/redbull.png",
-    "McLaren": "/static/images/constructors/mclaren.png",
-    "Mercedes": "/static/images/constructors/mercedes.png",
-    "Ferrari": "/static/images/constructors/ferrari.png",
-    "Aston Martin": "/static/images/constructors/astonmartin.png",
-    "Alpine": "/static/images/constructors/alpine.png",
-    "Williams": "/static/images/constructors/williams.png",
-    "Visa Cash App RB": "/static/images/constructors/visacashapprb.png",
-    "Haas": "/static/images/constructors/haas.png",
-    "Kick Sauber": "/static/images/constructors/kicksauber.png"
+const constructors = {
+  Red_bull: [
+    { start: 2010, end: 2024, name: "Red Bull Racing", color: "#3671C6", logo: "/static/images/constructors/redbull.png" }
+  ],
+  Mercedes: [
+    { start: 2010, end: 2024, name: "Mercedes", color: "#00D2BE", logo: "/static/images/constructors/mercedes.png" }
+  ],
+  Ferrari: [
+    { start: 2010, end: 2024, name: "Ferrari", color: "#DC0000", logo: "/static/images/constructors/ferrari.png" }
+  ],
+  Mclaren: [
+    { start: 2010, end: 2024, name: "McLaren", color: "#FF8000", logo: "/static/images/constructors/mclaren.png" }
+  ],
+  Williams: [
+    { start: 2010, end: 2024, name: "Williams", color: "#005AFF", logo: "/static/images/constructors/williams.png" }
+  ],
+  Sauber: [
+    { start: 2010, end: 2018, name: "Sauber F1 Team", color: "#9B0000", logo: "/static/images/constructors/sauber.png" },
+    { start: 2024, end: 2024, name: "Kick Sauber", color: "#52E252", logo: "/static/images/constructors/kicksauber.png" }
+  ],
+  Alfa: [
+    { start: 2019, end: 2023, name: "Alfa Romeo", color: "#9B0000", logo: "/static/images/constructors/alfaromeo.png" }
+  ],
+  Toro_rosso: [
+    { start: 2010, end: 2019, name: "Toro Rosso", color: "#00008B", logo: "/static/images/constructors/tororosso.png" }
+  ],
+  Alphatauri: [
+    { start: 2020, end: 2023, name: "AlphaTauri", color: "#2B4562", logo: "/static/images/constructors/alphatauri.png" }
+  ],
+  Rb: [
+    { start: 2024, end: 2024, name: "Visa Cash App RB", color: "#2B4562", logo: "/static/images/constructors/visacashapprb.png" }
+  ],
+  Force_india: [
+    { start: 2010, end: 2018, name: "Force India", color: "#ffe6ddff", logo: "/static/images/constructors/forceindia.png" }
+  ],
+  Racing_point: [
+    { start: 2018, end: 2020, name: "Racing Point", color: "#F596C8", logo: "/static/images/constructors/racingpoint.png" }
+  ],
+  Aston_martin: [
+    { start: 2021, end: 2024, name: "Aston Martin", color: "#006F62", logo: "/static/images/constructors/astonmartin.png" }
+  ],
+  Renault: [
+    { start: 2010, end: 2011, name: "Renault", color: "#FFD700", logo: "/static/images/constructors/renault.png" },
+    { start: 2016, end: 2020, name: "Renault", color: "#FFD700", logo: "/static/images/constructors/renault.png" }
+  ],
+  Lotus: [
+    { start: 2010, end: 2011, name: "Lotus Racing", color: "#006400", logo: "/static/images/constructors/lotusracing.png" },
+    { start: 2012, end: 2015, name: "Lotus F1 Team", color: "#000", logo: "/static/images/constructors/lotus.png" }
+  ],
+  Alpine: [
+    { start: 2021, end: 2024, name: "Alpine", color: "#2293D1", logo: "/static/images/constructors/alpine.png" }
+  ],
+  Haas: [
+    { start: 2016, end: 2024, name: "Haas", color: "#f0e9e9ff", logo: "/static/images/constructors/haas.png" }
+  ],
+  Caterham: [
+    { start: 2012, end: 2014, name: "Caterham", color: "#006400", logo: "/static/images/constructors/caterham.png" }
+  ],
+  Virgin: [
+    { start: 2010, end: 2011, name: "Virgin Racing", color: "#FF0000", logo: "/static/images/constructors/virgin.png" }
+  ],
+  Hrt: [
+    { start: 2010, end: 2011, name: "HRT", color: "#A6904F", logo: "/static/images/constructors/hrt.png" }
+  ],
+  Marussia: [
+    { start: 2012, end: 2014, name: "Marussia", color: "#FF0000", logo: "/static/images/constructors/marussia.png" }
+  ],
+  Manor: [
+    { start: 2015, end: 2015, name: "Manor Marussia", color: "#FF0000", logo: "/static/images/constructors/manor.png" },
+    { start: 2016, end: 2016, name: "Manor", color: "#FF0000", logo: "/static/images/constructors/manor.png" }
+  ]
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -318,10 +352,33 @@ function createTrophySVG() {
   return svg;
 }
 
-function normalizeConstructorName(rawName) {
-    if (!rawName) return 'Unknown';
-    const key = rawName.toLowerCase().trim();
-    return constructorNameMap[key] || rawName;
+function getConstructorInfo(constructorKey, season) {
+    const ranges = constructors[constructorKey];
+    if (!ranges) {
+        console.warn("Constructor key not found:", constructorKey);
+        return {
+            name: constructorKey,
+            color: "#ccc",
+            logo: "/static/images/constructors/constructor-placeholder.png"
+        };
+    }
+
+    const match = ranges.find(r => season >= r.start && season <= r.end);
+    if (match) {
+        return {
+            name: match.name,
+            color: match.color,
+            logo: match.logo
+        };
+    }
+
+    const fallback = ranges[ranges.length - 1];
+    console.warn("No season match, using fallback:", fallback);
+    return {
+        name: fallback.name,
+        color: fallback.color,
+        logo: fallback.logo
+    };
 }
 
 function hideSpinnerForList(listSelector) {
@@ -363,11 +420,11 @@ async function loadStandings() {
     }
 
     if (Array.isArray(standings.constructor_standings)) {
-        populateConstructorStandings(standings.constructor_standings);
+        populateConstructorStandings(standings.constructor_standings, season);
     }
 
     if (Array.isArray(standings.driver_standings)) {
-        populateDriverStandings(standings.driver_standings);
+        populateDriverStandings(standings.driver_standings, season);
     }
 }
 
@@ -384,7 +441,8 @@ function createPredictionItem(
     metricClass,
     showMetric,
     isProbability,
-    changeType
+    changeType,
+    season
 ) {
     const li = document.createElement("li");
 
@@ -401,23 +459,44 @@ function createPredictionItem(
     const imageWrapper = document.createElement("div");
     imageWrapper.classList.add("image-wrapper");
 
-    // Team colour
-    if (constructorName && constructorColors[normalizeConstructorName(constructorName)]) {
-        imageWrapper.style.backgroundColor = constructorColors[normalizeConstructorName(constructorName)];
-    } else {
-        imageWrapper.style.backgroundColor = "#ccc";
+    let displayName = name;
+    let bgColor = "#ccc";
+    let logoUrl = null;
+
+    if (constructorName) {
+      const info = getConstructorInfo(constructorName, season);
+      if (isConstructor) {
+          displayName = info.name || name;
+          logoUrl = info.logo || '/static/images/constructors/constructor-placeholder.png';
+      }
+      bgColor = info.color || "#ccc";
     }
 
+    imageWrapper.style.backgroundColor = bgColor;
+
     const img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = name;
+    img.alt = displayName;
     img.classList.add(isConstructor ? "constructor-img" : "driver-img");
+
+    if (isConstructor) {
+        img.src = logoUrl;
+    } else {
+        const lastName = (name || '').split(' ').slice(-1)[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+        const defaultDriverPath = `/static/images/drivers/${lastName}.png`;
+        const placeholder = '/static/images/drivers/driver-placeholder.png';
+        img.src = imageUrl || defaultDriverPath;
+        img.onerror = function () {
+            this.onerror = null;
+            this.src = placeholder;
+            this.className = 'static-img';
+        };
+    }
 
     imageWrapper.appendChild(img);
     driverInfo.appendChild(imageWrapper);
 
     const nameSpan = document.createElement("span");
-    nameSpan.textContent = name;
+    nameSpan.textContent = displayName;
     driverInfo.appendChild(nameSpan);
 
     li.appendChild(driverInfo);
@@ -426,51 +505,42 @@ function createPredictionItem(
     podiumWrapper.classList.add("podium-wrapper");
 
     if (firsts != 0) {
-      const firstsWrapper = document.createElement("div");
-      firstsWrapper.classList.add("firsts-wrapper");
-
-      const trophy = createTrophySVG();
-      trophy.setAttribute("class", "trophy-icon first");
-      firstsWrapper.appendChild(trophy);
-
-      const firstspan = document.createElement("span");
-      firstspan.classList.add("count-span");
-      firstspan.textContent = "x" + firsts;
-      firstsWrapper.appendChild(firstspan);
-
-      podiumWrapper.appendChild(firstsWrapper);
+        const firstsWrapper = document.createElement("div");
+        firstsWrapper.classList.add("firsts-wrapper");
+        const trophy = createTrophySVG();
+        trophy.setAttribute("class", "trophy-icon first");
+        firstsWrapper.appendChild(trophy);
+        const firstspan = document.createElement("span");
+        firstspan.classList.add("count-span");
+        firstspan.textContent = "x" + firsts;
+        firstsWrapper.appendChild(firstspan);
+        podiumWrapper.appendChild(firstsWrapper);
     }
 
     if (seconds != 0) {
-      const secondsWrapper = document.createElement("div");
-      secondsWrapper.classList.add("seconds-wrapper");
-
-      const trophy = createTrophySVG();
-      trophy.setAttribute("class", "trophy-icon second");
-      secondsWrapper.appendChild(trophy);
-
-      const secondspan = document.createElement("span");
-      secondspan.classList.add("count-span");
-      secondspan.textContent = "x" + seconds;
-      secondsWrapper.appendChild(secondspan);
-
-      podiumWrapper.appendChild(secondsWrapper);
+        const secondsWrapper = document.createElement("div");
+        secondsWrapper.classList.add("seconds-wrapper");
+        const trophy = createTrophySVG();
+        trophy.setAttribute("class", "trophy-icon second");
+        secondsWrapper.appendChild(trophy);
+        const secondspan = document.createElement("span");
+        secondspan.classList.add("count-span");
+        secondspan.textContent = "x" + seconds;
+        secondsWrapper.appendChild(secondspan);
+        podiumWrapper.appendChild(secondsWrapper);
     }
 
     if (thirds != 0) {
-      const thirdsWrapper = document.createElement("div");
-      thirdsWrapper.classList.add("thirds-wrapper");
-
-      const trophy = createTrophySVG();
-      trophy.setAttribute("class", "trophy-icon third");
-      thirdsWrapper.appendChild(trophy);
-
-      const thirdspan = document.createElement("span");
-      thirdspan.classList.add("count-span");
-      thirdspan.textContent = "x" + thirds;
-      thirdsWrapper.appendChild(thirdspan);
-
-      podiumWrapper.appendChild(thirdsWrapper);
+        const thirdsWrapper = document.createElement("div");
+        thirdsWrapper.classList.add("thirds-wrapper");
+        const trophy = createTrophySVG();
+        trophy.setAttribute("class", "trophy-icon third");
+        thirdsWrapper.appendChild(trophy);
+        const thirdspan = document.createElement("span");
+        thirdspan.classList.add("count-span");
+        thirdspan.textContent = "x" + thirds;
+        thirdsWrapper.appendChild(thirdspan);
+        podiumWrapper.appendChild(thirdsWrapper);
     }
 
     li.appendChild(podiumWrapper);
@@ -478,7 +548,6 @@ function createPredictionItem(
     if (showMetric) {
         const metricWrapper = document.createElement("div");
         metricWrapper.classList.add("metric-wrapper", `metric-${metricClass}`);
-
         const metricSpan = document.createElement("span");
         metricSpan.classList.add("gp-metric", `metric-${metricClass}`);
 
@@ -489,7 +558,6 @@ function createPredictionItem(
         }
 
         metricSpan.style.color = "rgba(220, 220, 220, 1)";
-
         metricWrapper.appendChild(metricSpan);
         li.appendChild(metricWrapper);
     }
@@ -497,7 +565,7 @@ function createPredictionItem(
     return li;
 }
 
-function populateConstructorStandings(constructors) {
+function populateConstructorStandings(constructors, season) {
     const list = document.querySelector('.constructor-standings');
     if (!list) return;
 
@@ -510,14 +578,13 @@ function populateConstructorStandings(constructors) {
         const seconds = team.seconds ?? 0;
         const thirds = team.thirds ?? 0;
         const points = team.points ?? 0;
-        const imageUrl = constructorLogos[name] || `/static/images/constructors/constructor-placeholder.jpg`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, firsts, seconds, thirds, points, true, name, 'points', true, false, 'neutral');
+        const li = createPredictionItem(index + 1, null, name, firsts, seconds, thirds, points, true, name, 'points', true, false, 'neutral', season);
         list.appendChild(li);
     });
 }
 
-function populateDriverStandings(drivers) {
+function populateDriverStandings(drivers, season) {
     const list = document.querySelector('.driver-standings');
     if (!list) return;
 
@@ -531,9 +598,8 @@ function populateDriverStandings(drivers) {
         const seconds = drv.seconds ?? 0;
         const thirds = drv.thirds ?? 0;
         const points = drv.points ?? 0;
-        const imageUrl = drv.image || `/static/images/drivers/driver-placeholder.png`;
 
-        const li = createPredictionItem(index + 1, imageUrl, name, firsts, seconds, thirds, points, false, constructorName, 'points', true, false, 'neutral');
+        const li = createPredictionItem(index + 1, null, name, firsts, seconds, thirds, points, false, constructorName, 'points', true, false, 'neutral', season);
         list.appendChild(li);
     });
 }

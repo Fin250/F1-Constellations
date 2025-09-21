@@ -17,6 +17,12 @@ def predict_gp_results(start_year: int = 2010, end_year: int = 2024):
     print("Training and predicting GP results...")
     df = pd.read_csv(FINAL_DF_PATH)
 
+    constructor_cols = [
+        c for c in df.columns 
+        if c.startswith("constructor_") 
+        and c not in ["constructor_wins", "constructor_points", "constructor_standings_pos"]
+    ]
+
     seasons = sorted([s for s in df['season'].unique() if start_year <= s <= end_year])
     all_results = []
 
@@ -42,16 +48,26 @@ def predict_gp_results(start_year: int = 2010, end_year: int = 2024):
             test_rnd = test[test['round'] == rnd]
             X_test_rnd = scaler.transform(test_rnd[X_train.columns])
             probabilities = model.predict_proba(X_test_rnd)[:, 1]
-            prediction_df = pd.DataFrame({
-                'driver': test_rnd['driver'],
-                'probability': probabilities
-            })
-            prediction_df['probability'] = (prediction_df['probability'] * 100).round(2)
-            prediction_df.sort_values('probability', ascending=False, inplace=True)
+
+            prediction_records = []
+            for idx, row in test_rnd.iterrows():
+                constructor = None
+                for col in constructor_cols:
+                    if int(row[col]) == 1:
+                        constructor = col.replace("constructor_", "").replace("_f1", "").replace("_racing", "").capitalize()
+                        break
+
+                prediction_records.append({
+                    "driver": row['driver'],
+                    "constructor": constructor if constructor else "Unknown",
+                    "probability": round(float(probabilities[test_rnd.index.get_loc(idx)]) * 100, 2)
+                })
+
+            prediction_records.sort(key=lambda x: x['probability'], reverse=True)
 
             season_results["rounds"].append({
                 "round": int(rnd),
-                "predictions": prediction_df.to_dict(orient="records")
+                "predictions": prediction_records
             })
 
         all_results.append(season_results)

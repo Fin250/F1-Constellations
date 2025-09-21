@@ -44,18 +44,20 @@ def get_ml_standings(season):
     constructor_seconds = {}
     constructor_thirds = {}
     constructor_finishes = {}
+    driver_constructors = {}
 
     for race_idx, race in enumerate(season_results):
         predictions = race.get("predictions", [])
-        print(f"Race {race_idx + 1}: {len(predictions)} predictions")
         sorted_preds = sorted(predictions, key=lambda x: float(x.get("probability", 0)), reverse=True)
 
         for i, pred in enumerate(sorted_preds):
             driver = pred.get("driver")
             if not driver:
                 continue
-            driver_key = driver.lower()
-            constructor = DRIVER_METADATA.get(driver_key, {}).get("constructor")
+
+            constructor = pred.get("constructor")
+            if constructor:
+                driver_constructors[driver] = constructor
 
             # Podiums
             if i == 0:
@@ -129,9 +131,9 @@ def get_ml_standings(season):
                 "seconds": seconds,
                 "thirds": thirds,
                 "points": pts,
-                "constructor": DRIVER_METADATA.get(d.lower(), {}).get("constructor", None),
+                "constructor": driver_constructors.get(d),
                 "nationality": DRIVER_METADATA.get(d.lower(), {}).get("nationality", None),
-                "image": DRIVER_METADATA.get(d.lower(), {}).get("image", None),
+                "image": f"/static/images/drivers/{d.lower()}.png",
             }
             for i, (d, pts, firsts, seconds, thirds) in enumerate(driver_standings_with_podiums)
         ],
