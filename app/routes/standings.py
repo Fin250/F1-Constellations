@@ -15,7 +15,6 @@ def get_ml_standings(season):
     try:
         with open(RESULTS_PATH_GP, 'r') as f:
             gp_data = json.load(f)
-        print(f"Loaded {len(gp_data)} season entries from {RESULTS_PATH_GP}")
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading GP results: {e}")
         return Response(response='[]', status=500, mimetype='application/json')
@@ -27,7 +26,6 @@ def get_ml_standings(season):
         return Response(response='[]', status=404, mimetype='application/json')
 
     season_results = season_data.get("rounds", [])
-    print(f"Found {len(season_results)} rounds for season {season}")
     if not season_results:
         return Response(response='[]', status=404, mimetype='application/json')
 
@@ -83,18 +81,20 @@ def get_ml_standings(season):
             if constructor:
                 constructor_finishes.setdefault(constructor, []).append(finish_pos)
 
-    print(f"Drivers counted: {len(driver_points)}")
-    print(f"Constructors counted: {len(constructor_points)}")
-
     # Sort drivers with tiebreaks
     def driver_sort_key(item):
         driver, points = item
         finishes = sorted(driver_finishes.get(driver, []))
         key = [-points]
         for pos in sorted(set(finishes)):
-            key.append(pos)
-            key.append(-finishes.count(pos))
-        return tuple(key + [driver.lower()])
+            key.extend([pos, -finishes.count(pos)])
+
+        max_len = 40
+        while len(key) < max_len:
+            key.append(999)
+
+        key.append(driver.lower())
+        return tuple(key)
 
     driver_standings = sorted(driver_points.items(), key=driver_sort_key)
 
@@ -104,9 +104,14 @@ def get_ml_standings(season):
         finishes = sorted(constructor_finishes.get(constructor, []))
         key = [-points]
         for pos in sorted(set(finishes)):
-            key.append(pos)
-            key.append(-finishes.count(pos))
-        return tuple(key + [constructor.lower()])
+            key.extend([pos, -finishes.count(pos)])
+
+        max_len = 40
+        while len(key) < max_len:
+            key.append(999)
+
+        key.append(constructor.lower())
+        return tuple(key)
 
     constructor_standings = sorted(constructor_points.items(), key=constructor_sort_key)
 

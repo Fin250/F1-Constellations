@@ -47,6 +47,12 @@ const constructors = {
     { start: 2010, end: 2011, name: "Lotus Racing", color: "#006400", logo: "/static/images/constructors/lotusracing.png" },
     { start: 2012, end: 2015, name: "Lotus F1 Team", color: "#000", logo: "/static/images/constructors/lotus.png" }
   ],
+  Lotus_racing: [
+    { start: 2010, end: 2011, name: "Lotus Racing", color: "#006400", logo: "/static/images/constructors/lotusracing.png" },
+  ],
+  Lotus_f1: [
+    { start: 2012, end: 2015, name: "Lotus F1 Team", color: "#000", logo: "/static/images/constructors/lotus.png" }
+  ],
   Alpine: [
     { start: 2021, end: 2024, name: "Alpine", color: "#2293D1", logo: "/static/images/constructors/alpine.png" }
   ],
