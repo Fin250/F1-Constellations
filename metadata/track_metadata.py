@@ -10,7 +10,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Bahrain.jpg",
         "detailed_track_attribution": "Derek Morrison from Kuwait, Kuwait, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 4,
-        "wiki": "2024_Bahrain_Grand_Prix",
+        "wiki": "Bahrain_Grand_Prix",
         "date": "2nd March",
     },
     "jeddah": {
@@ -24,7 +24,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Saudi_Arabia.jpg",
         "detailed_track_attribution": "Joseph Azrak, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 5,
-        "wiki": "2024_Saudi_Arabian_Grand_Prix",
+        "wiki": "Saudi_Arabian_Grand_Prix",
         "date": "9th March",
     },
     "albert-park": {
@@ -38,7 +38,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Australia.jpg",
         "detailed_track_attribution": "Chris Phutully, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 1,
-        "wiki": "2024_Australian_Grand_Prix",
+        "wiki": "Australian_Grand_Prix",
         "date": "24th March",
     },
     "suzuka": {
@@ -52,7 +52,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Japan.jpg",
         "detailed_track_attribution": "Tokumeigakarinoaoshima, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 3,
-        "wiki": "2024_Japanese_Grand_Prix",
+        "wiki": "Japanese_Grand_Prix",
         "date": "7th April",
     },
     "shanghai": {
@@ -66,7 +66,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_China.jpg",
         "detailed_track_attribution": "sjiong, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 2,
-        "wiki": "2024_Chinese_Grand_Prix",
+        "wiki": "Chinese_Grand_Prix",
         "date": "21st April",
     },
     "miami": {
@@ -80,7 +80,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Miami.jpg",
         "detailed_track_attribution": "Bassfish22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 6,
-        "wiki": "2024_Miami_Grand_Prix",
+        "wiki": "Miami_Grand_Prix",
         "date": "5th May",
     },
     "imola": {
@@ -94,7 +94,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Imola.jpg",
         "detailed_track_attribution": "",
         "round": 7,
-        "wiki": "2024_Emilia_Romagna_Grand_Prix",
+        "wiki": "Emilia_Romagna_Grand_Prix",
         "date": "19th May",
     },
     "monaco": {
@@ -108,7 +108,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Monaco.jpg",
         "detailed_track_attribution": "Alexander Migl, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 8,
-        "wiki": "2024_Monaco_Grand_Prix",
+        "wiki": "Monaco_Grand_Prix",
         "date": "26th May",
     },
     "villeneuve": {
@@ -122,7 +122,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Canada.jpg",
         "detailed_track_attribution": "kevint3141 from Kitchener, Canada, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 10,
-        "wiki": "2024_Canadian_Grand_Prix",
+        "wiki": "Canadian_Grand_Prix",
         "date": "9th June",
     },
     "catalunya": {
@@ -136,7 +136,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Spain.jpg",
         "detailed_track_attribution": "Wilnel José Verdú Guerrero, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 9,
-        "wiki": "2024_Spanish_Grand_Prix",
+        "wiki": "Spanish_Grand_Prix",
         "date": "23rd June",
     },
     "red-bull-ring": {
@@ -150,7 +150,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Austria.jpg",
         "detailed_track_attribution": "https://www.flickr.com/photos/pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 11,
-        "wiki": "2024_Austrian_Grand_Prix",
+        "wiki": "Austrian_Grand_Prix",
         "date": "30th June",
     },
     "silverstone": {
@@ -164,7 +164,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_United_Kingdom.jpg",
         "detailed_track_attribution": "Becketts Stand, Silverstone. by David Ashcroft, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 12,
-        "wiki": "2024_British_Grand_Prix",
+        "wiki": "British_Grand_Prix",
         "date": "7th July",
     },
     "hungaroring": {
@@ -178,7 +178,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Hungary.jpg",
         "detailed_track_attribution": "Derzsi Elekes Andor (talk · contribs), CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 14,
-        "wiki": "2024_Hungarian_Grand_Prix",
+        "wiki": "Hungarian_Grand_Prix",
         "date": "21st July",
     },
     "spa": {
@@ -192,7 +192,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Belgium.jpg",
         "detailed_track_attribution": "Cutkiller2018, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 13,
-        "wiki": "2024_Belgian_Grand_Prix",
+        "wiki": "Belgian_Grand_Prix",
         "date": "28th July",
     },
     "zanvoort": {
@@ -206,7 +206,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Netherlands.jpg",
         "detailed_track_attribution": "dronepicr, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 15,
-        "wiki": "2024_Dutch_Grand_Prix",
+        "wiki": "Dutch_Grand_Prix",
         "date": "25th August",
     },
     "monza": {
@@ -220,7 +220,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Italy.jpg",
         "detailed_track_attribution": "pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 16,
-        "wiki": "2024_Italian_Grand_Prix",
+        "wiki": "Italian_Grand_Prix",
         "date": "1st September",
     },
     "baku": {
@@ -234,7 +234,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Azerbaijan.jpg",
         "detailed_track_attribution": "President.az, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons",
         "round": 17,
-        "wiki": "2024_Azerbaijan_Grand_Prix",
+        "wiki": "Azerbaijan_Grand_Prix",
         "date": "15th September",
     },
     "marina-bay": {
@@ -248,7 +248,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Singapore.jpg",
         "detailed_track_attribution": "chensiyuan, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 18,
-        "wiki": "2024_Singapore_Grand_Prix",
+        "wiki": "Singapore_Grand_Prix",
         "date": "22nd September",
     },
     "americas": {
@@ -262,7 +262,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_United_States.jpg",
         "detailed_track_attribution": "Zach Catanzareti Photo, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 19,
-        "wiki": "2024_United_States_Grand_Prix",
+        "wiki": "United_States_Grand_Prix",
         "date": "20th October",
     },
     "rodriguez": {
@@ -276,7 +276,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Mexico.jpg",
         "detailed_track_attribution": "Tsoncch22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 20,
-        "wiki": "2024_Mexican_Grand_Prix",
+        "wiki": "Mexican_Grand_Prix",
         "date": "27th October",
     },
     "interlagos": {
@@ -290,7 +290,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Brazil.jpg",
         "detailed_track_attribution": "Boaventuravinicius, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 21,
-        "wiki": "2024_Brazilian_Grand_Prix",
+        "wiki": "Brazilian_Grand_Prix",
         "date": "3rd November",
     },
     "vegas": {
@@ -304,7 +304,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Las_Vegas.jpg",
         "detailed_track_attribution": "5chw4r7z, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 22,
-        "wiki": "2024_Las_Vegas_Grand_Prix",
+        "wiki": "Las_Vegas_Grand_Prix",
         "date": "23rd November",
     },
     "losail": {
@@ -318,7 +318,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Qatar.jpg",
         "detailed_track_attribution": "Trinidade, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
         "round": 23,
-        "wiki": "2024_Qatar_Grand_Prix",
+        "wiki": "Qatar_Grand_Prix",
         "date": "1st December",
     },
     "yas-marina": {
@@ -332,7 +332,7 @@ TRACK_METADATA = {
         "detailed_track_image": "Detailed_Abu_Dhabi.jpg",
         "detailed_track_attribution": "Cesar I. Martins, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 24,
-        "wiki": "2024_Abu_Dhabi_Grand_Prix",
+        "wiki": "Abu_Dhabi_Grand_Prix",
         "date": "8th December",
     },
     "ricard": {
@@ -345,7 +345,7 @@ TRACK_METADATA = {
         "layout": "ricard.png",
         "detailed_track_image": "Detailed_Ricard.png",
         "detailed_track_attribution": "Francois Oreca, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "French_Grand_Prix",
         "date": "1st January",
     },
     "sochi": {
@@ -358,7 +358,7 @@ TRACK_METADATA = {
         "layout": "sochi.png",
         "detailed_track_image": "Detailed_Sochi.jpg",
         "detailed_track_attribution": "Stolbovsky, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Russian_Grand_Prix",
         "date": "1st January",
     },
     "portimao": {
@@ -371,7 +371,7 @@ TRACK_METADATA = {
         "layout": "portimao.png",
         "detailed_track_image": "Detailed_Portimao.jpg",
         "detailed_track_attribution": "Klugschnacker, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Portuguese_Grand_Prix",
         "date": "1st January",
     },
     "istanbul": {
@@ -384,7 +384,7 @@ TRACK_METADATA = {
         "layout": "istanbul.png",
         "detailed_track_image": "Detailed_Istanbul.jpg",
         "detailed_track_attribution": "Homonihilis, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Turkish_Grand_Prix",
         "date": "1st January",
     },
     "mugello": {
@@ -397,7 +397,7 @@ TRACK_METADATA = {
         "layout": "mugello.png",
         "detailed_track_image": "Detailed_Mugello.jpg",
         "detailed_track_attribution": "Anna.Massini, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Tuscan_Grand_Prix",
         "date": "1st January",
     },
     "nurburgring": {
@@ -410,7 +410,7 @@ TRACK_METADATA = {
         "layout": "nurburgring.png",
         "detailed_track_image": "Detailed_Nurburgring.jpg",
         "detailed_track_attribution": "qwesy qwesy, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Eifel_Grand_Prix",
         "date": "1st January",
     },
     "hockenheimring": {
@@ -436,7 +436,7 @@ TRACK_METADATA = {
         "layout": "sepang.png",
         "detailed_track_image": "Detailed_Sepang.jpg",
         "detailed_track_attribution": "Postmortem at Russian Wikipedia, Public domain, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Malaysian_Grand_Prix",
         "date": "1st January",
     },
     "yeongam": {
@@ -449,7 +449,7 @@ TRACK_METADATA = {
         "layout": "yeongam.png",
         "detailed_track_image": "Detailed_Yeongam.jpg",
         "detailed_track_attribution": "LG전자, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Korean_Grand_Prix",
         "date": "1st January",
     },
     "buddh": {
@@ -462,7 +462,7 @@ TRACK_METADATA = {
         "layout": "buddh.png",
         "detailed_track_image": "Detailed_Buddh.jpg",
         "detailed_track_attribution": "Alok09031995, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "Indian_Grand_Prix",
         "date": "1st January",
     },
     "valencia": {
@@ -475,7 +475,7 @@ TRACK_METADATA = {
         "layout": "valencia.png",
         "detailed_track_image": "Detailed_Valencia.jpg",
         "detailed_track_attribution": "16:9clue, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "wiki": "",
+        "wiki": "European_Grand_Prix",
         "date": "1st January",
     },
 }
