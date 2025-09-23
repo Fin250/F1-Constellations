@@ -421,7 +421,7 @@ TRACK_METADATA = {
     },
     "hockenheimring": {
         "circuit_id": "circuit_id_hockenheimring",
-        "display_name": "Hockenheimring",
+        "display_name": "Hockenheim",
         "f1_website": "",
         "flag": "Flag_of_Germany.png",
         "detailed_flag": "Germany.png",

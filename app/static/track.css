@@ -110,14 +110,14 @@ header {
   display: inline-block;
 }
 
-.track-select { 
+.track-select, .year-select { 
   position: relative;
   display: inline-flex;
   align-items: center;
   height: 44px;
 }
 
-.track-select-button {
+.track-select-button, .year-select-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -135,7 +135,7 @@ header {
   position: relative;
 }
 
-.track-select-button::before {
+.track-select-button::before, .year-select-button::before {
   content: "";
   position: absolute;
   left: 0;
@@ -149,17 +149,11 @@ header {
   transition: transform 0.2s ease;
 }
 
-.track-select-button[aria-expanded="true"]::before {
+.track-select-button[aria-expanded="true"]::before, .year-select-button[aria-expanded="true"]::before {
   transform: translateY(-30%) rotate(135deg);
 }
 
-.track-select-button:hover,
-.track-select-button:focus {
-  color: var(--accent-weak);
-  outline: none;
-}
-
-.track-select-dropdown {
+.track-select-dropdown, .year-select-dropdown {
   position: fixed;
   z-index: 9999;
   min-width: 240px;
@@ -174,7 +168,7 @@ header {
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-.track-select-item {
+.track-select-item, .year-select-item {
   display: flex; 
   align-items: center; 
   gap: 10px;
@@ -192,26 +186,49 @@ header {
   box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
 }
 
-.track-select-name { 
+.track-select-name, .year-select-name { 
   margin-left: auto; 
   text-align: right; 
   color: #fff; 
   letter-spacing: .2px; }
 
-.track-select-item:hover, .track-select-item:focus {
+.track-select-item:hover, .track-select-item:focus, .year-select-item:hover, .year-select-item:focus {
   outline: none; 
   background: rgba(255,255,255,0.06);
 }
 
-.track-select-button:focus-visible { 
+.track-select-button:focus-visible, .year-select-button:focus-visible { 
   outline: 2px solid var(--accent-strong); 
   outline-offset: 2px;
 }
 
-.track-select-label {
+.track-select-label, .year-select-label {
   position: relative;
   display: inline-block;
   padding-left: 30px;
+}
+
+.year-select-item {
+  padding: 14px 24px; 
+}
+
+.year-select-item.selected {
+  font-weight: 700;
+  color: var(--accent-weak);
+  position: relative;
+  padding-left: 34px;
+}
+
+.year-select-item.selected::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-weak);
 }
 
 /* Home page layout */

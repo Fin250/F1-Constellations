@@ -21,9 +21,9 @@
   </div>
 
   <nav class="header-nav" aria-label="Primary navigation">
-  <div class="track-select" data-dropdown>
-    <button id="trackTrigger" class="track-select-button" aria-haspopup="listbox" aria-expanded="false">
-      <span class="track-select-label">Track</span>
+  <div class="year-select" data-dropdown>
+    <button id="yearTrigger" class="year-select-button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="year-select-label">{{ season_year }}</span>
     </button>
   </div>
 
@@ -32,11 +32,12 @@
       <span class="nav-text">About</span>
     </a>
   </nav>
-<ul id="trackDropdown" class="track-select-dropdown" role="listbox" hidden>
-  {% for track in tracks %}
-  <li role="option" tabindex="0" data-href="/tracks/{{ season_year }}/{{ track.round }}/{{ track.id }}" class="track-select-item">
-    <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} flag">
-    <span class="track-select-name">{{ track.display_name }}</span>
+<ul id="yearDropdown" class="year-select-dropdown" role="listbox" hidden>
+  {% for y in range(2010, 2026) %}
+  <li role="option" tabindex="0"
+      data-href="{% if y == 2025 %}/{% else %}/{{ y }}{% endif %}"
+      class="year-select-item {% if y == season_year %}selected{% endif %}">
+    <span class="year-select-name">{{ y }}</span>
   </li>
   {% endfor %}
 </ul>

@@ -658,9 +658,9 @@ function populateDriverStandings(drivers, season) {
 })();
 
 (function(){
-  const trigger = document.getElementById('trackTrigger');
-  const menu = document.getElementById('trackDropdown');
-  const label = trigger.querySelector('.track-select-label');
+  const trigger = document.getElementById('yearTrigger');
+  const menu = document.getElementById('yearDropdown');
+  const label = trigger.querySelector('.year-select-label');
 
   function openMenu() {
     const rect = trigger.getBoundingClientRect();
@@ -684,17 +684,17 @@ function populateDriverStandings(drivers, season) {
   });
 
   menu.addEventListener('click', (e) => {
-    const li = e.target.closest('.track-select-item');
+    const li = e.target.closest('.year-select-item');
     if (!li) return;
-    const name = li.querySelector('.track-select-name')?.textContent?.trim() || 'Track';
+    const year = li.querySelector('.year-select-name')?.textContent?.trim() || '';
     const href = li.dataset.href;
-    label.textContent = name;
+    if (year) label.textContent = year;
     closeMenu();
     if (href) window.location.href = href;
   });
 
   menu.addEventListener('keydown', (e) => {
-    const items = [...menu.querySelectorAll('.track-select-item')];
+    const items = [...menu.querySelectorAll('.year-select-item')];
     const idx = items.indexOf(document.activeElement);
     if (e.key === 'ArrowDown') { e.preventDefault(); (items[idx+1] || items[0]).focus(); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); (items[idx-1] || items[items.length-1]).focus(); }
@@ -707,39 +707,6 @@ function populateDriverStandings(drivers, season) {
   });
   window.addEventListener('resize', () => { if (!menu.hidden) openMenu(); });
   window.addEventListener('scroll', () => { if (!menu.hidden) openMenu(); }, true);
-
-  const carousel = document.querySelector('.carousel');
-  if (!carousel) return;
-
-  function sizeLineMarkers() {
-    const kids = Array.from(carousel.children).filter(el => !el.classList.contains('line-marker'));
-    const h = Math.max(0, ...kids.map(el => el.offsetHeight));
-    if (!h) return;
-    carousel.querySelectorAll('.line-marker img').forEach(img => {
-      img.style.height = h + 'px';
-      img.style.width = 'auto';
-      img.style.maxHeight = 'none';
-      img.style.visibility = 'visible';
-    });
-  }
-
-  sizeLineMarkers();
-
-  const debounce = (fn, d=60) => { let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), d); }; };
-  const rerun = debounce(sizeLineMarkers, 80);
-
-  window.addEventListener('load', rerun);
-  window.addEventListener('resize', rerun);
-  window.addEventListener('orientationchange', rerun);
-
-  carousel.querySelectorAll('img').forEach(img => {
-    if (!img.complete) img.addEventListener('load', rerun, { once: true });
-  });
-
-  if (window.ResizeObserver) {
-    const ro = new ResizeObserver(rerun);
-    ro.observe(carousel);
-  }
 })();
 
 function rebalanceQuickpick() {
