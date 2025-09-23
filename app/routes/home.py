@@ -124,13 +124,21 @@ def get_tracks_from_df_for_season(year: int):
 def get_placeholder_current_season_tracks():
     tracklist = []
     for key, meta in TRACK_METADATA.items():
-        t = build_track_from_key(key, meta.get('round'))
+        round_num = meta.get("round")
+        if round_num is None:
+            continue
+        try:
+            round_num = int(round_num)
+        except (TypeError, ValueError):
+            continue
+        t = build_track_from_key(key, round_num)
         tracklist.append(t)
-    tracklist.sort(key=lambda x: (x.get('round') if x.get('round') is not None else 999))
+
+    tracklist.sort(key=lambda x: x.get("round") if isinstance(x.get("round"), int) else 999)
     return tracklist
 
 def get_next_track():
-    return 16  # hardcoded next round
+    return 18  # hardcoded next round
 
 # Homepage route
 @home_bp.route("/")

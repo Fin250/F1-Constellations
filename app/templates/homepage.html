@@ -33,7 +33,7 @@
     </a>
   </nav>
 <ul id="yearDropdown" class="year-select-dropdown" role="listbox" hidden>
-  {% for y in range(2010, 2026) %}
+  {% for y in range(2025, 2009, -1) %}
   <li role="option" tabindex="0"
       data-href="{% if y == 2025 %}/{% else %}/{{ y }}{% endif %}"
       class="year-select-item {% if y == season_year %}selected{% endif %}">
