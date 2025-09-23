@@ -437,7 +437,7 @@ async function loadStandings() {
 function createPredictionItem(
     position,
     imageUrl,
-    name,
+    driverId,
     firsts,
     seconds,
     thirds,
@@ -448,7 +448,8 @@ function createPredictionItem(
     showMetric,
     isProbability,
     changeType,
-    season
+    season,
+    displayName = null
 ) {
     const li = document.createElement("li");
 
@@ -465,30 +466,30 @@ function createPredictionItem(
     const imageWrapper = document.createElement("div");
     imageWrapper.classList.add("image-wrapper");
 
-    let displayName = name;
+    let shownName = displayName || driverId;
     let bgColor = "#ccc";
     let logoUrl = null;
 
     if (constructorName) {
-      const info = getConstructorInfo(constructorName, season);
-      if (isConstructor) {
-          displayName = info.name || name;
-          logoUrl = info.logo || '/static/images/constructors/constructor-placeholder.png';
-      }
-      bgColor = info.color || "#ccc";
+        const info = getConstructorInfo(constructorName, season);
+        if (isConstructor) {
+            shownName = info.name || driverId;
+            logoUrl = info.logo || '/static/images/constructors/constructor-placeholder.png';
+        }
+        bgColor = info.color || "#ccc";
     }
 
     imageWrapper.style.backgroundColor = bgColor;
 
     const img = document.createElement("img");
-    img.alt = displayName;
+    img.alt = shownName;
     img.classList.add(isConstructor ? "constructor-img" : "driver-img");
 
     if (isConstructor) {
         img.src = logoUrl;
     } else {
-        const lastName = (name || '').split(' ').slice(-1)[0].toLowerCase().replace(/[^a-z0-9]/g, '');
-        const defaultDriverPath = `/static/images/drivers/${lastName}.png`;
+        const safeId = (driverId || '').toLowerCase().replace(/[^a-z0-9_]/g, '');
+        const defaultDriverPath = `/static/images/drivers/${safeId}.png`;
         const placeholder = '/static/images/drivers/driver-placeholder.png';
         img.src = imageUrl || defaultDriverPath;
         img.onerror = function () {
@@ -502,7 +503,7 @@ function createPredictionItem(
     driverInfo.appendChild(imageWrapper);
 
     const nameSpan = document.createElement("span");
-    nameSpan.textContent = displayName;
+    nameSpan.textContent = shownName;
     driverInfo.appendChild(nameSpan);
 
     li.appendChild(driverInfo);
@@ -598,14 +599,18 @@ function populateDriverStandings(drivers, season) {
     hideSpinnerForList('.driver-standings');
 
     drivers.forEach((drv, index) => {
-        const name = drv.driver || 'Unknown';
+        const driverId = drv.driver_id || 'unknown';
+        const fullName = drv.driver || 'Unknown';
         const constructorName = drv.constructor || null;
         const firsts = drv.firsts ?? 0;
         const seconds = drv.seconds ?? 0;
         const thirds = drv.thirds ?? 0;
         const points = drv.points ?? 0;
 
-        const li = createPredictionItem(index + 1, null, name, firsts, seconds, thirds, points, false, constructorName, 'points', true, false, 'neutral', season);
+        const li = createPredictionItem(
+            index + 1, null, driverId, firsts, seconds, thirds, points, false,
+            constructorName, 'points', true, false, 'neutral', season, fullName
+        );
         list.appendChild(li);
     });
 }

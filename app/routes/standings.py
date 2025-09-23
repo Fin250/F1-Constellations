@@ -131,14 +131,15 @@ def get_ml_standings(season):
         "driver_standings": [
             {
                 "position": i + 1,
-                "driver": DRIVER_METADATA.get(d.lower(), {}).get("full_name", d),
+                "driver_id": d,
+                "driver": DRIVER_METADATA.get(d, {}).get("full_name", d),
                 "firsts": firsts,
                 "seconds": seconds,
                 "thirds": thirds,
                 "points": pts,
                 "constructor": driver_constructors.get(d),
-                "nationality": DRIVER_METADATA.get(d.lower(), {}).get("nationality", None),
-                "image": f"/static/images/drivers/{d.lower()}.png",
+                "nationality": DRIVER_METADATA.get(d, {}).get("nationality", None),
+                "image": f"/static/images/drivers/{d}.png",
             }
             for i, (d, pts, firsts, seconds, thirds) in enumerate(driver_standings_with_podiums)
         ],
