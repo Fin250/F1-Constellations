@@ -4967,12 +4967,12 @@
         "round": 1,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5012,12 +5012,12 @@
         "round": 2,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5829660138399205
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6695461702476916
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5829660138399205
           },
           {
             "TEAM": "ferrari",
@@ -5057,12 +5057,12 @@
         "round": 3,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5102,12 +5102,12 @@
         "round": 4,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5147,12 +5147,12 @@
         "round": 5,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5192,12 +5192,12 @@
         "round": 6,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5237,12 +5237,12 @@
         "round": 7,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5834890948766558
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6702084202571802
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5834890948766558
           },
           {
             "TEAM": "ferrari",
@@ -5282,12 +5282,12 @@
         "round": 8,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5327,12 +5327,12 @@
         "round": 9,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832972653288134
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6700165907093378
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832972653288134
           },
           {
             "TEAM": "ferrari",
@@ -5372,12 +5372,12 @@
         "round": 10,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5834350906359164
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6696600372452356
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5834350906359164
           },
           {
             "TEAM": "ferrari",
@@ -5417,12 +5417,12 @@
         "round": 11,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5462,12 +5462,12 @@
         "round": 12,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5507,12 +5507,12 @@
         "round": 13,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.583703789235851
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670791005252247
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.583703789235851
           },
           {
             "TEAM": "ferrari",
@@ -5552,12 +5552,12 @@
         "round": 14,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5597,12 +5597,12 @@
         "round": 15,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5832908093881066
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.670010134768631
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5832908093881066
           },
           {
             "TEAM": "ferrari",
@@ -5642,12 +5642,12 @@
         "round": 16,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5833590008959749
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6705885413101359
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5833590008959749
           },
           {
             "TEAM": "ferrari",
@@ -5687,12 +5687,12 @@
         "round": 17,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5723904953941019
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.6924237115293301
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5723904953941019
           },
           {
             "TEAM": "ferrari",
@@ -5732,12 +5732,12 @@
         "round": 18,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5989304696416757
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.7907247083928358
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5989304696416757
           },
           {
             "TEAM": "ferrari",
@@ -5777,12 +5777,12 @@
         "round": 19,
         "predictions": [
           {
-            "TEAM": "williams",
-            "predicted_strength": 0.5584841217189326
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.8357624643076157
+          },
+          {
+            "TEAM": "williams",
+            "predicted_strength": 0.5584841217189326
           },
           {
             "TEAM": "ferrari",
@@ -6861,16 +6861,16 @@
         "round": 1,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -6906,16 +6906,16 @@
         "round": 2,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -6951,16 +6951,16 @@
         "round": 3,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -6996,16 +6996,16 @@
         "round": 4,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7041,16 +7041,16 @@
         "round": 5,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7086,16 +7086,16 @@
         "round": 6,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7131,16 +7131,16 @@
         "round": 7,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8132338954109731
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.94379207437693
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7167236989468817
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8132338954109731
           },
           {
             "TEAM": "haas",
@@ -7176,16 +7176,16 @@
         "round": 8,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7221,16 +7221,16 @@
         "round": 9,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7266,16 +7266,16 @@
         "round": 10,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8130420658631308
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165318693990393
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8130420658631308
           },
           {
             "TEAM": "haas",
@@ -7311,16 +7311,16 @@
         "round": 11,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8127947491313883
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.94354464457116
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7161569270543088
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8127947491313883
           },
           {
             "TEAM": "haas",
@@ -7356,16 +7356,16 @@
         "round": 12,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7401,16 +7401,16 @@
         "round": 13,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.813035609922424
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.813035609922424
           },
           {
             "TEAM": "haas",
@@ -7446,16 +7446,16 @@
         "round": 14,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8097788146440462
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9440332059029132
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7171423649780995
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8097788146440462
           },
           {
             "TEAM": "haas",
@@ -7491,16 +7491,16 @@
         "round": 15,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8087313738880448
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.943482196509921
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7162006179101464
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8087313738880448
           },
           {
             "TEAM": "haas",
@@ -7536,16 +7536,16 @@
         "round": 16,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8091195437978645
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9436033121665598
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7165254134583325
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8091195437978645
           },
           {
             "TEAM": "haas",
@@ -7581,16 +7581,16 @@
         "round": 17,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.8076250523680217
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9418300476922165
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7160178986040368
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.8076250523680217
           },
           {
             "TEAM": "haas",
@@ -7626,16 +7626,16 @@
         "round": 18,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.7994453523554336
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9416951816668248
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7155550819119685
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.7994453523554336
           },
           {
             "TEAM": "haas",
@@ -7671,16 +7671,16 @@
         "round": 19,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.7694010312571112
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9374605192262252
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7425748251448339
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.7694010312571112
           },
           {
             "TEAM": "haas",
@@ -7716,16 +7716,16 @@
         "round": 20,
         "predictions": [
           {
-            "TEAM": "red_bull",
-            "predicted_strength": 0.7690507499952706
-          },
-          {
             "TEAM": "mercedes",
             "predicted_strength": 0.9374605192262252
           },
           {
             "TEAM": "ferrari",
             "predicted_strength": 0.7689167263016263
+          },
+          {
+            "TEAM": "red_bull",
+            "predicted_strength": 0.7690507499952706
           },
           {
             "TEAM": "haas",

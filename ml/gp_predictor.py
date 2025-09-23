@@ -33,7 +33,8 @@ def predict_gp_results(start_year: int = 2010, end_year: int = 2024):
         if train.empty or test.empty:
             continue
 
-        X_train = train.drop(['driver', 'podium'], axis=1).select_dtypes(include=[np.number])
+        drop_cols = ['driver', 'podium', 'date']
+        X_train = train.drop(columns=[c for c in drop_cols if c in train.columns]).select_dtypes(include=[np.number])
         y_train = train.podium
 
         scaler = StandardScaler()
