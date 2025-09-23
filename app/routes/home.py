@@ -3,6 +3,7 @@ import json
 import pandas as pd
 from flask import Blueprint, redirect, render_template, url_for
 from typing import Any
+from datetime import datetime
 
 from metadata.track_metadata import TRACK_METADATA
 
@@ -33,8 +34,29 @@ def circuit_key_from_row(row):
             return col.replace('circuit_id_', '')
     return None
 
-def build_track_from_key(key, round_num=None):
+def day_with_suffix(day: int) -> str:
+    if 11 <= day <= 13:
+        return f"{day}th"
+    last_digit = day % 10
+    if last_digit == 1:
+        return f"{day}st"
+    elif last_digit == 2:
+        return f"{day}nd"
+    elif last_digit == 3:
+        return f"{day}rd"
+    else:
+        return f"{day}th"
+
+def build_track_from_key(key, round_num=None, track_date=None):
     meta = TRACK_METADATA.get(key, {})
+    formatted_date = ""
+    if track_date is not None:
+        try:
+            dt = datetime.strptime(track_date, "%Y-%m-%d")
+            formatted_date = f"{day_with_suffix(dt.day)} {dt.strftime('%B')}"
+        except Exception:
+            formatted_date = track_date
+
     return {
         "id": key,
         "display_name": meta.get("display_name", key.replace('_', ' ').title()),
@@ -46,7 +68,7 @@ def build_track_from_key(key, round_num=None):
         "detailed_track_attribution": meta.get("detailed_track_attribution", ""),
         "round": int(round_num) if round_num is not None else meta.get("round"),
         "wiki": meta.get("wiki", ""),
-        "date": meta.get("date", "")
+        "date": formatted_date if formatted_date else meta.get("date", "")
     }
 
 # build tracklist for a past season from final_df
@@ -72,24 +94,25 @@ def get_tracks_from_df_for_season(year: int):
             continue
 
         key = None
+        track_date = None
         for track_key, meta in TRACK_METADATA.items():
             circuit_col = meta.get("circuit_id")
             if isinstance(circuit_col, str) and circuit_col in row.index:
                 val = row[circuit_col]
                 if pd.notna(val) and int(val) == 1:
                     key = track_key
+                    track_date = row.get('date')
                     break
 
         if key:
-            t = build_track_from_key(key, round_num)
+            t = build_track_from_key(key, round_num, track_date)
             tracks.append(t)
         else:
             circuit_col_name = None
             for col in row.index:
                 if not col.startswith("circuit_id_"):
                     continue
-
-                value: Any = row.get(col)
+                value = row.get(col)
                 if pd.isna(value):
                     continue
 

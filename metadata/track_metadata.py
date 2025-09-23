@@ -11,7 +11,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Derek Morrison from Kuwait, Kuwait, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 4,
         "wiki": "Bahrain_Grand_Prix",
-        "date": "2nd March",
+        "date": "13th April",
     },
     "jeddah": {
         "circuit_id": "circuit_id_jeddah",
@@ -25,7 +25,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Joseph Azrak, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 5,
         "wiki": "Saudi_Arabian_Grand_Prix",
-        "date": "9th March",
+        "date": "20th April",
     },
     "albert-park": {
         "circuit_id": "circuit_id_albert_park",
@@ -39,7 +39,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Chris Phutully, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 1,
         "wiki": "Australian_Grand_Prix",
-        "date": "24th March",
+        "date": "16th March",
     },
     "suzuka": {
         "circuit_id": "circuit_id_suzuka",
@@ -53,7 +53,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Tokumeigakarinoaoshima, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 3,
         "wiki": "Japanese_Grand_Prix",
-        "date": "7th April",
+        "date": "6th April",
     },
     "shanghai": {
         "circuit_id": "circuit_id_shanghai",
@@ -67,7 +67,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "sjiong, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 2,
         "wiki": "Chinese_Grand_Prix",
-        "date": "21st April",
+        "date": "23rd March",
     },
     "miami": {
         "circuit_id": "circuit_id_miami",
@@ -81,7 +81,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Bassfish22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 6,
         "wiki": "Miami_Grand_Prix",
-        "date": "5th May",
+        "date": "4th May",
     },
     "imola": {
         "circuit_id": "circuit_id_imola",
@@ -95,7 +95,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "",
         "round": 7,
         "wiki": "Emilia_Romagna_Grand_Prix",
-        "date": "19th May",
+        "date": "18th May",
     },
     "monaco": {
         "circuit_id": "circuit_id_monaco",
@@ -109,7 +109,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Alexander Migl, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 8,
         "wiki": "Monaco_Grand_Prix",
-        "date": "26th May",
+        "date": "25th May",
     },
     "villeneuve": {
         "circuit_id": "circuit_id_villeneuve",
@@ -123,7 +123,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "kevint3141 from Kitchener, Canada, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 10,
         "wiki": "Canadian_Grand_Prix",
-        "date": "9th June",
+        "date": "15th June",
     },
     "catalunya": {
         "circuit_id": "circuit_id_catalunya",
@@ -137,7 +137,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Wilnel José Verdú Guerrero, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 9,
         "wiki": "Spanish_Grand_Prix",
-        "date": "23rd June",
+        "date": "1st June",
     },
     "red-bull-ring": {
         "circuit_id": "circuit_id_red_bull_ring",
@@ -151,7 +151,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "https://www.flickr.com/photos/pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 11,
         "wiki": "Austrian_Grand_Prix",
-        "date": "30th June",
+        "date": "29th June",
     },
     "silverstone": {
         "circuit_id": "circuit_id_silverstone",
@@ -165,7 +165,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Becketts Stand, Silverstone. by David Ashcroft, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 12,
         "wiki": "British_Grand_Prix",
-        "date": "7th July",
+        "date": "6th July",
     },
     "hungaroring": {
         "circuit_id": "circuit_id_hungaroring",
@@ -179,7 +179,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Derzsi Elekes Andor (talk · contribs), CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 14,
         "wiki": "Hungarian_Grand_Prix",
-        "date": "21st July",
+        "date": "3rd August",
     },
     "spa": {
         "circuit_id": "circuit_id_spa",
@@ -193,7 +193,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Cutkiller2018, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 13,
         "wiki": "Belgian_Grand_Prix",
-        "date": "28th July",
+        "date": "27th July",
     },
     "zanvoort": {
         "circuit_id": "circuit_id_zandvoort",
@@ -207,7 +207,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "dronepicr, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 15,
         "wiki": "Dutch_Grand_Prix",
-        "date": "25th August",
+        "date": "31st August",
     },
     "monza": {
         "circuit_id": "circuit_id_monza",
@@ -221,7 +221,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 16,
         "wiki": "Italian_Grand_Prix",
-        "date": "1st September",
+        "date": "7th September",
     },
     "baku": {
         "circuit_id": "circuit_id_baku",
@@ -235,7 +235,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "President.az, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons",
         "round": 17,
         "wiki": "Azerbaijan_Grand_Prix",
-        "date": "15th September",
+        "date": "21st September",
     },
     "marina-bay": {
         "circuit_id": "circuit_id_marina_bay",
@@ -249,7 +249,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "chensiyuan, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 18,
         "wiki": "Singapore_Grand_Prix",
-        "date": "22nd September",
+        "date": "5th October",
     },
     "americas": {
         "circuit_id": "circuit_id_americas",
@@ -263,7 +263,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Zach Catanzareti Photo, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 19,
         "wiki": "United_States_Grand_Prix",
-        "date": "20th October",
+        "date": "19th October",
     },
     "rodriguez": {
         "circuit_id": "circuit_id_rodriguez",
@@ -277,7 +277,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Tsoncch22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 20,
         "wiki": "Mexican_Grand_Prix",
-        "date": "27th October",
+        "date": "26th October",
     },
     "interlagos": {
         "circuit_id": "circuit_id_interlagos",
@@ -291,7 +291,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Boaventuravinicius, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
         "round": 21,
         "wiki": "Brazilian_Grand_Prix",
-        "date": "3rd November",
+        "date": "9th November",
     },
     "vegas": {
         "circuit_id": "circuit_id_vegas",
@@ -305,7 +305,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "5chw4r7z, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
         "round": 22,
         "wiki": "Las_Vegas_Grand_Prix",
-        "date": "23rd November",
+        "date": "22nd November",
     },
     "losail": {
         "circuit_id": "circuit_id_losail",
@@ -319,7 +319,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Trinidade, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
         "round": 23,
         "wiki": "Qatar_Grand_Prix",
-        "date": "1st December",
+        "date": "30th November",
     },
     "yas-marina": {
         "circuit_id": "circuit_id_yas_marina",
@@ -333,7 +333,7 @@ TRACK_METADATA = {
         "detailed_track_attribution": "Cesar I. Martins, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
         "round": 24,
         "wiki": "Abu_Dhabi_Grand_Prix",
-        "date": "8th December",
+        "date": "7th December",
     },
     "ricard": {
         "circuit_id": "circuit_id_ricard",
