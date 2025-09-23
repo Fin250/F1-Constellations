@@ -144,7 +144,7 @@ DRIVER_METADATA = {
         "nationality": "France"
     },
     "maldonado": {
-        "full_name": "Pastor Maldonado",
+        "full_name": "P. Maldonado",
         "nationality": "Venezuela"
     },
     "bruno_senna": {
