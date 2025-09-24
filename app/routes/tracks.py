@@ -17,6 +17,14 @@ try:
 except Exception as e:
     _FINAL_DF = pd.DataFrame()
 
+def build_f1_url(track_meta, season):
+    race_ids = track_meta.get("race_ids", {})
+    if season not in race_ids:
+        return None
+    race_id = race_ids[season]
+    url_name = track_meta.get("url_name")
+    return f"https://www.formula1.com/en/results/{season}/races/{race_id}/{url_name}/race-result"
+
 def available_seasons():
     if _FINAL_DF.empty:
         return []
@@ -104,7 +112,7 @@ def get_tracks_from_df_for_season(year: int):
             placeholder = {
                 "id": placeholder_id,
                 "display_name": placeholder_display_name,
-                "f1_website": "2024/united-arab-emirates",
+                "f1_website": build_f1_url(1, 2024),
                 "flag": "Flag_of_Placeholder.png",
                 "detailed_flag": "Placeholder.png",
                 "annotated_layout": "placeholder.avif",
@@ -141,7 +149,7 @@ def tracks(season, roundnum, trackname):
         "track_template.html",
         tracks=tracks,
         track_display_name=track["display_name"],
-        f1_website=track["f1_website"],
+        f1_website=build_f1_url(track, season),
         flag_path=f"/static/images/flags/{track['flag']}",
         annotated_layout_path=f"/static/images/annotated-layouts/annotated-{track['annotated_layout']}",
         round_number=roundnum,
