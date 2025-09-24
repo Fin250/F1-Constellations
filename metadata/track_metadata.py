@@ -723,7 +723,7 @@ TRACK_METADATA = {
     },
     "istanbul": {
         "circuit_id": "circuit_id_istanbul",
-        "display_name": "Istanbul Park",
+        "display_name": "Istanbul",
         "url_name": "turkey",
         "race_ids": {
             2010: 866,
