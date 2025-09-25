@@ -13,7 +13,7 @@ FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 # =======================
 # GP RESULTS PREDICTION
 # =======================
-def predict_gp_results(start_year: int = 2010, end_year: int = 2024):
+def predict_gp_results(start_year: int = 2010, end_year: int = 2025):
     print("Training and predicting GP results...")
     df = pd.read_csv(FINAL_DF_PATH)
 

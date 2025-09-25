@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_PATH_DRIVERS = os.path.join(BASE_DIR, "driver_strengths.json")
 FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 
-def predict_driver_strengths(start_year: int = 2010, end_year: int = 2024):
+def predict_driver_strengths(start_year: int = 2010, end_year: int = 2025):
     print(f"Calculating driver strengths from {start_year} to {end_year}...")
     df = pd.read_csv(FINAL_DF_PATH)
     if df.empty:

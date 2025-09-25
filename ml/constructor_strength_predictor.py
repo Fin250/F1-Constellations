@@ -12,7 +12,7 @@ FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 # =============================
 # CONSTRUCTOR STRENGTH PREDICTION
 # =============================
-def predict_constructor_strengths(start_year: int = 2010, end_year: int = 2024):
+def predict_constructor_strengths(start_year: int = 2010, end_year: int = 2025):
     print(f"Training and predicting constructor strengths from {start_year} to {end_year}...")
 
     df = pd.read_csv(FINAL_DF_PATH)

@@ -318,5 +318,17 @@ DRIVER_METADATA = {
     "mazepin": {
         "full_name": "Nikita Mazepin",
         "nationality": "Russia"
+    },
+    "antonelli": {
+        "full_name": "Kimi Antonelli",
+        "nationality": "Italy"
+    },
+    "hadjar": {
+        "full_name": "Isack Hadjar",
+        "nationality": "France"
+    },
+    "bortoleto": {
+        "full_name": "G. Bortoleto",
+        "nationality": "Brazil"
     }
 }
