@@ -8,32 +8,17 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_PATH_DRIVERS = os.path.join(BASE_DIR, "driver_strengths.json")
 FINAL_DF_PATH = os.path.join(BASE_DIR, "final_df.csv")
 
-# =========================
-# DRIVER STRENGTH PREDICTION
-# =========================
-def predict_driver_strengths():
-    print("Calculating driver strengths for 2024 (per-round, drivers present in each round)...")
+def predict_driver_strengths(start_year: int = 2010, end_year: int = 2025):
+    print(f"Calculating driver strengths from {start_year} to {end_year}...")
     df = pd.read_csv(FINAL_DF_PATH)
     if df.empty:
-        print("final_df.csv empty — aborting.")
         return []
 
     # --- Ensure circuit_id exists (build from boolean one-hot if necessary) ---
     if 'circuit_id' not in df.columns:
         circuit_onehots = [c for c in df.columns if c.startswith('circuit_id_')]
         if circuit_onehots:
-            valid = []
-            for c in circuit_onehots:
-                vals = df[c].dropna().unique()
-                try:
-                    is_bin = all(v in (0, 1, 0.0, 1.0, True, False) for v in vals)
-                except Exception:
-                    is_bin = False
-                if is_bin:
-                    valid.append(c)
-            if not valid:
-                raise RuntimeError("Found circuit_id_* columns but none look binary. Aborting.")
-            mask = (df[valid] == 1)
+            mask = (df[circuit_onehots] == 1)
             idx = mask.idxmax(axis=1)
             no_true = mask.sum(axis=1) == 0
             idx[no_true] = np.nan
@@ -42,28 +27,32 @@ def predict_driver_strengths():
             df['circuit_id'] = df['circuit'].astype(str)
         else:
             raise RuntimeError("No circuit identifier found in final_df (need 'circuit_id' or circuit_id_*).")
-
     df['circuit_id'] = df['circuit_id'].astype(object)
 
-    df_2024 = df[df['season'] == 2024].copy()
-    drivers_2024 = sorted(df_2024['driver'].dropna().unique())
-    rounds_2024 = sorted(df_2024['round'].dropna().unique())
+    # --- Identify valid constructor columns ---
+    constructor_cols = [
+        c for c in df.columns
+        if c.startswith("constructor_") and c not in ["constructor_wins", "constructor_points", "constructor_standings_pos"]
+    ]
 
-    if len(drivers_2024) == 0 or len(rounds_2024) == 0:
-        print("No drivers or rounds for 2024 found in final_df.csv; aborting.")
+    # --- Focus dataset on target range ---
+    df_target = df[(df['season'] >= start_year) & (df['season'] <= end_year)].copy()
+    drivers_target = sorted(df_target['driver'].dropna().unique())
+    rounds_target = sorted(df_target['round'].dropna().unique())
+
+    if len(drivers_target) == 0 or len(rounds_target) == 0:
         return []
 
-    hist = df[(df['season'] < 2024) & (df['driver'].isin(drivers_2024))].copy()
-
+    hist = df[(df['season'] < end_year) & (df['driver'].isin(drivers_target))].copy()
     for col in ['podium', 'grid', 'driver_points']:
         if col not in hist.columns:
             hist[col] = np.nan
     hist['podium'] = pd.to_numeric(hist['podium'], errors='coerce')
     hist['grid'] = pd.to_numeric(hist['grid'], errors='coerce')
     hist['driver_points'] = pd.to_numeric(hist.get('driver_points', 0)).fillna(0.0)
-
     hist['podium_top3'] = (hist['podium'] <= 3).astype(float)
     hist['win_flag'] = (hist['podium'] == 1).astype(float)
+
     SEASON_DECAY = 0.5
     if not hist.empty:
         ref_season = int(hist['season'].max())
@@ -111,7 +100,6 @@ def predict_driver_strengths():
                 'career_pts_per_race': wavg(sub['driver_points'], w)
             })
     career = pd.DataFrame(career_records)
-
     if career.empty:
         career = pd.DataFrame([{
             'driver': d,
@@ -121,13 +109,13 @@ def predict_driver_strengths():
             'career_podium_rate': np.nan,
             'career_win_rate': np.nan,
             'career_pts_per_race': np.nan
-        } for d in drivers_2024])
+        } for d in drivers_target])
 
     if perf.empty:
         perf = pd.DataFrame([{'driver': d, 'circuit_id': None, 'race_count': 0,
                               'avg_finish': np.nan, 'avg_grid': np.nan,
                               'podium_rate': np.nan, 'win_rate': np.nan, 'pts_per_race': np.nan}
-                             for d in drivers_2024])
+                             for d in drivers_target])
     perf = perf.merge(career, on='driver', how='left')
 
     def minmax(series, fillna_val=0.5):
@@ -175,78 +163,110 @@ def predict_driver_strengths():
         perf['k'] * perf['career_score'].fillna(cs_mean)
     ) / (perf['n'] + perf['k'])
     perf['combined_score'] = perf['combined_score'].fillna(perf['combined_score'].mean())
-
     perf['combined_score_clipped'] = perf['combined_score'].clip(0.0, 1.0)
     perf['rating'] = (50.0 + 50.0 * perf['combined_score_clipped']).round(1)
 
-    circuit_round_map = {}
-    for rnd in rounds_2024:
-        circuits = df_2024.loc[df_2024['round'] == rnd, 'circuit_id'].dropna().unique()
-        circuit_round_map[int(rnd)] = str(circuits[0]) if len(circuits) > 0 else None
-
-    out_records = []
-    if not perf.empty:
-        perf_lookup = perf.set_index(['driver', 'circuit_id'])
-    else:
-        perf_lookup = None
+    perf_lookup = perf.set_index(['driver', 'circuit_id']) if not perf.empty else None
     career_lookup = career_tmp.set_index('driver') if not career_tmp.empty else pd.DataFrame()
 
     UNKNOWN_DRIVER_START_RATING = 55.0
+    out_records = []
 
-    for rnd in rounds_2024:
-        circuit_id = circuit_round_map.get(int(rnd))
-        drivers_this_round = sorted(df_2024.loc[df_2024['round'] == rnd, 'driver'].dropna().unique())
-        if len(drivers_this_round) == 0:
-            continue
-        for driver in drivers_this_round:
-            rating = None
-            race_count = 0
-            career_score = None
-            combined_score = None
+    # --- Process each season and round ---
+    for season in range(start_year, end_year + 1):
+        df_season = df_target[df_target['season'] == season]
+        rounds_season = sorted(df_season['round'].dropna().unique())
 
-            found_track_row = None
-            if perf_lookup is not None and circuit_id is not None:
-                try:
-                    row = perf_lookup.loc[(driver, str(circuit_id))]
-                    if isinstance(row, pd.DataFrame):
-                        row = row.iloc[0]
-                    found_track_row = row
-                except KeyError:
-                    found_track_row = None
-                except Exception:
-                    found_track_row = None
+        for rnd in rounds_season:
+            df_round = df_season[df_season['round'] == rnd]
+            drivers_this_round = sorted(df_round['driver'].dropna().unique())
+            circuit_ids = df_round['circuit_id'].dropna().unique()
+            circuit_id = str(circuit_ids[0]) if len(circuit_ids) > 0 else None
 
-            if found_track_row is not None:
-                r = found_track_row
-                rating = float(r.get('rating', (50.0 + 50.0 * cs_mean)))
-                race_count = int(r.get('race_count', 0) if not pd.isna(r.get('race_count', 0)) else 0)
-                career_score = float(r.get('career_score', cs_mean))
-                combined_score = float(r.get('combined_score', career_score if career_score is not None else cs_mean))
-            else:
-                if driver in career_lookup.index:
-                    crow = career_lookup.loc[driver]
-                    career_score = float(crow.get('career_score', cs_mean) if not pd.isna(crow.get('career_score', np.nan)) else cs_mean)
-                    combined_score = career_score
-                    rating = float(round(50.0 + 50.0 * min(max(career_score, 0.0), 1.0), 1))
-                    race_count = int(crow.get('career_race_count', 0) if not pd.isna(crow.get('career_race_count', 0)) else 0)
+            for driver in drivers_this_round:
+                # --- Lookup track/career performance ---
+                track_row = None
+                if perf_lookup is not None and circuit_id is not None:
+                    try:
+                        row = perf_lookup.loc[(driver, circuit_id)]
+                        if isinstance(row, pd.DataFrame):
+                            row = row.iloc[0]
+                        track_row = row
+                    except KeyError:
+                        track_row = None
+
+                if track_row is not None:
+                    rating = float(track_row['rating'])
+                    race_count = int(track_row['race_count'])
+                    career_score = float(track_row['career_score'])
+                    combined_score = float(track_row['combined_score'])
+                    track_raw_score = float(track_row['track_raw_score'])
                 else:
-                    career_score = float(cs_mean)
-                    combined_score = career_score
-                    rating = float(UNKNOWN_DRIVER_START_RATING)
-                    race_count = 0
+                    if driver in career_lookup.index:
+                        crow = career_lookup.loc[driver]
+                        career_score = float(crow['career_score'])
+                        combined_score = career_score
+                        rating = round(50.0 + 50.0 * min(max(career_score, 0.0), 1.0), 1)
+                        race_count = int(crow['career_race_count'])
+                        track_raw_score = None
+                    else:
+                        career_score = float(cs_mean)
+                        combined_score = career_score
+                        rating = float(UNKNOWN_DRIVER_START_RATING)
+                        race_count = 0
+                        track_raw_score = None
 
-            out_records.append({
-                "season": 2024,
-                "round": int(rnd),
-                "driver": driver,
-                "rating": float(round(float(rating), 1)),
-                "race_count": int(race_count),
-                "career_score": float(career_score),
-                "combined_score": float(combined_score)
-            })
+                constructor = None
+                driver_row = df_round[df_round['driver'] == driver]
+                if not driver_row.empty:
+                    row = driver_row.iloc[0]
+                    for col in constructor_cols:
+                        if int(row[col]) == 1:
+                            constructor = col.replace("constructor_", "").replace("_f1", "").replace("_racing", "").capitalize()
+                            break
+                if constructor is None:
+                    constructor = "Unknown"
+
+                out_records.append({
+                    "season": int(season),
+                    "round": int(rnd),
+                    "driver": str(driver),
+                    "constructor": constructor,
+                    "rating": float(round(float(rating), 1)),
+                    "race_count": int(race_count),
+                    "career_score": float(career_score),
+                    "combined_score": float(combined_score),
+                    "track_raw_score": float(track_raw_score) if track_raw_score is not None else None
+                })
+
+    # --- Structure final JSON ---
+    season_records = []
+    for season in range(start_year, end_year + 1):
+        df_season = [r for r in out_records if r['season'] == season]
+        if not df_season:
+            continue
+        rounds_season = sorted({r['round'] for r in df_season})
+        season_data = {"season": season, "rounds": []}
+
+        for rnd in rounds_season:
+            predictions = []
+            for r in df_season:
+                if r['round'] == rnd:
+                    predictions.append({
+                        "driver": r['driver'],
+                        "constructor": r['constructor'],
+                        "rating": r['rating'],
+                        "race_count": r['race_count'],
+                        "career_score": r['career_score'],
+                        "combined_score": r['combined_score'],
+                        "track_raw_score": r['track_raw_score']
+                    })
+            season_data["rounds"].append({"round": rnd, "predictions": predictions})
+
+        season_records.append(season_data)
 
     with open(RESULTS_PATH_DRIVERS, 'w') as f:
-        json.dump(out_records, f, indent=2)
+        json.dump(season_records, f, indent=2)
 
-    print(f"Driver strengths saved to {RESULTS_PATH_DRIVERS} (rows: {len(out_records)})")
-    return out_records
+    print(f"Driver strengths saved to {RESULTS_PATH_DRIVERS} (seasons: {len(season_records)})")
+    return season_records

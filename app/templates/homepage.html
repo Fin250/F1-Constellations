@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Constellations - Home</title>
+  <meta name="description" content="F1 Constellations provides predictions, standings, and detailed information on Formula 1 tracks, drivers, and constructors. Explore upcoming races, past results, and championship insights in an interactive format." />
+  <link rel="stylesheet" href="/static/track.css"/>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+</head>
+
+<body data-season="{{ season_year }}">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="/static/images/logo.png" alt="Website logo" class="site-logo" />
+    <img src="/static/images/constellationsfull.png" alt="Website name" class="site-name" />
+  </div>
+
+  <nav class="header-nav" aria-label="Primary navigation">
+  <div class="year-select" data-dropdown>
+    <button id="yearTrigger" class="year-select-button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="year-select-label">{{ season_year }}</span>
+    </button>
+  </div>
+
+    <a class="nav-button nav-about" href="/about" title="About">
+      <i class="material-icons nav-icon">help</i>
+      <span class="nav-text">About</span>
+    </a>
+  </nav>
+<ul id="yearDropdown" class="year-select-dropdown" role="listbox" hidden>
+  {% for y in range(2025, 2009, -1) %}
+  <li role="option" tabindex="0"
+      data-href="{% if y == 2025 %}/{% else %}/{{ y }}{% endif %}"
+      class="year-select-item {% if y == season_year %}selected{% endif %}">
+    <span class="year-select-name">{{ y }}</span>
+  </li>
+  {% endfor %}
+</ul>
+</header>
+
+<main>
+  <div class="carousel-outer">
+    <div class="carousel-btn-wrap prev">
+      <button class="carousel-btn prev" aria-label="Previous track">‹</button>
+    </div>
+<div class="carousel-wrap">
+  <div class="carousel" id="trackCarousel" role="list">
+    {% for track in tracks %}
+    <a href="/tracks/{{ season_year }}/{{ track.round }}/{{ track.id }}"
+      class="box {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
+      data-index="{{ loop.index0 }}"
+      data-round="{{ track.round }}"
+      data-detailed-flag="{{ track.detailed_flag | default('') }}">
+      <div class="box-bg"></div>
+      <img src="/static/images/layouts/{{ track.layout }}" alt="{{ track.display_name }} track" class="track-layout">
+      <div class="box-content">
+        <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
+        <span class="country">{{ track.display_name }}</span>
+        <span class="date">{{ track.date }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<div class="carousel-btn-wrap next">
+      <button class="carousel-btn next" aria-label="Next track">›</button>
+    </div>
+  </div>
+
+<div class="quickpick-bar">
+  <div id="quickpick-arrow"></div>
+  <div class="quickpick-flags">
+    {% for track in tracks %}
+    <a href="/tracks/{{ season_year }}/{{ track.round }}/{{ track.id }}" 
+       class="quickpick-item {% if next_round == -1 or track.round < next_round %}completed {% elif track.round == next_round %}upcoming {% endif %}"
+       title="{{ track.display_name }}">
+      <span class="quickpick-round">Round {{ track.round }}</span>
+      <img src="/static/images/flags/{{ track.flag }}" alt="{{ track.display_name }} Flag">
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<section class="championship-grid">
+  <div class="pred-box championship-toggle-box">
+    <h3>Predicted Championship</h3>
+    <div class="championship-toggle">
+      <button class="toggle-btn active" data-target="drivers">Drivers</button>
+      <button class="toggle-btn" data-target="constructors">Constructors</button>
+    </div>
+
+    <div class="championship-standings">
+      <div class="standings-panel driver-championship">
+        <div class="spinner"></div>
+        <ul class="championship-list driver-standings"></ul>
+      </div>
+      <div class="standings-panel constructor-championship" style="display:none;">
+        <div class="spinner"></div>
+        <ul class="championship-list constructor-standings"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script id="server-data" type="application/json">
+  {{ {"next_round": next_round} | tojson }}
+</script>
+<script src="/static/scripts/home.js"></script>
+</body>
+</html>
