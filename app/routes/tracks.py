@@ -135,8 +135,7 @@ def tracks(season, roundnum, trackname):
 
     seasons = available_seasons()
 
-    # Build the tracklist exactly like homepage_year
-    if season in seasons and season < CURRENT_SEASON:
+    if season in seasons:
         tracks = get_tracks_from_df_for_season(season)
     else:
         tracks = get_placeholder_current_season_tracks()

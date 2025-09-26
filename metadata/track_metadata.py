@@ -26,9 +26,7 @@ TRACK_METADATA = {
         "layout": "bahrain.png",
         "detailed_track_image": "Detailed_Bahrain.jpg",
         "detailed_track_attribution": "Derek Morrison from Kuwait, Kuwait, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 4,
-        "wiki": "Bahrain_Grand_Prix",
-        "date": "13th April",
+        "wiki": "Bahrain_Grand_Prix"
     },
     "jeddah": {
         "circuit_id": "circuit_id_jeddah",
@@ -47,9 +45,7 @@ TRACK_METADATA = {
         "layout": "jeddah.png",
         "detailed_track_image": "Detailed_Saudi_Arabia.jpg",
         "detailed_track_attribution": "Joseph Azrak, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 5,
-        "wiki": "Saudi_Arabian_Grand_Prix",
-        "date": "20th April",
+        "wiki": "Saudi_Arabian_Grand_Prix"
     },
     "albert-park": {
         "circuit_id": "circuit_id_albert_park",
@@ -77,9 +73,7 @@ TRACK_METADATA = {
         "layout": "albert_park.png",
         "detailed_track_image": "Detailed_Australia.jpg",
         "detailed_track_attribution": "Chris Phutully, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 1,
-        "wiki": "Australian_Grand_Prix",
-        "date": "16th March",
+        "wiki": "Australian_Grand_Prix"
     },
     "suzuka": {
         "circuit_id": "circuit_id_suzuka",
@@ -107,9 +101,7 @@ TRACK_METADATA = {
         "layout": "suzuka.png",
         "detailed_track_image": "Detailed_Japan.jpg",
         "detailed_track_attribution": "Tokumeigakarinoaoshima, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 3,
-        "wiki": "Japanese_Grand_Prix",
-        "date": "6th April",
+        "wiki": "Japanese_Grand_Prix"
     },
     "shanghai": {
         "circuit_id": "circuit_id_shanghai",
@@ -135,9 +127,7 @@ TRACK_METADATA = {
         "layout": "shanghai.png",
         "detailed_track_image": "Detailed_China.jpg",
         "detailed_track_attribution": "sjiong, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
-        "round": 2,
-        "wiki": "Chinese_Grand_Prix",
-        "date": "23rd March",
+        "wiki": "Chinese_Grand_Prix"
     },
     "miami": {
         "circuit_id": "circuit_id_miami",
@@ -155,9 +145,7 @@ TRACK_METADATA = {
         "layout": "miami.png",
         "detailed_track_image": "Detailed_Miami.jpg",
         "detailed_track_attribution": "Bassfish22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 6,
-        "wiki": "Miami_Grand_Prix",
-        "date": "4th May",
+        "wiki": "Miami_Grand_Prix"
     },
     "imola": {
         "circuit_id": "circuit_id_imola",
@@ -176,9 +164,7 @@ TRACK_METADATA = {
         "layout": "imola.png",
         "detailed_track_image": "Detailed_Imola.jpg",
         "detailed_track_attribution": "",
-        "round": 7,
-        "wiki": "Emilia_Romagna_Grand_Prix",
-        "date": "18th May",
+        "wiki": "Emilia_Romagna_Grand_Prix"
     },
     "monaco": {
         "circuit_id": "circuit_id_monaco",
@@ -207,9 +193,7 @@ TRACK_METADATA = {
         "layout": "monaco.png",
         "detailed_track_image": "Detailed_Monaco.jpg",
         "detailed_track_attribution": "Alexander Migl, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 8,
-        "wiki": "Monaco_Grand_Prix",
-        "date": "25th May",
+        "wiki": "Monaco_Grand_Prix"
     },
     "villeneuve": {
         "circuit_id": "circuit_id_villeneuve",
@@ -237,9 +221,7 @@ TRACK_METADATA = {
         "layout": "villeneuve.png",
         "detailed_track_image": "Detailed_Canada.jpg",
         "detailed_track_attribution": "kevint3141 from Kitchener, Canada, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 10,
-        "wiki": "Canadian_Grand_Prix",
-        "date": "15th June",
+        "wiki": "Canadian_Grand_Prix"
     },
     "catalunya": {
         "circuit_id": "circuit_id_catalunya",
@@ -269,9 +251,7 @@ TRACK_METADATA = {
         "layout": "catalunya.png",
         "detailed_track_image": "Detailed_Spain.jpg",
         "detailed_track_attribution": "Wilnel José Verdú Guerrero, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 9,
-        "wiki": "Spanish_Grand_Prix",
-        "date": "1st June",
+        "wiki": "Spanish_Grand_Prix"
     },
     "red-bull-ring": {
         "circuit_id": "circuit_id_red_bull_ring",
@@ -297,9 +277,7 @@ TRACK_METADATA = {
         "layout": "red_bull_ring.png",
         "detailed_track_image": "Detailed_Austria.jpg",
         "detailed_track_attribution": "https://www.flickr.com/photos/pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 11,
-        "wiki": "Austrian_Grand_Prix",
-        "date": "29th June",
+        "wiki": "Austrian_Grand_Prix"
     },
     "silverstone": {
         "circuit_id": "circuit_id_silverstone",
@@ -329,9 +307,7 @@ TRACK_METADATA = {
         "layout": "silverstone.png",
         "detailed_track_image": "Detailed_United_Kingdom.jpg",
         "detailed_track_attribution": "Becketts Stand, Silverstone. by David Ashcroft, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
-        "round": 12,
-        "wiki": "British_Grand_Prix",
-        "date": "6th July",
+        "wiki": "British_Grand_Prix"
     },
     "hungaroring": {
         "circuit_id": "circuit_id_hungaroring",
@@ -361,9 +337,7 @@ TRACK_METADATA = {
         "layout": "hungaroring.png",
         "detailed_track_image": "Detailed_Hungary.jpg",
         "detailed_track_attribution": "Derzsi Elekes Andor (talk · contribs), CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 14,
-        "wiki": "Hungarian_Grand_Prix",
-        "date": "3rd August",
+        "wiki": "Hungarian_Grand_Prix"
     },
     "spa": {
         "circuit_id": "circuit_id_spa",
@@ -393,9 +367,7 @@ TRACK_METADATA = {
         "layout": "spa.png",
         "detailed_track_image": "Detailed_Belgium.jpg",
         "detailed_track_attribution": "Cutkiller2018, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 13,
-        "wiki": "Belgian_Grand_Prix",
-        "date": "27th July",
+        "wiki": "Belgian_Grand_Prix"
     },
     "zanvoort": {
         "circuit_id": "circuit_id_zandvoort",
@@ -414,9 +386,7 @@ TRACK_METADATA = {
         "layout": "zandvoort.png",
         "detailed_track_image": "Detailed_Netherlands.jpg",
         "detailed_track_attribution": "dronepicr, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 15,
-        "wiki": "Dutch_Grand_Prix",
-        "date": "31st August",
+        "wiki": "Dutch_Grand_Prix"
     },
     "monza": {
         "circuit_id": "circuit_id_monza",
@@ -446,9 +416,7 @@ TRACK_METADATA = {
         "layout": "monza.png",
         "detailed_track_image": "Detailed_Italy.jpg",
         "detailed_track_attribution": "pedrik, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 16,
-        "wiki": "Italian_Grand_Prix",
-        "date": "7th September",
+        "wiki": "Italian_Grand_Prix"
     },
     "baku": {
         "circuit_id": "circuit_id_baku",
@@ -471,9 +439,7 @@ TRACK_METADATA = {
         "layout": "baku.png",
         "detailed_track_image": "Detailed_Azerbaijan.jpg",
         "detailed_track_attribution": "President.az, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons",
-        "round": 17,
-        "wiki": "Azerbaijan_Grand_Prix",
-        "date": "21st September",
+        "wiki": "Azerbaijan_Grand_Prix"
     },
     "marina-bay": {
         "circuit_id": "circuit_id_marina_bay",
@@ -501,9 +467,7 @@ TRACK_METADATA = {
         "layout": "marina_bay.png",
         "detailed_track_image": "Detailed_Singapore.jpg",
         "detailed_track_attribution": "chensiyuan, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 18,
-        "wiki": "Singapore_Grand_Prix",
-        "date": "5th October",
+        "wiki": "Singapore_Grand_Prix"
     },
     "americas": {
         "circuit_id": "circuit_id_americas",
@@ -530,9 +494,7 @@ TRACK_METADATA = {
         "layout": "americas.png",
         "detailed_track_image": "Detailed_United_States.jpg",
         "detailed_track_attribution": "Zach Catanzareti Photo, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 19,
-        "wiki": "United_States_Grand_Prix",
-        "date": "19th October",
+        "wiki": "United_States_Grand_Prix"
     },
     "rodriguez": {
         "circuit_id": "circuit_id_rodriguez",
@@ -556,9 +518,7 @@ TRACK_METADATA = {
         "layout": "rodriguez.png",
         "detailed_track_image": "Detailed_Mexico.jpg",
         "detailed_track_attribution": "Tsoncch22, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 20,
-        "wiki": "Mexican_Grand_Prix",
-        "date": "26th October",
+        "wiki": "Mexican_Grand_Prix"
     },
     "interlagos": {
         "circuit_id": "circuit_id_interlagos",
@@ -587,9 +547,7 @@ TRACK_METADATA = {
         "layout": "interlagos.png",
         "detailed_track_image": "Detailed_Brazil.jpg",
         "detailed_track_attribution": "Boaventuravinicius, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "round": 21,
-        "wiki": "Brazilian_Grand_Prix",
-        "date": "9th November",
+        "wiki": "Brazilian_Grand_Prix"
     },
     "vegas": {
         "circuit_id": "circuit_id_vegas",
@@ -606,9 +564,7 @@ TRACK_METADATA = {
         "layout": "vegas.png",
         "detailed_track_image": "Detailed_Las_Vegas.jpg",
         "detailed_track_attribution": "5chw4r7z, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons",
-        "round": 22,
-        "wiki": "Las_Vegas_Grand_Prix",
-        "date": "22nd November",
+        "wiki": "Las_Vegas_Grand_Prix"
     },
     "losail": {
         "circuit_id": "circuit_id_losail",
@@ -626,9 +582,7 @@ TRACK_METADATA = {
         "layout": "losail.png",
         "detailed_track_image": "Detailed_Qatar.jpg",
         "detailed_track_attribution": "Trinidade, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "round": 23,
-        "wiki": "Qatar_Grand_Prix",
-        "date": "30th November",
+        "wiki": "Qatar_Grand_Prix"
     },
     "yas-marina": {
         "circuit_id": "circuit_id_yas_marina",
@@ -658,9 +612,7 @@ TRACK_METADATA = {
         "layout": "yas_marina.png",
         "detailed_track_image": "Detailed_Abu_Dhabi.jpg",
         "detailed_track_attribution": "Cesar I. Martins, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "round": 24,
-        "wiki": "Abu_Dhabi_Grand_Prix",
-        "date": "7th December",
+        "wiki": "Abu_Dhabi_Grand_Prix"
     },
     "ricard": {
         "circuit_id": "circuit_id_ricard",
@@ -678,8 +630,7 @@ TRACK_METADATA = {
         "layout": "ricard.png",
         "detailed_track_image": "Detailed_Ricard.png",
         "detailed_track_attribution": "Francois Oreca, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "French_Grand_Prix",
-        "date": "1st January",
+        "wiki": "French_Grand_Prix"
     },
     "sochi": {
         "circuit_id": "circuit_id_sochi",
@@ -701,8 +652,7 @@ TRACK_METADATA = {
         "layout": "sochi.png",
         "detailed_track_image": "Detailed_Sochi.jpg",
         "detailed_track_attribution": "Stolbovsky, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "Russian_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Russian_Grand_Prix"
     },
     "portimao": {
         "circuit_id": "circuit_id_portimao",
@@ -718,8 +668,7 @@ TRACK_METADATA = {
         "layout": "portimao.png",
         "detailed_track_image": "Detailed_Portimao.jpg",
         "detailed_track_attribution": "Klugschnacker, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
-        "wiki": "Portuguese_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Portuguese_Grand_Prix"
     },
     "istanbul": {
         "circuit_id": "circuit_id_istanbul",
@@ -737,8 +686,7 @@ TRACK_METADATA = {
         "layout": "istanbul.png",
         "detailed_track_image": "Detailed_Istanbul.jpg",
         "detailed_track_attribution": "Homonihilis, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons",
-        "wiki": "Turkish_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Turkish_Grand_Prix"
     },
     "mugello": {
         "circuit_id": "circuit_id_mugello",
@@ -753,8 +701,7 @@ TRACK_METADATA = {
         "layout": "mugello.png",
         "detailed_track_image": "Detailed_Mugello.jpg",
         "detailed_track_attribution": "Anna.Massini, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "wiki": "Tuscan_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Tuscan_Grand_Prix"
     },
     "nurburgring": {
         "circuit_id": "circuit_id_nurburgring",
@@ -771,8 +718,7 @@ TRACK_METADATA = {
         "layout": "nurburgring.png",
         "detailed_track_image": "Detailed_Nurburgring.jpg",
         "detailed_track_attribution": "qwesy qwesy, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons",
-        "wiki": "Eifel_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Eifel_Grand_Prix"
     },
     "hockenheimring": {
         "circuit_id": "circuit_id_hockenheimring",
@@ -792,8 +738,7 @@ TRACK_METADATA = {
         "layout": "hockenheimring.png",
         "detailed_track_image": "Detailed_Hockenheimring.jpg",
         "detailed_track_attribution": "Justin LaBerge, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "wiki": "",
-        "date": "1st January",
+        "wiki": ""
     },
     "sepang": {
         "circuit_id": "circuit_id_sepang",
@@ -815,8 +760,7 @@ TRACK_METADATA = {
         "layout": "sepang.png",
         "detailed_track_image": "Detailed_Sepang.jpg",
         "detailed_track_attribution": "Postmortem at Russian Wikipedia, Public domain, via Wikimedia Commons",
-        "wiki": "Malaysian_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Malaysian_Grand_Prix"
     },
     "yeongam": {
         "circuit_id": "circuit_id_yeongam",
@@ -834,8 +778,7 @@ TRACK_METADATA = {
         "layout": "yeongam.png",
         "detailed_track_image": "Detailed_Yeongam.jpg",
         "detailed_track_attribution": "LG전자, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "wiki": "Korean_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Korean_Grand_Prix"
     },
     "buddh": {
         "circuit_id": "circuit_id_buddh",
@@ -852,8 +795,7 @@ TRACK_METADATA = {
         "layout": "buddh.png",
         "detailed_track_image": "Detailed_Buddh.jpg",
         "detailed_track_attribution": "Alok09031995, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons",
-        "wiki": "Indian_Grand_Prix",
-        "date": "1st January",
+        "wiki": "Indian_Grand_Prix"
     },
     "valencia": {
         "circuit_id": "circuit_id_valencia",
@@ -870,7 +812,6 @@ TRACK_METADATA = {
         "layout": "valencia.png",
         "detailed_track_image": "Detailed_Valencia.jpg",
         "detailed_track_attribution": "16:9clue, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons",
-        "wiki": "European_Grand_Prix",
-        "date": "1st January",
+        "wiki": "European_Grand_Prix"
     },
 }

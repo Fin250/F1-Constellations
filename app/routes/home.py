@@ -171,9 +171,9 @@ def homepage_root():
     if year < MIN_SEASON:
         year = MIN_SEASON
 
-    if year in seasons and year < CURRENT_SEASON:
+    if year in seasons:
         tracks = get_tracks_from_df_for_season(year)
-        next_round = SEASON_COMPLETE
+        next_round = get_next_track() if year == CURRENT_SEASON else SEASON_COMPLETE
     else:
         tracks = get_placeholder_current_season_tracks()
         next_round = get_next_track() if year == CURRENT_SEASON else None
@@ -194,9 +194,9 @@ def homepage_year(year):
 
     seasons = available_seasons()
 
-    if year in seasons and year < CURRENT_SEASON:
+    if year in seasons:
         tracks = get_tracks_from_df_for_season(year)
-        next_round = SEASON_COMPLETE
+        next_round = get_next_track() if year == CURRENT_SEASON else SEASON_COMPLETE
     else:
         tracks = get_placeholder_current_season_tracks()
         next_round = get_next_track() if year == CURRENT_SEASON else None

@@ -35636,11 +35636,6 @@
             "probability": 0.09
           },
           {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.04
-          },
-          {
             "driver": "Bearman",
             "constructor": "Haas",
             "probability": 0.04
@@ -35726,13 +35721,13 @@
             "probability": 0.14
           },
           {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
             "probability": 0.11
           },
           {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.11
           },
           {
@@ -35744,11 +35739,6 @@
             "driver": "Ocon",
             "constructor": "Haas",
             "probability": 0.08
-          },
-          {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.04
           },
           {
             "driver": "Bearman",
@@ -35861,11 +35851,6 @@
             "probability": 0.04
           },
           {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.03
-          },
-          {
             "driver": "Colapinto",
             "constructor": "Alpine",
             "probability": 0.03
@@ -35946,13 +35931,13 @@
             "probability": 0.13
           },
           {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
             "probability": 0.1
           },
           {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.1
           },
           {
@@ -35969,11 +35954,6 @@
             "driver": "Bearman",
             "constructor": "Haas",
             "probability": 0.04
-          },
-          {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.03
           },
           {
             "driver": "Colapinto",
@@ -36056,13 +36036,13 @@
             "probability": 0.13
           },
           {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
             "probability": 0.1
           },
           {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.1
           },
           {
@@ -36079,11 +36059,6 @@
             "driver": "Bearman",
             "constructor": "Haas",
             "probability": 0.04
-          },
-          {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.03
           },
           {
             "driver": "Colapinto",
@@ -36191,11 +36166,6 @@
             "probability": 0.04
           },
           {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.03
-          },
-          {
             "driver": "Colapinto",
             "constructor": "Alpine",
             "probability": 0.02
@@ -36276,13 +36246,13 @@
             "probability": 0.12
           },
           {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
             "probability": 0.09
           },
           {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.09
           },
           {
@@ -36299,11 +36269,6 @@
             "driver": "Bearman",
             "constructor": "Haas",
             "probability": 0.04
-          },
-          {
-            "driver": "Doohan",
-            "constructor": "Alpine",
-            "probability": 0.03
           },
           {
             "driver": "Colapinto",
