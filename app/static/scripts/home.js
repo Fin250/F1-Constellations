@@ -98,13 +98,21 @@ document.addEventListener('DOMContentLoaded', function () {
   /* Insert start/finish markers into the carousel */
   function insertImgLineMarkers(carousel) {
     if (!carousel) return;
-
     if (carousel.querySelector('.line-marker.start') || carousel.querySelector('.line-marker.finish')) return;
 
     function makeMarker(name, src, alt) {
       const wrapper = document.createElement('div');
       wrapper.className = `line-marker ${name}`;
       wrapper.setAttribute('aria-hidden', 'true');
+
+      wrapper.style.display = 'flex';
+      wrapper.style.alignItems = 'center';
+      wrapper.style.justifyContent = 'center';
+      wrapper.style.boxSizing = 'border-box';
+      wrapper.style.flex = '0 0 auto';
+      wrapper.style.overflow = 'hidden';
+      wrapper.style.borderRadius = '6px';
+      wrapper.style.margin = '0 6px';
 
       const img = document.createElement('img');
       img.src = src;
@@ -113,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       img.style.visibility = 'hidden';
       img.style.display = 'block';
+      img.style.objectFit = 'contain';
 
       wrapper.appendChild(img);
       return wrapper;
@@ -125,33 +134,61 @@ document.addEventListener('DOMContentLoaded', function () {
     if (firstChild) carousel.insertBefore(startMarker, firstChild);
     carousel.appendChild(finishMarker);
 
-    function updateMarkerHeights() {
-      const imgs = carousel.querySelectorAll('.line-marker img');
-      imgs.forEach(img => {
-        img.style.visibility = 'visible';
+    function updateMarkerSizes() {
+      const MIN_HEIGHT_PX = 40;
+      const MIN_WIDTH_PX  = 40;
+      const WIDTH_RATIO   = 0.16;
+
+      const carouselHeight = carousel.clientHeight || 0;
+      const boxHeights = Array.from(carousel.querySelectorAll('.box')).map(b => b.getBoundingClientRect().height || 0);
+      const tallestBox = boxHeights.length ? Math.max(...boxHeights) : 0;
+
+      const chosenHeight = Math.max(MIN_HEIGHT_PX, carouselHeight, tallestBox);
+
+      const computedWidth = Math.max(MIN_WIDTH_PX, Math.round(chosenHeight * WIDTH_RATIO));
+
+      const wrappers = carousel.querySelectorAll('.line-marker');
+      wrappers.forEach(wrap => {
+        wrap.style.height = `${chosenHeight}px`;
+        wrap.style.minHeight = `${chosenHeight}px`;
+        wrap.style.maxHeight = `${chosenHeight}px`;
+
+        wrap.style.width = `${computedWidth}px`;
+        wrap.style.minWidth = `${computedWidth}px`;
+        wrap.style.maxWidth = `${computedWidth}px`;
+
+        const img = wrap.querySelector('img');
+        if (img) {
+          img.style.visibility = 'visible';
+          img.style.height = '100%';
+          img.style.width = 'auto';
+          img.style.maxHeight = '100%';
+        }
       });
     }
 
     const imgs = carousel.querySelectorAll('.line-marker img');
+    let pending = 0;
     imgs.forEach(img => {
-      if (img.complete) {
-        updateMarkerHeights();
-      } else {
-        img.addEventListener('load', updateMarkerHeights, { once: true });
+      if (!img.complete) {
+        pending++;
+        img.addEventListener('load', () => {
+          pending--;
+          updateMarkerSizes();
+        }, { once: true });
       }
     });
 
-    let ro;
+    updateMarkerSizes();
+
     if (window.ResizeObserver) {
-      ro = new ResizeObserver(() => {
-        updateMarkerHeights();
-      });
+      const ro = new ResizeObserver(() => updateMarkerSizes());
       ro.observe(carousel);
     }
 
     window.addEventListener('resize', () => {
       clearTimeout(window.__lineMarkerResizeTimer);
-      window.__lineMarkerResizeTimer = setTimeout(updateMarkerHeights, 80);
+      window.__lineMarkerResizeTimer = setTimeout(updateMarkerSizes, 80);
     });
   }
 
