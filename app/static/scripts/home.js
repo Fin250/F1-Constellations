@@ -1,22 +1,22 @@
 const constructors = {
   Red_bull: [
-    { start: 2010, end: 2024, name: "Red Bull Racing", color: "#3671C6", logo: "/static/images/constructors/redbull.png" }
+    { start: 2010, end: 2025, name: "Red Bull Racing", color: "#3671C6", logo: "/static/images/constructors/redbull.png" }
   ],
   Mercedes: [
-    { start: 2010, end: 2024, name: "Mercedes", color: "#00D2BE", logo: "/static/images/constructors/mercedes.png" }
+    { start: 2010, end: 2025, name: "Mercedes", color: "#00D2BE", logo: "/static/images/constructors/mercedes.png" }
   ],
   Ferrari: [
-    { start: 2010, end: 2024, name: "Ferrari", color: "#DC0000", logo: "/static/images/constructors/ferrari.png" }
+    { start: 2010, end: 2025, name: "Ferrari", color: "#DC0000", logo: "/static/images/constructors/ferrari.png" }
   ],
   Mclaren: [
-    { start: 2010, end: 2024, name: "McLaren", color: "#FF8000", logo: "/static/images/constructors/mclaren.png" }
+    { start: 2010, end: 2025, name: "McLaren", color: "#FF8000", logo: "/static/images/constructors/mclaren.png" }
   ],
   Williams: [
-    { start: 2010, end: 2024, name: "Williams", color: "#005AFF", logo: "/static/images/constructors/williams.png" }
+    { start: 2010, end: 2025, name: "Williams", color: "#005AFF", logo: "/static/images/constructors/williams.png" }
   ],
   Sauber: [
     { start: 2010, end: 2018, name: "Sauber F1 Team", color: "#9B0000", logo: "/static/images/constructors/sauber.png" },
-    { start: 2024, end: 2024, name: "Kick Sauber", color: "#52E252", logo: "/static/images/constructors/kicksauber.png" }
+    { start: 2024, end: 2025, name: "Kick Sauber", color: "#52E252", logo: "/static/images/constructors/kicksauber.png" }
   ],
   Alfa: [
     { start: 2019, end: 2023, name: "Alfa Romeo", color: "#9B0000", logo: "/static/images/constructors/alfaromeo.png" }
@@ -28,7 +28,7 @@ const constructors = {
     { start: 2020, end: 2023, name: "AlphaTauri", color: "#2B4562", logo: "/static/images/constructors/alphatauri.png" }
   ],
   Rb: [
-    { start: 2024, end: 2024, name: "Visa Cash App RB", color: "#2B4562", logo: "/static/images/constructors/visacashapprb.png" }
+    { start: 2024, end: 2025, name: "Visa Cash App RB", color: "#2B4562", logo: "/static/images/constructors/visacashapprb.png" }
   ],
   Force_india: [
     { start: 2010, end: 2018, name: "Force India", color: "#ffe6ddff", logo: "/static/images/constructors/forceindia.png" }
@@ -37,7 +37,7 @@ const constructors = {
     { start: 2018, end: 2020, name: "Racing Point", color: "#F596C8", logo: "/static/images/constructors/racingpoint.png" }
   ],
   Aston_martin: [
-    { start: 2021, end: 2024, name: "Aston Martin", color: "#006F62", logo: "/static/images/constructors/astonmartin.png" }
+    { start: 2021, end: 2025, name: "Aston Martin", color: "#006F62", logo: "/static/images/constructors/astonmartin.png" }
   ],
   Renault: [
     { start: 2010, end: 2011, name: "Renault", color: "#FFD700", logo: "/static/images/constructors/renault.png" },
@@ -54,10 +54,10 @@ const constructors = {
     { start: 2012, end: 2015, name: "Lotus F1 Team", color: "#000", logo: "/static/images/constructors/lotus.png" }
   ],
   Alpine: [
-    { start: 2021, end: 2024, name: "Alpine", color: "#2293D1", logo: "/static/images/constructors/alpine.png" }
+    { start: 2021, end: 2025, name: "Alpine", color: "#2293D1", logo: "/static/images/constructors/alpine.png" }
   ],
   Haas: [
-    { start: 2016, end: 2024, name: "Haas", color: "#f0e9e9ff", logo: "/static/images/constructors/haas.png" }
+    { start: 2016, end: 2025, name: "Haas", color: "#f0e9e9ff", logo: "/static/images/constructors/haas.png" }
   ],
   Caterham: [
     { start: 2012, end: 2014, name: "Caterham", color: "#006400", logo: "/static/images/constructors/caterham.png" }

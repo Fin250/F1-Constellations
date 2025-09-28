@@ -10253,7 +10253,7 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 14.82
+            "probability": 14.83
           },
           {
             "driver": "Massa",
@@ -10823,7 +10823,7 @@
           {
             "driver": "Rosberg",
             "constructor": "Mercedes",
-            "probability": 28.31
+            "probability": 28.32
           },
           {
             "driver": "Hamilton",
@@ -11168,7 +11168,7 @@
           {
             "driver": "Rosberg",
             "constructor": "Mercedes",
-            "probability": 30.48
+            "probability": 30.49
           },
           {
             "driver": "Hamilton",
@@ -11293,7 +11293,7 @@
           {
             "driver": "Bottas",
             "constructor": "Williams",
-            "probability": 10.52
+            "probability": 10.53
           },
           {
             "driver": "Massa",
@@ -11468,7 +11468,7 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 32.55
+            "probability": 32.56
           },
           {
             "driver": "Rosberg",
@@ -11478,7 +11478,7 @@
           {
             "driver": "Bottas",
             "constructor": "Williams",
-            "probability": 9.33
+            "probability": 9.34
           },
           {
             "driver": "Massa",
@@ -12738,7 +12738,7 @@
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 15.72
+            "probability": 15.71
           },
           {
             "driver": "Massa",
@@ -18093,7 +18093,7 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 16.19
+            "probability": 16.2
           },
           {
             "driver": "Raikkonen",
@@ -18103,12 +18103,12 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 13.92
+            "probability": 13.93
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 11.69
+            "probability": 11.7
           },
           {
             "driver": "Magnussen",
@@ -18118,12 +18118,12 @@
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 8.08
+            "probability": 8.07
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 6.33
+            "probability": 6.32
           },
           {
             "driver": "Ricciardo",
@@ -18138,12 +18138,12 @@
           {
             "driver": "Alonso",
             "constructor": "Mclaren",
-            "probability": 2.88
+            "probability": 2.87
           },
           {
             "driver": "Vandoorne",
             "constructor": "Mclaren",
-            "probability": 1.99
+            "probability": 1.98
           },
           {
             "driver": "Perez",
@@ -18198,17 +18198,17 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 18.16
+            "probability": 18.17
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 16.17
+            "probability": 16.18
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 10.9
+            "probability": 10.91
           },
           {
             "driver": "Ricciardo",
@@ -18228,12 +18228,12 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 4.11
+            "probability": 4.1
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 3.58
+            "probability": 3.57
           },
           {
             "driver": "Ocon",
@@ -18248,7 +18248,7 @@
           {
             "driver": "Alonso",
             "constructor": "Mclaren",
-            "probability": 0.84
+            "probability": 0.83
           },
           {
             "driver": "Brendon_Hartley",
@@ -18268,7 +18268,7 @@
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.41
+            "probability": 0.4
           },
           {
             "driver": "Verstappen",
@@ -18303,27 +18303,27 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 19.78
+            "probability": 19.8
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 16.67
+            "probability": 16.68
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 13.14
+            "probability": 13.15
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 11.97
+            "probability": 11.96
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 6.01
+            "probability": 6.02
           },
           {
             "driver": "Ricciardo",
@@ -18348,7 +18348,7 @@
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 1.01
+            "probability": 1.0
           },
           {
             "driver": "Grosjean",
@@ -18408,12 +18408,12 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 20.12
+            "probability": 20.16
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 15.58
+            "probability": 15.59
           },
           {
             "driver": "Bottas",
@@ -18428,7 +18428,7 @@
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 9.35
+            "probability": 9.34
           },
           {
             "driver": "Verstappen",
@@ -18438,7 +18438,7 @@
           {
             "driver": "Ocon",
             "constructor": "Force_india",
-            "probability": 2.13
+            "probability": 2.12
           },
           {
             "driver": "Sainz",
@@ -18448,7 +18448,7 @@
           {
             "driver": "Perez",
             "constructor": "Force_india",
-            "probability": 1.59
+            "probability": 1.58
           },
           {
             "driver": "Alonso",
@@ -18463,7 +18463,7 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.53
+            "probability": 0.52
           },
           {
             "driver": "Sirotkin",
@@ -18478,7 +18478,7 @@
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.26
+            "probability": 0.25
           },
           {
             "driver": "Vandoorne",
@@ -18513,17 +18513,17 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 18.87
+            "probability": 18.89
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 18.78
+            "probability": 18.79
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 16.07
+            "probability": 16.08
           },
           {
             "driver": "Raikkonen",
@@ -18533,7 +18533,7 @@
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 7.86
+            "probability": 7.85
           },
           {
             "driver": "Verstappen",
@@ -18543,12 +18543,12 @@
           {
             "driver": "Alonso",
             "constructor": "Mclaren",
-            "probability": 3.59
+            "probability": 3.58
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 2.62
+            "probability": 2.61
           },
           {
             "driver": "Sainz",
@@ -18573,7 +18573,7 @@
           {
             "driver": "Ocon",
             "constructor": "Force_india",
-            "probability": 0.32
+            "probability": 0.31
           },
           {
             "driver": "Perez",
@@ -18618,17 +18618,17 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 19.87
+            "probability": 19.88
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 19.55
+            "probability": 19.56
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 17.1
+            "probability": 17.12
           },
           {
             "driver": "Raikkonen",
@@ -18653,7 +18653,7 @@
           {
             "driver": "Ocon",
             "constructor": "Force_india",
-            "probability": 2.57
+            "probability": 2.58
           },
           {
             "driver": "Perez",
@@ -18723,22 +18723,22 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 20.21
+            "probability": 20.23
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 18.0
+            "probability": 18.01
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 17.36
+            "probability": 17.39
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.79
+            "probability": 13.82
           },
           {
             "driver": "Raikkonen",
@@ -18758,7 +18758,7 @@
           {
             "driver": "Sainz",
             "constructor": "Renault",
-            "probability": 1.96
+            "probability": 1.95
           },
           {
             "driver": "Ocon",
@@ -18778,7 +18778,7 @@
           {
             "driver": "Alonso",
             "constructor": "Mclaren",
-            "probability": 0.52
+            "probability": 0.51
           },
           {
             "driver": "Brendon_Hartley",
@@ -18838,22 +18838,22 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 17.7
+            "probability": 17.71
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 13.26
+            "probability": 13.27
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 12.09
+            "probability": 12.1
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 10.61
+            "probability": 10.6
           },
           {
             "driver": "Sainz",
@@ -18873,7 +18873,7 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.92
+            "probability": 0.91
           },
           {
             "driver": "Ocon",
@@ -18913,7 +18913,7 @@
           {
             "driver": "Sirotkin",
             "constructor": "Williams",
-            "probability": 0.04
+            "probability": 0.03
           },
           {
             "driver": "Stroll",
@@ -18933,27 +18933,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 21.99
+            "probability": 22.0
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 19.36
+            "probability": 19.39
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 16.18
+            "probability": 16.19
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 15.66
+            "probability": 15.67
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 12.25
+            "probability": 12.27
           },
           {
             "driver": "Ricciardo",
@@ -19038,32 +19038,32 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 21.88
+            "probability": 21.89
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 21.5
+            "probability": 21.52
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 16.67
+            "probability": 16.68
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 13.91
+            "probability": 13.93
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.12
+            "probability": 13.14
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 12.18
+            "probability": 12.19
           },
           {
             "driver": "Magnussen",
@@ -19143,7 +19143,7 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 22.78
+            "probability": 22.81
           },
           {
             "driver": "Raikkonen",
@@ -19153,12 +19153,12 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 17.44
+            "probability": 17.46
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 14.58
+            "probability": 14.59
           },
           {
             "driver": "Magnussen",
@@ -19168,7 +19168,7 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 3.74
+            "probability": 3.73
           },
           {
             "driver": "Grosjean",
@@ -19178,7 +19178,7 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 2.78
+            "probability": 2.77
           },
           {
             "driver": "Sainz",
@@ -19203,7 +19203,7 @@
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 0.27
+            "probability": 0.26
           },
           {
             "driver": "Sirotkin",
@@ -19248,27 +19248,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 22.52
+            "probability": 22.53
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 21.91
+            "probability": 21.93
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 18.79
+            "probability": 18.82
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 17.49
+            "probability": 17.51
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 8.37
+            "probability": 8.38
           },
           {
             "driver": "Sainz",
@@ -19283,7 +19283,7 @@
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 2.36
+            "probability": 2.37
           },
           {
             "driver": "Magnussen",
@@ -19316,13 +19316,13 @@
             "probability": 0.15
           },
           {
-            "driver": "Vandoorne",
-            "constructor": "Mclaren",
-            "probability": 0.09
-          },
-          {
             "driver": "Stroll",
             "constructor": "Williams",
+            "probability": 0.08
+          },
+          {
+            "driver": "Vandoorne",
+            "constructor": "Mclaren",
             "probability": 0.08
           },
           {
@@ -19353,22 +19353,22 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 23.55
+            "probability": 23.58
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 23.29
+            "probability": 23.31
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 11.59
+            "probability": 11.6
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 8.13
+            "probability": 8.14
           },
           {
             "driver": "Ricciardo",
@@ -19378,7 +19378,7 @@
           {
             "driver": "Ocon",
             "constructor": "Force_india",
-            "probability": 6.51
+            "probability": 6.52
           },
           {
             "driver": "Perez",
@@ -19403,7 +19403,7 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 0.59
+            "probability": 0.58
           },
           {
             "driver": "Brendon_Hartley",
@@ -19458,27 +19458,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 24.95
+            "probability": 24.96
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 24.88
+            "probability": 24.9
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 20.34
+            "probability": 20.37
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 16.0
+            "probability": 16.02
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 12.14
+            "probability": 12.16
           },
           {
             "driver": "Grosjean",
@@ -19503,7 +19503,7 @@
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.93
+            "probability": 0.92
           },
           {
             "driver": "Alonso",
@@ -19523,7 +19523,7 @@
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 0.33
+            "probability": 0.32
           },
           {
             "driver": "Sirotkin",
@@ -19563,7 +19563,7 @@
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 24.63
+            "probability": 24.64
           },
           {
             "driver": "Hamilton",
@@ -19573,17 +19573,17 @@
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 17.61
+            "probability": 17.65
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 16.93
+            "probability": 16.97
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 13.84
+            "probability": 13.85
           },
           {
             "driver": "Ricciardo",
@@ -19668,22 +19668,22 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 27.0
+            "probability": 27.01
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 24.37
+            "probability": 24.39
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 21.97
+            "probability": 22.03
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 15.22
+            "probability": 15.24
           },
           {
             "driver": "Magnussen",
@@ -19713,7 +19713,7 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.74
+            "probability": 0.73
           },
           {
             "driver": "Sainz",
@@ -19733,7 +19733,7 @@
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 0.37
+            "probability": 0.36
           },
           {
             "driver": "Alonso",
@@ -19773,27 +19773,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 25.32
+            "probability": 25.34
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 22.11
+            "probability": 22.16
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 15.27
+            "probability": 15.3
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 14.75
+            "probability": 14.76
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 14.28
+            "probability": 14.31
           },
           {
             "driver": "Grosjean",
@@ -19818,7 +19818,7 @@
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 1.1
+            "probability": 1.09
           },
           {
             "driver": "Ocon",
@@ -19878,27 +19878,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 25.54
+            "probability": 25.55
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 21.35
+            "probability": 21.41
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 20.76
+            "probability": 20.77
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 16.87
+            "probability": 16.9
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 13.43
+            "probability": 13.44
           },
           {
             "driver": "Ocon",
@@ -19908,7 +19908,7 @@
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.59
+            "probability": 2.58
           },
           {
             "driver": "Grosjean",
@@ -19918,7 +19918,7 @@
           {
             "driver": "Perez",
             "constructor": "Force_india",
-            "probability": 1.25
+            "probability": 1.24
           },
           {
             "driver": "Leclerc",
@@ -19943,7 +19943,7 @@
           {
             "driver": "Alonso",
             "constructor": "Mclaren",
-            "probability": 0.38
+            "probability": 0.37
           },
           {
             "driver": "Sirotkin",
@@ -19983,32 +19983,32 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 30.45
+            "probability": 30.42
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 23.34
+            "probability": 23.36
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 17.5
+            "probability": 17.53
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 16.62
+            "probability": 16.67
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 15.99
+            "probability": 16.03
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 12.73
+            "probability": 12.75
           },
           {
             "driver": "Hulkenberg",
@@ -20088,27 +20088,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 25.92
+            "probability": 25.93
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 24.4
+            "probability": 24.42
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 19.52
+            "probability": 19.57
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 15.73
+            "probability": 15.75
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.27
+            "probability": 13.3
           },
           {
             "driver": "Ricciardo",
@@ -20123,7 +20123,7 @@
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 1.26
+            "probability": 1.25
           },
           {
             "driver": "Leclerc",
@@ -20143,7 +20143,7 @@
           {
             "driver": "Perez",
             "constructor": "Force_india",
-            "probability": 0.59
+            "probability": 0.58
           },
           {
             "driver": "Hulkenberg",
@@ -20193,32 +20193,32 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 26.02
+            "probability": 25.99
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 23.19
+            "probability": 23.21
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 21.59
+            "probability": 21.66
           },
           {
             "driver": "Raikkonen",
             "constructor": "Ferrari",
-            "probability": 15.01
+            "probability": 15.03
           },
           {
             "driver": "Ricciardo",
             "constructor": "Red_bull",
-            "probability": 11.54
+            "probability": 11.55
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 10.95
+            "probability": 10.98
           },
           {
             "driver": "Grosjean",
@@ -20308,87 +20308,87 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 15.47
+            "probability": 15.45
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 13.84
+            "probability": 13.79
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 11.86
+            "probability": 11.78
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 9.73
+            "probability": 9.64
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 7.96
+            "probability": 7.88
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 6.15
+            "probability": 6.07
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 4.56
+            "probability": 4.49
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 3.73
+            "probability": 3.67
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 2.71
+            "probability": 2.66
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.03
+            "probability": 1.99
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 1.48
+            "probability": 1.45
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 1.03
+            "probability": 1.01
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.77
+            "probability": 0.75
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.55
+            "probability": 0.53
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.38
+            "probability": 0.37
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 0.28
+            "probability": 0.27
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 0.21
+            "probability": 0.2
           },
           {
             "driver": "Russell",
@@ -20408,87 +20408,87 @@
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 15.6
+            "probability": 15.64
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 15.11
-          },
-          {
-            "driver": "Bottas",
-            "constructor": "Mercedes",
-            "probability": 14.25
+            "probability": 15.09
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
+            "probability": 14.2
+          },
+          {
+            "driver": "Bottas",
+            "constructor": "Mercedes",
             "probability": 14.19
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 8.55
+            "probability": 8.51
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 5.64
+            "probability": 5.6
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.96
+            "probability": 3.94
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 2.78
+            "probability": 2.76
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 2.06
+            "probability": 2.03
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 1.63
+            "probability": 1.6
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.33
+            "probability": 1.31
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 0.55
+            "probability": 0.54
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.51
+            "probability": 0.5
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.31
+            "probability": 0.3
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.23
+            "probability": 0.22
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.18
+            "probability": 0.17
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.15
+            "probability": 0.14
           },
           {
             "driver": "Stroll",
@@ -20513,67 +20513,67 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 20.13
+            "probability": 20.17
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 19.04
+            "probability": 19.06
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 12.41
+            "probability": 12.39
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 11.02
+            "probability": 10.98
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 8.92
+            "probability": 8.88
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 4.82
+            "probability": 4.77
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 4.28
+            "probability": 4.25
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.43
+            "probability": 2.41
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 1.96
+            "probability": 1.93
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 1.9
+            "probability": 1.88
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.74
+            "probability": 0.72
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.71
+            "probability": 0.7
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 0.54
+            "probability": 0.53
           },
           {
             "driver": "Perez",
@@ -20583,12 +20583,12 @@
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 0.3
+            "probability": 0.29
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.14
+            "probability": 0.13
           },
           {
             "driver": "Russell",
@@ -20598,12 +20598,12 @@
           {
             "driver": "Kubica",
             "constructor": "Williams",
-            "probability": 0.06
+            "probability": 0.05
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.06
+            "probability": 0.05
           },
           {
             "driver": "Albon",
@@ -20618,92 +20618,92 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 21.44
+            "probability": 21.52
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 21.23
+            "probability": 21.25
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 12.88
+            "probability": 12.87
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 11.13
+            "probability": 11.11
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 4.51
+            "probability": 4.5
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 4.29
+            "probability": 4.24
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 3.06
+            "probability": 3.04
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 2.77
+            "probability": 2.75
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 1.33
+            "probability": 1.31
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 1.07
+            "probability": 1.06
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.69
+            "probability": 0.68
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.64
+            "probability": 0.63
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.33
+            "probability": 0.32
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.29
+            "probability": 0.28
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.25
+            "probability": 0.24
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 0.15
+            "probability": 0.14
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.13
+            "probability": 0.12
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.1
+            "probability": 0.09
           },
           {
             "driver": "Russell",
@@ -20713,7 +20713,7 @@
           {
             "driver": "Kubica",
             "constructor": "Williams",
-            "probability": 0.05
+            "probability": 0.04
           }
         ]
       },
@@ -20723,12 +20723,12 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 23.08
+            "probability": 23.15
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 22.65
+            "probability": 22.7
           },
           {
             "driver": "Vettel",
@@ -20743,57 +20743,57 @@
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 9.0
+            "probability": 8.95
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 5.35
+            "probability": 5.28
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 1.98
+            "probability": 1.96
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 1.88
+            "probability": 1.87
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.37
+            "probability": 1.34
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 1.01
+            "probability": 0.99
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 0.63
+            "probability": 0.62
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.56
+            "probability": 0.55
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.41
+            "probability": 0.4
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.39
+            "probability": 0.38
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.32
+            "probability": 0.31
           },
           {
             "driver": "Stroll",
@@ -20828,67 +20828,67 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 24.95
+            "probability": 24.99
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 23.46
+            "probability": 23.51
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.55
+            "probability": 13.58
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 11.28
+            "probability": 11.27
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 5.67
+            "probability": 5.65
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 3.37
+            "probability": 3.32
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 3.16
+            "probability": 3.14
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 1.82
+            "probability": 1.8
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 1.67
+            "probability": 1.64
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.73
+            "probability": 0.72
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.67
+            "probability": 0.66
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 0.67
+            "probability": 0.65
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 0.63
+            "probability": 0.61
           },
           {
             "driver": "Raikkonen",
@@ -20898,7 +20898,7 @@
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.32
+            "probability": 0.31
           },
           {
             "driver": "Perez",
@@ -20933,77 +20933,77 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 25.48
+            "probability": 25.52
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 20.71
+            "probability": 20.58
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 15.92
+            "probability": 15.99
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 12.48
+            "probability": 12.43
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 7.4
+            "probability": 7.32
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 5.06
+            "probability": 5.05
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 3.68
+            "probability": 3.64
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 2.14
+            "probability": 2.1
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.02
+            "probability": 2.0
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 1.09
+            "probability": 1.07
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.95
+            "probability": 0.94
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.32
+            "probability": 0.31
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.32
+            "probability": 0.31
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.26
+            "probability": 0.25
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.22
+            "probability": 0.21
           },
           {
             "driver": "Raikkonen",
@@ -21038,67 +21038,67 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 27.56
+            "probability": 27.62
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 24.39
+            "probability": 24.48
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 12.5
+            "probability": 12.47
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 11.04
+            "probability": 11.05
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 6.57
+            "probability": 6.53
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 4.55
+            "probability": 4.5
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 4.43
+            "probability": 4.39
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 2.62
+            "probability": 2.57
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 2.34
+            "probability": 2.31
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.57
+            "probability": 0.56
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.56
+            "probability": 0.54
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.49
+            "probability": 0.48
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.4
+            "probability": 0.39
           },
           {
             "driver": "Perez",
@@ -21113,7 +21113,7 @@
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.1
+            "probability": 0.09
           },
           {
             "driver": "Stroll",
@@ -21143,72 +21143,72 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 29.88
+            "probability": 29.84
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 28.47
+            "probability": 28.48
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 15.51
+            "probability": 15.52
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 14.49
+            "probability": 14.56
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 4.47
+            "probability": 4.42
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 4.17
+            "probability": 4.12
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 3.68
+            "probability": 3.67
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 3.35
+            "probability": 3.29
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 1.57
+            "probability": 1.54
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.84
+            "probability": 0.83
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.64
+            "probability": 0.62
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.45
+            "probability": 0.44
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.35
+            "probability": 0.34
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.24
+            "probability": 0.23
           },
           {
             "driver": "Stroll",
@@ -21218,7 +21218,7 @@
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.11
+            "probability": 0.1
           },
           {
             "driver": "Sainz",
@@ -21248,72 +21248,67 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 27.95
+            "probability": 28.05
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 27.34
+            "probability": 27.35
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.91
+            "probability": 13.95
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 12.43
+            "probability": 12.41
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 8.15
+            "probability": 8.07
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 7.63
+            "probability": 7.6
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 2.65
+            "probability": 2.62
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 2.3
+            "probability": 2.26
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 1.05
+            "probability": 1.03
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.9
+            "probability": 0.88
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.61
+            "probability": 0.6
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 0.57
+            "probability": 0.56
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.44
-          },
-          {
-            "driver": "Grosjean",
-            "constructor": "Haas",
-            "probability": 0.16
+            "probability": 0.43
           },
           {
             "driver": "Perez",
@@ -21321,9 +21316,14 @@
             "probability": 0.16
           },
           {
+            "driver": "Grosjean",
+            "constructor": "Haas",
+            "probability": 0.15
+          },
+          {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.11
+            "probability": 0.1
           },
           {
             "driver": "Kvyat",
@@ -21353,72 +21353,67 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 29.38
+            "probability": 29.41
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 24.94
+            "probability": 24.98
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 17.16
+            "probability": 17.26
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 10.02
+            "probability": 9.95
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 4.75
+            "probability": 4.74
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.47
+            "probability": 3.43
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 3.01
+            "probability": 2.96
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 1.89
+            "probability": 1.88
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 1.44
+            "probability": 1.42
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 1.37
+            "probability": 1.35
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.43
+            "probability": 0.42
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.42
+            "probability": 0.41
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.38
-          },
-          {
-            "driver": "Kvyat",
-            "constructor": "Toro_rosso",
-            "probability": 0.19
+            "probability": 0.37
           },
           {
             "driver": "Vettel",
@@ -21426,14 +21421,19 @@
             "probability": 0.19
           },
           {
+            "driver": "Kvyat",
+            "constructor": "Toro_rosso",
+            "probability": 0.18
+          },
+          {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.12
+            "probability": 0.11
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.09
+            "probability": 0.08
           },
           {
             "driver": "Norris",
@@ -21458,72 +21458,72 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 29.85
+            "probability": 29.84
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 29.2
+            "probability": 29.27
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 20.15
+            "probability": 20.31
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 10.0
+            "probability": 9.96
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 8.54
+            "probability": 8.52
           },
           {
             "driver": "Gasly",
             "constructor": "Red_bull",
-            "probability": 7.3
+            "probability": 7.2
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 2.67
+            "probability": 2.64
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 2.61
+            "probability": 2.57
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.9
+            "probability": 0.89
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.8
+            "probability": 0.79
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.58
+            "probability": 0.57
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.44
+            "probability": 0.43
           },
           {
             "driver": "Albon",
             "constructor": "Toro_rosso",
-            "probability": 0.4
+            "probability": 0.39
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.2
+            "probability": 0.19
           },
           {
             "driver": "Perez",
@@ -21538,17 +21538,17 @@
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.06
+            "probability": 0.05
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.05
+            "probability": 0.04
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.04
+            "probability": 0.03
           },
           {
             "driver": "Kubica",
@@ -21563,72 +21563,72 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 30.52
+            "probability": 30.51
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 29.04
+            "probability": 28.99
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 14.49
+            "probability": 14.51
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 14.05
+            "probability": 14.1
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 12.82
+            "probability": 12.88
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 3.3
+            "probability": 3.29
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 1.51
+            "probability": 1.49
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 1.22
+            "probability": 1.2
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.89
+            "probability": 0.88
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 0.77
+            "probability": 0.75
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.72
+            "probability": 0.71
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 0.6
+            "probability": 0.59
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.41
+            "probability": 0.4
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 0.34
+            "probability": 0.33
           },
           {
             "driver": "Albon",
@@ -21636,24 +21636,24 @@
             "probability": 0.16
           },
           {
-            "driver": "Stroll",
-            "constructor": "Racing_point",
-            "probability": 0.1
-          },
-          {
             "driver": "Russell",
             "constructor": "Williams",
             "probability": 0.09
           },
           {
+            "driver": "Stroll",
+            "constructor": "Racing_point",
+            "probability": 0.09
+          },
+          {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.06
+            "probability": 0.05
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.04
+            "probability": 0.03
           },
           {
             "driver": "Kubica",
@@ -21668,87 +21668,87 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 29.44
+            "probability": 29.43
           },
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 28.11
+            "probability": 28.13
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 16.57
+            "probability": 16.6
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 10.79
+            "probability": 10.8
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 3.54
+            "probability": 3.52
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.44
+            "probability": 3.41
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 3.14
+            "probability": 3.07
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.49
+            "probability": 2.46
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.86
+            "probability": 0.84
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.59
+            "probability": 0.57
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 0.46
+            "probability": 0.45
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.45
+            "probability": 0.44
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.4
+            "probability": 0.39
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.19
+            "probability": 0.18
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 0.17
+            "probability": 0.16
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 0.14
+            "probability": 0.13
           },
           {
             "driver": "Russell",
             "constructor": "Williams",
-            "probability": 0.09
+            "probability": 0.08
           },
           {
             "driver": "Kubica",
@@ -21763,7 +21763,7 @@
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.04
+            "probability": 0.03
           }
         ]
       },
@@ -21773,77 +21773,77 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 27.98
+            "probability": 28.02
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 25.4
+            "probability": 25.3
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 18.67
+            "probability": 18.69
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 15.03
+            "probability": 15.06
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 12.78
+            "probability": 12.79
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 5.37
+            "probability": 5.26
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.26
+            "probability": 3.22
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 1.71
+            "probability": 1.68
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.1
+            "probability": 1.07
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 0.98
+            "probability": 0.96
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.44
+            "probability": 0.43
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.41
+            "probability": 0.4
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.26
+            "probability": 0.25
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.2
+            "probability": 0.19
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.15
+            "probability": 0.14
           },
           {
             "driver": "Stroll",
@@ -21883,57 +21883,57 @@
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 26.7
+            "probability": 26.66
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 20.22
+            "probability": 20.26
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 15.09
+            "probability": 15.12
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 6.15
+            "probability": 6.11
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 5.21
+            "probability": 5.19
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 2.91
+            "probability": 2.88
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 2.16
+            "probability": 2.12
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.99
+            "probability": 0.97
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.83
+            "probability": 0.82
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.49
+            "probability": 0.48
           },
           {
             "driver": "Giovinazzi",
             "constructor": "Alfa",
-            "probability": 0.22
+            "probability": 0.21
           },
           {
             "driver": "Gasly",
@@ -21983,7 +21983,7 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 33.0
+            "probability": 32.95
           },
           {
             "driver": "Bottas",
@@ -21993,42 +21993,42 @@
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 18.63
+            "probability": 18.67
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 17.11
+            "probability": 17.17
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 12.14
+            "probability": 12.17
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 5.48
+            "probability": 5.38
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.12
+            "probability": 3.09
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.79
+            "probability": 1.75
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 1.63
+            "probability": 1.62
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.42
+            "probability": 0.41
           },
           {
             "driver": "Giovinazzi",
@@ -22038,7 +22038,7 @@
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.27
+            "probability": 0.26
           },
           {
             "driver": "Raikkonen",
@@ -22048,12 +22048,12 @@
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.21
+            "probability": 0.2
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.18
+            "probability": 0.17
           },
           {
             "driver": "Ricciardo",
@@ -22066,13 +22066,13 @@
             "probability": 0.07
           },
           {
-            "driver": "Magnussen",
-            "constructor": "Haas",
-            "probability": 0.03
-          },
-          {
             "driver": "Russell",
             "constructor": "Williams",
+            "probability": 0.02
+          },
+          {
+            "driver": "Magnussen",
+            "constructor": "Haas",
             "probability": 0.02
           },
           {
@@ -22088,67 +22088,67 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 32.48
+            "probability": 32.46
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 26.31
+            "probability": 26.16
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 19.23
+            "probability": 19.28
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 15.54
+            "probability": 15.6
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 13.7
+            "probability": 13.74
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 6.94
+            "probability": 6.83
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.29
+            "probability": 3.27
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.66
+            "probability": 1.63
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 1.18
+            "probability": 1.17
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 1.03
+            "probability": 1.01
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.59
+            "probability": 0.58
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.41
+            "probability": 0.4
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.31
+            "probability": 0.3
           },
           {
             "driver": "Raikkonen",
@@ -22193,57 +22193,57 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 36.62
+            "probability": 36.52
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 31.68
+            "probability": 31.78
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 15.12
+            "probability": 15.17
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 14.48
+            "probability": 14.55
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 14.29
+            "probability": 14.26
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 5.43
+            "probability": 5.34
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 3.0
+            "probability": 2.97
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 1.45
+            "probability": 1.42
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 1.17
+            "probability": 1.15
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 1.13
+            "probability": 1.11
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.58
+            "probability": 0.57
           },
           {
             "driver": "Kvyat",
@@ -22253,12 +22253,12 @@
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.22
+            "probability": 0.21
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.14
+            "probability": 0.13
           },
           {
             "driver": "Grosjean",
@@ -22298,27 +22298,27 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 34.05
+            "probability": 34.08
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 32.71
+            "probability": 32.65
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 17.0
+            "probability": 17.14
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 14.38
+            "probability": 14.42
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 7.01
+            "probability": 6.9
           },
           {
             "driver": "Gasly",
@@ -22328,37 +22328,37 @@
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 2.2
+            "probability": 2.15
           },
           {
             "driver": "Raikkonen",
             "constructor": "Alfa",
-            "probability": 0.98
+            "probability": 0.97
           },
           {
             "driver": "Grosjean",
             "constructor": "Haas",
-            "probability": 0.91
+            "probability": 0.9
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 0.83
+            "probability": 0.81
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 0.65
+            "probability": 0.64
           },
           {
             "driver": "Magnussen",
             "constructor": "Haas",
-            "probability": 0.55
+            "probability": 0.54
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.29
+            "probability": 0.28
           },
           {
             "driver": "Giovinazzi",
@@ -22373,7 +22373,7 @@
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.09
+            "probability": 0.08
           },
           {
             "driver": "Sainz",
@@ -22403,72 +22403,72 @@
           {
             "driver": "Hamilton",
             "constructor": "Mercedes",
-            "probability": 27.95
+            "probability": 28.04
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 18.26
+            "probability": 18.4
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 14.75
+            "probability": 14.76
           },
           {
             "driver": "Vettel",
             "constructor": "Ferrari",
-            "probability": 11.09
+            "probability": 11.08
           },
           {
             "driver": "Albon",
             "constructor": "Red_bull",
-            "probability": 7.27
+            "probability": 7.15
           },
           {
             "driver": "Bottas",
             "constructor": "Mercedes",
-            "probability": 3.2
+            "probability": 3.06
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 2.63
+            "probability": 2.59
           },
           {
             "driver": "Sainz",
             "constructor": "Mclaren",
-            "probability": 2.32
+            "probability": 2.3
           },
           {
             "driver": "Ricciardo",
             "constructor": "Renault",
-            "probability": 2.12
+            "probability": 2.1
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Renault",
-            "probability": 0.92
+            "probability": 0.9
           },
           {
             "driver": "Gasly",
             "constructor": "Toro_rosso",
-            "probability": 0.89
+            "probability": 0.88
           },
           {
             "driver": "Perez",
             "constructor": "Racing_point",
-            "probability": 0.71
+            "probability": 0.7
           },
           {
             "driver": "Stroll",
             "constructor": "Racing_point",
-            "probability": 0.24
+            "probability": 0.23
           },
           {
             "driver": "Kvyat",
             "constructor": "Toro_rosso",
-            "probability": 0.23
+            "probability": 0.22
           },
           {
             "driver": "Magnussen",
@@ -22476,13 +22476,13 @@
             "probability": 0.1
           },
           {
-            "driver": "Raikkonen",
-            "constructor": "Alfa",
-            "probability": 0.07
-          },
-          {
             "driver": "Grosjean",
             "constructor": "Haas",
+            "probability": 0.06
+          },
+          {
+            "driver": "Raikkonen",
+            "constructor": "Alfa",
             "probability": 0.06
           },
           {
@@ -25353,7 +25353,7 @@
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 26.66
+            "probability": 26.65
           },
           {
             "driver": "Hamilton",
@@ -26658,7 +26658,7 @@
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 4.12
+            "probability": 4.11
           },
           {
             "driver": "Gasly",
@@ -27773,7 +27773,7 @@
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 27.65
+            "probability": 27.66
           },
           {
             "driver": "Leclerc",
@@ -28718,7 +28718,7 @@
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 31.17
+            "probability": 31.18
           },
           {
             "driver": "Perez",
@@ -30463,7 +30463,7 @@
           {
             "driver": "Lawson",
             "constructor": "Alphatauri",
-            "probability": 0.29
+            "probability": 0.3
           },
           {
             "driver": "Albon",

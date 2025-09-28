@@ -20,7 +20,6 @@ from metadata.driver_metadata import DRIVER_METADATA
 
 ml_bp = Blueprint("ml", __name__, url_prefix="/ml")
 
-CURRENT_SEASON = 2024
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FINAL_DF_PATH = os.path.join(BASE_DIR, "..", "ml", "final_df.csv")
 
