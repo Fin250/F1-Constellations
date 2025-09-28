@@ -160,8 +160,20 @@ def get_placeholder_current_season_tracks():
     tracklist.sort(key=lambda x: x.get("round") if isinstance(x.get("round"), int) else 999)
     return tracklist
 
-def get_next_track():
-    return 18  # hardcoded next round
+def get_next_track() -> int:
+    df = pd.read_csv(FINAL_DF_PATH)
+    df['date'] = pd.to_datetime(df['date'], dayfirst=True, errors='coerce')
+    df = df.dropna(subset=['date'])
+
+    today = datetime.today()
+
+    upcoming_races = df[df['date'] >= today]
+
+    if not upcoming_races.empty:
+        return int(upcoming_races.iloc[0]['round'])
+    else:
+        return int(df['round'].max())
+
 
 # Homepage route
 @home_bp.route("/")
