@@ -1091,6 +1091,231 @@ header {
   color:#245858;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-inner {
+  width: 760px;
+  max-width: 96vw;
+  background: #1a1a1a;
+  color: #d8dce0;
+  border-radius: 12px;
+  border: 2px solid #2c2c2c;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.7);
+  padding: 16px;
+  position: relative;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+}
+
+.modal-inner .modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  color: #9ca6ad;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-left {
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100%;
+  color: #bfc7cc;
+  font-size: 14px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #2a2a2a;
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.12);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.02);
+}
+
+.stat-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+.stat-text {
+  flex: 1;
+  color: #d0d8dc;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-value {
+  min-width: 44px;
+  text-align: right;
+  color: #e7eef6;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.modal-main { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.photo-wrap {
+  display:flex;
+  justify-content:center;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.photo-circle {
+  width: 132px;
+  height: 132px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+  border: 4px solid rgba(255,255,255,0.03);
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  background: rgba(255,255,255,0.02);
+}
+
+.driver-name {
+  text-align:center;
+  margin: 8px 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color:#e7eef6;
+}
+
+.badges {
+  display:flex;
+  justify-content:center;
+  gap: 18px;
+  margin: auto 0;
+}
+
+.badge {
+  text-align:center;
+  min-width: 66px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+.badge .metric-badge {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  width:56px;
+  height:56px;
+}
+
+.metric-badge svg.metric-circle {
+  width: 56px;
+  height: 56px;
+  display:block;
+}
+
+.metric-badge .metric-number {
+  position:absolute;
+  font-size:14px;
+  font-weight:700;
+  pointer-events:none;
+}
+
+.badge-label {
+  font-size:12px;
+  color:#a8b0b6;
+  margin-top:2px;
+}
+
+.track-lists {
+  display:flex;
+  bottom: 0;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.track-col {
+  flex:1;
+  background: #2a2a2a;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.track-col .heading {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color:#dfe7eb;
+  margin-bottom: 6px;
+}
+
+.track-item {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 6px 4px;
+  color:#b6bfc6;
+  font-size:13px;
+}
+
+.track-rank { min-width:36px; color:#dfe7eb; font-weight:700; text-align:left; }
+
+.track-item img.flag {
+  width:24px;
+  height:16px;
+  object-fit:cover;
+  border-radius:2px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.track-name { flex:1; color:#bfc7cc; }
+
 /* About page layout */
 
 .about-grid {
@@ -1627,6 +1852,23 @@ i {
   }
   .metric-with-circle {
     font-size: 11px;
+  }
+  .modal-inner {
+    grid-template-columns: 1fr; padding: 12px; 
+  }
+  .modal-left {
+    order: 2;
+  }
+  .modal-main {
+    order: 1;
+  }
+  .photo-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .photo-circle img {
+    width: 76px;
+    height: 76px;
   }
 }
 

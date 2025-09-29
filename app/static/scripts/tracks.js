@@ -77,6 +77,8 @@ const constructors = {
   ]
 };
 
+const driverDataMap = {};
+
 document.addEventListener("DOMContentLoaded", async function () {
     const body = document.body;
     const seasonAttr = body.getAttribute('data-season');
@@ -307,6 +309,7 @@ function createChangeIconSVG(type) {
 
 /* Creates the list item */
 function createPredictionItem(
+    key,
     position,
     imageUrl,
     name,
@@ -450,6 +453,15 @@ function createPredictionItem(
     li.appendChild(infoDiv);
     if (showMetric) li.appendChild(metricWrapper);
 
+    driverDataMap[key] = driverDataMap[key] || {};
+    driverDataMap[key].constructorColor = bgColor;
+    li.dataset.driverKey = key;
+
+    li.addEventListener("click", () => {
+        const type = isConstructor ? 'constructor' : 'driver';
+        openDriverModal(li.dataset.driverKey, type);
+    });
+
     return li;
 }
 
@@ -487,13 +499,20 @@ function populateGPResults(predictions, metadata, prevPredictions, roundNum, sea
         const prevPos = prevMap[key] !== undefined ? prevMap[key] : null;
         const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
 
+        driverDataMap[key] = driverDataMap[key] || {};
+        driverDataMap[key].probability = probability;
+        driverDataMap[key].constructor = constructorName;
+        driverDataMap[key].name = name;
+        driverDataMap[key].fullName = meta.full_name || name;
+
         const li = createPredictionItem(
-            currentPos, imageUrl, name, probability,
+            key, currentPos, imageUrl, name, probability,
             false, constructorName, 'gp-metric',
             true, true, changeType, season
         );
         list.appendChild(li);
     });
+    window.driverDataMap = driverDataMap;
 }
 
 function populateDriverStrength(drivers, metadata, prevDrivers, roundNum, season) {
@@ -546,14 +565,269 @@ function populateDriverStrength(drivers, metadata, prevDrivers, roundNum, season
         const prevPos = prevMap[key] !== undefined ? prevMap[key] : null;
         const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
 
+        driverDataMap[key] = driverDataMap[key] || {};
+        driverDataMap[key].strength = strength;
+        driverDataMap[key].constructor = constructorName;
+        driverDataMap[key].name = name;
+        driverDataMap[key].fullName = meta.full_name || name;
+
         const li = createPredictionItem(
-            currentPos, imageUrl, name, strength,
+            key, currentPos, imageUrl, name, strength,
             false, constructorName, 'driver-metric',
             true, false, changeType, season
         );
         list.appendChild(li);
     });
+    window.driverDataMap = driverDataMap;
 }
+
+function createMetricBadge(metricValue) {
+  const ns = "http://www.w3.org/2000/svg";
+  const wrapper = document.createElement('div');
+  wrapper.className = 'metric-badge';
+
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", "0 0 40 40");
+  svg.classList.add("metric-circle");
+
+  const radius = 17.6;
+
+  // background ring
+  const circleBg = document.createElementNS(ns, "circle");
+  circleBg.setAttribute("cx", "20");
+  circleBg.setAttribute("cy", "20");
+  circleBg.setAttribute("r", radius);
+  circleBg.setAttribute("stroke", "#2b2b2b");
+  circleBg.setAttribute("stroke-width", "3.2");
+  circleBg.setAttribute("fill", "none");
+  circleBg.setAttribute("class", "circle-bg");
+
+  // foreground ring
+  const circleFg = document.createElementNS(ns, "circle");
+  circleFg.setAttribute("cx", "20");
+  circleFg.setAttribute("cy", "20");
+  circleFg.setAttribute("r", radius);
+  circleFg.setAttribute("stroke", getStrengthColor(metricValue));
+  circleFg.setAttribute("stroke-width", "3.2");
+  circleFg.setAttribute("fill", "none");
+  circleFg.setAttribute("stroke-linecap", "round");
+  circleFg.setAttribute("transform", "rotate(-90 20 20)");
+  circleFg.setAttribute("class", "circle-fg");
+
+  // percent value compute
+  const percent = parseFloat(String(metricValue).replace('%', ''));
+  const circumference = 2 * Math.PI * radius;
+  const safePercent = (Number.isFinite(percent) ? percent : 0);
+  circleFg.setAttribute("stroke-dasharray", circumference);
+  circleFg.setAttribute("stroke-dashoffset", circumference * (1 - Math.min(Math.max(safePercent, 0), 100) / 100));
+
+  svg.appendChild(circleBg);
+  svg.appendChild(circleFg);
+
+  const number = document.createElement('div');
+  number.className = 'metric-number';
+  number.textContent = String(metricValue);
+
+  wrapper.appendChild(svg);
+  wrapper.appendChild(number);
+
+  return wrapper;
+}
+
+/* ---------------------------
+   Modal builder
+   --------------------------- */
+(function () {
+  const modal = document.getElementById('driverModal');
+  const inner = modal.querySelector('.modal-inner');
+
+  function el(tag, props = {}, children = []) {
+    const node = document.createElement(tag);
+    Object.entries(props).forEach(([k, v]) => {
+      if (k === 'class') node.className = v;
+      else if (k === 'style') Object.assign(node.style, v);
+      else if (k === 'html') node.innerHTML = v;
+      else if (k === 'title') node.title = v;
+      else node.setAttribute(k, v);
+    });
+    (Array.isArray(children) ? children : [children]).forEach(child => {
+      if (!child && child !== 0) return;
+      if (typeof child === 'string' || typeof child === 'number') node.appendChild(document.createTextNode(child));
+      else node.appendChild(child);
+    });
+    return node;
+  }
+
+  function getStatIconImg(type) {
+        const basePath = '/static/images/icons/';
+        const iconMap = {
+            raced: 'raced.png',
+            wins: 'wins.png',
+            points: 'points.png',
+            pos: 'position.png',
+            dry: 'dry.png',
+            rain: 'rain.png',
+            qual: 'qualifying.png',
+            dnf: 'dnf.png',
+        };
+        const fileName = iconMap[type] || 'raced.png';
+        
+        const img = document.createElement('img');
+        img.src = `${basePath}${fileName}`;
+        img.alt = type;
+        img.width = 18;
+        img.height = 18;
+        img.className = 'stat-icon';
+        return img;
+    }
+
+  function getFlagPathForName(name) {
+    const safe = String(name || '').replace(/\s+/g, '_').replace(/[^A-Za-z0-9_\-]/g, '');
+    return `/static/images/flags/Flag_of_${safe}.png`;
+  }
+
+  function resolveConstructorColor(data) {
+    if (data && data.constructorColor) return data.constructorColor;
+    if (data && data.constructor && typeof window.getConstructorInfo === 'function') {
+      try {
+        const info = getConstructorInfo(data.constructor);
+        if (info && info.color) return info.color;
+      } catch (e) {}
+    }
+    return '#2f4be6';
+  }
+
+  function buildModalForDriver(key, type='driver') {
+    const data = (window.driverDataMap && window.driverDataMap[key]) ? window.driverDataMap[key] : {};
+    console.debug('openDriverModal - key:', key, 'data:', data);
+
+    const name = (data && (data.fullName || data.full_name || data.displayName || data.display_name || data.name))
+      || (typeof capitalize === 'function' ? capitalize(key) : key) || 'Unknown';
+
+    const photoSrc = (data && (data.imageUrl || data.image || data.photo)) || `/static/images/drivers/${key}.png`;
+    const ctorColor = resolveConstructorColor(data);
+
+    const career = data?.career ?? data?.careerValue ?? 77;
+    const overall = data?.overall ?? data?.overallValue ?? 82;
+    const track = data?.track ?? data?.trackValue ?? 94;
+
+    const stats = type === 'driver'
+      ? (data?.stats || [
+          { type: 'raced', label: 'Track races', value: '6', color: '#7ea6ff' },
+          { type: 'wins', label: 'Track wins', value: '3x', color: '#ffd36e' },
+          { type: 'points', label: 'Track points', value: '23', color: '#9fb4ff' },
+          { type: 'pos', label: 'Track overtakes', value: '82', color: '#7ee6a8' },
+          { type: 'dry', label: 'Dry race rating', value: '95%', color: '#9bd78b' },
+          { type: 'rain', label: 'Wet race rating', value: '82%', color: '#6ec1ff' },
+          { type: 'qual', label: 'Quali strength', value: '88', color: '#c7b3ff' },
+          { type: 'dnf', label: 'DNF rate', value: '13%', color: '#ff7b7b' }
+        ])
+      : (data?.stats || [
+          { type: 'raced', label: 'Constructor det', value: '6', color: '#7ea6ff' },
+          { type: 'wins', label: 'Track wins', value: '3x', color: '#ffd36e' },
+          { type: 'points', label: 'Track points', value: '23', color: '#9fb4ff' },
+          { type: 'pos', label: 'Track overtakes', value: '82', color: '#7ee6a8' },
+          { type: 'dry', label: 'Dry race rating', value: '95%', color: '#9bd78b' },
+          { type: 'rain', label: 'Wet race rating', value: '82%', color: '#6ec1ff' },
+          { type: 'qual', label: 'Quali strength', value: '88', color: '#c7b3ff' },
+          { type: 'dnf', label: 'DNF rate', value: '13%', color: '#ff7b7b' }
+        ]);
+
+    const bestTracks = data?.bestTracks || [{ rank: 1, name: 'Bahrain' }, { rank: 2, name: 'Italy' }, { rank: 3, name: 'Qatar' }, { rank: 4, name: 'Belgium' }];
+    const worstTracks = data?.worstTracks || [{ rank: 21, name: 'Brazil' }, { rank: 22, name: 'Hungary' }, { rank: 23, name: 'Spain' }, { rank: 24, name: 'China' }];
+
+    inner.innerHTML = '';
+
+    // close button
+    const closeBtn = el('button', { class: 'modal-close', type: 'button', title: 'Close' }, ['\u00D7']);
+    inner.appendChild(closeBtn);
+
+    // left stats column
+    const left = el('div', { class: 'modal-left' });
+    stats.forEach(s => {
+      const row = el('div', { class: 'stat-row' });
+      row.appendChild(el('div', { class: 'stat-icon' }, [getStatIconImg(s.type)]));
+      row.appendChild(el('div', { class: 'stat-text' }, [s.label]));
+      row.appendChild(el('div', { class: 'stat-value' }, [s.value]));
+      left.appendChild(row);
+    });
+
+    const main = el('div', { class: 'modal-main' });
+
+    // photo circle
+    const photoWrap = el('div', { class: 'photo-wrap' });
+    const photoCircle = el('div', { class: 'photo-circle', style: { background: ctorColor } });
+    const img = el('img', { src: photoSrc, alt: name });
+    img.onerror = function () { this.onerror = null; this.src = '/static/images/drivers/driver-placeholder.png'; };
+    photoCircle.appendChild(img);
+    photoWrap.appendChild(photoCircle);
+    main.appendChild(photoWrap);
+
+    // name
+    main.appendChild(el('div', { class: 'driver-name' }, [name]));
+
+    // badges
+    const badges = el('div', { class: 'badges' });
+    [[career, 'Career'], [overall, 'Overall'], [track, 'Track']].forEach(([val, label]) => {
+      const badge = el('div', { class: 'badge' });
+      badge.appendChild(createMetricBadge(val));
+      badge.appendChild(el('div', { class: 'badge-label' }, [label]));
+      badges.appendChild(badge);
+    });
+    main.appendChild(badges);
+
+    // track lists
+    const trackLists = el('div', { class: 'track-lists' });
+    function makeTrackCol(heading, arr) {
+      const col = el('div', { class: 'track-col' });
+      col.appendChild(el('div', { class: 'heading' }, [heading]));
+      arr.forEach(item => {
+        const it = (typeof item === 'string') ? { rank: '', name: item } : item;
+        const row = el('div', { class: 'track-item' });
+        row.appendChild(el('div', { class: 'track-rank' }, [String(it.rank)]));
+        const flagImg = el('img', { class: 'flag', src: getFlagPathForName(it.name), alt: `${it.name} flag` });
+        flagImg.onerror = function () { this.style.display = 'none'; };
+        row.appendChild(flagImg);
+        row.appendChild(el('div', { class: 'track-name' }, [it.name]));
+        col.appendChild(row);
+      });
+      return col;
+    }
+    trackLists.appendChild(makeTrackCol('Best tracks', bestTracks));
+    trackLists.appendChild(makeTrackCol('Worst tracks', worstTracks));
+    main.appendChild(trackLists);
+
+    inner.appendChild(left);
+    inner.appendChild(main);
+
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  function openDriverModal(driverKey, type='driver') {
+    if (!driverKey) return;
+    buildModalForDriver(driverKey, type);
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    setTimeout(() => modal.addEventListener('click', onOutsideClick), 0);
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.removeEventListener('click', onOutsideClick);
+  }
+
+  function onOutsideClick(e) {
+    if (e.target === modal) closeModal();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+  });
+
+  window.openDriverModal = window.openDriverModal || openDriverModal;
+  window.closeDriverModal = window.closeDriverModal || closeModal;
+})();
 
 function populateConstructorStrength(constructors, prevConstructors, roundNum, season) {
     const list = document.querySelector('.constructor-list');
@@ -592,6 +866,7 @@ function populateConstructorStrength(constructors, prevConstructors, roundNum, s
     sorted.forEach((constructor, index) => {
         const rawName = constructor.TEAM || constructor.constructor || constructor.team || 'Unknown';
         const name = capitalize(rawName);
+        const key = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
 
         let strength = 'N/A';
         if (typeof constructor.predicted_strength === 'number') {
@@ -602,8 +877,13 @@ function populateConstructorStrength(constructors, prevConstructors, roundNum, s
         const prevPos = prevMap[name.toLowerCase()] !== undefined ? prevMap[name.toLowerCase()] : null;
         const changeType = computeChangeType(currentPos, prevPos, prevExists, roundNum);
 
+        driverDataMap[key] = driverDataMap[key] || {};
+        driverDataMap[key].strength = strength;
+        driverDataMap[key].name = name;
+        driverDataMap[key].constructor = name;
+
         const li = createPredictionItem(
-            currentPos, null, name, strength,
+            key, currentPos, null, name, strength,
             true, name, 'constructor-metric',
             true, false, changeType, season
         );
