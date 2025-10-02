@@ -103,11 +103,43 @@ def get_ml_predictions(season, roundnum):
                 continue
             constructor_strengths_for_round.extend(rnd_entry.get("predictions", []))
 
+    driver_extremes = {}
+    season_strengths = next(
+        (s for s in driver_strengths_all if int(s.get("season", -1)) == season),
+        None
+    )
+    if season_strengths:
+        all_rounds = []
+        for rnd_entry in season_strengths.get("rounds", []):
+            rnd = rnd_entry.get("round")
+            for ds in rnd_entry.get("predictions", []):
+                record = {
+                    "round": rnd,
+                    "driver": ds.get("driver"),
+                    "rating": ds.get("rating"),
+                    "track_id": ds.get("circuit_id") or ds.get("track_id")
+                }
+                all_rounds.append(record)
+
+        df_all = pd.DataFrame(all_rounds)
+        if not df_all.empty:
+            for driver, sub in df_all.groupby("driver"):
+                sub_sorted = sub.sort_values("rating", ascending=False)
+
+                top5 = sub_sorted.head(5).to_dict(orient="records")
+                bottom5 = sub_sorted.tail(5).sort_values("rating", ascending=True).to_dict(orient="records")
+
+                driver_extremes[driver] = {
+                    "best_rounds": top5,
+                    "worst_rounds": bottom5
+                }
+
     response_data = {
         "gp_results": gp_result_for_round,
         "driver_strength": driver_strengths_for_round,
         "constructor_strength": constructor_strengths_for_round,
         "driver_metadata": DRIVER_METADATA,
+        "driver_extremes": driver_extremes,
     }
 
     return Response(

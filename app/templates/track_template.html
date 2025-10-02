@@ -113,6 +113,9 @@
   {% endif %}
 </main>
 
+<script>
+  window.tracksMetadata = JSON.parse('{{ tracks|tojson|safe }}');
+</script>
 <script src="/static/scripts/tracks.js"></script>
 </body>
 </html>

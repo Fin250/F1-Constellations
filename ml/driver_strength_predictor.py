@@ -49,7 +49,7 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2025):
             hist[col] = np.nan
     hist['podium'] = pd.to_numeric(hist['podium'], errors='coerce')
     hist['grid'] = pd.to_numeric(hist['grid'], errors='coerce')
-    hist['driver_points'] = pd.to_numeric(hist.get('driver_points', 0)).fillna(0.0)
+    hist['driver_points'] = pd.Series(0.0, index=hist.index)
     hist['podium_top3'] = (hist['podium'] <= 3).astype(float)
     hist['win_flag'] = (hist['podium'] == 1).astype(float)
 
@@ -195,12 +195,16 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2025):
                     except KeyError:
                         track_row = None
 
-                if track_row is not None:
-                    rating = float(track_row['rating'])
-                    race_count = int(track_row['race_count'])
-                    career_score = float(track_row['career_score'])
-                    combined_score = float(track_row['combined_score'])
-                    track_raw_score = float(track_row['track_raw_score'])
+                if isinstance(track_row, pd.Series):
+                    rating = float(track_row.get('rating', 55.0))
+                    race_count = int(track_row.get('race_count', 0))
+                    career_score = float(track_row.get('career_score', 0.5))
+                    combined_score = float(track_row.get('combined_score', 0.5))
+                    track_raw_score = (
+                        float(track_row['track_raw_score']) 
+                        if 'track_raw_score' in track_row and pd.notna(track_row['track_raw_score'])
+                        else None
+                    )
                 else:
                     if driver in career_lookup.index:
                         crow = career_lookup.loc[driver]
@@ -259,7 +263,14 @@ def predict_driver_strengths(start_year: int = 2010, end_year: int = 2025):
                         "race_count": r['race_count'],
                         "career_score": r['career_score'],
                         "combined_score": r['combined_score'],
-                        "track_raw_score": r['track_raw_score']
+                        "track_raw_score": r['track_raw_score'],
+                        "win_count": 99,
+                        "points_count": 99,
+                        "overtakes_count": 99,
+                        "dry_rating": 99,
+                        "wet_rating": 99,
+                        "quali_rating": 99,
+                        "dnf_rate": 99,
                     })
             season_data["rounds"].append({"round": rnd, "predictions": predictions})
 
