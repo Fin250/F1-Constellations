@@ -66,7 +66,7 @@ const constructors = {
     { start: 2010, end: 2011, name: "Virgin Racing", color: "#FF0000", logo: "/static/images/constructors/virgin.png" }
   ],
   Hrt: [
-    { start: 2010, end: 2011, name: "HRT", color: "#A6904F", logo: "/static/images/constructors/hrt.png" }
+    { start: 2010, end: 2012, name: "HRT", color: "#A6904F", logo: "/static/images/constructors/hrt.png" }
   ],
   Marussia: [
     { start: 2012, end: 2014, name: "Marussia", color: "#FF0000", logo: "/static/images/constructors/marussia.png" }
@@ -186,12 +186,48 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     console.log("FINAL driverDataMap:", window.driverDataMap);
+
+    window.constructorDataMap = {};
+
+    if (Array.isArray(currentData.constructor_strength)) {
+        currentData.constructor_strength.forEach(c => {
+            if (!c || !c.TEAM) return;
+            const key = c.TEAM.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('_');
+            window.constructorDataMap[key] = { ...(window.constructorDataMap[key] || {}), ...c };
+        });
+    }
+
+    if (currentData.constructor_extremes && typeof currentData.constructor_extremes === 'object') {
+        Object.entries(currentData.constructor_extremes).forEach(([constructor, extremes]) => {
+            const key = constructor.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('_');
+            window.constructorDataMap[key] = window.constructorDataMap[key] || {};
+            window.constructorDataMap[key].bestTracks = Array.isArray(extremes.best_rounds) ? extremes.best_rounds : [];
+            window.constructorDataMap[key].worstTracks = Array.isArray(extremes.worst_rounds) ? extremes.worst_rounds : [];
+        });
+    }
+
+    console.log("FINAL constructorDataMap:", window.constructorDataMap);
 });
 
 /* ---------- Helpers ---------- */
 
 function getConstructorInfo(constructorKey, season) {
-    const ranges = constructors[constructorKey];
+    if (!constructorKey) return {
+        name: "Unknown",
+        color: "#ccc",
+        logo: "/static/images/constructors/constructor-placeholder.png"
+    };
+
+    let ranges = constructors[constructorKey];
+
+    if (!ranges && constructorKey.includes("_")) {
+        const normalizedKey = constructorKey.replace(/_([A-Z])/g, (_, c) => `_${c.toLowerCase()}`);
+        ranges = constructors[normalizedKey];
+        if (ranges) {
+            constructorKey = normalizedKey;
+        }
+    }
+
     if (!ranges) {
         console.warn("Constructor key not found:", constructorKey);
         return {
@@ -498,7 +534,7 @@ function createPredictionItem(
 
     li.addEventListener("click", () => {
         const type = isConstructor ? 'constructor' : 'driver';
-        openDriverModal(li.dataset.driverKey, type, season);
+        openModal(li.dataset.driverKey, type, season);
     });
 
     return li;
@@ -677,7 +713,7 @@ function createMetricBadge(metricValue) {
    Modal builder
    --------------------------- */
 (function () {
-  const modal = document.getElementById('driverModal');
+  const modal = document.getElementById('modal');
   const inner = modal.querySelector('.modal-inner');
 
   function el(tag, props = {}, children = []) {
@@ -695,11 +731,6 @@ function createMetricBadge(metricValue) {
       else node.appendChild(child);
     });
     return node;
-  }
-
-  function capitalizeWords(s) {
-    if (!s) return s;
-    return String(s).split(/[\s_\-]+/).map(w => w ? (w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()) : '').join(' ');
   }
 
   function getStatIconImg(type) {
@@ -725,16 +756,10 @@ function createMetricBadge(metricValue) {
         return img;
     }
 
-  function getFlagPathForName(name) {
-    const safe = String(name || '').replace(/\s+/g, '_').replace(/[^A-Za-z0-9_\-]/g, '');
-    return `/static/images/flags/Flag_of_${safe}.png`;
-  }
-
   function resolveConstructorColor(data, season) {
       if (data && data.constructorColor) return data.constructorColor;
       if (data && data.constructor && typeof window.getConstructorInfo === 'function') {
           try {
-              // Normalize the constructor key to match your constructors object
               const ctorKey = String(data.constructor);
               const info = getConstructorInfo(ctorKey, season);
               if (info && info.color) return info.color;
@@ -743,175 +768,290 @@ function createMetricBadge(metricValue) {
       return '#ffffffff';
   }
 
-  function buildModalForDriver(key, type='driver') {
-    const data = (window.driverDataMap && window.driverDataMap[key]) ? window.driverDataMap[key] : {};
-    console.debug('openDriverModal - key:', key, 'data:', data);
+  function buildModal(key, type = 'driver') {
+      key = String(key);
+      const season = Number(document.body.getAttribute('data-season'));
+      let data, name, photoSrc, color, stats, bestTracks, worstTracks;
 
-    const name = (data && (data.fullName || data.full_name || data.displayName || data.display_name || data.name))
-      || (typeof capitalize === 'function' ? capitalize(key) : (key ? capitalizeWords(key) : 'Unknown')) || 'Unknown';
+      if (type === 'constructor') {
+          data = window.constructorDataMap[key] || {};
+          console.debug('openConstructorModal - key:', key, 'data:', data);
+          const ctorInfo = getConstructorInfo(key, season);
+          name = ctorInfo.name || data.TEAM || key;
+          photoSrc = ctorInfo.logo || '/static/images/constructors/constructor-placeholder.png';
+          color = ctorInfo.color || '#ccc';
 
-    const photoSrc = (data && (data.imageUrl || data.image || data.photo)) || `/static/images/drivers/${key}.png`;
-    const season = Number(document.body.getAttribute('data-season'));
-    const ctorColor = resolveConstructorColor(data, season);
+          stats = [
+              { type: 'raced', label: 'Track races', value: data.race_count ?? 'N/A', color: '#7ea6ff' },
+              { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
+              { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
+              { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
+              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
+              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
+              { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
+              { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
+          ];
 
-    const career = ~~(data?.career_score * 100) ?? data?.careerValue ?? 1;
-    const overall = ~~data?.rating ?? data?.overallValue ?? 1;
-    const track = ~~(data?.track_raw_score * 100) ?? data?.trackValue ?? 1;
+          function getTrackDisplay(round) {
+              if (window.tracksMetadata) {
+                  const track = window.tracksMetadata.find(t => Number(t.round) === Number(round));
+                  if (track) {
+                      return {
+                          name: track.display_name || track.name || track.circuit_name || `Round ${round}`,
+                          flag: track.flag ? `/static/images/flags/${track.flag}` : ''
+                      };
+                  }
+              }
+              return {
+                  name: `Round ${round}`,
+                  flag: ''
+              };
+          }
 
-    const stats = type === 'driver'
-      ? [
-          { type: 'raced', label: 'Track races', value: data.race_count ?? 'N/A', color: '#7ea6ff' },
-          { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
-          { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
-          { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
-          { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
-          { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
-          { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
-          { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
-        ]
-      : [
-          { type: 'raced', label: 'Constructor det', value: data.race_count ?? 'N/A', color: '#7ea6ff' },
-          { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
-          { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
-          { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
-          { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
-          { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
-          { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
-          { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
-        ];
+          bestTracks = Array.isArray(data?.bestTracks) ? data.bestTracks.map((t, i) => {
+              const display = getTrackDisplay(t.round);
+              return {
+                  rank: i + 1,
+                  name: display.name,
+                  flag: display.flag,
+                  rating: t.rating
+              };
+          }) : [];
 
-    function getTrackDisplay(round) {
-        if (window.tracksMetadata) {
-            const track = window.tracksMetadata.find(t => Number(t.round) === Number(round));
-            if (track) {
-                return {
-                    name: track.display_name || track.name || track.circuit_name || `Round ${round}`,
-                    flag: track.flag ? `/static/images/flags/${track.flag}` : ''
-                };
-            }
-        }
-        return {
-            name: `Round ${round}`,
-            flag: ''
-        };
-    }
+          worstTracks = Array.isArray(data?.worstTracks) ? data.worstTracks.map((t, i) => {
+              const display = getTrackDisplay(t.round);
+              return {
+                  rank: i + 1,
+                  name: display.name,
+                  flag: display.flag,
+                  rating: t.rating
+              };
+          }) : [];
+      } else {
+          data = window.driverDataMap[key] || {};
+          console.debug('openModal driver - key:', key, 'data:', data);
+          name = data.fullName || data.name || key;
+          photoSrc = data.imageUrl || `/static/images/drivers/${key}.png`;
+          const season = Number(document.body.getAttribute('data-season'));
+          color = resolveConstructorColor(data, season) || '#ccc';
 
-    const bestTracks = Array.isArray(data?.bestTracks) ? data.bestTracks.map((t, i) => {
-        const display = getTrackDisplay(t.round);
-        return {
-            rank: i + 1,
-            name: display.name,
-            flag: display.flag,
-            rating: t.rating
-        };
-    }) : [];
+          stats = [
+              { type: 'raced', label: 'Track races', value: data.race_count ?? 'N/A', color: '#7ea6ff' },
+              { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
+              { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
+              { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
+              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
+              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
+              { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
+              { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
+          ];
 
-    const worstTracks = Array.isArray(data?.worstTracks) ? data.worstTracks.map((t, i) => {
-        const display = getTrackDisplay(t.round);
-        return {
-            rank: i + 1,
-            name: display.name,
-            flag: display.flag,
-            rating: t.rating
-        };
-    }) : [];
+          function getTrackDisplay(round) {
+              if (window.tracksMetadata) {
+                  const track = window.tracksMetadata.find(t => Number(t.round) === Number(round));
+                  if (track) {
+                      return {
+                          name: track.display_name || track.name || track.circuit_name || `Round ${round}`,
+                          flag: track.flag ? `/static/images/flags/${track.flag}` : ''
+                      };
+                  }
+              }
+              return {
+                  name: `Round ${round}`,
+                  flag: ''
+              };
+          }
 
-    inner.innerHTML = '';
+          bestTracks = Array.isArray(data?.bestTracks) ? data.bestTracks.map((t, i) => {
+              const display = getTrackDisplay(t.round);
+              return {
+                  rank: i + 1,
+                  name: display.name,
+                  flag: display.flag,
+                  rating: t.rating
+              };
+          }) : [];
 
-    // close button
-    const closeBtn = el('button', { class: 'modal-close', type: 'button', title: 'Close' }, ['\u00D7']);
-    inner.appendChild(closeBtn);
+          worstTracks = Array.isArray(data?.worstTracks) ? data.worstTracks.map((t, i) => {
+              const display = getTrackDisplay(t.round);
+              return {
+                  rank: i + 1,
+                  name: display.name,
+                  flag: display.flag,
+                  rating: t.rating
+              };
+          }) : [];
+      }
 
-    // left stats column
-    const left = el('div', { class: 'modal-left' });
-    stats.forEach(s => {
-      const row = el('div', { class: 'stat-row' });
-      row.appendChild(el('div', { class: 'stat-icon' }, [getStatIconImg(s.type)]));
-      row.appendChild(el('div', { class: 'stat-text' }, [s.label]));
-      row.appendChild(el('div', { class: 'stat-value' }, [s.value]));
-      left.appendChild(row);
-    });
+      // Build modal UI
+      const modal = document.getElementById('modal');
+      const inner = modal.querySelector('.modal-inner');
+      inner.innerHTML = '';
 
-    const main = el('div', { class: 'modal-main' });
+      // Close button
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'modal-close';
+      closeBtn.type = 'button';
+      closeBtn.title = 'Close';
+      closeBtn.textContent = '\u00D7';
+      closeBtn.addEventListener('click', closeModal);
+      inner.appendChild(closeBtn);
 
-    // photo circle
-    const photoWrap = el('div', { class: 'photo-wrap' });
-    const photoCircle = el('div', { class: 'photo-circle', style: { background: ctorColor } });
-    const img = el('img', { src: photoSrc, alt: name });
-    img.onerror = function () { this.onerror = null; this.src = '/static/images/drivers/driver-placeholder.png'; };
-    photoCircle.appendChild(img);
-    photoWrap.appendChild(photoCircle);
-    main.appendChild(photoWrap);
-
-    // name
-    main.appendChild(el('div', { class: 'driver-name' }, [name]));
-
-    // badges
-    const badges = el('div', { class: 'badges' });
-    [[career, 'Career'], [overall, 'Overall'], [track, 'Track']].forEach(([val, label]) => {
-      const badge = el('div', { class: 'badge' });
-      badge.appendChild(createMetricBadge(val));
-      badge.appendChild(el('div', { class: 'badge-label' }, [label]));
-      badges.appendChild(badge);
-    });
-    main.appendChild(badges);
-
-    // track lists
-    const trackLists = el('div', { class: 'track-lists' });
-    function makeTrackCol(heading, arr) {
-      const col = el('div', { class: 'track-col' });
-      col.appendChild(el('div', { class: 'heading' }, [heading]));
-      arr.forEach(item => {
-        const row = el('div', { class: 'track-item' });
-        row.appendChild(el('div', { class: 'track-rank' }, [String(item.rank)]));
-        if (item.flag) {
-          const flagImg = el('img', { class: 'flag', src: item.flag, alt: `${item.name} flag` });
-          flagImg.onerror = function () { this.style.display = 'none'; };
-          row.appendChild(flagImg);
-        }
-        row.appendChild(el('div', { class: 'track-name' }, [item.name]));
-        if (item.rating !== undefined) {
-          row.appendChild(el('div', { class: 'track-rating' }, [safeMetric(item.rating, 1)]));
-        }
-        col.appendChild(row);
+      // Stats column
+      const left = document.createElement('div');
+      left.className = 'modal-left';
+      stats.forEach(s => {
+          const row = document.createElement('div');
+          row.className = 'stat-row';
+          row.appendChild(getStatIconImg(s.type));
+          const textDiv = document.createElement('div');
+          textDiv.className = 'stat-text';
+          textDiv.textContent = s.label;
+          row.appendChild(textDiv);
+          const valueDiv = document.createElement('div');
+          valueDiv.className = 'stat-value';
+          valueDiv.textContent = s.value;
+          row.appendChild(valueDiv);
+          left.appendChild(row);
       });
-      return col;
-    }
-    trackLists.appendChild(makeTrackCol('Best tracks', bestTracks));
-    trackLists.appendChild(makeTrackCol('Worst tracks', worstTracks));
-    main.appendChild(trackLists);
 
-    inner.appendChild(left);
-    inner.appendChild(main);
+      // Main column
+      const main = document.createElement('div');
+      main.className = 'modal-main';
 
-    closeBtn.addEventListener('click', closeModal);
+      // Photo circle
+      const photoWrap = document.createElement('div');
+      photoWrap.className = 'photo-wrap';
+      const photoCircle = document.createElement('div');
+      photoCircle.className = 'photo-circle';
+      photoCircle.style.background = color;
+      const img = document.createElement('img');
+      img.src = photoSrc;
+      img.alt = name;
+      img.onerror = function () {
+          this.onerror = null;
+          this.src = type === 'constructor'
+              ? '/static/images/constructors/constructor-placeholder.png'
+              : '/static/images/drivers/driver-placeholder.png';
+      };
+      photoCircle.appendChild(img);
+      photoWrap.appendChild(photoCircle);
+      main.appendChild(photoWrap);
+
+      // Name
+      const nameDiv = document.createElement('div');
+      nameDiv.className = type === 'constructor' ? 'constructor-name' : 'driver-name';
+      nameDiv.textContent = name;
+      main.appendChild(nameDiv);
+
+      // badges
+      let career = 1, overall = 1, track = 1;
+      if (type === 'driver') {
+          career = data?.career_score !== undefined ? Math.round(data.career_score * 100) : (data?.careerValue ?? 1);
+          overall = data?.rating !== undefined ? Math.round(data.rating) : (data?.overallValue ?? 1);
+          track = data?.track_raw_score !== undefined ? Math.round(data.track_raw_score * 100) : (data?.trackValue ?? 1);
+      } else {
+          career = data?.career_score !== undefined ? Math.round(data.career_score * 100) : (data?.careerValue ?? 1);
+          overall = data?.predicted_strength !== undefined ? Math.round(data.predicted_strength) : (data?.overallValue ?? 1);
+          track = data?.track_raw_score !== undefined ? Math.round(data.track_raw_score * 100) : (data?.trackValue ?? 1);
+      }
+
+      const badges = el('div', { class: 'badges' });
+      [[career, 'Career'], [overall, 'Overall'], [track, 'Track']].forEach(([val, label]) => {
+          const badge = el('div', { class: 'badge' });
+          badge.appendChild(createMetricBadge(val));
+          badge.appendChild(el('div', { class: 'badge-label' }, [label]));
+          badges.appendChild(badge);
+      });
+      main.appendChild(badges);
+
+      // Track lists
+      const trackLists = document.createElement('div');
+      trackLists.className = 'track-lists';
+
+      function makeTrackCol(heading, arr) {
+          const col = document.createElement('div');
+          col.className = 'track-col';
+          const headingDiv = document.createElement('div');
+          headingDiv.className = 'heading';
+          headingDiv.textContent = heading;
+          col.appendChild(headingDiv);
+          arr.forEach(item => {
+              const row = document.createElement('div');
+              row.className = 'track-item';
+              const rankDiv = document.createElement('div');
+              rankDiv.className = 'track-rank';
+              rankDiv.textContent = String(item.rank);
+              row.appendChild(rankDiv);
+              if (item.flag) {
+                  const flagImg = document.createElement('img');
+                  flagImg.className = 'flag';
+                  flagImg.src = item.flag;
+                  flagImg.alt = `${item.name} flag`;
+                  flagImg.onerror = function () { this.style.display = 'none'; };
+                  row.appendChild(flagImg);
+              }
+              const nameDiv = document.createElement('div');
+              nameDiv.className = 'track-name';
+              nameDiv.textContent = item.name;
+              row.appendChild(nameDiv);
+              if (item.rating !== undefined) {
+                  const ratingDiv = document.createElement('div');
+                  ratingDiv.className = 'track-rating';
+                  ratingDiv.textContent = safeMetric(item.rating, 1);
+                  row.appendChild(ratingDiv);
+              }
+              col.appendChild(row);
+          });
+          return col;
+      }
+
+      trackLists.appendChild(makeTrackCol('Best tracks', bestTracks));
+      trackLists.appendChild(makeTrackCol('Worst tracks', worstTracks));
+      main.appendChild(trackLists);
+
+      inner.appendChild(left);
+      inner.appendChild(main);
+
+      // Show modal
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => modal.addEventListener('click', onOutsideClick), 0);
   }
 
-  function openDriverModal(driverKey, type = 'driver') {
-    if (!driverKey) return;
-    const lookupKey = (driverKey || '').toString().toLowerCase();
-    buildModalForDriver(lookupKey, type);
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden', 'false');
-    setTimeout(() => modal.addEventListener('click', onOutsideClick), 0);
+  function openModal(key, type = 'driver') {
+      if (!key) return;
+      const lookupKey = type === 'constructor'
+          ? key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('_')
+          : String(key);
+      const modal = document.getElementById('modal');
+      modal.style.display = 'flex';
+      modal.removeAttribute('aria-hidden');
+      modal.setAttribute('aria-modal', 'true');
+      buildModal(lookupKey, type);
   }
 
   function closeModal() {
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    modal.removeEventListener('click', onOutsideClick);
+      const modal = document.getElementById('modal');
+      const active = document.activeElement;
+      if (active && modal.contains(active)) active.blur();
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.removeEventListener('click', onOutsideClick);
+      if (window.lastFocusedElement) window.lastFocusedElement.focus();
   }
 
   function onOutsideClick(e) {
-    if (e.target === modal) closeModal();
+      const modal = document.getElementById('modal');
+      if (e.target === modal) closeModal();
   }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
   });
 
-  window.openDriverModal = window.openDriverModal || openDriverModal;
-  window.closeDriverModal = window.closeDriverModal || closeModal;
+  window.openModal = window.openModal || openModal;
+  window.closeModal = window.closeModal || closeModal;
 })();
 
 function populateConstructorStrength(constructors, prevConstructors, roundNum, season) {
@@ -951,11 +1091,11 @@ function populateConstructorStrength(constructors, prevConstructors, roundNum, s
     sorted.forEach((constructor, index) => {
         const rawName = constructor.TEAM || constructor.constructor || constructor.team || 'Unknown';
         const name = capitalize(rawName);
-        const key = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const key = rawName.replace(/_([A-Z])/g, (_, c) => `_${c.toLowerCase()}`);
 
         let strength = 'N/A';
         if (typeof constructor.predicted_strength === 'number') {
-            strength = (constructor.predicted_strength * 100).toFixed(0);
+            strength = constructor.predicted_strength.toFixed(0);
         }
 
         const currentPos = index + 1;

@@ -206,11 +206,29 @@ def predict_constructor_strengths(start_year: int = 2010, end_year: int = 2025):
             X_round = X_round.reindex(columns=X_train.columns, fill_value=0)
 
             preds = model.predict(X_round)
-            rnd_df['predicted_strength'] = preds
+            rnd_df['predicted_strength'] = preds * 100
+
+            placeholder_stats: dict = {
+                "race_count": 99,
+                "career_score": 0.99,
+                "combined_score": 0.99,
+                "track_raw_score": 0.99,
+                "win_count": 99,
+                "points_count": 99,
+                "overtakes_count": 99,
+                "dry_rating": 99,
+                "wet_rating": 99,
+                "quali_rating": 99,
+                "dnf_rate": 99
+            }
+
+            predictions = rnd_df[['TEAM', 'predicted_strength']].to_dict(orient="records")
+            for pred in predictions:
+                pred.update(placeholder_stats)
 
             season_results.append({
                 "round": int(rnd),
-                "predictions": rnd_df[['TEAM','predicted_strength']].to_dict(orient="records")
+                "predictions": predictions
             })
 
         results.append({
