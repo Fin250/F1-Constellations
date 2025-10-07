@@ -739,6 +739,7 @@ function createMetricBadge(metricValue) {
             raced: 'raced.png',
             wins: 'wins.png',
             points: 'points.png',
+            fin: 'fin.png',
             pos: 'position.png',
             dry: 'dry.png',
             rain: 'rain.png',
@@ -786,9 +787,9 @@ function createMetricBadge(metricValue) {
               { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
               { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
               { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
-              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
-              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
-              { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
+              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? safeMetric(data.dry_rating, 1) : 'N/A', color: '#9bd78b' },
+              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? safeMetric(data.wet_rating, 1) : 'N/A', color: '#6ec1ff' },
+              { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 1) : 'N/A', color: '#c7b3ff' },
               { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
           ];
 
@@ -839,11 +840,12 @@ function createMetricBadge(metricValue) {
               { type: 'raced', label: 'Track races', value: data.race_count ?? 'N/A', color: '#7ea6ff' },
               { type: 'wins', label: 'Track wins', value: data.win_count ?? 'N/A', color: '#ffd36e' },
               { type: 'points', label: 'Track points', value: data.points_count ?? 'N/A', color: '#9fb4ff' },
+              { type: 'fin', label: 'Average finish', value: data.average_finish !== undefined ? safeMetric(data.average_finish, 1) : 'N/A', color: '#e69d7eff' },
               { type: 'pos', label: 'Track overtakes', value: data.overtakes_count ?? 'N/A', color: '#7ee6a8' },
-              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? `${safeMetric(data.dry_rating, 1)}%` : 'N/A', color: '#9bd78b' },
-              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? `${safeMetric(data.wet_rating, 1)}%` : 'N/A', color: '#6ec1ff' },
+              { type: 'dry', label: 'Dry race rating', value: data.dry_rating !== undefined ? safeMetric(data.dry_rating, 1) : 'N/A', color: '#9bd78b' },
+              { type: 'rain', label: 'Wet race rating', value: data.wet_rating !== undefined ? safeMetric(data.wet_rating, 1) : 'N/A', color: '#6ec1ff' },
               { type: 'qual', label: 'Quali strength', value: data.quali_rating !== undefined ? safeMetric(data.quali_rating, 0) : 'N/A', color: '#c7b3ff' },
-              { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
+              // { type: 'dnf', label: 'DNF rate', value: data.dnf_rate !== undefined ? `${safeMetric(data.dnf_rate, 1)}%` : 'N/A', color: '#ff7b7b' }
           ];
 
           function getTrackDisplay(round) {
@@ -947,9 +949,9 @@ function createMetricBadge(metricValue) {
       // badges
       let career = 1, overall = 1, track = 1;
       if (type === 'driver') {
-          career = data?.career_score !== undefined ? Math.round(data.career_score * 100) : (data?.careerValue ?? 1);
+          career = data?.career_rating !== undefined ? Math.round(data.career_rating) : (data?.careerValue ?? 1);
           overall = data?.rating !== undefined ? Math.round(data.rating) : (data?.overallValue ?? 1);
-          track = data?.track_raw_score !== undefined ? Math.round(data.track_raw_score * 100) : (data?.trackValue ?? 1);
+          track = data?.track_rating !== undefined ? Math.round(data.track_rating) : (data?.trackValue ?? 1);
       } else {
           career = data?.career_score !== undefined ? Math.round(data.career_score * 100) : (data?.careerValue ?? 1);
           overall = data?.predicted_strength !== undefined ? Math.round(data.predicted_strength) : (data?.overallValue ?? 1);
