@@ -853,6 +853,10 @@ header {
   background-color: #333;
 }
 
+.strength-list li:hover {
+  cursor: pointer;
+}
+
 .strength-list li:last-child, 
 .championship-list li:last-child {
   border-bottom: none;
@@ -1122,11 +1126,10 @@ header {
 .modal-inner .modal-close {
   position: absolute;
   right: 12px;
-  top: 10px;
   border: none;
   background: transparent;
   color: #9ca6ad;
-  font-size: 22px;
+  font-size: 40px;
   cursor: pointer;
 }
 
