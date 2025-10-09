@@ -338,3 +338,23 @@ season,round,circuit_id,driver,date_of_birth,nationality,constructor,grid,time,s
 2025,17,baku,gasly,1996-02-07,French,alpine,18,5610273.0,Lapped,0.0,18,https://en.wikipedia.org/wiki/2025_Azerbaijan_Grand_Prix
 2025,17,baku,colapinto,2003-05-27,Argentine,alpine,16,5612733.0,Lapped,0.0,19,https://en.wikipedia.org/wiki/2025_Azerbaijan_Grand_Prix
 2025,17,baku,piastri,2001-04-06,Australian,mclaren,9,,Retired,0.0,20,https://en.wikipedia.org/wiki/2025_Azerbaijan_Grand_Prix
+2025,18,marina_bay,russell,1998-02-15,British,mercedes,1,6022367.0,Finished,25.0,1,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,max_verstappen,1997-09-30,Dutch,red_bull,2,6027797.0,Finished,18.0,2,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,norris,1999-11-13,British,mclaren,5,6028433.0,Finished,15.0,3,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,piastri,2001-04-06,Australian,mclaren,3,6030513.0,Finished,12.0,4,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,antonelli,2006-08-25,Italian,mercedes,4,6056048.0,Finished,10.0,5,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,leclerc,1997-10-16,Monegasque,ferrari,7,6068363.0,Finished,8.0,6,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,alonso,1981-07-29,Spanish,aston_martin,10,6103034.0,Finished,6.0,7,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,hamilton,1985-01-07,British,ferrari,6,6107618.0,Finished,4.0,8,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,bearman,2005-05-08,British,haas,9,6115894.0,Finished,2.0,9,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,sainz,1994-09-01,Spanish,williams,18,6033121.0,Lapped,1.0,10,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,hadjar,2004-09-28,French,rb,8,6039702.0,Lapped,0.0,11,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,tsunoda,2000-05-11,Japanese,red_bull,13,6041636.0,Lapped,0.0,12,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,stroll,1998-10-29,Canadian,aston_martin,15,6046857.0,Lapped,0.0,13,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,albon,1996-03-23,Thai,williams,20,6047687.0,Lapped,0.0,14,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,lawson,2002-02-11,New Zealander,rb,12,6049512.0,Lapped,0.0,15,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,colapinto,2003-05-27,Argentine,alpine,16,6065257.0,Lapped,0.0,16,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,bortoleto,2004-10-14,Brazilian,sauber,14,6069120.0,Lapped,0.0,17,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,ocon,1996-09-17,French,haas,17,6069500.0,Lapped,0.0,18,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,gasly,1996-02-07,French,alpine,19,6069828.0,Lapped,0.0,19,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix
+2025,18,marina_bay,hulkenberg,1987-08-19,German,sauber,11,6071407.0,Lapped,0.0,20,https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix

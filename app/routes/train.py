@@ -7,7 +7,7 @@ from ml.constructor_strength_predictor import predict_constructor_strengths
 from ml.gp_predictor import predict_gp_results
 from ml.current_season_gen import regenerate_dataframe
 
-train_bp = Blueprint("train", __name__, url_prefix="/ml")
+train_bp = Blueprint("train", __name__, url_prefix="/train")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FINAL_DF_PATH = os.path.join(BASE_DIR, "..", "ml", "final_df.csv")

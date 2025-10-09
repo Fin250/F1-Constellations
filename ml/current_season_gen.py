@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import time
 import os
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 from urllib.parse import urljoin
 from io import StringIO
 import re
@@ -10,6 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import numpy as np
 from dateutil.relativedelta import relativedelta
+from typing import cast, List, Optional
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -22,7 +23,7 @@ def regenerate_dataframe():
         new_df = df.merge(df[['lookup1', points]], how='left', left_on='lookup2', right_on='lookup1')
         new_df.drop(['lookup1_x', 'lookup2', 'lookup1_y'], axis=1, inplace=True)
         new_df.rename(columns={points + '_x': points + '_after_race', points + '_y': points}, inplace=True)
-        new_df[points].fillna(0, inplace=True)
+        new_df[points] = new_df[points].fillna(0)
         return new_df
 
     # Data structure for races
@@ -34,6 +35,8 @@ def regenerate_dataframe():
 
     year = 2025
     url = f'https://api.jolpi.ca/ergast/f1/{year}.json'
+    data = {}
+    r = None
     success = False
     retries = 3
     delay = 1.5  # seconds
@@ -46,7 +49,7 @@ def regenerate_dataframe():
             success = True
             break
         except requests.exceptions.HTTPError as e:
-            if r.status_code == 429 and attempt < retries - 1:
+            if r is not None and r.status_code == 429 and attempt < retries - 1:
                 time.sleep(3)
                 continue
             print(f"[ERROR] Failed to fetch data for {year}: {e}")
@@ -121,6 +124,7 @@ def regenerate_dataframe():
             retries = 3
 
             for attempt in range(retries):
+                r = None
                 try:
                     r = requests.get(url, timeout=10)
                     r.raise_for_status()
@@ -128,7 +132,7 @@ def regenerate_dataframe():
                     success = True
                     break
                 except requests.exceptions.HTTPError as e:
-                    if r.status_code == 429:
+                    if r is not None and r.status_code == 429:
                         backoff_attempts += 1
                         if backoff_attempts >= backoff_limit:
                             print(f"[ABORT] Backoff limit exceeded at {season} round {rnd}. Exiting without saving round.")
@@ -187,7 +191,14 @@ def regenerate_dataframe():
 
             # Save checkpoint after each round
             round_df = pd.DataFrame(results)
-            results_df = pd.concat([results_df, round_df], ignore_index=True)
+            if not round_df.empty:
+                # Drop all-NA columns before concatenation
+                round_df = round_df.dropna(axis=1, how='all')
+
+                if results_df.empty:
+                    results_df = round_df.copy()
+                else:
+                    results_df = pd.concat([results_df, round_df], ignore_index=True)
             checkpoint_output_path = os.path.join(script_dir, checkpoint_path)
             results_df.to_csv(checkpoint_output_path, index=False)
 
@@ -217,11 +228,18 @@ def regenerate_dataframe():
         print(f"[ERROR] No race table found for {year}")
         exit()
 
+    assert isinstance(table, Tag)
+
     year_links = []
     for a in table.find_all('a', href=True):
-        href = a['href']
-        if f"/en/results/{year}/races/" in href and 'race-result' in href:
-            full_href = urljoin(base_url, href.replace('/../../', '/'))
+        assert isinstance(a, Tag)
+        href_value = a.get('href')
+        if href_value is None:
+            continue
+        href_str = str(href_value)
+
+        if f"/en/results/{year}/races/" in href_str and 'race-result' in href_str:
+            full_href = urljoin(base_url, href_str.replace('/../../', '/'))
             if full_href not in year_links:
                 year_links.append(full_href)
 
@@ -236,13 +254,15 @@ def regenerate_dataframe():
             r = requests.get(starting_grid_url, timeout=10)
             r.raise_for_status()
             soup = BeautifulSoup(r.text, 'html.parser')
-            table = soup.find('table')
+            table_elem = soup.find('table')
 
-            if table is None:
+            if table_elem is None:
                 print(f"    [WARNING] No table found at {starting_grid_url}")
                 continue
 
-            # Remove <tfoot> if it exists to avoid including notes
+            table = cast(Tag, table_elem)  # tell type checker this is a Tag
+
+            # Remove <tfoot> if it exists
             tfoot = table.find('tfoot')
             if tfoot:
                 tfoot.decompose()
@@ -250,37 +270,39 @@ def regenerate_dataframe():
             df = pd.read_html(StringIO(str(table)))[0]
 
             # Extract driver names properly
-            driver_cells = table.find_all('tr')[1:]
-            driver_names = []
+            driver_cells = table.find_all('tr')[1:]  # cast as Tag ensures find_all exists
+            driver_names: List[Optional[str]] = []
+
             for i, row in enumerate(driver_cells):
-                cols = row.find_all('td')
+                row_tag = cast(Tag, row)
+                cols = row_tag.find_all('td')
                 if len(cols) < 3:
                     print(f"      [Row {i}] Skipped: not enough columns")
                     driver_names.append(None)
                     continue
-                driver_td = cols[2]
-                full_name_span = driver_td.find('span', class_='max-md:hidden')
+
+                driver_td = cast(Tag, cols[2])
+                full_name_span = driver_td.find('span', attrs={'class': 'max-md:hidden'})
                 raw_name = full_name_span.get_text(strip=True) if full_name_span else driver_td.get_text(strip=True)
-                driver_name = re.sub(r'[A-Z]{1,3}$', '', raw_name)  # strip team codes
+                driver_name = re.sub(r'[A-Z]{1,3}$', '', raw_name)
                 driver_names.append(driver_name)
 
-            try:
-                df.iloc[:, 2] = driver_names
+            # Replace driver column safely
+            if len(driver_names) == len(df):
+                df.iloc[:, 2] = pd.Series(driver_names, index=df.index)
                 df.rename(columns={df.columns[2]: 'Driver'}, inplace=True)
-            except Exception as e:
-                print(f"      [ERROR] Could not replace Driver column: {e}")
-                continue
+            else:
+                print(f"      [WARNING] Mismatch in number of driver names, skipping replacement")
 
             df['season'] = year
             df['round'] = n + 1
 
-            unnamed_cols = [col for col in df if 'Unnamed' in col]
+            unnamed_cols = [col for col in df.columns if 'Unnamed' in col]
             if unnamed_cols:
                 df.drop(columns=unnamed_cols, inplace=True)
 
             year_df = pd.concat([year_df, df], ignore_index=True)
-
-            time.sleep(1.5)  # polite delay
+            time.sleep(1.5)
 
         except Exception as e:
             print(f"    [ERROR] Failed to process {starting_grid_url}: {e}")
@@ -395,7 +417,15 @@ def regenerate_dataframe():
 
         # Save season results
         season_df = pd.DataFrame(driver_standings)
-        standings_df = pd.concat([standings_df, season_df], ignore_index=True)
+        if not season_df.empty:
+            # Drop all-NA columns before concatenation
+            season_df = season_df.dropna(axis=1, how='all')
+
+            if standings_df.empty:
+                standings_df = season_df.copy()
+            else:
+                standings_df = pd.concat([standings_df, season_df], ignore_index=True)
+
         checkpoint_output_path = os.path.join(script_dir, checkpoint_path)
         standings_df.to_csv(checkpoint_output_path, index=False)
         driver_standings = {k: [] for k in driver_standings}  # Reset season buffer
@@ -548,7 +578,7 @@ def regenerate_dataframe():
             response.raise_for_status()
 
             # Parse HTML tables
-            tables = pd.read_html(response.text)
+            tables = pd.read_html(StringIO(response.text))
 
             # Search for Weather row
             for i, df in enumerate(tables):
@@ -584,6 +614,7 @@ def regenerate_dataframe():
             info.append('not found')
 
     # Assign weather info safely
+    weather = weather.copy()
     weather.loc[:, 'weather'] = info
 
     # Weather categories
@@ -596,10 +627,10 @@ def regenerate_dataframe():
     }
 
     # Map weather to categories
-    weather_df = pd.DataFrame(columns=weather_dict.keys())
+    weather_df = pd.DataFrame(columns=list(weather_dict.keys()))
     for col in weather_df:
         weather_df[col] = weather['weather'].map(
-            lambda x: 1 if any(i in str(x).lower().split() for i in weather_dict[col]) else 0
+            lambda x: 1 if any(i in str(x).lower().split() for i in weather_dict[str(col)]) else 0
         )
 
     # Combine results and save
@@ -728,9 +759,6 @@ def regenerate_dataframe():
 
     final_df = pd.merge(df4, qualifying, how='left', on=['season', 'round', 'driver'])
 
-
-    missing_qualifying = final_df['TIME'].isna().sum()
-
     # Candidate columns to inspect (order matters: earlier -> preferred)
     candidate_cols = [
         'constructor', 'constructor_x', 'constructor_y',
@@ -757,16 +785,6 @@ def regenerate_dataframe():
 
         final_df['constructor'] = final_df[existing_candidates].apply(first_non_empty, axis=1)
 
-        # If constructor is still missing for some rows and qualifying.df has TEAM column, try joining by (season, round, driver)
-        # (optional) Uncomment if you want to prefer qualifying.TEAM where merge missed it:
-        # if 'TEAM' in qualifying.columns:
-        #     q_map = qualifying.set_index(['season','round','driver'])['TEAM'].to_dict()
-        #     missing_mask = final_df['constructor'].isna()
-        #     for idx in final_df[missing_mask].index:
-        #         key = (final_df.at[idx, 'season'], final_df.at[idx, 'round'], final_df.at[idx, 'driver'])
-        #         if key in q_map and pd.notna(q_map[key]):
-        #             final_df.at[idx, 'constructor'] = q_map[key]
-
         # Normalize constructor names (uses your normalize_constructor_name function)
         final_df['constructor'] = final_df['constructor'].apply(
             lambda x: normalize_constructor_name(x) if pd.notna(x) else np.nan
@@ -790,8 +808,7 @@ def regenerate_dataframe():
     # Fill/drop nulls
     for col in ['driver_points', 'driver_wins', 'driver_standings_pos',
                 'constructor_points', 'constructor_wins', 'constructor_standings_pos']:
-        final_df[col].fillna(0, inplace=True)
-        final_df[col] = final_df[col].astype(int)
+        final_df[col] = final_df[col].fillna(0).astype(int)
 
     # Fix grid positions where grid == 0
     grid_corrections = []
@@ -895,12 +912,12 @@ def regenerate_dataframe():
     for col in ['driver_points', 'driver_wins', 'driver_standings_pos',
                 'constructor_points', 'constructor_wins', 'constructor_standings_pos']:
         if col in final_df.columns:
-            final_df[col].fillna(0, inplace=True)
+            filled = final_df[col].fillna(0)
             # safe-cast where possible
             try:
-                final_df[col] = final_df[col].astype(int)
+                final_df[col] = filled.astype(int)
             except Exception:
-                final_df[col] = pd.to_numeric(final_df[col], errors='coerce').fillna(0).astype(int)
+                final_df[col] = pd.to_numeric(filled, errors='coerce').fillna(0).astype(int)
 
     # ---------------------------
     # 11) Drop ephemeral/unneeded columns (defensive)
@@ -1033,14 +1050,21 @@ def regenerate_dataframe():
     csv_path = os.path.join(script_dir, 'current_season_df.csv')
     season_2025_df = pd.read_csv(csv_path)
 
-    # Ensure all columns from full_df exist in 2025 dataset
-    for col in full_df.columns:
-        if col not in season_2025_df.columns:
-            # Fill missing columns
-            if col.startswith('circuit_id_') or col.startswith('nationality_') or col.startswith('constructor_'):
-                season_2025_df[col] = False
+    missing_cols = [col for col in full_df.columns if col not in season_2025_df.columns]
+
+    # Prepare missing columns in a single DataFrame
+    if missing_cols:
+        new_cols = {}
+        for col in missing_cols:
+            if col.startswith(('circuit_id_', 'nationality_', 'constructor_')):
+                new_cols[col] = False
             else:
-                season_2025_df[col] = 0
+                new_cols[col] = 0
+
+        new_cols_df = pd.DataFrame(new_cols, index=season_2025_df.index)
+        season_2025_df = pd.concat([season_2025_df, new_cols_df], axis=1)
+
+    season_2025_df = season_2025_df.copy()
 
     # Ensure the column order matches the full dataset
     season_2025_df = season_2025_df[full_df.columns]

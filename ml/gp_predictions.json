@@ -35546,49 +35546,44 @@
         "round": 18,
         "predictions": [
           {
-            "driver": "Norris",
-            "constructor": "Mclaren",
-            "probability": 28.03
-          },
-          {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 27.59
+            "probability": 28.7
+          },
+          {
+            "driver": "Norris",
+            "constructor": "Mclaren",
+            "probability": 25.99
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.44
+            "probability": 19.87
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.86
-          },
-          {
-            "driver": "Leclerc",
-            "constructor": "Ferrari",
-            "probability": 7.12
-          },
-          {
-            "driver": "Hamilton",
-            "constructor": "Ferrari",
-            "probability": 3.33
+            "probability": 16.26
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.29
+            "probability": 10.14
           },
           {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.84
+            "driver": "Hamilton",
+            "constructor": "Ferrari",
+            "probability": 6.17
+          },
+          {
+            "driver": "Leclerc",
+            "constructor": "Ferrari",
+            "probability": 4.74
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.77
+            "probability": 1.71
           },
           {
             "driver": "Alonso",
@@ -35596,54 +35591,59 @@
             "probability": 0.72
           },
           {
-            "driver": "Tsunoda",
-            "constructor": "Red_bull",
-            "probability": 0.42
-          },
-          {
-            "driver": "Sainz",
-            "constructor": "Williams",
-            "probability": 0.36
-          },
-          {
-            "driver": "Lawson",
-            "constructor": "Rb",
-            "probability": 0.19
-          },
-          {
-            "driver": "Gasly",
-            "constructor": "Alpine",
-            "probability": 0.15
-          },
-          {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
-            "probability": 0.12
-          },
-          {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
-            "probability": 0.11
-          },
-          {
             "driver": "Hulkenberg",
             "constructor": "Sauber",
-            "probability": 0.11
-          },
-          {
-            "driver": "Ocon",
-            "constructor": "Haas",
-            "probability": 0.09
+            "probability": 0.58
           },
           {
             "driver": "Bearman",
             "constructor": "Haas",
+            "probability": 0.47
+          },
+          {
+            "driver": "Tsunoda",
+            "constructor": "Red_bull",
+            "probability": 0.43
+          },
+          {
+            "driver": "Lawson",
+            "constructor": "Rb",
+            "probability": 0.34
+          },
+          {
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
+            "probability": 0.13
+          },
+          {
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
+            "probability": 0.09
+          },
+          {
+            "driver": "Sainz",
+            "constructor": "Williams",
+            "probability": 0.05
+          },
+          {
+            "driver": "Ocon",
+            "constructor": "Haas",
+            "probability": 0.04
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
             "probability": 0.04
           },
           {
             "driver": "Colapinto",
             "constructor": "Alpine",
             "probability": 0.03
+          },
+          {
+            "driver": "Gasly",
+            "constructor": "Alpine",
+            "probability": 0.01
           }
         ]
       },
@@ -35651,94 +35651,94 @@
         "round": 19,
         "predictions": [
           {
-            "driver": "Norris",
-            "constructor": "Mclaren",
-            "probability": 28.16
-          },
-          {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 27.91
+            "probability": 28.01
+          },
+          {
+            "driver": "Norris",
+            "constructor": "Mclaren",
+            "probability": 27.78
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.37
+            "probability": 18.18
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.74
+            "probability": 10.12
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 7.02
+            "probability": 6.63
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 3.26
+            "probability": 3.23
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.23
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.82
+            "probability": 2.85
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.75
+            "probability": 0.86
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.68
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.7
+            "probability": 0.59
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.4
+            "probability": 0.54
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.35
+            "probability": 0.48
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.18
-          },
-          {
-            "driver": "Gasly",
-            "constructor": "Alpine",
-            "probability": 0.14
-          },
-          {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
-            "probability": 0.11
-          },
-          {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
-            "probability": 0.11
+            "probability": 0.24
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Sauber",
+            "probability": 0.11
+          },
+          {
+            "driver": "Gasly",
+            "constructor": "Alpine",
+            "probability": 0.11
+          },
+          {
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
+            "probability": 0.1
+          },
+          {
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.1
           },
           {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.08
+            "probability": 0.07
           },
           {
             "driver": "Bearman",
@@ -35756,79 +35756,84 @@
         "round": 20,
         "predictions": [
           {
-            "driver": "Norris",
-            "constructor": "Mclaren",
-            "probability": 28.28
-          },
-          {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 28.22
+            "probability": 28.32
+          },
+          {
+            "driver": "Norris",
+            "constructor": "Mclaren",
+            "probability": 27.89
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.29
+            "probability": 18.14
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.62
+            "probability": 10.01
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 6.91
+            "probability": 6.52
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 3.19
+            "probability": 3.16
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.17
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.79
+            "probability": 2.78
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.72
+            "probability": 0.84
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.66
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.67
+            "probability": 0.57
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.39
+            "probability": 0.52
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.33
+            "probability": 0.47
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.18
+            "probability": 0.24
+          },
+          {
+            "driver": "Hulkenberg",
+            "constructor": "Sauber",
+            "probability": 0.11
           },
           {
             "driver": "Gasly",
             "constructor": "Alpine",
-            "probability": 0.14
+            "probability": 0.11
           },
           {
             "driver": "Bortoleto",
             "constructor": "Sauber",
-            "probability": 0.11
+            "probability": 0.1
           },
           {
             "driver": "Stroll",
@@ -35836,14 +35841,9 @@
             "probability": 0.1
           },
           {
-            "driver": "Hulkenberg",
-            "constructor": "Sauber",
-            "probability": 0.1
-          },
-          {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.08
+            "probability": 0.07
           },
           {
             "driver": "Bearman",
@@ -35863,92 +35863,92 @@
           {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 28.53
+            "probability": 28.62
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 28.39
+            "probability": 27.99
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.21
+            "probability": 18.1
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.51
+            "probability": 9.9
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 6.81
+            "probability": 6.42
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 3.12
+            "probability": 3.09
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.12
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.77
+            "probability": 2.71
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.7
+            "probability": 0.81
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.64
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.65
+            "probability": 0.55
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.38
+            "probability": 0.51
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.32
+            "probability": 0.45
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.17
-          },
-          {
-            "driver": "Gasly",
-            "constructor": "Alpine",
-            "probability": 0.13
-          },
-          {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
-            "probability": 0.1
-          },
-          {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
-            "probability": 0.1
+            "probability": 0.23
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Sauber",
+            "probability": 0.11
+          },
+          {
+            "driver": "Gasly",
+            "constructor": "Alpine",
             "probability": 0.1
+          },
+          {
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
+            "probability": 0.09
+          },
+          {
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
+            "probability": 0.09
           },
           {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.08
+            "probability": 0.07
           },
           {
             "driver": "Bearman",
@@ -35968,92 +35968,92 @@
           {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 28.82
+            "probability": 28.91
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 28.49
+            "probability": 28.08
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.12
+            "probability": 18.05
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.39
+            "probability": 9.79
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 6.7
+            "probability": 6.32
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 3.05
+            "probability": 3.03
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.06
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.75
+            "probability": 2.64
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.68
+            "probability": 0.78
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.62
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.63
+            "probability": 0.53
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.36
+            "probability": 0.49
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.31
+            "probability": 0.44
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.16
-          },
-          {
-            "driver": "Gasly",
-            "constructor": "Alpine",
-            "probability": 0.13
-          },
-          {
-            "driver": "Bortoleto",
-            "constructor": "Sauber",
-            "probability": 0.1
-          },
-          {
-            "driver": "Stroll",
-            "constructor": "Aston_martin",
-            "probability": 0.1
+            "probability": 0.22
           },
           {
             "driver": "Hulkenberg",
             "constructor": "Sauber",
+            "probability": 0.1
+          },
+          {
+            "driver": "Gasly",
+            "constructor": "Alpine",
+            "probability": 0.1
+          },
+          {
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
+            "probability": 0.09
+          },
+          {
+            "driver": "Stroll",
+            "constructor": "Aston_martin",
             "probability": 0.09
           },
           {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.08
+            "probability": 0.06
           },
           {
             "driver": "Bearman",
@@ -36073,77 +36073,82 @@
           {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 29.11
+            "probability": 29.19
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 28.58
+            "probability": 28.16
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 16.02
+            "probability": 17.99
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.26
+            "probability": 9.68
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 6.6
+            "probability": 6.22
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 2.98
+            "probability": 2.96
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 2.0
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.72
+            "probability": 2.58
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.66
+            "probability": 0.76
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.6
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.61
+            "probability": 0.52
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.35
+            "probability": 0.47
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.3
+            "probability": 0.42
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.16
+            "probability": 0.21
+          },
+          {
+            "driver": "Hulkenberg",
+            "constructor": "Sauber",
+            "probability": 0.1
           },
           {
             "driver": "Gasly",
             "constructor": "Alpine",
-            "probability": 0.12
+            "probability": 0.1
           },
           {
             "driver": "Bortoleto",
             "constructor": "Sauber",
-            "probability": 0.1
+            "probability": 0.09
           },
           {
             "driver": "Stroll",
@@ -36151,14 +36156,9 @@
             "probability": 0.09
           },
           {
-            "driver": "Hulkenberg",
-            "constructor": "Sauber",
-            "probability": 0.09
-          },
-          {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.07
+            "probability": 0.06
           },
           {
             "driver": "Bearman",
@@ -36178,77 +36178,72 @@
           {
             "driver": "Piastri",
             "constructor": "Mclaren",
-            "probability": 29.39
+            "probability": 29.47
           },
           {
             "driver": "Norris",
             "constructor": "Mclaren",
-            "probability": 28.66
+            "probability": 28.24
           },
           {
             "driver": "Verstappen",
             "constructor": "Red_bull",
-            "probability": 15.92
+            "probability": 17.93
           },
           {
             "driver": "Russell",
             "constructor": "Mercedes",
-            "probability": 9.14
+            "probability": 9.57
           },
           {
             "driver": "Leclerc",
             "constructor": "Ferrari",
-            "probability": 6.49
+            "probability": 6.11
           },
           {
             "driver": "Hamilton",
             "constructor": "Ferrari",
-            "probability": 2.91
+            "probability": 2.89
           },
           {
             "driver": "Antonelli",
             "constructor": "Mercedes",
-            "probability": 1.95
-          },
-          {
-            "driver": "Albon",
-            "constructor": "Williams",
-            "probability": 0.7
+            "probability": 2.51
           },
           {
             "driver": "Hadjar",
             "constructor": "Rb",
-            "probability": 0.63
+            "probability": 0.73
+          },
+          {
+            "driver": "Albon",
+            "constructor": "Williams",
+            "probability": 0.58
           },
           {
             "driver": "Alonso",
             "constructor": "Aston_martin",
-            "probability": 0.59
+            "probability": 0.5
           },
           {
             "driver": "Tsunoda",
             "constructor": "Red_bull",
-            "probability": 0.34
+            "probability": 0.46
           },
           {
             "driver": "Sainz",
             "constructor": "Williams",
-            "probability": 0.29
+            "probability": 0.41
           },
           {
             "driver": "Lawson",
             "constructor": "Rb",
-            "probability": 0.15
+            "probability": 0.21
           },
           {
-            "driver": "Gasly",
-            "constructor": "Alpine",
-            "probability": 0.12
-          },
-          {
-            "driver": "Bortoleto",
+            "driver": "Hulkenberg",
             "constructor": "Sauber",
-            "probability": 0.09
+            "probability": 0.1
           },
           {
             "driver": "Stroll",
@@ -36256,14 +36251,19 @@
             "probability": 0.09
           },
           {
-            "driver": "Hulkenberg",
-            "constructor": "Sauber",
+            "driver": "Gasly",
+            "constructor": "Alpine",
             "probability": 0.09
+          },
+          {
+            "driver": "Bortoleto",
+            "constructor": "Sauber",
+            "probability": 0.08
           },
           {
             "driver": "Ocon",
             "constructor": "Haas",
-            "probability": 0.07
+            "probability": 0.06
           },
           {
             "driver": "Bearman",
