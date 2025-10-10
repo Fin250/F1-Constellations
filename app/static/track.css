@@ -1160,6 +1160,7 @@ header {
   height: 36px;
   min-width: 36px;
   min-height: 36px;
+  margin-right: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1301,6 +1302,23 @@ header {
   padding: 6px 4px;
   color:#b6bfc6;
   font-size:13px;
+}
+
+.track-item-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.track-item-link:hover {
+  cursor: pointer;
+}
+
+.track-item-link:hover .track-item {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(1px);
 }
 
 .track-rank {
